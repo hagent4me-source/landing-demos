@@ -135,6 +135,16 @@
   }
   .section-alt .service-card { background: var(--bg); }
   .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .service-card.spec-card {
+    border: 2px solid var(--orange);
+    background: linear-gradient(135deg, #fff7ef, #fff);
+    position: relative;
+  }
+  .service-card.spec-card::before {
+    content: 'Наша специализация'; position: absolute; top: -11px; left: 16px;
+    background: var(--orange); color: #fff; font-size: 11px; font-weight: 800;
+    padding: 3px 10px; border-radius: 999px; letter-spacing: 0.4px;
+  }
   .service-icon {
     width: 46px; height: 46px; border-radius: 12px; margin-bottom: 14px;
     background: linear-gradient(135deg, rgba(35,86,168,0.12), rgba(58,123,213,0.12));
@@ -198,9 +208,8 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-cat">🔧 Ремонт и обслуживание автомобилей</div>
-    <h1>Автосервис на Полевой — ремонт, который <span class="accent">не подводит</span></h1>
+    <h1>Автосервис на Полевой — <span class="accent">ремонт, который не подводит</span></h1>
     <p>Диагностика, техническое обслуживание и ремонт автомобилей любых марок. Честные цены, гарантия на работы, запчасти в наличии.</p>
-    <div class="hero-rating"><span class="stars">★</span> <span>Рейтинг 4,2 на Google · 5 отзывов</span></div>
     <div class="hero-actions">
       <a class="btn btn-primary" href="tel:+79099215248">📞 Позвонить</a>
       <a class="btn btn-wa" href="https://wa.me/79099215248" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
@@ -225,7 +234,7 @@
       <div class="about-card">
         <h3>Почему с нами удобно</h3>
         <ul>
-          <li>🎯 Диагностика перед ремонтом — честная смета</li>
+          <li>🔍 Диагностика перед ремонтом — честная смета</li>
           <li>🛡️ Гарантия на все работы</li>
           <li>📦 Запчасти в наличии, без долгих ожиданий</li>
           <li>💬 Отчёты о ходе работ в WhatsApp</li>
@@ -241,6 +250,7 @@
     <h2 class="section-title">Услуги</h2>
     <p class="section-sub">Полный спектр работ по ремонту и обслуживанию автомобиля в одном месте.</p>
     <div class="services-grid">
+      
       <div class="service-card"><div class="service-icon">🛠️</div><h3>Ремонт двигателя</h3><p>Капитальный и текущий ремонт, замена ГРМ, устранение течей.</p></div>
       <div class="service-card"><div class="service-icon">⚙️</div><h3>Ходовая часть</h3><p>Замена амортизаторов, рычагов, сайлентблоков, ступиц.</p></div>
       <div class="service-card"><div class="service-icon">🔍</div><h3>Компьютерная диагностика</h3><p>Сканер, поиск ошибок, проверка всех систем автомобиля.</p></div>
