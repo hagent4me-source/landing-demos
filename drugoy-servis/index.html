@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow-x: hidden; }
 
   :root {
     --ink: #1a1f2e;
@@ -747,7 +748,12 @@
   @media (max-width: 768px) {
     .header-nav { display: none; }
     .header-right .btn-primary { display: none; }
-    .burger { display: flex; }
+    .burger { display: flex; flex-shrink: 0; }
+
+    .header-inner { padding: 0 16px; gap: 10px; }
+    .header-phone { font-size: 13px; letter-spacing: -0.3px; }
+    .logo-main { font-size: 14px; }
+    .logo-sub { font-size: 9px; }
 
     .hero-grid { grid-template-columns: 1fr; padding: 48px 20px 40px; gap: 32px; }
     .hero-image-wrap { aspect-ratio: 16/9; }
@@ -771,6 +777,12 @@
     .services-grid { grid-template-columns: 1fr; }
     .hero-actions { flex-direction: column; }
     .btn-white, .btn-outline-white { justify-content: center; }
+  }
+
+  @media (max-width: 380px) {
+    .header-phone { display: none; }
+    .logo-sub { display: none; }
+    .header-inner { padding: 0 14px; }
   }
 </style>
 </head>
