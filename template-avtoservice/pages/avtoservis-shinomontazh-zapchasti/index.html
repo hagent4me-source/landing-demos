@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис Шиномонтаж Запчасти — автосервис в Серпухове</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1a3c6e;
+    --blue-mid: #2356a8;
+    --blue-light: #3a7bd5;
+    --orange: #f47c20;
+    --orange-dark: #d96a10;
+    --bg: #f5f7fb;
+    --bg-white: #ffffff;
+    --text: #1a1f2e;
+    --text-muted: #5a6278;
+    --border: #e2e7f0;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(26,60,110,0.10);
+    --shadow-md: 0 8px 40px rgba(26,60,110,0.14);
+    --green: #25D366;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,60,110,0.07);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 20px; max-width: 1120px; margin: 0 auto;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: var(--blue); }
+  .logo-badge {
+    width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, var(--blue-mid), var(--blue-light));
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 19px;
+  }
+  .header-phone { font-weight: 700; color: var(--blue); text-decoration: none; font-size: 16px; white-space: nowrap; }
+  @media (max-width: 560px) { .header-phone { font-size: 14px; } }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #0f2a4d 0%, var(--blue-mid) 60%, var(--blue-light) 100%);
+    color: #fff;
+    padding: 60px 0 68px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,124,32,0.35), transparent 70%);
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .hero-cat {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22);
+    padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+    margin-bottom: 18px; letter-spacing: 0.3px;
+  }
+  .hero h1 { font-size: clamp(28px, 4.5vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
+  .hero h1 .accent { color: var(--orange); }
+  .hero p { font-size: 17px; opacity: 0.92; max-width: 640px; margin-bottom: 24px; }
+  .hero-rating {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22);
+    padding: 8px 16px; border-radius: 12px; font-size: 14px; margin-bottom: 26px;
+  }
+  .hero-rating .stars { color: #ffc107; letter-spacing: 2px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 16px;
+    text-decoration: none; transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 6px 24px rgba(244,124,32,0.4); }
+  .btn-primary:hover { background: var(--orange-dark); }
+  .btn-wa { background: var(--green); color: #fff; box-shadow: 0 6px 24px rgba(37,211,102,0.35); }
+  .btn-wa:hover { filter: brightness(1.05); }
+  .hero-meta { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; opacity: 0.85; }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 54px 0; }
+  .section-alt { background: var(--bg-white); }
+  .section-title { font-size: clamp(22px, 3vw, 32px); font-weight: 800; color: var(--blue); margin-bottom: 8px; }
+  .section-sub { color: var(--text-muted); margin-bottom: 34px; max-width: 560px; }
+
+  /* ===== ABOUT ===== */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 34px; align-items: center; }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-text p { color: var(--text-muted); margin-bottom: 16px; font-size: 16px; }
+  .about-text p b { color: var(--text); }
+  .about-quote {
+    border-left: 4px solid var(--orange); background: var(--bg);
+    padding: 18px 22px; border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-muted);
+  }
+  .about-card {
+    background: linear-gradient(135deg, var(--blue), var(--blue-mid)); color: #fff;
+    border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow-md);
+  }
+  .about-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 16px; }
+  .about-card ul { list-style: none; }
+  .about-card li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.14); font-size: 15px; display: flex; gap: 10px; }
+  .about-card li:last-child { border-bottom: none; }
+
+  /* ===== SERVICES ===== */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+  .service-card {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; box-shadow: var(--shadow); transition: transform .15s, box-shadow .15s;
+  }
+  .section-alt .service-card { background: var(--bg); }
+  .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .service-icon {
+    width: 46px; height: 46px; border-radius: 12px; margin-bottom: 14px;
+    background: linear-gradient(135deg, rgba(35,86,168,0.12), rgba(58,123,213,0.12));
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .service-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .service-card p { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== ADVANTAGES ===== */
+  .adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .adv-item { display: flex; gap: 14px; align-items: flex-start; }
+  .adv-num {
+    min-width: 40px; height: 40px; border-radius: 10px; background: var(--blue);
+    color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 17px;
+  }
+  .adv-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .adv-item p { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== CONTACTS ===== */
+  .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+  @media (max-width: 760px) { .contacts-grid { grid-template-columns: 1fr; } }
+  .contact-line { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .contact-ico {
+    width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(35,86,168,0.12), rgba(58,123,213,0.12));
+    display: flex; align-items: center; justify-content: center; font-size: 19px;
+  }
+  .contact-line b { display: block; font-size: 15px; }
+  .contact-line a { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 16px; }
+  .contact-line a:hover { text-decoration: underline; }
+  .map-placeholder {
+    border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden;
+    background: linear-gradient(135deg, #e8eef7, #d9e3f2); min-height: 240px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--text-muted); font-size: 14px; gap: 6px; padding: 20px; text-align: center;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer { background: #0f2a4d; color: rgba(255,255,255,0.75); padding: 30px 0; text-align: center; font-size: 14px; }
+  .footer b { color: #fff; }
+
+  .wa-float {
+    position: fixed; right: 18px; bottom: 18px; z-index: 200;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: var(--green); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45); text-decoration: none;
+    font-size: 28px; transition: transform .15s;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><div class="logo-badge">🔧</div><span>Автосервис Шиномонтаж Запчасти</span></div>
+    <a class="header-phone" href="tel:+79260876911">8 (926) 087-69-11</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-cat">🔧 Ремонт и обслуживание автомобилей</div>
+    <h1>Автосервис Шиномонтаж Запчасти — ремонт, который <span class="accent">не подводит</span></h1>
+    <p>Диагностика, техническое обслуживание и ремонт автомобилей любых марок. Честные цены, гарантия на работы, запчасти в наличии.</p>
+    <div class="hero-rating"><span class="stars">★</span> <span>Рейтинг 3,4 на Google · 5 отзывов</span></div>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="tel:+79260876911">📞 Позвонить</a>
+      <a class="btn btn-wa" href="https://wa.me/79260876911" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+    </div>
+    <div class="hero-meta">
+      <span>📍 ул. Подольская, 53</span>
+      <span>🕘 Ежедневно 9:00–20:00</span>
+      <span>✅ Гарантия на работы</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">О нас</h2>
+    <p class="section-sub">Чем мы занимаемся и почему нам доверяют.</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p><b>Автосервис Шиномонтаж Запчасти</b> — автосервис в Серпухове (ул. Подольская, 53). Направление — ремонт и обслуживание автомобилей. Мы понимаем, как важно, чтобы машина не подводила, поэтому делаем работу честно: сначала диагностика и точная смета, потом ремонт — и всё с гарантией.</p>
+        
+      </div>
+      <div class="about-card">
+        <h3>Почему с нами удобно</h3>
+        <ul>
+          <li>🎯 Диагностика перед ремонтом — честная смета</li>
+          <li>🛡️ Гарантия на все работы</li>
+          <li>📦 Запчасти в наличии, без долгих ожиданий</li>
+          <li>💬 Отчёты о ходе работ в WhatsApp</li>
+          <li>📅 Удобная запись по телефону или в мессенджере</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Услуги</h2>
+    <p class="section-sub">Полный спектр работ по ремонту и обслуживанию автомобиля в одном месте.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🛠️</div><h3>Ремонт двигателя</h3><p>Капитальный и текущий ремонт, замена ГРМ, устранение течей.</p></div>
+      <div class="service-card"><div class="service-icon">⚙️</div><h3>Ходовая часть</h3><p>Замена амортизаторов, рычагов, сайлентблоков, ступиц.</p></div>
+      <div class="service-card"><div class="service-icon">🔍</div><h3>Компьютерная диагностика</h3><p>Сканер, поиск ошибок, проверка всех систем автомобиля.</p></div>
+      <div class="service-card"><div class="service-icon">🔄</div><h3>Техническое обслуживание</h3><p>Замена масла, фильтров, свечей, тормозных колодок.</p></div>
+      <div class="service-card"><div class="service-icon">🔩</div><h3>Шиномонтаж</h3><p>Балансировка, сезонная замена шин, ремонт проколов.</p></div>
+      <div class="service-card"><div class="service-icon">📐</div><h3>Сход-развал</h3><p>Регулировка углов установки колёс на современном стенде.</p></div>
+      <div class="service-card"><div class="service-icon">🔋</div><h3>Электрика</h3><p>Диагностика и ремонт электрооборудования, генератора, АКБ.</p></div>
+      <div class="service-card"><div class="service-icon">🚗</div><h3>Кузовные работы</h3><p>Мелкий кузовной ремонт, покраска, подготовка к продаже.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <p class="section-sub">Работаем честно и прозрачно — вы всегда знаете, за что платите.</p>
+    <div class="adv-grid">
+      <div class="adv-item"><div class="adv-num">1</div><div><h4>Честная диагностика</h4><p>Сначала показываем и объясняем, потом ремонтируем. Без навязанных работ.</p></div></div>
+      <div class="adv-item"><div class="adv-num">2</div><div><h4>Гарантия на работы</h4><p>Даём письменную гарантию — если что-то пошло не так, устраним бесплатно.</p></div></div>
+      <div class="adv-item"><div class="adv-num">3</div><div><h4>Запчасти в наличии</h4><p>Не ждём доставку неделями: популярные позиции есть на складе.</p></div></div>
+      <div class="adv-item"><div class="adv-num">4</div><div><h4>Опытные мастера</h4><p>Специалисты с опытом 10+ лет, работаем с любыми марками.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contacts">
+  <div class="container">
+    <h2 class="section-title">Контакты</h2>
+    <p class="section-sub">Свяжитесь удобным способом — ответим быстро.</p>
+    <div class="contacts-grid">
+      <div>
+        <div class="contact-line">
+          <div class="contact-ico">📞</div>
+          <div><b>Телефон</b><a href="tel:+79260876911">8 (926) 087-69-11</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-ico">💬</div>
+          <div><b>WhatsApp</b><a href="https://wa.me/79260876911" target="_blank" rel="noopener">Написать сообщение</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-ico">📍</div>
+          <div><b>Адрес</b><span>ул. Подольская, 53</span></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-ico">🕘</div>
+          <div><b>Режим работы</b><span>Ежедневно 9:00–20:00</span></div>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <div style="font-size:40px">🗺️</div>
+        <b>Автосервис Шиномонтаж Запчасти</b>
+        <span>ул. Подольская, 53</span>
+        <span>Карта появится после подключения сайта</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <b>Автосервис Шиномонтаж Запчасти</b> · Серпухов<br>
+    Ремонт и обслуживание автомобилей · Работаем ежедневно
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/79260876911" target="_blank" rel="noopener" title="Написать в WhatsApp">💬</a>
+
+</body>
+</html>
