@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan АВТО — запчасти для японских автомобилей в Серпухове</title>
+<style>
+  :root {
+    --red: #CC0000;
+    --red-dark: #990000;
+    --red-light: #FF1A1A;
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E45;
+    --white: #FFFFFF;
+    --gray-light: #F5F5F7;
+    --gray-mid: #E8E8EC;
+    --gray-text: #6B7280;
+    --text: #1A1A2E;
+    --border: #E2E4E9;
+    --shadow: 0 2px 16px rgba(13,27,42,0.10);
+    --shadow-hover: 0 8px 32px rgba(204,0,0,0.13);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    border-bottom: 3px solid var(--red);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-mark svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .logo-title span {
+    color: var(--red-light);
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .header-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .header-phone {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .header-phone:hover { color: var(--red-light); }
+
+  .header-hours {
+    font-size: 10px;
+    color: rgba(255,255,255,0.50);
+    letter-spacing: 0.05em;
+  }
+
+  .nav {
+    display: flex;
+    gap: 4px;
+  }
+
+  .nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav a:hover {
+    background: rgba(204,0,0,0.18);
+    color: var(--white);
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    background: var(--navy-mid);
+    padding: 12px 20px 20px;
+    border-bottom: 2px solid var(--red);
+  }
+
+  .mobile-menu.open { display: block; }
+
+  .mobile-menu a {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--red-light); }
+
+  .mobile-menu-phones {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mobile-menu-phones a {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    border-bottom: none;
+    padding: 0;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(204,0,0,0.18) 0%, rgba(204,0,0,0.04) 55%, transparent 75%);
+    pointer-events: none;
+  }
+
+  .hero-stripe {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--red) 0%, var(--red-dark) 50%, var(--red) 100%);
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(204,0,0,0.15);
+    border: 1px solid rgba(204,0,0,0.35);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #FF6666;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--red-light);
+    border-radius: 50%;
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .hero-title span {
+    color: var(--red-light);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(15px, 2vw, 19px);
+    color: rgba(255,255,255,0.70);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .hero-offer {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-left: 3px solid var(--red);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .hero-offer strong {
+    color: var(--white);
+    display: block;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px 26px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: var(--red-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(204,0,0,0.35);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .hero-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(204,0,0,0.15) 0%, transparent 60%);
+  }
+
+  /* ===== SECTION COMMON ===== */
+  .section {
+    padding: 72px 20px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 36px);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--gray-text);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  /* ===== MARKS ===== */
+  .marks-section {
+    background: var(--gray-light);
+    padding: 48px 20px;
+  }
+
+  .marks-section .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .marks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .marks-title {
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .marks-hint {
+    font-size: 13px;
+    color: var(--gray-text);
+  }
+
+  .marks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .mark-chip {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+    letter-spacing: 0.03em;
+  }
+
+  .mark-chip:hover {
+    border-color: var(--red);
+    color: var(--red);
+    background: rgba(204,0,0,0.04);
+  }
+
+  .mark-chip.active {
+    background: var(--red);
+    border-color: var(--red);
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(204,0,0,0.30);
+  }
+
+  .mark-result {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--text);
+    display: none;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+  }
+
+  .mark-result.visible {
+    display: flex;
+  }
+
+  .mark-result-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(204,0,0,0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .mark-result-text strong {
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  /* ===== CATALOG ===== */
+  .catalog-section {
+    background: var(--white);
+    padding: 72px 20px;
+  }
+
+  .catalog-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--gray-mid);
+    padding-bottom: 0;
+  }
+
+  .catalog-tab {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-text);
+    padding: 10px 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  }
+
+  .catalog-tab:hover { color: var(--text); }
+
+  .catalog-tab.active {
+    color: var(--red);
+    border-bottom-color: var(--red);
+    background: rgba(204,0,0,0.03);
+  }
+
+  .catalog-pane {
+    display: none;
+  }
+
+  .catalog-pane.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    background: var(--gray-light);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .product-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  .product-card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background: var(--gray-mid);
+  }
+
+  .product-card-img-placeholder {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, var(--gray-mid) 0%, var(--border) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-card-body {
+    padding: 16px;
+  }
+
+  .product-card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-text);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .product-card-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .product-card-desc {
+    font-size: 13px;
+    color: var(--gray-text);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .product-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .product-card-badge {
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(204,0,0,0.08);
+    color: var(--red);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .product-card-action {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--red);
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.2s;
+  }
+
+  .product-card-action:hover { opacity: 0.7; }
+
+  /* ===== OILS ===== */
+  .oils-section {
+    background: var(--navy);
+    padding: 72px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .oils-section::before {
+    content: '';
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(204,0,0,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .oils-section .section-title {
+    color: var(--white);
+  }
+
+  .oils-section .section-label {
+    color: #FF6666;
+  }
+
+  .oils-section .section-desc {
+    color: rgba(255,255,255,0.60);
+  }
+
+  .oils-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .oils-brands {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .oil-brand-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .oil-brand-card:hover {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(204,0,0,0.35);
+  }
+
+  .oil-brand-card img {
+    width: 80px;
+    height: 60px;
+    object-fit: contain;
+  }
+
+  .oil-brand-card-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+  }
+
+  .oil-brand-card-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+  }
+
+  .oils-info {
+    position: relative;
+    z-index: 1;
+  }
+
+  .oils-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  .oils-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.80);
+    line-height: 1.5;
+  }
+
+  .oils-feature-list li::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--red);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .oils-phone-note {
+    margin-top: 28px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-left: 3px solid var(--red);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .oils-phone-note a {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* ===== PARTNERS ===== */
+  .partners-section {
+    background: var(--gray-light);
+    padding: 56px 20px;
+  }
+
+  .partners-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-text);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .partner-item {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .partner-item:hover {
+    box-shadow: var(--shadow);
+    border-color: rgba(204,0,0,0.25);
+  }
+
+  .partner-item img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(30%);
+    transition: filter 0.2s;
+  }
+
+  .partner-item:hover img { filter: grayscale(0%); }
+
+  /* ===== HOW TO ORDER ===== */
+  .order-section {
+    background: var(--white);
+    padding: 72px 20px;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--red) 0%, rgba(204,0,0,0.2) 100%);
+    pointer-events: none;
+  }
+
+  .step-card {
+    text-align: center;
+    position: relative;
+  }
+
+  .step-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 16px rgba(204,0,0,0.30);
+  }
+
+  .step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--gray-text);
+    line-height: 1.5;
+  }
+
+  .step-messengers {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .step-messengers img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  /* ===== ADVANTAGES ===== */
+  .adv-section {
+    background: var(--gray-light);
+    padding: 56px 20px;
+  }
+
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .adv-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .adv-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(204,0,0,0.20);
+  }
+
+  .adv-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(204,0,0,0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .adv-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--red);
+  }
+
+  .adv-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .adv-desc {
+    font-size: 13px;
+    color: var(--gray-text);
+    line-height: 1.55;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery-section {
+    background: var(--white);
+    padding: 72px 20px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 220px 220px;
+    gap: 12px;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    position: relative;
+  }
+
+  .gallery-item:first-child {
+    grid-row: 1 / 3;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover img { transform: scale(1.04); }
+
+  /* ===== REQUEST FORM ===== */
+  .form-section {
+    background: var(--navy);
+    padding: 72px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-section::after {
+    content: '';
+    position: absolute;
+    left: -120px;
+    bottom: -120px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(204,0,0,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .form-info .section-title { color: var(--white); }
+  .form-info .section-label { color: #FF6666; }
+
+  .form-info-text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .form-info-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .form-contact-item a {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+
+  .form-contact-item a:hover { color: var(--red-light); }
+
+  .form-contact-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .form-contact-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--red-light);
+  }
+
+  .form-messengers {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.10);
+  }
+
+  .form-messengers-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .form-messengers img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .request-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+
+  .form-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .form-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.50);
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-sm);
+    padding: 11px 14px;
+    font-size: 14px;
+    color: var(--white);
+    font-family: var(--font);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder { color: rgba(255,255,255,0.30); }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--red);
+    background: rgba(255,255,255,0.10);
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
+
+  .form-select option { background: var(--navy-mid); color: var(--white); }
+
+  .form-textarea { resize: vertical; min-height: 80px; }
+
+  .form-error {
+    font-size: 11px;
+    color: #FF6666;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .form-error.visible { display: block; }
+
+  .form-submit {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* ===== CONTACTS ===== */
+  .contacts-section {
+    background: var(--white);
+    padding: 72px 20px;
+  }
+
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contacts-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-block {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .contact-block-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(204,0,0,0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-block-icon svg {
+    width: 22px;
+    height: 22px;
+    color: var(--red);
+  }
+
+  .contact-block-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-text);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .contact-block-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .contact-block-value a {
+    color: var(--text);
+    transition: color 0.2s;
+  }
+
+  .contact-block-value a:hover { color: var(--red); }
+
+  .contact-block-sub {
+    font-size: 13px;
+    color: var(--gray-text);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .map-placeholder {
+    background: var(--gray-light);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .map-placeholder-inner {
+    text-align: center;
+    z-index: 1;
+  }
+
+  .map-placeholder-inner svg {
+    width: 48px;
+    height: 48px;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  .map-placeholder-inner p {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .map-placeholder-inner span {
+    font-size: 13px;
+    color: var(--gray-text);
+  }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    border-bottom: 1px dashed rgba(204,0,0,0.35);
+    transition: opacity 0.2s;
+  }
+
+  .map-link:hover { opacity: 0.75; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--navy);
+    border-top: 3px solid var(--red);
+    padding: 32px 20px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,255,255,0.40);
+    line-height: 1.5;
+  }
+
+  .footer-copy strong {
+    color: rgba(255,255,255,0.75);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ===== SCROLL TO TOP ===== */
+  .scroll-top {
+    position: fixed;
+    right: 20px;
+    bottom: 24px;
+    width: 44px;
+    height: 44px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(204,0,0,0.35);
+    transition: opacity 0.3s, transform 0.2s, background 0.2s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99;
+    border: none;
+  }
+
+  .scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .scroll-top:hover {
+    background: var(--red-dark);
+    transform: translateY(-2px);
+  }
+
+  .scroll-top svg {
+    width: 20px;
+    height: 20px;
+    color: var(--white);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-grid::before { display: none; }
+
+    .adv-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .oils-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+
+    .gallery-item:first-child { grid-row: auto; }
+  }
+
+  @media (max-width: 768px) {
+    .nav { display: none; }
+    .header-contacts { display: none; }
+    .burger { display: flex; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding: 40px 20px;
+    }
+
+    .hero-image-wrap { display: none; }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .contacts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .adv-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .oils-brands {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .catalog-pane.active {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section { padding: 48px 16px; }
+
+    .hero-title { font-size: 26px; }
+
+    .catalog-pane.active {
+      grid-template-columns: 1fr;
+    }
+
+    .marks-grid { gap: 8px; }
+
+    .mark-chip { padding: 8px 14px; font-size: 13px; }
+
+    .request-form { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2"/>
+          <circle cx="12" cy="12" r="3" fill="white"/>
+          <line x1="12" y1="3" x2="12" y2="7" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-title">JAPAN <span>АВТО</span></span>
+        <span class="logo-sub">Серпухов · Запчасти для японских авто</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="#catalog">Каталог</a>
+      <a href="#oils">Масла</a>
+      <a href="#how-to-order">Как заказать</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-contacts">
+      <a href="tel:+79687561122" class="header-phone">+7 (968) 756-11-22</a>
+      <span class="header-hours">Пн–Пт 9:00–20:00 · Сб–Вс 9:00–18:00</span>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#catalog">Каталог запчастей</a>
+    <a href="#oils">Масла в розлив</a>
+    <a href="#how-to-order">Как заказать</a>
+    <a href="#contacts">Контакты и адрес</a>
+    <div class="mobile-menu-phones">
+      <a href="tel:+79687561122">+7 (968) 756-11-22</a>
+      <a href="tel:+79687561222">+7 (968) 756-12-22</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Серпухов · Официальная точка продаж</div>
+      <h1 class="hero-title">Запчасти для<br><span>японских авто</span></h1>
+      <p class="hero-subtitle">Toyota, Nissan, Honda, Mazda, Mitsubishi,<br>Subaru, Suzuki, Lexus — всё в одном месте</p>
+      <div class="hero-offer">
+        <strong>Оригинал и качественные аналоги — подбор по VIN за 15 минут</strong>
+        Позвоните или напишите в мессенджер — менеджер подберёт нужную деталь точно под ваш автомобиль
+      </div>
+      <div class="hero-actions">
+        <a href="#form" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Отправить запрос
+        </a>
+        <a href="tel:+79687561122" class="btn-secondary">
+          +7 (968) 756-11-22
+        </a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="images/img_10.png" alt="Магазин Japan Авто — витрина запчастей">
+      <div class="hero-image-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKS / QUICK SEARCH -->
+<section class="marks-section" id="marks">
+  <div class="section-inner">
+    <div class="marks-header">
+      <h2 class="marks-title">Выберите марку автомобиля</h2>
+      <span class="marks-hint">Нажмите на марку — подберём запчасти</span>
+    </div>
+    <div class="marks-grid" id="marksGrid">
+      <div class="mark-chip" data-mark="Toyota" data-info="Запчасти Toyota: двигатель, подвеска, тормоза, фильтры — всё в наличии и под заказ">Toyota</div>
+      <div class="mark-chip" data-mark="Nissan" data-info="Запчасти Nissan: оригинал и аналоги, подбор по VIN и каталогу">Nissan</div>
+      <div class="mark-chip" data-mark="Honda" data-info="Запчасти Honda: расходники, кузовные детали, детали ходовой">Honda</div>
+      <div class="mark-chip" data-mark="Mazda" data-info="Запчасти Mazda: тормозные колодки, фильтры, амортизаторы">Mazda</div>
+      <div class="mark-chip" data-mark="Mitsubishi" data-info="Запчасти Mitsubishi: полный ассортимент, быстрая доставка">Mitsubishi</div>
+      <div class="mark-chip" data-mark="Subaru" data-info="Запчасти Subaru: оригинал и качественные аналоги для всех моделей">Subaru</div>
+      <div class="mark-chip" data-mark="Suzuki" data-info="Запчасти Suzuki: расходники и запчасти под заказ за 1–2 дня">Suzuki</div>
+      <div class="mark-chip" data-mark="Lexus" data-info="Запчасти Lexus: оригинальные и OEM-детали для премиум-сегмента">Lexus</div>
+    </div>
+    <div class="mark-result" id="markResult">
+      <div class="mark-result-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CC0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+      <div class="mark-result-text" id="markResultText"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section" id="catalog">
+  <div class="section-inner">
+    <div class="section-label">Каталог</div>
+    <h2 class="section-title">Запчасти и расходники</h2>
+    <p class="section-desc">Специализированный магазин для японских марок. Оригинал и проверенные аналоги.</p>
+
+    <div class="catalog-tabs" id="catalogTabs">
+      <button class="catalog-tab active" data-pane="brakes">Тормозные колодки</button>
+      <button class="catalog-tab" data-pane="filters">Фильтры</button>
+      <button class="catalog-tab" data-pane="dampers">Амортизаторы</button>
+      <button class="catalog-tab" data-pane="wipers">Дворники</button>
+      <button class="catalog-tab" data-pane="batteries">Аккумуляторы</button>
+    </div>
+
+    <!-- BRAKES -->
+    <div class="catalog-pane active" id="pane-brakes">
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <img src="images/img_05.jpg" alt="NIBK — тормозные колодки" class="product-card-img">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Тормозные колодки</div>
+          <div class="product-card-name">NIBK — передние/задние</div>
+          <div class="product-card-desc">Японский производитель. Высокая эффективность торможения, низкий износ диска.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">В наличии</span>
+            <button class="product-card-action" onclick="scrollToForm('Тормозные колодки NIBK')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C0C0C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Тормозные колодки</div>
+          <div class="product-card-name">JS Asakashi — оригинальные</div>
+          <div class="product-card-desc">Оригинальное качество для японских авто. Подбор по марке и модели.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">Под заказ</span>
+            <button class="product-card-action" onclick="scrollToForm('Тормозные колодки JS Asakashi')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C0C0C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Тормозные диски</div>
+          <div class="product-card-name">Тормозные диски — все марки</div>
+          <div class="product-card-desc">Подбор по VIN. Оригинал и качественные аналоги. Уточняйте наличие.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">По VIN</span>
+            <button class="product-card-action" onclick="scrollToForm('Тормозные диски')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="catalog-pane" id="pane-filters">
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <img src="images/img_06.jpg" alt="Sakura — фильтры" class="product-card-img">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Масляные фильтры</div>
+          <div class="product-card-name">Sakura — масляные фильтры</div>
+          <div class="product-card-desc">Японский бренд. Широкий ассортимент для всех японских марок. Каталог подбора на сайте.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">В наличии</span>
+            <button class="product-card-action" onclick="scrollToForm('Масляный фильтр Sakura')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <img src="images/img_04.jpg" alt="JS Asakashi — фильтры" class="product-card-img">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Воздушные фильтры</div>
+          <div class="product-card-name">JS Asakashi — воздушные</div>
+          <div class="product-card-desc">Оригинальное качество. Подбор по модели и году выпуска через наш каталог.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">В наличии</span>
+            <button class="product-card-action" onclick="scrollToForm('Воздушный фильтр JS Asakashi')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C0C0C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><rect x="5" y="4" width="14" height="16" rx="2"/></svg>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Салонные фильтры</div>
+          <div class="product-card-name">Салонные фильтры — все марки</div>
+          <div class="product-card-desc">Обычные и угольные. Подбор через каталог на сайте или по звонку.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">В наличии</span>
+            <button class="product-card-action" onclick="scrollToForm('Салонный фильтр')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAMPERS -->
+    <div class="catalog-pane" id="pane-dampers">
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C0C0C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M8 6h8M8 18h8M6 10h12M6 14h12"/></svg>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Амортизаторы</div>
+          <div class="product-card-name">Передние/задние — под заказ</div>
+          <div class="product-card-desc">Подбор по VIN. Оригинал и аналоги от проверенных поставщиков. Срок 1–3 дня.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">По VIN</span>
+            <button class="product-card-action" onclick="scrollToForm('Амортизаторы')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C0C0C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4M12 16h.01"/></svg>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Опоры стоек</div>
+          <div class="product-card-name">Опоры и пружины подвески</div>
+          <div class="product-card-desc">Все компоненты подвески японских автомобилей. Гарантия на детали.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">Под заказ</span>
+            <button class="product-card-action" onclick="scrollToForm('Опоры стоек')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIPERS -->
+    <div class="catalog-pane" id="pane-wipers">
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <img src="images/img_03.jpg" alt="PIAA — дворники" class="product-card-img">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Щётки стеклоочистителя</div>
+          <div class="product-card-name">PIAA — премиум дворники</div>
+          <div class="product-card-desc">Японский производитель. Силиконовое покрытие, тихая работа, долгий срок службы.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">В наличии</span>
+            <button class="product-card-action" onclick="scrollToForm('Дворники PIAA')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C0C0C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20c5-5 9-9 18-10"/><path d="M3 20l9-9"/></svg>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Щётки стеклоочистителя</div>
+          <div class="product-card-name">Дворники — все марки</div>
+          <div class="product-card-desc">Подбор по марке и модели. Каркасные и бескаркасные. Уточняйте наличие.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">В наличии</span>
+            <button class="product-card-action" onclick="scrollToForm('Дворники')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATTERIES -->
+    <div class="catalog-pane" id="pane-batteries">
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <img src="images/img_02.jpg" alt="Optima — аккумуляторы" class="product-card-img">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Аккумуляторы</div>
+          <div class="product-card-name">Optima — аккумуляторы</div>
+          <div class="product-card-desc">Высокопроизводительные аккумуляторы. Надёжный запуск в любую погоду.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">В наличии</span>
+            <button class="product-card-action" onclick="scrollToForm('Аккумулятор Optima')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C0C0C8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-tag">Аккумуляторы</div>
+          <div class="product-card-name">Аккумуляторы — все марки</div>
+          <div class="product-card-desc">Подбор по марке, модели, году выпуска. Уточняйте наличие и цену по телефону.</div>
+          <div class="product-card-footer">
+            <span class="product-card-badge">Уточняйте</span>
+            <button class="product-card-action" onclick="scrollToForm('Аккумулятор')">Узнать цену →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OILS -->
+<section class="oils-section" id="oils">
+  <div class="section-inner">
+    <div class="oils-grid">
+      <div class="oils-info">
+        <div class="section-label">Моторные масла</div>
+        <h2 class="section-title">Японские масла в розлив</h2>
+        <p class="section-desc">В нашем магазине моторное масло японских брендов Totachi, Idemitsu и Eneos — в розлив. Качество неизменно, цены приятно удивят.</p>
+        <ul class="oils-feature-list">
+          <li>Многократно превосходят аналоги по защите от износа</li>
+          <li>Выдерживают температурные перегрузки</li>
+          <li>Подходят для всех японских двигателей</li>
+          <li>Розлив из оригинальных бочек — без разбавления</li>
+        </ul>
+        <div class="oils-phone-note">
+          Наличие масла в бочках уточняйте по тел: <a href="tel:+79687561122">+7 (968) 756-11-22</a>
+        </div>
+      </div>
+      <div class="oils-brands">
+        <div class="oil-brand-card">
+          <img src="images/img_01.jpg" alt="Totachi — моторное масло">
+          <div class="oil-brand-card-name">Totachi</div>
+          <div class="oil-brand-card-sub">Японское масло</div>
+        </div>
+        <div class="oil-brand-card">
+          <img src="images/img_00.jpg" alt="Idemitsu — моторное масло">
+          <div class="oil-brand-card-name">Idemitsu</div>
+          <div class="oil-brand-card-sub">Японское масло</div>
+        </div>
+        <div class="oil-brand-card" style="">
+          <svg width="64" height="44" viewBox="0 0 80 40" fill="none">
+            <rect width="80" height="40" rx="6" fill="rgba(255,255,255,0.08)"/>
+            <text x="40" y="26" text-anchor="middle" font-family="system-ui" font-size="14" font-weight="700" fill="white">ENEOS</text>
+          </svg>
+          <div class="oil-brand-card-name">Eneos</div>
+          <div class="oil-brand-card-sub">Японское масло</div>
+        </div>
+        <div class="oil-brand-card">
+          <img src="images/img_11.jpg" alt="Масла в розлив — Japan Авто">
+          <div class="oil-brand-card-name">В розлив</div>
+          <div class="oil-brand-card-sub">Без переплат</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners-section" id="partners">
+  <div class="section-inner">
+    <div class="partners-title">Бренды, которые мы предлагаем</div>
+    <div class="partners-grid">
+      <div class="partner-item">
+        <img src="images/img_01.jpg" alt="Totachi">
+      </div>
+      <div class="partner-item">
+        <img src="images/img_00.jpg" alt="Idemitsu">
+      </div>
+      <div class="partner-item">
+        <img src="images/img_02.jpg" alt="Optima">
+      </div>
+      <div class="partner-item">
+        <img src="images/img_03.jpg" alt="PIAA">
+      </div>
+      <div class="partner-item">
+        <img src="images/img_04.jpg" alt="JS Asakashi">
+      </div>
+      <div class="partner-item">
+        <img src="images/img_05.jpg" alt="NIBK">
+      </div>
+      <div class="partner-item">
+        <img src="images/img_06.jpg" alt="Sakura">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="order-section" id="how-to-order">
+  <div class="section-inner">
+    <div class="section-label">Просто и быстро</div>
+    <h2 class="section-title">4 способа заказать запчасти</h2>
+    <p class="section-desc">Выберите удобный вариант — подберём нужную деталь точно и без ошибок</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-title">Позвонить</div>
+        <div class="step-desc">Звоните на <a href="tel:+79687561122">+7 (968) 756-11-22</a> — менеджер подберёт запчасти по лучшей цене</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-title">Написать в мессенджер</div>
+        <div class="step-desc">Viber или WhatsApp на номер +7 (968) 756-11-22 — ответим в ближайшее время</div>
+        <div class="step-messengers">
+          <img src="images/img_08.png" alt="Viber">
+          <img src="images/img_09.png" alt="WhatsApp">
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-title">Приехать в магазин</div>
+        <div class="step-desc">г. Серпухов, ул. Чехова, д. 58А. Пн–Пт 9:00–20:00, Сб–Вс 9:00–18:00</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-title">Оставить заявку</div>
+        <div class="step-desc">Заполните форму ниже с VIN или маркой авто — перезвоним и подтвердим наличие</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="adv-section" id="advantages">
+  <div class="section-inner">
+    <div class="section-label">Почему выбирают нас</div>
+    <h2 class="section-title">Преимущества Japan АВТО</h2>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="adv-title">Специализация на японских марках</div>
+        <div class="adv-desc">Только японские автомобили: Toyota, Nissan, Honda, Mazda, Mitsubishi, Subaru, Suzuki, Lexus. Глубокое знание ассортимента и точный подбор.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="adv-title">Подбор по VIN — без ошибок</div>
+        <div class="adv-desc">Идентифицируем автомобиль по VIN-номеру и подбираем запчасть, которая подойдёт именно вашей комплектации.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="adv-title">Быстрая доставка</div>
+        <div class="adv-desc">Большинство позиций — в наличии на складе. Редкие детали — под заказ за 1–3 дня. Уточняйте по телефону.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="adv-title">Оригинал и качественные аналоги</div>
+        <div class="adv-desc">Предлагаем оригинальные запчасти и проверенные OEM-аналоги от японских брендов: NIBK, Sakura, JS Asakashi, PIAA.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="adv-title">Работаем 7 дней в неделю</div>
+        <div class="adv-desc">Пн–Пт: 9:00–20:00. Сб–Вс: 9:00–18:00. Всегда рады помочь с подбором в удобное для вас время.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="adv-title">Официальная точка продаж</div>
+        <div class="adv-desc">Japan АВТО — официальная точка продаж на автоточках. Работаем с 2015 года в Серпухове.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="section-inner">
+    <div class="section-label">Наш магазин</div>
+    <h2 class="section-title">Japan АВТО в Серпухове</h2>
+    <p class="section-desc">Специализированный магазин на ул. Чехова, 58А</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/img_10.png" alt="Магазин Japan Авто — витрина">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_11.jpg" alt="Japan Авто — ассортимент запчастей">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_12.jpg" alt="Japan Авто — запчасти на складе">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="section-inner">
+    <div class="form-grid">
+      <div class="form-info">
+        <div class="section-label">Отправить запрос</div>
+        <h2 class="section-title">Подберём запчасть по VIN</h2>
+        <p class="form-info-text">Напишите марку, модель и год авто или VIN-номер — менеджер свяжется и подтвердит наличие и цену.</p>
+
+        <div class="form-info-contacts">
+          <div class="form-contact-item">
+            <div class="form-contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">Телефон</div>
+              <a href="tel:+79687561122">+7 (968) 756-11-22</a>
+            </div>
+          </div>
+          <div class="form-contact-item">
+            <div class="form-contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">Телефон 2</div>
+              <a href="tel:+79687561222">+7 (968) 756-12-22</a>
+            </div>
+          </div>
+          <div class="form-contact-item">
+            <div class="form-contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">Email</div>
+              <a href="mailto:japan_auto_serpteh@mail.ru">japan_auto_serpteh@mail.ru</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-messengers">
+          <span class="form-messengers-label">Мессенджеры:</span>
+          <img src="images/img_08.png" alt="Viber">
+          <img src="images/img_09.png" alt="WhatsApp">
+          <span style="font-size:13px;color:rgba(255,255,255,0.55);margin-left:4px">+7 (968) 756-11-22</span>
+        </div>
+      </div>
+
+      <form class="request-form" id="requestForm" action="#" novalidate>
+        <div class="form-title">Запрос на запчасти</div>
+        <div class="form-sub">Заполните — перезвоним в течение дня</div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-name">Ваше имя</label>
+          <input class="form-input" type="text" id="f-name" name="name" placeholder="Иван">
+          <div class="form-error" id="err-name">Введите имя</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-phone">Телефон</label>
+          <input class="form-input" type="tel" id="f-phone" name="phone" placeholder="+7 (___) ___-__-__">
+          <div class="form-error" id="err-phone">Введите корректный телефон</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-mark">Марка автомобиля</label>
+          <select class="form-select" id="f-mark" name="mark">
+            <option value="">— Выберите марку —</option>
+            <option>Toyota</option>
+            <option>Nissan</option>
+            <option>Honda</option>
+            <option>Mazda</option>
+            <option>Mitsubishi</option>
+            <option>Subaru</option>
+            <option>Suzuki</option>
+            <option>Lexus</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-vin">VIN или модель / год выпуска</label>
+          <input class="form-input" type="text" id="f-vin" name="vin" placeholder="VIN или Toyota Camry 2015">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-part">Какая запчасть нужна</label>
+          <textarea class="form-textarea" id="f-part" name="part" placeholder="Тормозные колодки, масляный фильтр..."></textarea>
+          <div class="form-error" id="err-part">Опишите, что нужно</div>
+        </div>
+
+        <button type="submit" class="btn-primary form-submit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Отправить запрос
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts-section" id="contacts">
+  <div class="section-inner">
+    <div class="section-label">Где нас найти</div>
+    <h2 class="section-title">Контакты и адрес</h2>
+    <div class="contacts-grid">
+      <div class="contacts-details">
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">Адрес</div>
+            <div class="contact-block-value">г. Серпухов, ул. Чехова, д. 58А</div>
+            <div class="contact-block-sub">Московская область, 142211</div>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .99h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">Телефоны</div>
+            <div class="contact-block-value">
+              <a href="tel:+79687561122">+7 (968) 756-11-22</a><br>
+              <a href="tel:+79687561222">+7 (968) 756-12-22</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">Email</div>
+            <div class="contact-block-value"><a href="mailto:japan_auto_serpteh@mail.ru">japan_auto_serpteh@mail.ru</a></div>
+          </div>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">Режим работы</div>
+            <div class="contact-block-value">Пн–Пт: 9:00 — 20:00</div>
+            <div class="contact-block-sub">Сб–Вс: 9:00 — 18:00</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <div class="map-placeholder-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p>г. Серпухов</p>
+          <span>ул. Чехова, д. 58А</span><br>
+          <a href="https://yandex.ru/maps/?text=Серпухов+ул.+Чехова+58А" target="_blank" rel="noopener" class="map-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Смотреть на карте
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2"/>
+          <circle cx="12" cy="12" r="3" fill="white"/>
+          <line x1="12" y1="3" x2="12" y2="7" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-title">JAPAN <span>АВТО</span></span>
+        <span class="logo-sub">Автотехцентр и магазин запчастей</span>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <strong>Japan АВТО</strong> — запчасти для японских автомобилей в Серпухове<br>
+      © 2015–2024 · ул. Чехова, д. 58А · Демо-лендинг
+    </div>
+    <div class="footer-links">
+      <a href="#top">Наверх</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#oils">Масла</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="scrollTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function() {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Marks chips
+  const chips = document.querySelectorAll('.mark-chip');
+  const markResult = document.getElementById('markResult');
+  const markResultText = document.getElementById('markResultText');
+  chips.forEach(function(chip) {
+    chip.addEventListener('click', function() {
+      const wasActive = chip.classList.contains('active');
+      chips.forEach(function(c) { c.classList.remove('active'); });
+      markResult.classList.remove('visible');
+      if (!wasActive) {
+        chip.classList.add('active');
+        markResultText.innerHTML = '<strong>' + chip.dataset.mark + '</strong>: ' + chip.dataset.info + '. <a href="#form" style="color:var(--red);font-weight:600;border-bottom:1px dashed rgba(204,0,0,0.4)">Отправить запрос →</a>';
+        markResult.classList.add('visible');
+      }
+    });
+  });
+
+  // Catalog tabs
+  const tabs = document.querySelectorAll('.catalog-tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.catalog-pane').forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      const pane = document.getElementById('pane-' + tab.dataset.pane);
+      if (pane) pane.classList.add('active');
+    });
+  });
+
+  // Phone mask
+  const phoneInput = document.getElementById('f-phone');
+  phoneInput.addEventListener('input', function() {
+    let val = phoneInput.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (!val.startsWith('7') && val.length > 0) val = '7' + val;
+    let result = '';
+    if (val.length > 0) result = '+7';
+    if (val.length > 1) result += ' (' + val.slice(1, 4);
+    if (val.length >= 4) result += ') ' + val.slice(4, 7);
+    if (val.length >= 7) result += '-' + val.slice(7, 9);
+    if (val.length >= 9) result += '-' + val.slice(9, 11);
+    phoneInput.value = result;
+  });
+
+  // Form validation
+  document.getElementById('requestForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById('f-name');
+    const errName = document.getElementById('err-name');
+    if (!name.value.trim()) {
+      errName.classList.add('visible');
+      valid = false;
+    } else {
+      errName.classList.remove('visible');
+    }
+
+    const phone = document.getElementById('f-phone');
+    const errPhone = document.getElementById('err-phone');
+    const phoneDigits = phone.value.replace(/\D/g, '');
+    if (phoneDigits.length < 11) {
+      errPhone.classList.add('visible');
+      valid = false;
+    } else {
+      errPhone.classList.remove('visible');
+    }
+
+    const part = document.getElementById('f-part');
+    const errPart = document.getElementById('err-part');
+    if (!part.value.trim()) {
+      errPart.classList.add('visible');
+      valid = false;
+    } else {
+      errPart.classList.remove('visible');
+    }
+
+    if (valid) {
+      alert('Спасибо! Мы перезвоним.');
+      document.getElementById('requestForm').reset();
+    }
+  });
+
+  // Scroll to form with pre-fill
+  function scrollToForm(partName) {
+    document.getElementById('f-part').value = partName;
+    document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Scroll top button
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+  scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

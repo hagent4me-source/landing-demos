@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автотехцентр КореяАвто + GM — Серпухов</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  :root {
+    --navy: #0d1b3e;
+    --navy-light: #162550;
+    --navy-mid: #1e3a6e;
+    --accent: #e63228;
+    --accent-orange: #ff6b35;
+    --white: #ffffff;
+    --gray-100: #f4f6fb;
+    --gray-200: #e8ecf5;
+    --gray-400: #9aa3bb;
+    --gray-600: #5a6480;
+    --text: #1a2240;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(13,27,62,0.10);
+    --shadow-lg: 0 8px 40px rgba(13,27,62,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── HEADER ─── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .logo-main {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+
+  .logo-sub {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-400);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav a {
+    color: var(--gray-400);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav a:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .header-phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .header-phone a {
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    transition: color 0.2s;
+  }
+
+  .header-phone a:hover { color: var(--accent); }
+
+  .phone-badge {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    border: none;
+    background: transparent;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    background: var(--navy-light);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 12px 20px 16px;
+  }
+
+  .mobile-menu.open { display: block; }
+
+  .mobile-menu a {
+    display: block;
+    color: var(--gray-400);
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a7a 100%);
+    padding: 72px 20px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(230,50,40,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: -40px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,107,53,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(230,50,40,0.15);
+    border: 1px solid rgba(230,50,40,0.35);
+    color: #ff7a72;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+
+  .hero-title span {
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 24px;
+    letter-spacing: -0.2px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 32px;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .brands-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+
+  .brand-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 100px;
+    transition: all 0.2s;
+  }
+
+  .brand-chip:hover {
+    background: rgba(230,50,40,0.2);
+    border-color: var(--accent);
+  }
+
+  .brand-chip-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    letter-spacing: -0.2px;
+  }
+
+  .btn-primary:hover {
+    background: #c8261d;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(230,50,40,0.4);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: var(--radius);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-outline:hover {
+    border-color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-img-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4/3;
+    background: var(--navy-light);
+  }
+
+  .hero-img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .hero-stat-num span {
+    color: var(--accent);
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* ─── FREE SERVICES BANNER ─── */
+  .free-banner {
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-orange) 100%);
+    padding: 18px 20px;
+  }
+
+  .free-banner-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .free-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .free-item-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ─── SECTION BASE ─── */
+  .section {
+    padding: 72px 20px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.8px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--gray-600);
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+  }
+
+  /* ─── BRANDS SECTION ─── */
+  .brands-section {
+    background: var(--gray-100);
+  }
+
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .brand-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    border: 1.5px solid transparent;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-orange));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s;
+  }
+
+  .brand-card:hover {
+    border-color: rgba(230,50,40,0.2);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .brand-card:hover::before { transform: scaleX(1); }
+
+  .brand-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .brand-card-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+
+  .brand-card-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 100px;
+    background: var(--gray-100);
+    color: var(--gray-600);
+  }
+
+  .brand-card-badge.korea { background: #fff0ee; color: var(--accent); }
+  .brand-card-badge.gm { background: #e8f0ff; color: var(--navy-mid); }
+
+  .brand-card-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background: var(--gray-200);
+  }
+
+  .brand-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .brand-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
+  .brand-features li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* ─── PRICE SECTION ─── */
+  .price-section {
+    background: var(--white);
+  }
+
+  .price-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .calc-widget {
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    min-width: 300px;
+    flex: 1;
+    max-width: 420px;
+    border: 1.5px solid var(--gray-200);
+  }
+
+  .calc-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .calc-row {
+    margin-bottom: 14px;
+  }
+
+  .calc-row label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+  }
+
+  .calc-row select,
+  .calc-row input[type="radio"] {
+    cursor: pointer;
+  }
+
+  .calc-select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--gray-200);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--white);
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa3bb' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: border-color 0.2s;
+  }
+
+  .calc-select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--gray-200);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    transition: all 0.15s;
+    background: var(--white);
+  }
+
+  .radio-option:has(input:checked) {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: #fff0ee;
+  }
+
+  .radio-option input { display: none; }
+
+  .calc-result {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  .calc-result-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+
+  .calc-result-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  .calc-result-price span {
+    color: var(--accent);
+  }
+
+  .price-tables {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .price-table {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--gray-200);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .price-table-head {
+    background: var(--navy);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .price-table-head-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .price-table-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 20px;
+    border-bottom: 1px solid var(--gray-100);
+    transition: background 0.15s;
+  }
+
+  .price-row:last-child { border-bottom: none; }
+
+  .price-row:hover { background: var(--gray-100); }
+
+  .price-row-name {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+    flex: 1;
+    padding-right: 12px;
+  }
+
+  .price-row-val {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .price-row-val.free {
+    color: #16a34a;
+    background: #f0fdf4;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ─── ADVANTAGES ─── */
+  .adv-section {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .adv-section::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(230,50,40,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .adv-section .section-title { color: var(--white); }
+  .adv-section .section-desc { color: rgba(255,255,255,0.5); }
+  .adv-section .section-label { color: #ff7a72; }
+
+  .adv-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .adv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .adv-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.07);
+    transition: all 0.2s;
+  }
+
+  .adv-item:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(230,50,40,0.25);
+  }
+
+  .adv-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(230,50,40,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .adv-text-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .adv-text-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  .adv-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .adv-img-block {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--navy-light);
+  }
+
+  .adv-img-block img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .adv-img-block:hover img { opacity: 1; }
+
+  .adv-img-block.tall {
+    grid-row: span 2;
+  }
+
+  .adv-img-block.tall img { height: 100%; min-height: 220px; }
+
+  /* ─── BOOKING FORM ─── */
+  .booking-section {
+    background: var(--gray-100);
+  }
+
+  .booking-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .booking-info {
+    padding-top: 8px;
+  }
+
+  .booking-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .booking-perk {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+
+  .perk-check {
+    width: 24px;
+    height: 24px;
+    background: #f0fdf4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .booking-form-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+    border: 1.5px solid var(--gray-200);
+  }
+
+  .form-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 24px;
+    letter-spacing: -0.4px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-field.full { grid-column: span 2; }
+
+  .form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-600);
+  }
+
+  .form-label span {
+    color: var(--accent);
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--gray-200);
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239aa3bb' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+
+  .form-textarea { resize: vertical; min-height: 80px; }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .form-input.error,
+  .form-select.error { border-color: var(--accent); }
+
+  .form-error {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    min-height: 16px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: -0.2px;
+    margin-top: 6px;
+  }
+
+  .btn-submit:hover {
+    background: #c8261d;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(230,50,40,0.35);
+  }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--gray-400);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ─── CONTACTS ─── */
+  .contacts-section {
+    background: var(--white);
+    padding-bottom: 0;
+  }
+
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .contact-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-card {
+    background: var(--gray-100);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1.5px solid var(--gray-200);
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--navy);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-info-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray-400);
+    margin-bottom: 4px;
+  }
+
+  .contact-info-val {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .contact-info-val a {
+    color: var(--navy);
+    transition: color 0.2s;
+  }
+
+  .contact-info-val a:hover { color: var(--accent); }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .schedule-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    font-size: 13px;
+  }
+
+  .schedule-day {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .schedule-time {
+    font-weight: 500;
+    color: var(--gray-600);
+  }
+
+  .schedule-row.weekend .schedule-time {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .map-placeholder {
+    background: var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--gray-400);
+    font-size: 14px;
+    font-weight: 500;
+    border: 2px dashed var(--gray-200);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy);
+    padding: 28px 20px;
+    border-top: 2px solid var(--accent);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-phone a {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .footer-phone a:hover { color: var(--white); }
+
+  .footer-spec {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    text-align: right;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav { display: none; }
+    .burger { display: flex; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero-visual { order: -1; }
+
+    .hero-img-main { aspect-ratio: 16/9; }
+
+    .adv-content {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .adv-visual { order: -1; }
+
+    .booking-inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .contacts-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .calc-widget { max-width: 100%; }
+
+    .price-header { flex-direction: column; }
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 52px 16px; }
+
+    .hero { padding: 48px 16px 48px; }
+
+    .brands-grid { grid-template-columns: 1fr 1fr; }
+
+    .form-grid { grid-template-columns: 1fr; }
+    .form-field.full { grid-column: span 1; }
+
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+
+    .hero-stat-num { font-size: 18px; }
+
+    .free-banner-inner { gap: 16px; }
+
+    .free-item { font-size: 12px; }
+
+    .adv-visual { grid-template-columns: 1fr; }
+    .adv-img-block.tall { grid-row: auto; }
+    .adv-img-block.tall img { min-height: 160px; }
+
+    .booking-form-card { padding: 22px 16px; }
+
+    .schedule-grid { grid-template-columns: 1fr; }
+
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .footer-spec { text-align: left; }
+
+    .header-phone .phone-badge { display: none; }
+  }
+
+  @media (max-width: 420px) {
+    .brands-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="9" stroke="white" stroke-width="2"/>
+          <path d="M7 11h8M11 7v8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-main">КореяАвто + GM</span>
+        <span class="logo-sub">Автотехцентр · Серпухов</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="#brands">Марки</a>
+      <a href="#prices">Прайс</a>
+      <a href="#advantages">Отличия</a>
+      <a href="#booking">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-phone">
+      <div>
+        <div class="phone-badge">Николай</div>
+        <a href="tel:+79772935489">+7 (977) 293-54-89</a>
+      </div>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#brands">Марки</a>
+    <a href="#prices">Прайс</a>
+    <a href="#advantages">Отличия</a>
+    <a href="#booking">Запись</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M6 3v3l2 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        Серпухов · Специализированный техцентр
+      </div>
+      <h1 class="hero-title">
+        Ремонт<br><span>корейских</span><br>и GM-авто
+      </h1>
+      <p class="hero-subtitle">Специалисты, а не универсалы</p>
+      <p class="hero-desc">
+        Ремонтируем только Hyundai, Kia, SsangYong, Chevrolet, Opel, Daewoo — знаем их особенности, типовые болячки и правильные решения. Без угадываний «по учебнику».
+      </p>
+
+      <div class="brands-chips">
+        <div class="brand-chip">
+          <span class="brand-chip-dot"></span>Hyundai
+        </div>
+        <div class="brand-chip">
+          <span class="brand-chip-dot"></span>Kia
+        </div>
+        <div class="brand-chip">
+          <span class="brand-chip-dot"></span>SsangYong
+        </div>
+        <div class="brand-chip">
+          <span class="brand-chip-dot"></span>Chevrolet
+        </div>
+        <div class="brand-chip">
+          <span class="brand-chip-dot"></span>Opel
+        </div>
+        <div class="brand-chip">
+          <span class="brand-chip-dot"></span>Daewoo
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#booking" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="3" width="12" height="11" rx="2" stroke="white" stroke-width="1.5"/>
+            <path d="M5 1v4M11 1v4M2 7h12" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Записаться на диагностику
+        </a>
+        <a href="tel:+79772935489" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 3c0-.6.5-1 1-1h2l1 3-1.5 1c.7 1.4 1.8 2.5 3.2 3.2L10 8l3 1v2c0 .6-.4 1-1 1C6.4 12 3 8.6 3 4z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          Позвонить
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-img-main">
+        <img src="images/img_01.jpg" alt="Автотехцентр КореяАвто + GM — сервисный бокс">
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">5<span>+</span></div>
+          <div class="hero-stat-label">марок<br>в специализации</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">6<span>/7</span></div>
+          <div class="hero-stat-label">дней<br>в неделю</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>0</span>₽</div>
+          <div class="hero-stat-label">диагностика<br>ходовой</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FREE SERVICES BANNER ─── -->
+<div class="free-banner">
+  <div class="free-banner-inner">
+    <div class="free-item">
+      <svg class="free-item-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.5"/>
+        <path d="M6 10l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Замена масла ДВС — бесплатно
+    </div>
+    <div class="free-item">
+      <svg class="free-item-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.5"/>
+        <path d="M6 10l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Диагностика ходовой — бесплатно
+    </div>
+    <div class="free-item">
+      <svg class="free-item-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.5"/>
+        <path d="M6 10l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Диагностика тормозной — бесплатно
+    </div>
+    <div class="free-item">
+      <svg class="free-item-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="8" stroke="white" stroke-width="1.5"/>
+        <path d="M6 10l3 3 5-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Повторная компьютерная диагностика — бесплатно
+    </div>
+  </div>
+</div>
+
+<!-- ─── BRANDS ─── -->
+<section class="section brands-section" id="brands">
+  <div class="section-inner">
+    <div class="section-label">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <rect x="1" y="1" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M4 7h6M7 4v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Специализация по маркам
+    </div>
+    <h2 class="section-title">Мы знаем эти машины</h2>
+    <p class="section-desc">Каждая марка — своя конструктивная философия, типовые слабые места и правильный подход. Мы работаем только с этими автомобилями.</p>
+
+    <div class="brands-grid">
+
+      <div class="brand-card">
+        <div class="brand-card-header">
+          <span class="brand-card-name">Hyundai</span>
+          <span class="brand-card-badge korea">Корея</span>
+        </div>
+        <img class="brand-card-img" src="images/img_00.png" alt="Hyundai — обслуживание и ремонт">
+        <ul class="brand-features">
+          <li>Компьютерная диагностика GDS / Hi-Scan</li>
+          <li>ТО по регламенту (масло, фильтры, свечи)</li>
+          <li>Ремонт АКПП Hyundai — типичный масляный голод</li>
+          <li>Замена ремня/цепи ГРМ</li>
+          <li>Ремонт подвески (рычаги, стойки, ступицы)</li>
+        </ul>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-card-header">
+          <span class="brand-card-name">Kia</span>
+          <span class="brand-card-badge korea">Корея</span>
+        </div>
+        <img class="brand-card-img" src="images/img_01.jpg" alt="Kia — сервис и диагностика">
+        <ul class="brand-features">
+          <li>Диагностика по протоколу Kia (KDS)</li>
+          <li>Регламентное ТО — масло, воздушный и салонный фильтр</li>
+          <li>Типичное: стук рулевой рейки, износ опорных подшипников</li>
+          <li>Ремонт двигателей Gamma, Nu, Theta</li>
+          <li>Замена тормозных колодок и дисков</li>
+        </ul>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-card-header">
+          <span class="brand-card-name">SsangYong</span>
+          <span class="brand-card-badge korea">Корея</span>
+        </div>
+        <img class="brand-card-img" src="images/img_00.png" alt="SsangYong — ремонт и ТО">
+        <ul class="brand-features">
+          <li>Диагностика XEntry / SsangYong специнструмент</li>
+          <li>ТО дизельных и бензиновых версий</li>
+          <li>Типичное: течи раздатки, проблемы с муфтой 4WD</li>
+          <li>Ремонт подвески (рамные конструкции)</li>
+          <li>Замена масла в АКПП и раздаточной коробке</li>
+        </ul>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-card-header">
+          <span class="brand-card-name">Chevrolet</span>
+          <span class="brand-card-badge gm">GM</span>
+        </div>
+        <img class="brand-card-img" src="images/img_01.jpg" alt="Chevrolet — обслуживание GM">
+        <ul class="brand-features">
+          <li>Диагностика по протоколам GM (Tech 2 / MDI)</li>
+          <li>ТО Cruze, Aveo, Captiva, Lacetti</li>
+          <li>Типичное: АКПП Aisin, проблемы с EGR, течи прокладок</li>
+          <li>Ремонт электрики и блоков управления GM</li>
+          <li>Подбор и установка оригинальных запчастей GM</li>
+        </ul>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-card-header">
+          <span class="brand-card-name">Opel</span>
+          <span class="brand-card-badge gm">GM</span>
+        </div>
+        <img class="brand-card-img" src="images/img_00.png" alt="Opel — ремонт и диагностика">
+        <ul class="brand-features">
+          <li>Диагностика GM Tech 2 — заводской уровень</li>
+          <li>ТО Astra, Vectra, Zafira, Insignia</li>
+          <li>Типичное: масложор Z18XER, износ цепи ГРМ 1.6T</li>
+          <li>Ремонт подвески — рычаги, сайлентблоки</li>
+          <li>Обслуживание роботизированных КПП Easytronic</li>
+        </ul>
+      </div>
+
+      <div class="brand-card">
+        <div class="brand-card-header">
+          <span class="brand-card-name">Daewoo</span>
+          <span class="brand-card-badge gm">GM</span>
+        </div>
+        <img class="brand-card-img" src="images/img_01.jpg" alt="Daewoo — техническое обслуживание">
+        <ul class="brand-features">
+          <li>Диагностика Nexia, Matiz, Lanos, Nubira</li>
+          <li>ТО — масло, свечи, фильтры, ремень ГРМ</li>
+          <li>Типичное: карбюраторы A08S, проблемы с проводкой</li>
+          <li>Ремонт тормозной системы</li>
+          <li>Запчасти под заказ — оригинал и качественный аналог</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICES ─── -->
+<section class="section price-section" id="prices">
+  <div class="section-inner">
+    <div class="price-header">
+      <div>
+        <div class="section-label">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="1" y="1" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M4 7h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M4 4.5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M4 9.5h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Цены на услуги
+        </div>
+        <h2 class="section-title">Прайс-лист</h2>
+        <p class="section-desc">Актуальные цены на основные работы. Точная стоимость — после диагностики. Расчёт ТО — в калькуляторе справа.</p>
+      </div>
+
+      <div class="calc-widget">
+        <div class="calc-title">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect x="2" y="2" width="14" height="14" rx="3" stroke="#e63228" stroke-width="1.5"/>
+            <path d="M5.5 9h7M9 5.5v7" stroke="#e63228" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Калькулятор ТО
+        </div>
+
+        <div class="calc-row">
+          <label>Марка автомобиля</label>
+          <select class="calc-select" id="calcBrand">
+            <option value="">— Выберите марку —</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="kia">Kia</option>
+            <option value="ssangyong">SsangYong</option>
+            <option value="chevrolet">Chevrolet</option>
+            <option value="opel">Opel</option>
+            <option value="daewoo">Daewoo</option>
+          </select>
+        </div>
+
+        <div class="calc-row">
+          <label>Тип ТО</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="toType" value="to1"> ТО-1
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="toType" value="to2"> ТО-2
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="toType" value="to3"> ТО-3
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-row">
+          <label>Тип двигателя</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="engType" value="petrol"> Бензин
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="engType" value="diesel"> Дизель
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-result-label">Ориентировочная стоимость</div>
+          <div class="calc-result-price" id="calcPrice"><span>—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-tables">
+
+      <div class="price-table">
+        <div class="price-table-head">
+          <div class="price-table-head-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="6" stroke="white" stroke-width="1.5"/>
+              <circle cx="8" cy="8" r="2.5" stroke="white" stroke-width="1.5"/>
+              <path d="M8 2v1M8 13v1M2 8h1M13 8h1" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="price-table-title">Техническое обслуживание</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">ТО-1 (замена масла + фильтры)</span>
+          <span class="price-row-val">от 2 500 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">ТО-2 (ТО-1 + тормоза, ходовая)</span>
+          <span class="price-row-val">от 4 500 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">ТО-3 (полное по регламенту)</span>
+          <span class="price-row-val">от 7 000 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена масла двигателя</span>
+          <span class="price-row-val free">Бесплатно</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена воздушного фильтра</span>
+          <span class="price-row-val">от 300 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена топливного фильтра</span>
+          <span class="price-row-val">от 500 ₽</span>
+        </div>
+      </div>
+
+      <div class="price-table">
+        <div class="price-table-head">
+          <div class="price-table-head-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 13L8 3l5 10H3z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M6 10h4" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="price-table-title">Тормозная система</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Диагностика тормозной системы</span>
+          <span class="price-row-val free">Бесплатно</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена передних колодок</span>
+          <span class="price-row-val">от 700 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена задних колодок</span>
+          <span class="price-row-val">от 700 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена тормозных дисков (пара)</span>
+          <span class="price-row-val">от 1 200 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Прокачка тормозной системы</span>
+          <span class="price-row-val">от 800 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена тормозного цилиндра</span>
+          <span class="price-row-val">от 1 500 ₽</span>
+        </div>
+      </div>
+
+      <div class="price-table">
+        <div class="price-table-head">
+          <div class="price-table-head-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 10c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="10" r="2" stroke="white" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <span class="price-table-title">Ходовая часть</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Диагностика ходовой части</span>
+          <span class="price-row-val free">Бесплатно</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена стойки амортизатора</span>
+          <span class="price-row-val">от 1 000 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена рычага подвески</span>
+          <span class="price-row-val">от 1 200 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена сайлентблоков</span>
+          <span class="price-row-val">от 800 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена шаровой опоры</span>
+          <span class="price-row-val">от 600 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена рулевых наконечников</span>
+          <span class="price-row-val">от 500 ₽</span>
+        </div>
+      </div>
+
+      <div class="price-table">
+        <div class="price-table-head">
+          <div class="price-table-head-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="2" y="5" width="12" height="7" rx="2" stroke="white" stroke-width="1.5"/>
+              <path d="M5 5V4a3 3 0 016 0v1" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="price-table-title">Диагностика и электрика</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Компьютерная диагностика</span>
+          <span class="price-row-val">от 500 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Повторная компьютерная диагностика</span>
+          <span class="price-row-val free">Бесплатно</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Диагностика электрических цепей</span>
+          <span class="price-row-val">от 800 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Замена аккумулятора</span>
+          <span class="price-row-val">от 400 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Ремонт проводки</span>
+          <span class="price-row-val">от 1 000 ₽</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-name">Прошивка / сброс ошибок ЭБУ</span>
+          <span class="price-row-val">от 1 500 ₽</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ADVANTAGES ─── -->
+<section class="section adv-section" id="advantages">
+  <div class="section-inner">
+    <div class="section-label">Почему мы</div>
+    <h2 class="section-title">Отличия от<br>обычного сервиса</h2>
+    <p class="section-desc">Мы не пытаемся ремонтировать всё подряд — мы глубоко разбираемся в конкретных марках.</p>
+
+    <div class="adv-content">
+      <div class="adv-list">
+
+        <div class="adv-item">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 3l2.5 5 5.5.8-4 3.9.9 5.5L11 15.6 6.1 18.2l.9-5.5L3 8.8l5.5-.8L11 3z" stroke="#e63228" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="adv-text-title">Узкая специализация — глубокая экспертиза</div>
+            <div class="adv-text-desc">Работаем только с Hyundai, Kia, SsangYong, Chevrolet, Opel, Daewoo. Знаем каждый агрегат, типовые проблемы и правильные решения.</div>
+          </div>
+        </div>
+
+        <div class="adv-item">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="3" y="3" width="16" height="16" rx="4" stroke="#e63228" stroke-width="1.5"/>
+              <path d="M8 11l2.5 2.5L14 8" stroke="#e63228" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="adv-text-title">Оригинальные запчасти и проверенные аналоги</div>
+            <div class="adv-text-desc">Используем оригинальные детали или качественные аналоги — только те, что проверены на этих марках. Никакого «что нашли на складе».</div>
+          </div>
+        </div>
+
+        <div class="adv-item">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 4v4M11 14v4M4 11h4M14 11h4" stroke="#e63228" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="11" cy="11" r="3" stroke="#e63228" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="adv-text-title">Спецоборудование для корейских и GM-авто</div>
+            <div class="adv-text-desc">Диагностические сканеры GDS, KDS, GM Tech 2 — заводской уровень считывания данных, не универсальный «китайский» ELM327.</div>
+          </div>
+        </div>
+
+        <div class="adv-item">
+          <div class="adv-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M6 12l4 4 6-8" stroke="#e63228" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="11" cy="11" r="8" stroke="#e63228" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="adv-text-title">Постоянные скидки и акции</div>
+            <div class="adv-text-desc">Бесплатная замена масла ДВС, бесплатная диагностика ходовой и тормозной, бесплатная повторная компьютерная диагностика.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="adv-visual">
+        <div class="adv-img-block tall">
+          <img src="images/img_01.jpg" alt="Работы в боксе — корейские авто">
+        </div>
+        <div class="adv-img-block">
+          <img src="images/img_00.png" alt="Диагностика Hyundai Kia">
+        </div>
+        <div class="adv-img-block">
+          <img src="images/img_01.jpg" alt="Запчасти для GM-авто">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOKING FORM ─── -->
+<section class="section booking-section" id="booking">
+  <div class="section-inner">
+    <div class="booking-inner">
+      <div class="booking-info">
+        <div class="section-label">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <rect x="1" y="2" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M4 1v2M10 1v2M1 6h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Запись онлайн
+        </div>
+        <h2 class="section-title">Запишитесь на<br>диагностику</h2>
+        <p class="section-desc">Оставьте заявку — Николай перезвонит и согласует удобное время. Диагностика ходовой и тормозной системы бесплатно.</p>
+
+        <div class="booking-perks">
+          <div class="booking-perk">
+            <div class="perk-check">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Диагностика ходовой — бесплатно
+          </div>
+          <div class="booking-perk">
+            <div class="perk-check">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Диагностика тормозной — бесплатно
+          </div>
+          <div class="booking-perk">
+            <div class="perk-check">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Повторная компьютерная диагностика — бесплатно
+          </div>
+          <div class="booking-perk">
+            <div class="perk-check">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Работаем 6 дней в неделю, с 9:00 до 19:00
+          </div>
+          <div class="booking-perk">
+            <div class="perk-check">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Только Hyundai, Kia, SsangYong, Chevrolet, Opel, Daewoo
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form-card">
+        <div class="form-title">Записаться на приём</div>
+        <form id="bookingForm" action="#" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="form-label">Ваше имя <span>*</span></label>
+              <input class="form-input" type="text" id="fName" placeholder="Иван" autocomplete="given-name">
+              <span class="form-error" id="errName"></span>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Телефон <span>*</span></label>
+              <input class="form-input" type="tel" id="fPhone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+              <span class="form-error" id="errPhone"></span>
+            </div>
+            <div class="form-field full">
+              <label class="form-label">Марка и модель автомобиля <span>*</span></label>
+              <select class="form-select" id="fCar">
+                <option value="">— Выберите марку —</option>
+                <option value="hyundai">Hyundai</option>
+                <option value="kia">Kia</option>
+                <option value="ssangyong">SsangYong</option>
+                <option value="chevrolet">Chevrolet</option>
+                <option value="opel">Opel</option>
+                <option value="daewoo">Daewoo</option>
+              </select>
+              <span class="form-error" id="errCar"></span>
+            </div>
+            <div class="form-field full">
+              <label class="form-label">Что беспокоит / нужная услуга</label>
+              <textarea class="form-textarea" id="fComment" placeholder="Опишите проблему или укажите нужную услугу..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">
+            Отправить заявку — перезвоним
+          </button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Данные не передаются третьим лицам.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACTS ─── -->
+<section class="section contacts-section" id="contacts">
+  <div class="section-inner">
+    <div class="section-label">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="7" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M2 12c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Где нас найти
+    </div>
+    <h2 class="section-title">Контакты</h2>
+
+    <div class="contacts-grid">
+      <div class="contact-block">
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 4c0-.6.5-1 1-1h3l1.5 3.5L8 8c.9 1.7 2.3 3.1 4 4l1.5-1.5L17 12v3c0 .6-.4 1-1 1C8 16 4 10.6 4 5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-info-title">Телефон</div>
+            <div class="contact-info-val">
+              <a href="tel:+79772935489">+7 (977) 293-54-89</a>
+            </div>
+            <div class="contact-info-title">Контактное лицо: Николай</div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 11a4 4 0 100-8 4 4 0 000 8z" stroke="white" stroke-width="1.5"/>
+              <path d="M3 18c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-info-title">Адрес</div>
+            <div class="contact-info-val">г. Серпухов, ул. Екатерины Дашковой, 15Д</div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/>
+              <path d="M10 6v4l3 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-info-title">Режим работы</div>
+            <div class="schedule-grid">
+              <div class="schedule-row">
+                <span class="schedule-day">Пн–Пт</span>
+                <span class="schedule-time">9:00–19:00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day">Суббота</span>
+                <span class="schedule-time">9:00–19:00</span>
+              </div>
+              <div class="schedule-row weekend">
+                <span class="schedule-day">Воскресенье</span>
+                <span class="schedule-time">Выходной</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="map-placeholder">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="18" r="8" stroke="#9aa3bb" stroke-width="2"/>
+            <circle cx="20" cy="18" r="3" fill="#9aa3bb"/>
+            <path d="M20 26c0 4 8 8 8 8H12s8-4 8-8z" fill="#e8ecf5"/>
+          </svg>
+          <span>ул. Екатерины Дашковой, 15Д<br>г. Серпухов</span>
+          <a href="https://yandex.ru/maps/?text=%D0%A1%D0%B5%D1%80%D0%BF%D1%83%D1%85%D0%BE%D0%B2+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D1%8B+%D0%94%D0%B0%D1%88%D0%BA%D0%BE%D0%B2%D0%BE%D0%B9+15%D0%94" target="_blank" rel="noopener" class="btn-primary">Открыть на карте</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-copy">
+      © 2024 Автотехцентр «КореяАвто + GM» · г. Серпухов
+    </div>
+    <div class="footer-phone">
+      <a href="tel:+79772935489">+7 (977) 293-54-89</a>
+    </div>
+    <div class="footer-spec">
+      Hyundai · Kia · SsangYong<br>Chevrolet · Opel · Daewoo
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── BURGER MENU ───
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ─── SMOOTH SCROLL ───
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ─── PHONE MASK ───
+  function applyPhoneMask(input) {
+    input.addEventListener('input', () => {
+      let val = input.value.replace(/\D/g, '');
+      if (val.startsWith('8')) val = '7' + val.slice(1);
+      if (!val.startsWith('7')) val = '7' + val;
+      val = val.slice(0, 11);
+      let formatted = '+7';
+      if (val.length > 1) formatted += ' (' + val.slice(1, 4);
+      if (val.length >= 4) formatted += ') ' + val.slice(4, 7);
+      if (val.length >= 7) formatted += '-' + val.slice(7, 9);
+      if (val.length >= 9) formatted += '-' + val.slice(9, 11);
+      input.value = formatted;
+    });
+  }
+
+  const phoneInput = document.getElementById('fPhone');
+  if (phoneInput) applyPhoneMask(phoneInput);
+
+  // ─── CALCULATOR ───
+  const calcBrand = document.getElementById('calcBrand');
+  const calcPrice = document.getElementById('calcPrice');
+
+  const basePrices = {
+    to1: { petrol: 2500, diesel: 3200 },
+    to2: { petrol: 4500, diesel: 5800 },
+    to3: { petrol: 7000, diesel: 9000 }
+  };
+
+  const brandMult = {
+    hyundai: 1.0,
+    kia: 1.0,
+    ssangyong: 1.15,
+    chevrolet: 1.1,
+    opel: 1.1,
+    daewoo: 0.9
+  };
+
+  function recalc() {
+    const brand = calcBrand.value;
+    const toType = document.querySelector('input[name="toType"]:checked');
+    const engType = document.querySelector('input[name="engType"]:checked');
+
+    if (!brand || !toType || !engType) {
+      calcPrice.innerHTML = '<span>—</span>';
+      return;
+    }
+
+    const base = basePrices[toType.value][engType.value];
+    const mult = brandMult[brand] || 1;
+    const result = Math.round(base * mult / 100) * 100;
+    calcPrice.innerHTML = 'от ' + result.toLocaleString('ru-RU') + '<span> ₽</span>';
+  }
+
+  calcBrand.addEventListener('change', recalc);
+  document.querySelectorAll('input[name="toType"], input[name="engType"]').forEach(r => {
+    r.addEventListener('change', recalc);
+  });
+
+  // ─── FORM VALIDATION ───
+  const form = document.getElementById('bookingForm');
+
+  function setError(inputId, errId, message) {
+    const input = document.getElementById(inputId);
+    const err = document.getElementById(errId);
+    if (message) {
+      input.classList.add('error');
+      err.textContent = message;
+    } else {
+      input.classList.remove('error');
+      err.textContent = '';
+    }
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById('fName').value.trim();
+    const phone = document.getElementById('fPhone').value.trim();
+    const car = document.getElementById('fCar').value;
+
+    if (!name || name.length < 2) {
+      setError('fName', 'errName', 'Введите ваше имя');
+      valid = false;
+    } else {
+      setError('fName', 'errName', '');
+    }
+
+    const digits = phone.replace(/\D/g, '');
+    if (!phone || digits.length < 11) {
+      setError('fPhone', 'errPhone', 'Введите корректный номер телефона');
+      valid = false;
+    } else {
+      setError('fPhone', 'errPhone', '');
+    }
+
+    if (!car) {
+      setError('fCar', 'errCar', 'Выберите марку автомобиля');
+      valid = false;
+    } else {
+      setError('fCar', 'errCar', '');
+    }
+
+    if (valid) {
+      alert('Спасибо! Мы перезвоним.');
+      form.reset();
+      calcPrice.innerHTML = '<span>—</span>';
+    }
+  });
+
+  // ─── LIVE VALIDATION ───
+  document.getElementById('fName').addEventListener('blur', () => {
+    const val = document.getElementById('fName').value.trim();
+    setError('fName', 'errName', val.length < 2 ? 'Введите ваше имя' : '');
+  });
+
+  document.getElementById('fPhone').addEventListener('blur', () => {
+    const digits = document.getElementById('fPhone').value.replace(/\D/g, '');
+    setError('fPhone', 'errPhone', digits.length < 11 ? 'Введите корректный номер' : '');
+  });
+
+  document.getElementById('fCar').addEventListener('change', () => {
+    const val = document.getElementById('fCar').value;
+    setError('fCar', 'errCar', !val ? 'Выберите марку автомобиля' : '');
+  });
+</script>
+</body>
+</html>

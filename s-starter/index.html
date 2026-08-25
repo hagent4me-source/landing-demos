@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С-Стартер — ремонт стартеров и генераторов в Серпухове</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a56db;
+    --blue-dark: #1043b5;
+    --blue-light: #e8f0fe;
+    --steel: #374151;
+    --steel-light: #6b7280;
+    --bg: #f8fafc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --accent: #f59e0b;
+    --text: #111827;
+    --radius: 10px;
+    --shadow: 0 2px 16px rgba(26,86,219,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: var(--white);
+    border-bottom: 2px solid var(--blue);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,86,219,0.07);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 20px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-text__name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .logo-text__sub {
+    font-size: 0.7rem;
+    color: var(--steel-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .header__contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header__phones {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-end;
+  }
+
+  .header__phone {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+
+  .header__phone:hover { color: var(--blue); }
+
+  .header__hours {
+    font-size: 0.72rem;
+    color: var(--steel-light);
+    text-align: right;
+  }
+
+  .header__cta {
+    background: var(--blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .header__cta:hover { background: var(--blue-dark); }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .burger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--steel);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .nav {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+  }
+
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .nav__item a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--steel);
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav__item a:hover { color: var(--blue); }
+
+  .nav__mobile {
+    display: none;
+  }
+
+  /* ===== TICKER ===== */
+  .ticker {
+    background: var(--blue);
+    overflow: hidden;
+    padding: 10px 0;
+  }
+
+  .ticker__track {
+    display: flex;
+    gap: 0;
+    animation: ticker-scroll 22s linear infinite;
+    width: max-content;
+  }
+
+  .ticker__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 40px;
+    color: var(--white);
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .ticker__item svg {
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+
+  .ticker__sep {
+    color: rgba(255,255,255,0.3);
+    font-size: 1.2rem;
+    align-self: center;
+  }
+
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a3a6b 50%, #1a56db 100%);
+    padding: 72px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  .badge--yellow {
+    background: var(--accent);
+    color: #1a1a1a;
+  }
+
+  .badge--outline {
+    border: 1px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hero__title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .hero__title span {
+    color: var(--accent);
+  }
+
+  .hero__desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #1a1a1a;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: #e58e00;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+  .hero__image {
+    position: relative;
+  }
+
+  .hero__img-main {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  }
+
+  .hero__img-badge {
+    position: absolute;
+    bottom: -16px;
+    left: -16px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero__img-badge-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--blue-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hero__img-badge-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__img-badge-num {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1;
+  }
+
+  .hero__img-badge-label {
+    font-size: 0.72rem;
+    color: var(--steel-light);
+    font-weight: 500;
+  }
+
+  /* ===== STATS ===== */
+  .stats {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+  }
+
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 20px;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-item__num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-item__label {
+    font-size: 0.8rem;
+    color: var(--steel-light);
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* ===== SECTION TITLES ===== */
+  .section-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--steel-light);
+    margin-bottom: 36px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    padding: 64px 0;
+    background: var(--bg);
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 8px 32px rgba(26,86,219,0.12);
+    transform: translateY(-3px);
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-card__icon {
+    width: 52px;
+    height: 52px;
+    background: var(--blue-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .service-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .service-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-card__list li {
+    font-size: 0.85rem;
+    color: var(--steel-light);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .service-card__list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: var(--blue);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ===== PRICE TABLE ===== */
+  .price {
+    padding: 64px 0;
+    background: var(--white);
+  }
+
+  .price__tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .price__block {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .price__block-head {
+    background: var(--blue);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .price__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .price__table tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  .price__table tr:last-child { border-bottom: none; }
+
+  .price__table tr:hover { background: var(--blue-light); }
+
+  .price__table td {
+    padding: 13px 20px;
+    font-size: 0.88rem;
+  }
+
+  .price__table td:first-child {
+    color: var(--steel);
+    width: 65%;
+  }
+
+  .price__table td:last-child {
+    color: var(--blue);
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .price__note {
+    margin-top: 20px;
+    padding: 14px 20px;
+    background: var(--blue-light);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: var(--steel);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* ===== HOW WE WORK ===== */
+  .howto {
+    padding: 64px 0;
+    background: var(--bg);
+  }
+
+  .howto__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .howto__steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light));
+    z-index: 0;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step__num {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(26,86,219,0.15);
+  }
+
+  .step__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .step__desc {
+    font-size: 0.82rem;
+    color: var(--steel-light);
+    line-height: 1.5;
+  }
+
+  /* ===== CATALOG ===== */
+  .catalog {
+    padding: 64px 0;
+    background: var(--white);
+  }
+
+  .catalog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .catalog-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.25s;
+    background: var(--bg);
+  }
+
+  .catalog-card:hover {
+    box-shadow: 0 8px 32px rgba(26,86,219,0.1);
+    transform: translateY(-3px);
+  }
+
+  .catalog-card__img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #e8edf5;
+  }
+
+  .catalog-card__body {
+    padding: 18px;
+  }
+
+  .catalog-card__tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--blue);
+    background: var(--blue-light);
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .catalog-card__name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .catalog-card__meta {
+    font-size: 0.8rem;
+    color: var(--steel-light);
+    margin-bottom: 12px;
+  }
+
+  .catalog-card__oemrow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .catalog-card__oem {
+    font-size: 0.72rem;
+    background: var(--border);
+    color: var(--steel);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+
+  .catalog-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .catalog-card__price {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--blue);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  /* ===== BRANDS ===== */
+  .brands {
+    padding: 48px 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brands__title {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--steel-light);
+    margin-bottom: 24px;
+  }
+
+  .brands__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .brand-tag {
+    padding: 7px 16px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--steel);
+    transition: all 0.2s;
+  }
+
+  .brand-tag:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-light);
+  }
+
+  /* ===== GUARANTEE ===== */
+  .guarantee {
+    padding: 64px 0;
+    background: linear-gradient(135deg, #0d1b3e, #1a3a6b);
+  }
+
+  .guarantee__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .guarantee__content .section-title {
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .guarantee__content .section-sub {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+  }
+
+  .guarantee__items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .guarantee__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .guarantee__item-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .guarantee__item-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+
+  .guarantee__item-text span {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .guarantee__image {
+    position: relative;
+  }
+
+  .guarantee__img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 14px;
+    opacity: 0.85;
+  }
+
+  /* ===== CALCULATOR ===== */
+  .calc {
+    padding: 64px 0;
+    background: var(--white);
+  }
+
+  .calc__inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .calc__form {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--steel);
+  }
+
+  .form-group select,
+  .form-group input {
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group select:focus,
+  .form-group input:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .calc__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .calc__result {
+    background: var(--blue);
+    border-radius: 10px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .calc__result-label {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+  }
+
+  .calc__result-price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  /* ===== CONTACT FORM ===== */
+  .contact {
+    padding: 64px 0;
+    background: var(--bg);
+  }
+
+  .contact__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact__block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .contact__block-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--steel-light);
+    margin-bottom: 12px;
+  }
+
+  .contact__phone-link {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+
+  .contact__phone-link:hover { color: var(--blue); }
+
+  .contact__email {
+    color: var(--blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .contact__hours-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact__hours-row:last-child { border-bottom: none; }
+
+  .contact__hours-day { color: var(--steel-light); }
+  .contact__hours-time { font-weight: 600; color: var(--text); }
+
+  .contact__address {
+    font-size: 0.95rem;
+    color: var(--steel);
+    line-height: 1.6;
+  }
+
+  .contact__map {
+    background: #d8e3f0;
+    border-radius: 12px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 12px;
+  }
+
+  .contact__map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+  }
+
+  .contact__form {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px;
+  }
+
+  .contact__form-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .contact__form-sub {
+    font-size: 0.85rem;
+    color: var(--steel-light);
+    margin-bottom: 24px;
+  }
+
+  .form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .form__fields input,
+  .form__fields select,
+  .form__fields textarea {
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--bg);
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+
+  .form__fields input:focus,
+  .form__fields select:focus,
+  .form__fields textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  .form__submit {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .form__submit:hover { background: var(--blue-dark); }
+
+  .form__privacy {
+    font-size: 0.72rem;
+    color: var(--steel-light);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: #0d1b3e;
+    color: rgba(255,255,255,0.7);
+    padding: 40px 0 24px;
+  }
+
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+
+  .footer__logo-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .footer__desc {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .footer__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer__contact-item {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer__contact-item a {
+    color: rgba(255,255,255,0.85);
+    transition: color 0.2s;
+  }
+
+  .footer__contact-item a:hover { color: var(--white); }
+
+  .footer__col-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 14px;
+  }
+
+  .footer__col-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer__col-list li a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.2s;
+  }
+
+  .footer__col-list li a:hover { color: var(--white); }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 0.78rem;
+  }
+
+  .footer__copy { color: rgba(255,255,255,0.4); }
+
+  /* ===== MOBILE NAV ===== */
+  @media (max-width: 768px) {
+    .nav { display: none; }
+    .nav.is-open { display: block; }
+    .nav__list { flex-direction: column; padding: 8px 0; }
+    .nav__item a { padding: 12px 20px; border-bottom: 1px solid var(--border); }
+
+    .burger { display: flex; }
+
+    .header__cta { display: none; }
+
+    .header__phones { display: none; }
+
+    .hero__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero__title { font-size: 1.8rem; }
+
+    .hero__image { order: -1; }
+
+    .hero__img-main { height: 220px; }
+
+    .hero__img-badge { display: none; }
+
+    .stats__grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+
+    .services__grid { grid-template-columns: 1fr; }
+
+    .price__tables { grid-template-columns: 1fr; }
+
+    .howto__steps {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .howto__steps::before { display: none; }
+
+    .catalog__grid { grid-template-columns: 1fr; }
+
+    .guarantee__inner { grid-template-columns: 1fr; }
+    .guarantee__image { display: none; }
+
+    .calc__row { grid-template-columns: 1fr; }
+    .calc__form { padding: 24px; }
+
+    .contact__inner { grid-template-columns: 1fr; }
+
+    .footer__inner { grid-template-columns: 1fr; gap: 24px; }
+    .footer__bottom { flex-direction: column; text-align: center; }
+
+    .section-title { font-size: 1.45rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 48px 0 40px; }
+    .hero__actions { flex-direction: column; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .stats__grid { grid-template-columns: repeat(2, 1fr); }
+    .howto__steps { grid-template-columns: 1fr; }
+    .catalog-card__footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header__inner">
+    <a href="#" class="header__logo">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="10" fill="#1a56db"/>
+        <path d="M20 8L24 14H28L22 20L25 28L20 24L15 28L18 20L12 14H16L20 8Z" fill="#f59e0b" stroke="#f59e0b" stroke-width="0.5"/>
+        <circle cx="20" cy="20" r="3" fill="white"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-text__name">С-Стартер</span>
+        <span class="logo-text__sub">Серпухов · стартеры и генераторы</span>
+      </div>
+    </a>
+    <div class="header__contacts">
+      <div class="header__phones">
+        <a href="tel:+79688560406" class="header__phone">+7 (968) 856-04-06</a>
+        <a href="tel:+79688528108" class="header__phone">+7 (968) 852-81-08</a>
+        <div class="header__hours">Пн–Пт 9:00–18:00 · Сб–Вс 10:00–18:00</div>
+      </div>
+      <button class="header__cta" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">Записаться</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav" id="nav">
+    <ul class="nav__list">
+      <li class="nav__item"><a href="#services">Услуги</a></li>
+      <li class="nav__item"><a href="#price">Прайс</a></li>
+      <li class="nav__item"><a href="#howto">Как мы работаем</a></li>
+      <li class="nav__item"><a href="#catalog">Каталог</a></li>
+      <li class="nav__item"><a href="#guarantee">Гарантия</a></li>
+      <li class="nav__item"><a href="#calc">Расчёт стоимости</a></li>
+      <li class="nav__item"><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker__track" id="ticker">
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Ремонт стартера
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      Ремонт генератора
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      Продажа стартеров и генераторов
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      Установка
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Диагностика электрооборудования
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      Подбор по VIN / каталожному номеру
+    </div>
+    <div class="ticker__sep">·</div>
+    <!-- дублируем для бесшовной прокрутки -->
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Ремонт стартера
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      Ремонт генератора
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      Продажа стартеров и генераторов
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      Установка
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Диагностика электрооборудования
+    </div>
+    <div class="ticker__sep">·</div>
+    <div class="ticker__item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      Подбор по VIN / каталожному номеру
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__badges">
+          <span class="badge badge--yellow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Ремонт за 1 день
+          </span>
+          <span class="badge badge--outline">Серпухов · Береговая, 2Б</span>
+        </div>
+        <h1 class="hero__title">Стартеры и генераторы: <span>ремонт и продажа</span></h1>
+        <p class="hero__desc">Не меняйте стартер целиком — отремонтируем за 1&nbsp;день с гарантией. Или подберём новый и&nbsp;б/у под вашу марку автомобиля.</p>
+        <div class="hero__actions">
+          <button class="btn-primary" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Записаться на ремонт
+          </button>
+          <a href="#price" class="btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Смотреть прайс
+          </a>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img src="images/img_01.jpg" alt="Стартеры и генераторы — С-Стартер Серпухов" class="hero__img-main">
+        <div class="hero__img-badge">
+          <div class="hero__img-badge-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="hero__img-badge-text">
+            <span class="hero__img-badge-num">6 мес.</span>
+            <span class="hero__img-badge-label">гарантия на ремонт</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stat-item">
+        <div class="stat-item__num">1 день</div>
+        <div class="stat-item__label">срок ремонта стартера</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">20+</div>
+        <div class="stat-item__label">марок автомобилей в наличии</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">Новые</div>
+        <div class="stat-item__label">контрактные и б/у агрегаты</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">VIN</div>
+        <div class="stat-item__label">подбор аналога по номеру</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <span class="section-label">Что мы делаем</span>
+    <h2 class="section-title">Услуги мастерской</h2>
+    <p class="section-sub">Полный цикл: диагностика, ремонт, продажа и установка стартеров и генераторов</p>
+    <div class="services__grid">
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="service-card__title">Ремонт стартера</div>
+        <ul class="service-card__list">
+          <li>Замена и восстановление бендикса</li>
+          <li>Ремонт втягивающего реле</li>
+          <li>Замена щёток</li>
+          <li>Восстановление якоря</li>
+          <li>Замена подшипников и втулок</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </div>
+        <div class="service-card__title">Ремонт генератора</div>
+        <ul class="service-card__list">
+          <li>Замена регулятора напряжения</li>
+          <li>Ремонт диодного моста</li>
+          <li>Замена подшипников</li>
+          <li>Замена щёток и щёткодержателя</li>
+          <li>Проверка обмоток статора и ротора</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+        <div class="service-card__title">Продажа агрегатов</div>
+        <ul class="service-card__list">
+          <li>Новые стартеры и генераторы</li>
+          <li>Контрактные (оригинальные б/у)</li>
+          <li>Восстановленные с гарантией</li>
+          <li>Комплектующие: бендиксы, регуляторы, диодные мосты</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="service-card__title">Диагностика</div>
+        <ul class="service-card__list">
+          <li>Диагностика электрооборудования автомобиля</li>
+          <li>Проверка стартера и генератора на стенде</li>
+          <li>Определение причины неисправности</li>
+          <li>Заключение по состоянию агрегата</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="service-card__title">Установка</div>
+        <ul class="service-card__list">
+          <li>Снятие и установка стартера</li>
+          <li>Снятие и установка генератора</li>
+          <li>Регулировка натяжения ремня</li>
+          <li>Проверка после установки</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        </div>
+        <div class="service-card__title">Подбор по VIN</div>
+        <ul class="service-card__list">
+          <li>Поиск по каталожному номеру</li>
+          <li>Подбор взаимозаменяемого аналога</li>
+          <li>Уточнение наличия под вашу марку</li>
+          <li>Консультация по совместимости</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE TABLE -->
+<section class="price" id="price">
+  <div class="container">
+    <span class="section-label">Стоимость работ</span>
+    <h2 class="section-title">Прайс на ремонт</h2>
+    <p class="section-sub">Окончательная цена — после диагностики. Стоимость запчастей — по фактическим расходам.</p>
+    <div class="price__tables">
+      <div class="price__block">
+        <div class="price__block-head">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Ремонт стартера
+        </div>
+        <table class="price__table">
+          <tbody>
+            <tr><td>Диагностика стартера</td><td>от 300 ₽</td></tr>
+            <tr><td>Замена бендикса</td><td>от 500 ₽</td></tr>
+            <tr><td>Ремонт втягивающего реле</td><td>от 600 ₽</td></tr>
+            <tr><td>Замена щёток стартера</td><td>от 400 ₽</td></tr>
+            <tr><td>Восстановление якоря</td><td>от 800 ₽</td></tr>
+            <tr><td>Замена подшипников / втулок</td><td>от 500 ₽</td></tr>
+            <tr><td>Комплексный ремонт стартера</td><td>от 1 500 ₽</td></tr>
+            <tr><td>Снятие и установка стартера</td><td>от 800 ₽</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="price__block">
+        <div class="price__block-head">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          Ремонт генератора
+        </div>
+        <table class="price__table">
+          <tbody>
+            <tr><td>Диагностика генератора</td><td>от 300 ₽</td></tr>
+            <tr><td>Замена регулятора напряжения</td><td>от 500 ₽</td></tr>
+            <tr><td>Ремонт диодного моста</td><td>от 700 ₽</td></tr>
+            <tr><td>Замена подшипников генератора</td><td>от 600 ₽</td></tr>
+            <tr><td>Замена щёток генератора</td><td>от 400 ₽</td></tr>
+            <tr><td>Проверка обмоток статора/ротора</td><td>от 400 ₽</td></tr>
+            <tr><td>Комплексный ремонт генератора</td><td>от 2 000 ₽</td></tr>
+            <tr><td>Снятие и установка генератора</td><td>от 1 000 ₽</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="price__note">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2" style="flex-shrink:0;margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Цены указаны только за работу, без учёта стоимости запчастей. Точная стоимость определяется после диагностики агрегата. Уточняйте по телефону: <strong>+7 (968) 856-04-06</strong>.
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="howto" id="howto">
+  <div class="container">
+    <span class="section-label">Процесс работы</span>
+    <h2 class="section-title">Как мы ремонтируем</h2>
+    <p class="section-sub">Чётко, быстро, с гарантией результата</p>
+    <div class="howto__steps">
+      <div class="step">
+        <div class="step__num">1</div>
+        <div class="step__title">Приёмка</div>
+        <p class="step__desc">Принимаем агрегат, фиксируем жалобы и внешнее состояние. Определяем объём работ.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">2</div>
+        <div class="step__title">Диагностика</div>
+        <p class="step__desc">Проверяем стартер или генератор на стенде. Выявляем конкретную неисправность и согласовываем стоимость.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">3</div>
+        <div class="step__title">Ремонт</div>
+        <p class="step__desc">Заменяем неисправные элементы: бендикс, регулятор, диодный мост, щётки, подшипники. Только проверенные запчасти.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">4</div>
+        <div class="step__title">Выдача с гарантией</div>
+        <p class="step__desc">Проверяем работу после ремонта. Выдаём агрегат с гарантийным талоном. Срок ремонта — как правило, 1 день.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <span class="section-label">Интернет-магазин</span>
+    <h2 class="section-title">Каталог запчастей</h2>
+    <p class="section-sub">Стартеры, генераторы и комплектующие в наличии. Уточняйте наличие по телефону или VIN-номеру.</p>
+    <div class="catalog__grid">
+      <div class="catalog-card">
+        <img src="images/img_05.jpg" alt="Стартер Unipoint STR8064" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <span class="catalog-card__tag">Стартер</span>
+          <div class="catalog-card__name">Стартер Unipoint</div>
+          <div class="catalog-card__meta">Производитель: Unipoint</div>
+          <div class="catalog-card__oemrow">
+            <span class="catalog-card__oem">OEM: 113244</span>
+            <span class="catalog-card__oem">Арт: STR8064</span>
+          </div>
+          <div class="catalog-card__footer">
+            <div class="catalog-card__price">Уточнить цену</div>
+            <button class="btn-outline" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Уточнить наличие
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-card">
+        <img src="images/img_04.jpg" alt="Регулятор напряжения UTM DCR27" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <span class="catalog-card__tag">Регулятор напряжения</span>
+          <div class="catalog-card__name">Регулятор напряжения UTM</div>
+          <div class="catalog-card__meta">Производитель: UTM</div>
+          <div class="catalog-card__oemrow">
+            <span class="catalog-card__oem">OEM: 130509</span>
+            <span class="catalog-card__oem">Арт: DCR27</span>
+          </div>
+          <div class="catalog-card__footer">
+            <div class="catalog-card__price">Уточнить цену</div>
+            <button class="btn-outline" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Уточнить наличие
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-card">
+        <img src="images/img_02.jpg" alt="Бендикс Eldix XSD1031" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <span class="catalog-card__tag">Бендикс</span>
+          <div class="catalog-card__name">Бендикс Eldix</div>
+          <div class="catalog-card__meta">Производитель: Eldix</div>
+          <div class="catalog-card__oemrow">
+            <span class="catalog-card__oem">OEM: 236832</span>
+            <span class="catalog-card__oem">Арт: XSD1031</span>
+          </div>
+          <div class="catalog-card__footer">
+            <div class="catalog-card__price">Уточнить цену</div>
+            <button class="btn-outline" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Уточнить наличие
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-card">
+        <img src="images/img_03.jpg" alt="Генератор — в наличии" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <span class="catalog-card__tag">Генератор</span>
+          <div class="catalog-card__name">Генераторы для иномарок</div>
+          <div class="catalog-card__meta">Audi, VW, BMW, Mercedes, Opel, Ford и др.</div>
+          <div class="catalog-card__oemrow">
+            <span class="catalog-card__oem">Новые</span>
+            <span class="catalog-card__oem">Контрактные</span>
+            <span class="catalog-card__oem">Б/У</span>
+          </div>
+          <div class="catalog-card__footer">
+            <div class="catalog-card__price">Уточнить цену</div>
+            <button class="btn-outline" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Уточнить наличие
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-card">
+        <img src="images/img_01.jpg" alt="Стартеры для отечественных и иностранных авто" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <span class="catalog-card__tag">Стартер</span>
+          <div class="catalog-card__name">Стартеры для коммерческого транспорта</div>
+          <div class="catalog-card__meta">Спецтехника, строительная техника, грузовики</div>
+          <div class="catalog-card__oemrow">
+            <span class="catalog-card__oem">Новые</span>
+            <span class="catalog-card__oem">Контрактные</span>
+          </div>
+          <div class="catalog-card__footer">
+            <div class="catalog-card__price">Уточнить цену</div>
+            <button class="btn-outline" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Уточнить наличие
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="catalog-card">
+        <img src="images/img_02.jpg" alt="Комплектующие к стартерам и генераторам" class="catalog-card__img">
+        <div class="catalog-card__body">
+          <span class="catalog-card__tag">Комплектующие</span>
+          <div class="catalog-card__name">Запчасти для ремонта</div>
+          <div class="catalog-card__meta">Бендиксы, регуляторы, диодные мосты, щётки, подшипники</div>
+          <div class="catalog-card__oemrow">
+            <span class="catalog-card__oem">Eldix</span>
+            <span class="catalog-card__oem">UTM</span>
+            <span class="catalog-card__oem">Unipoint</span>
+          </div>
+          <div class="catalog-card__footer">
+            <div class="catalog-card__price">Уточнить цену</div>
+            <button class="btn-outline" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Уточнить наличие
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands">
+  <div class="container">
+    <div class="brands__title">Работаем с автомобилями марок</div>
+    <div class="brands__list">
+      <span class="brand-tag">Audi</span>
+      <span class="brand-tag">Volkswagen</span>
+      <span class="brand-tag">Skoda</span>
+      <span class="brand-tag">SEAT</span>
+      <span class="brand-tag">BMW</span>
+      <span class="brand-tag">Mercedes-Benz</span>
+      <span class="brand-tag">Opel</span>
+      <span class="brand-tag">Ford</span>
+      <span class="brand-tag">Renault</span>
+      <span class="brand-tag">Peugeot</span>
+      <span class="brand-tag">Citroën</span>
+      <span class="brand-tag">Hyundai</span>
+      <span class="brand-tag">Kia</span>
+      <span class="brand-tag">Chevrolet</span>
+      <span class="brand-tag">Daewoo</span>
+      <span class="brand-tag">Chery</span>
+      <span class="brand-tag">Great Wall</span>
+      <span class="brand-tag">Volvo</span>
+      <span class="brand-tag">Chrysler</span>
+      <span class="brand-tag">Jeep</span>
+      <span class="brand-tag">SsangYong</span>
+      <span class="brand-tag">Спецтехника</span>
+    </div>
+  </div>
+</div>
+
+<!-- GUARANTEE -->
+<section class="guarantee" id="guarantee">
+  <div class="container">
+    <div class="guarantee__inner">
+      <div class="guarantee__content">
+        <span class="section-label">Гарантия</span>
+        <h2 class="section-title">Гарантируем качество ремонта</h2>
+        <p class="section-sub">Каждый отремонтированный агрегат проверяется перед выдачей. Даём письменную гарантию.</p>
+        <div class="guarantee__items">
+          <div class="guarantee__item">
+            <div class="guarantee__item-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="guarantee__item-text">
+              <strong>Гарантия на работу по ремонту</strong>
+              <span>Письменная гарантия на выполненные работы. При повторном обращении — бесплатное устранение.</span>
+            </div>
+          </div>
+          <div class="guarantee__item">
+            <div class="guarantee__item-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+            <div class="guarantee__item-text">
+              <strong>Гарантия на установленные запчасти</strong>
+              <span>Используем только проверенные комплектующие. Гарантия на детали от производителя.</span>
+            </div>
+          </div>
+          <div class="guarantee__item">
+            <div class="guarantee__item-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="guarantee__item-text">
+              <strong>Гарантия на продаваемые агрегаты</strong>
+              <span>Восстановленные стартеры и генераторы продаются с гарантией. Новые — по гарантии производителя.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="guarantee__image">
+        <img src="images/img_03.jpg" alt="Проверка агрегата в мастерской С-Стартер" class="guarantee__img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc" id="calc">
+  <div class="container">
+    <div class="calc__inner">
+      <span class="section-label">Расчёт стоимости</span>
+      <h2 class="section-title">Примерная стоимость ремонта</h2>
+      <p class="section-sub">Выберите параметры — получите ориентировочную цену. Точная стоимость — после диагностики.</p>
+      <div class="calc__form">
+        <div class="form-group">
+          <label>Тип агрегата</label>
+          <select id="calc-type">
+            <option value="starter">Стартер</option>
+            <option value="generator">Генератор</option>
+          </select>
+        </div>
+        <div class="calc__row">
+          <div class="form-group">
+            <label>Вид неисправности</label>
+            <select id="calc-repair">
+              <option value="brushes">Замена щёток</option>
+              <option value="bendix">Замена бендикса / регулятора</option>
+              <option value="diode">Ремонт диодного моста / втягивающего</option>
+              <option value="bearing">Замена подшипников</option>
+              <option value="armature">Восстановление якоря / обмоток</option>
+              <option value="complex">Комплексный ремонт</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Тип автомобиля</label>
+            <select id="calc-car">
+              <option value="passenger">Легковой</option>
+              <option value="commercial">Коммерческий / спецтехника</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Нужна установка агрегата?</label>
+          <select id="calc-install">
+            <option value="no">Нет, только ремонт</option>
+            <option value="yes">Да, снятие и установка</option>
+          </select>
+        </div>
+        <div class="calc__result">
+          <div class="calc__result-label">Ориентировочная стоимость работ:</div>
+          <div class="calc__result-price" id="calc-price">от 400 ₽</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contact" id="contacts">
+  <div class="container">
+    <span class="section-label">Контакты</span>
+    <h2 class="section-title">Адрес и запись</h2>
+    <div class="contact__inner">
+      <div class="contact__info">
+        <div class="contact__block">
+          <div class="contact__block-title">Телефоны</div>
+          <a href="tel:+79688560406" class="contact__phone-link">+7 (968) 856-04-06</a>
+          <a href="tel:+79688528108" class="contact__phone-link">+7 (968) 852-81-08</a>
+          <a href="mailto:serpstarter@gmail.com" class="contact__email">serpstarter@gmail.com</a>
+        </div>
+        <div class="contact__block">
+          <div class="contact__block-title">Режим работы</div>
+          <div class="contact__hours-row">
+            <span class="contact__hours-day">Понедельник — пятница</span>
+            <span class="contact__hours-time">9:00 — 18:00</span>
+          </div>
+          <div class="contact__hours-row">
+            <span class="contact__hours-day">Суббота — воскресенье</span>
+            <span class="contact__hours-time">10:00 — 18:00</span>
+          </div>
+        </div>
+        <div class="contact__block">
+          <div class="contact__block-title">Адрес</div>
+          <div class="contact__address">
+            г. Серпухов, ул. Береговая, д. 2Б
+          </div>
+          <div class="contact__map">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?text=Серпухов%2C+ул.+Береговая%2C+2Б&z=16"
+              allowfullscreen
+              title="Карта — С-Стартер, ул. Береговая 2Б, Серпухов">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__form" id="contact-form">
+        <div class="contact__form-title">Записаться или задать вопрос</div>
+        <div class="contact__form-sub">Оставьте заявку — перезвоним и уточним детали.</div>
+        <form action="#" id="main-form">
+          <div class="form__fields">
+            <input type="text" id="form-name" placeholder="Ваше имя" autocomplete="name">
+            <input type="tel" id="form-phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+            <select id="form-service">
+              <option value="">Выберите услугу</option>
+              <option>Ремонт стартера</option>
+              <option>Ремонт генератора</option>
+              <option>Продажа / подбор стартера</option>
+              <option>Продажа / подбор генератора</option>
+              <option>Диагностика электрооборудования</option>
+              <option>Установка агрегата</option>
+              <option>Подбор по VIN / номеру</option>
+              <option>Другое</option>
+            </select>
+            <input type="text" id="form-car" placeholder="Марка и модель авто (необязательно)">
+            <textarea id="form-comment" rows="3" placeholder="Комментарий (симптомы, вопрос)"></textarea>
+          </div>
+          <button type="submit" class="form__submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Отправить заявку
+          </button>
+          <div class="form__privacy">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Данные формы используются только для демонстрации.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo-text">С-Стартер</div>
+        <p class="footer__desc">Ремонт и продажа стартеров, генераторов и комплектующих в Серпухове. Работаем с легковыми, коммерческими автомобилями и спецтехникой.</p>
+        <div class="footer__contacts">
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+79688560406">+7 (968) 856-04-06</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l1.17-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+79688528108">+7 (968) 852-81-08</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:serpstarter@gmail.com">serpstarter@gmail.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>г. Серпухов, ул. Береговая, д. 2Б</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Услуги</div>
+        <ul class="footer__col-list">
+          <li><a href="#services">Ремонт стартера</a></li>
+          <li><a href="#services">Ремонт генератора</a></li>
+          <li><a href="#catalog">Продажа агрегатов</a></li>
+          <li><a href="#services">Установка</a></li>
+          <li><a href="#services">Диагностика</a></li>
+          <li><a href="#services">Подбор по VIN</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Информация</div>
+        <ul class="footer__col-list">
+          <li><a href="#price">Прайс на ремонт</a></li>
+          <li><a href="#howto">Как мы работаем</a></li>
+          <li><a href="#guarantee">Гарантия</a></li>
+          <li><a href="#calc">Расчёт стоимости</a></li>
+          <li><a href="#contacts">Контакты и адрес</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 С-Стартер.рф — ремонт стартеров и генераторов в Серпухове</div>
+      <div class="footer__copy">Демо-лендинг. Все данные — из открытых источников.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  burger.addEventListener('click', function() {
+    nav.classList.toggle('is-open');
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        nav.classList.remove('is-open');
+      }
+    });
+  });
+
+  // Phone mask
+  function phoneMask(input) {
+    input.addEventListener('input', function() {
+      let val = this.value.replace(/\D/g, '');
+      if (val.startsWith('8')) val = '7' + val.slice(1);
+      if (!val.startsWith('7')) val = '7' + val;
+      val = val.slice(0, 11);
+      let res = '+7';
+      if (val.length > 1) res += ' (' + val.slice(1, 4);
+      if (val.length >= 4) res += ') ' + val.slice(4, 7);
+      if (val.length >= 7) res += '-' + val.slice(7, 9);
+      if (val.length >= 9) res += '-' + val.slice(9, 11);
+      this.value = res;
+    });
+  }
+
+  const phoneInput = document.getElementById('form-phone');
+  if (phoneInput) phoneMask(phoneInput);
+
+  // Form submit
+  const mainForm = document.getElementById('main-form');
+  if (mainForm) {
+    mainForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value.trim();
+      const phone = document.getElementById('form-phone').value.trim();
+      if (!name) {
+        alert('Пожалуйста, укажите ваше имя.');
+        return;
+      }
+      if (phone.replace(/\D/g, '').length < 11) {
+        alert('Пожалуйста, введите корректный номер телефона.');
+        return;
+      }
+      alert('Спасибо! Мы перезвоним.');
+      mainForm.reset();
+    });
+  }
+
+  // Calculator
+  const calcType = document.getElementById('calc-type');
+  const calcRepair = document.getElementById('calc-repair');
+  const calcCar = document.getElementById('calc-car');
+  const calcInstall = document.getElementById('calc-install');
+  const calcPriceEl = document.getElementById('calc-price');
+
+  const repairPrices = {
+    starter: {
+      brushes: 400,
+      bendix: 500,
+      diode: 600,
+      bearing: 500,
+      armature: 800,
+      complex: 1500
+    },
+    generator: {
+      brushes: 400,
+      bendix: 500,
+      diode: 700,
+      bearing: 600,
+      armature: 900,
+      complex: 2000
+    }
+  };
+
+  const installPrices = {
+    starter: { passenger: 800, commercial: 1200 },
+    generator: { passenger: 1000, commercial: 1500 }
+  };
+
+  function calcUpdate() {
+    const type = calcType.value;
+    const repair = calcRepair.value;
+    const car = calcCar.value;
+    const install = calcInstall.value;
+
+    let base = repairPrices[type][repair] || 400;
+    if (car === 'commercial') base = Math.round(base * 1.4);
+
+    let installCost = 0;
+    if (install === 'yes') {
+      installCost = installPrices[type][car] || 800;
+    }
+
+    const total = base + installCost;
+    calcPriceEl.textContent = 'от ' + total.toLocaleString('ru-RU') + ' ₽';
+  }
+
+  if (calcType) {
+    calcType.addEventListener('change', calcUpdate);
+    calcRepair.addEventListener('change', calcUpdate);
+    calcCar.addEventListener('change', calcUpdate);
+    calcInstall.addEventListener('change', calcUpdate);
+    calcUpdate();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автозвук 76 — Установка и продажа автозвука в Серпухове</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+  :root {
+    --bg: #0d0d0d;
+    --bg2: #141414;
+    --bg3: #1a1a1a;
+    --card: #1e1e1e;
+    --accent: #aaff00;
+    --accent2: #00e5ff;
+    --text: #f0f0f0;
+    --muted: #888;
+    --border: #2a2a2a;
+    --radius: 12px;
+    --font: 'Inter', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { display: block; max-width: 100%; }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+  }
+
+  .nav__logo span {
+    color: var(--accent);
+  }
+
+  .nav__logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .nav__logo-icon svg { width: 20px; height: 20px; }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav__links a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .nav__links a:hover { color: var(--accent); }
+
+  .nav__phone {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .nav__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .nav__burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav__burger.open span:nth-child(2) { opacity: 0; }
+  .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav__mobile {
+    display: none;
+    flex-direction: column;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .nav__mobile.open { display: flex; }
+
+  .nav__mobile a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav__mobile a:hover { color: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 64px;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0d0d0d 0%, #111 60%, #0a1a00 100%);
+  }
+
+  .hero__bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.18;
+    filter: saturate(0.4);
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(13,13,13,0.95) 45%, rgba(13,13,13,0.3) 100%);
+  }
+
+  .hero__glow {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(170,255,0,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    width: 100%;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(170,255,0,0.1);
+    border: 1px solid rgba(170,255,0,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+
+  .hero__badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero__title {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+
+  .hero__title-accent { color: var(--accent); }
+
+  .hero__subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--accent2);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero__desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(170,255,0,0.4);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .hero__stat-num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .hero__stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── SECTION COMMON ─── */
+  .section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    padding: 80px 0;
+    background: var(--bg2);
+  }
+
+  .section-full .section { padding-top: 0; padding-bottom: 0; }
+
+  .section__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section__title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  .section__desc {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 560px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  /* ─── CALCULATOR ─── */
+  .calc-wrap {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .calc-header {
+    background: linear-gradient(135deg, #1a2a00, #0a1a00);
+    border-bottom: 1px solid rgba(170,255,0,0.2);
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .calc-header-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--accent);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .calc-header-icon svg { width: 28px; height: 28px; }
+
+  .calc-header-text h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+
+  .calc-header-text p {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin-top: 4px;
+  }
+
+  .calc-body {
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .calc-fields { display: flex; flex-direction: column; gap: 20px; }
+
+  .calc-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .calc-field select,
+  .calc-field input[type="range"] {
+    width: 100%;
+    background: var(--bg2);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .calc-field select:focus,
+  .calc-field select:hover {
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .calc-field select option { background: var(--bg2); }
+
+  .calc-checks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .calc-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg2);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .calc-check input { display: none; }
+
+  .calc-check.active {
+    border-color: var(--accent);
+    background: rgba(170,255,0,0.06);
+    color: var(--accent);
+  }
+
+  .calc-check-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .calc-check.active .calc-check-dot {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .calc-result {
+    background: linear-gradient(135deg, #1a2a00, #0d1a00);
+    border: 1px solid rgba(170,255,0,0.25);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .calc-result__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+
+  .calc-result__price {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  .calc-result__note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .calc-result__breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  .calc-result__row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+  }
+
+  .calc-result__row span:first-child { color: var(--muted); }
+  .calc-result__row span:last-child { font-weight: 700; color: var(--text); }
+
+  .calc-result__cta {
+    background: var(--accent);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .calc-result__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(170,255,0,0.4);
+  }
+
+  /* ─── CATALOG ─── */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .product-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s, border-color 0.3s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(170,255,0,0.12);
+    border-color: rgba(170,255,0,0.3);
+  }
+
+  .product-card__img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: var(--bg3);
+  }
+
+  .product-card__img-placeholder {
+    width: 100%;
+    height: 180px;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-card__img-placeholder svg { width: 64px; height: 64px; opacity: 0.3; }
+
+  .product-card__body { padding: 20px; }
+
+  .product-card__tag {
+    display: inline-block;
+    background: rgba(170,255,0,0.1);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  .product-card__name {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .product-card__desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .product-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .product-card__price {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+
+  .product-card__price-note {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .product-card__btn {
+    background: rgba(170,255,0,0.1);
+    border: 1px solid rgba(170,255,0,0.3);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .product-card__btn:hover {
+    background: rgba(170,255,0,0.2);
+  }
+
+  /* ─── STEPS ─── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    z-index: 0;
+  }
+
+  .step-item {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .step-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .step-num {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--accent);
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(170,255,0,0.2);
+  }
+
+  .step-title {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ─── WHY ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .why-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .why-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s;
+  }
+
+  .why-card:hover {
+    border-color: rgba(170,255,0,0.3);
+    transform: translateY(-3px);
+  }
+
+  .why-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(170,255,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .why-card__icon svg { width: 24px; height: 24px; color: var(--accent); }
+
+  .why-card__title {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .why-card__desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    gap: 12px;
+  }
+
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  .gallery-item.visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .gallery-item:nth-child(1) { grid-row: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 2; }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .gallery-item__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+
+  .gallery-item:hover .gallery-item__overlay { opacity: 1; }
+
+  .gallery-item__label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ─── CONTACTS / FORM ─── */
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+
+  .contact-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .contact-item__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(170,255,0,0.1);
+    border: 1px solid rgba(170,255,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-item__icon svg { width: 20px; height: 20px; color: var(--accent); }
+
+  .contact-item__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .contact-item__value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .contact-item__value a { color: var(--accent); }
+  .contact-item__value a:hover { text-decoration: underline; }
+
+  .contact-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .social-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .social-btn svg { width: 18px; height: 18px; }
+
+  /* ─── FORM ─── */
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+  }
+
+  .form-card h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .form-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .form-input {
+    background: var(--bg2);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 0.95rem;
+    padding: 13px 16px;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-input:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .form-input::placeholder { color: var(--muted); }
+
+  .form-input.error { border-color: #ff4444; }
+
+  .form-select {
+    background: var(--bg2);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 0.95rem;
+    padding: 13px 16px;
+    transition: border-color 0.2s;
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .form-select:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .form-select option { background: var(--bg2); }
+
+  .form-submit {
+    width: 100%;
+    background: var(--accent);
+    color: #000;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 15px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(170,255,0,0.4);
+  }
+
+  .form-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: #080808;
+    border-top: 1px solid var(--border);
+    padding: 40px 20px;
+  }
+
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .footer__logo {
+    font-weight: 900;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+  }
+
+  .footer__logo span { color: var(--accent); }
+
+  .footer__copy {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .footer__links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer__links a {
+    font-size: 0.82rem;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .footer__links a:hover { color: var(--accent); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav__links { display: none; }
+    .nav__phone { display: none; }
+    .nav__burger { display: flex; }
+
+    .calc-body { grid-template-columns: 1fr; }
+    .calc-checks { grid-template-columns: 1fr 1fr; }
+
+    .steps-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .steps-grid::before { display: none; }
+
+    .contact-wrap { grid-template-columns: 1fr; }
+
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:nth-child(1) { grid-row: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 1; }
+  }
+
+  @media (max-width: 600px) {
+    .hero__title { letter-spacing: -1px; }
+    .calc-header { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .calc-body { padding: 20px; }
+    .calc-checks { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+    .form-card { padding: 24px; }
+    .footer__inner { flex-direction: column; text-align: center; }
+    .contact-socials { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo">
+      <div class="nav__logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="9" r="5"/><circle cx="9" cy="9" r="2"/>
+          <path d="M14 9h6M4 9H2M9 4V2M9 16v-2"/>
+          <path d="M18 3l-3 6h3l-3 6"/>
+        </svg>
+      </div>
+      Автозвук<span>&nbsp;76</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#calc">Калькулятор</a></li>
+      <li><a href="#catalog">Каталог</a></li>
+      <li><a href="#steps">Установка</a></li>
+      <li><a href="#gallery">Галерея</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <a href="tel:+79162218806" class="nav__phone">+7 (916) 221-88-06</a>
+    <button class="nav__burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#calc">Калькулятор</a>
+    <a href="#catalog">Каталог</a>
+    <a href="#steps">Установка</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#contacts">Контакты</a>
+    <a href="tel:+79162218806" style="">+7 (916) 221-88-06</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="images/img_00.jpg" alt="Автозвук установка" class="hero__bg-img">
+    <div class="hero__overlay"></div>
+    <div class="hero__glow"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__badge">Серпухов · Московское шоссе, 96</div>
+    <h1 class="hero__title">
+      АВТО<span class="hero__title-accent">ЗВУК</span><br>76
+    </h1>
+    <p class="hero__subtitle">Поставим музыку за 1 день</p>
+    <p class="hero__desc">
+      Подберём и установим аудиосистему в любой автомобиль. Более 15 лет опыта, акустика Урал, Android-магнитолы, сабвуферы, шумоизоляция. Подбор — бесплатно.
+    </p>
+    <div class="hero__actions">
+      <a href="#calc" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3"/><rect x="9" y="3" width="6" height="8" rx="1"/></svg>
+        Рассчитать стоимость
+      </a>
+      <a href="#contacts" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        Позвонить
+      </a>
+    </div>
+    <div class="hero__stats">
+      <div>
+        <div class="hero__stat-num">15+</div>
+        <div class="hero__stat-label">лет опыта</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">1 день</div>
+        <div class="hero__stat-label">установка</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">0 ₽</div>
+        <div class="hero__stat-label">подбор</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section-full" id="calc">
+  <div class="section" style="">
+    <div class="section__label">Стоимость</div>
+    <h2 class="section__title">Калькулятор установки</h2>
+    <p class="section__desc">Выберите услуги — получите ориентировочную стоимость прямо сейчас. Точная цена после осмотра авто.</p>
+  </div>
+  <div class="section" style="padding-top:0">
+    <div class="calc-wrap">
+      <div class="calc-header">
+        <div class="calc-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round">
+            <rect x="4" y="2" width="16" height="20" rx="2"/>
+            <line x1="8" y1="6" x2="16" y2="6"/>
+            <line x1="8" y1="10" x2="16" y2="10"/>
+            <line x1="8" y1="14" x2="12" y2="14"/>
+          </svg>
+        </div>
+        <div class="calc-header-text">
+          <h2>Быстрый расчёт</h2>
+          <p>Выберите тип авто и нужные услуги — цена обновится автоматически</p>
+        </div>
+      </div>
+      <div class="calc-body">
+        <div class="calc-fields">
+          <div class="calc-field">
+            <label>Тип автомобиля</label>
+            <select id="calcCar">
+              <option value="1">Отечественный (ВАЗ, ГАЗ)</option>
+              <option value="1.2">Иномарка бюджет (KIA, Hyundai)</option>
+              <option value="1.5">Иномарка средний класс (Toyota, VW)</option>
+              <option value="2">Премиум (BMW, Audi, Mercedes)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label>Выберите услуги</label>
+            <div class="calc-checks">
+              <label class="calc-check" data-price="2500" data-key="radio">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Магнитола
+              </label>
+              <label class="calc-check" data-price="3500" data-key="speakers">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Динамики перед
+              </label>
+              <label class="calc-check" data-price="2000" data-key="rear">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Динамики зад
+              </label>
+              <label class="calc-check" data-price="5000" data-key="sub">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Сабвуфер
+              </label>
+              <label class="calc-check" data-price="4000" data-key="amp">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Усилитель
+              </label>
+              <label class="calc-check" data-price="6000" data-key="noise">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Шумоизоляция
+              </label>
+              <label class="calc-check" data-price="3000" data-key="wiring">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Проводка
+              </label>
+              <label class="calc-check" data-price="1500" data-key="frame">
+                <input type="checkbox">
+                <div class="calc-check-dot"></div>
+                Переходная рамка
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="calc-result__label">Стоимость установки (работа)</div>
+          <div class="calc-result__price" id="calcTotal">0 ₽</div>
+          <div class="calc-result__note">
+            Только стоимость работы. Цена оборудования — отдельно, зависит от выбранных брендов. Точный расчёт после осмотра авто.
+          </div>
+          <div class="calc-result__breakdown" id="calcBreakdown">
+            <div class="calc-result__row">
+              <span>Выберите услуги слева</span>
+              <span>—</span>
+            </div>
+          </div>
+          <button class="calc-result__cta" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">
+            Записаться на установку →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="section" id="catalog">
+  <div class="section__label">Товары и услуги</div>
+  <h2 class="section__title">Что мы устанавливаем</h2>
+  <p class="section__desc">Работаем с проверенными брендами. Акустика Урал, сабвуферы Урал, Android-магнитолы, усилители мощности.</p>
+  <div class="catalog-grid">
+
+    <div class="product-card">
+      <img src="images/img_01.jpg" alt="Android магнитола" class="product-card__img">
+      <div class="product-card__body">
+        <span class="product-card__tag">Головное устройство</span>
+        <h3 class="product-card__name">Android магнитола (ГУ)</h3>
+        <p class="product-card__desc">Современные Android-головные устройства с навигацией, Bluetooth, камерой заднего вида. Подберём под вашу модель авто.</p>
+        <div class="product-card__footer">
+          <div>
+            <div class="product-card__price">от 8 000 ₽</div>
+            <div class="product-card__price-note">товар + установка</div>
+          </div>
+          <button class="product-card__btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/img_00.jpg" alt="Акустика Урал" class="product-card__img">
+      <div class="product-card__body">
+        <span class="product-card__tag">Акустика</span>
+        <h3 class="product-card__name">Акустика Урал — передние динамики</h3>
+        <p class="product-card__desc">Комплект на передние двери: компонентная или коаксиальная акустика Урал. Установка с изготовлением подиумов.</p>
+        <div class="product-card__footer">
+          <div>
+            <div class="product-card__price">от 5 000 ₽</div>
+            <div class="product-card__price-note">товар + установка</div>
+          </div>
+          <button class="product-card__btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/img_03.jpg" alt="Сабвуфер Урал" class="product-card__img">
+      <div class="product-card__body">
+        <span class="product-card__tag">Сабвуфер</span>
+        <h3 class="product-card__name">Сабвуфер Урал в багажник</h3>
+        <p class="product-card__desc">Сабвуферы Урал в готовом корпусе или под изготовление. Установка в багажник с сохранением полезного пространства.</p>
+        <div class="product-card__footer">
+          <div>
+            <div class="product-card__price">от 9 000 ₽</div>
+            <div class="product-card__price-note">товар + короб + установка</div>
+          </div>
+          <button class="product-card__btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/img_11.png" alt="Усилитель мощности" class="product-card__img">
+      <div class="product-card__body">
+        <span class="product-card__tag">Усилитель</span>
+        <h3 class="product-card__name">Усилитель мощности</h3>
+        <p class="product-card__desc">Усилители для акустики и сабвуферов. Прокладка силового кабеля, настройка кроссоверов и уровней.</p>
+        <div class="product-card__footer">
+          <div>
+            <div class="product-card__price">от 6 000 ₽</div>
+            <div class="product-card__price-note">товар + установка</div>
+          </div>
+          <button class="product-card__btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/img_02.png" alt="Шумоизоляция" class="product-card__img">
+      <div class="product-card__body">
+        <span class="product-card__tag">Шумоизоляция</span>
+        <h3 class="product-card__name">Шумоизоляция дверей и пола</h3>
+        <p class="product-card__desc">Виброизоляция и шумопоглощение дверей, пола, арок. Музыка звучит чище, меньше дорожного шума в салоне.</p>
+        <div class="product-card__footer">
+          <div>
+            <div class="product-card__price">от 6 000 ₽</div>
+            <div class="product-card__price-note">материал + работа</div>
+          </div>
+          <button class="product-card__btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="images/img_04.jpg" alt="Комплект аудиосистема" class="product-card__img">
+      <div class="product-card__body">
+        <span class="product-card__tag">Комплект</span>
+        <h3 class="product-card__name">Базовая мультимедийная система</h3>
+        <p class="product-card__desc">Магнитола + передние динамики + переходная рамка + проводка. Готовый комплект «всё включено» за один день.</p>
+        <div class="product-card__footer">
+          <div>
+            <div class="product-card__price">от 14 000 ₽</div>
+            <div class="product-card__price-note">комплект под ключ</div>
+          </div>
+          <button class="product-card__btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STEPS -->
+<div class="section-full" id="steps">
+  <div class="section">
+    <div class="section__label">Как это работает</div>
+    <h2 class="section__title">4 шага до идеального звука</h2>
+    <p class="section__desc">Приезжаете утром — уезжаете вечером с готовой системой. Работаем быстро и без лишних слов.</p>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Подбор</h3>
+        <p class="step-desc">Обсуждаем ваши предпочтения: жанр музыки, бюджет, модель авто. Подбираем компоненты под задачу. Бесплатно.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h3 class="step-title">Запись</h3>
+        <p class="step-desc">Записываетесь удобным способом: звонок, форма на сайте или приходите сразу. Согласуем время.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Установка</h3>
+        <p class="step-desc">Мастера аккуратно монтируют оборудование, прокладывают проводку, устанавливают рамки и подиумы.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <h3 class="step-title">Настройка</h3>
+        <p class="step-desc">Настраиваем уровни, кроссоверы, эквалайзер. Сдаём работу — вы слышите разницу сразу.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="section__label">О нас</div>
+  <h2 class="section__title">Почему выбирают нас</h2>
+  <p class="section__desc">Студия Автозвук76 работает с 2009 года. Более 15 лет устанавливаем аудиосистемы в Серпухове.</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h3 class="why-card__title">Работаем на совесть</h3>
+      <p class="why-card__desc">Каждую установку делаем так, как будто это наш собственный автомобиль. Без халтуры и скрытых косяков.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+      </div>
+      <h3 class="why-card__title">Установка за 1 день</h3>
+      <p class="why-card__desc">Большой практический опыт позволяет нам в кратчайшие сроки установить аудиосистемы на любые автомобили.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1" x2="12" y2="23"/>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <h3 class="why-card__title">Не поднимаем цены</h3>
+      <p class="why-card__desc">Стараемся держать цены стабильными. Честная стоимость без накруток и «внезапных» доплат в конце.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <h3 class="why-card__title">Уважаем клиентов</h3>
+      <p class="why-card__desc">Индивидуальный подход к каждому. Учитываем музыкальные предпочтения и особенности именно вашего автомобиля.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <polyline points="9 11 12 14 22 4"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+      </div>
+      <h3 class="why-card__title">Делаем качественно</h3>
+      <p class="why-card__desc">Все компоненты подбираются под пожелания клиента. Установка усилителей, сабвуфера, подиумов — аккуратно и надёжно.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-card__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/>
+        </svg>
+      </div>
+      <h3 class="why-card__title">Авторизованный центр</h3>
+      <p class="why-card__desc">Дилер и авторизованный установочный центр ведущих производителей автомобильных аудиосистем.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="section-full" id="gallery">
+  <div class="section">
+    <div class="section__label">Наши работы</div>
+    <h2 class="section__title">Фотогалерея</h2>
+    <p class="section__desc">Реальные установки из нашей студии. Каждая работа — аккуратный монтаж и чистый звук.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/img_00.jpg" alt="Установка аудиосистемы">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Установка</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_01.jpg" alt="Работа мастера">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Работа мастера</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_03.jpg" alt="Сабвуфер">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Сабвуфер</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_05.jpg" alt="Оборудование">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Оборудование</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_06.jpg" alt="Акустика">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Акустика</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_09.jpg" alt="Витрина">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Витрина</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_10.jpg" alt="Scher-Khan">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Партнёры</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_13.jpg" alt="Установка">
+        <div class="gallery-item__overlay"><span class="gallery-item__label">Монтаж</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTS + FORM -->
+<section class="section" id="contacts">
+  <div class="section__label">Запись</div>
+  <h2 class="section__title">Записаться на установку</h2>
+  <p class="section__desc">Оставьте заявку — перезвоним, уточним детали и назначим удобное время.</p>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-item__label">Телефоны</div>
+          <div class="contact-item__value">
+            <a href="tel:+79162218806">+7 (916) 221-88-06</a><br>
+            <a href="tel:+79265779141">+7 (926) 577-91-41</a><br>
+            <a href="tel:+79165080586">+7 (916) 508-05-86</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-item__label">Email</div>
+          <div class="contact-item__value"><a href="mailto:avtozvuk1976@mail.ru">avtozvuk1976@mail.ru</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-item__label">Адрес</div>
+          <div class="contact-item__value">г. Серпухов, ул. Московское шоссе, д. 96</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-item__label">Контактные лица</div>
+          <div class="contact-item__value">Алексей Тимофеев<br>Цыцаркин Александр<br>Алексей Алексеев</div>
+        </div>
+      </div>
+      <div class="contact-socials">
+        <a href="https://vk.ru/avtozvuk1976" target="_blank" rel="noopener" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.56h-1.68c-.63 0-.82-.5-1.96-1.65-.98-.97-1.42-.97-1.66-.97-.33 0-.43.1-.43.57v1.5c0 .41-.13.65-1.2.65-1.77 0-3.73-1.07-5.11-3.07C4.5 10.26 4 8.29 4 7.86c0-.24.1-.46.57-.46h1.68c.43 0 .59.19.76.65.84 2.41 2.24 4.53 2.82 4.53.22 0 .32-.1.32-.65V9.79c-.07-1.17-.68-1.27-.68-1.68 0-.2.16-.41.43-.41h2.64c.36 0 .49.19.49.62v3.34c0 .36.16.49.27.49.22 0 .4-.13.8-.53 1.24-1.39 2.13-3.52 2.13-3.52.12-.24.32-.46.75-.46h1.68c.5 0 .61.26.5.62-.21.97-2.26 3.87-2.26 3.87-.18.3-.24.43 0 .76.17.24.74.74 1.12 1.19.7.79 1.23 1.46 1.37 1.92.14.46-.09.7-.56.7z"/>
+          </svg>
+          ВКонтакте
+        </a>
+        <a href="https://instagram.com/avtozvuk76" target="_blank" rel="noopener" class="social-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h3>Записаться на установку</h3>
+      <p>Оставьте заявку — перезвоним в течение 30 минут и подберём удобное время.</p>
+      <form id="bookForm" action="#" novalidate>
+        <div class="form-group">
+          <input type="text" id="formName" class="form-input" placeholder="Ваше имя" autocomplete="name">
+          <input type="tel" id="formPhone" class="form-input" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+          <select id="formService" class="form-select">
+            <option value="">Выберите услугу</option>
+            <option>Установка магнитолы / Android ГУ</option>
+            <option>Установка акустики (динамики)</option>
+            <option>Установка сабвуфера</option>
+            <option>Установка усилителя</option>
+            <option>Шумоизоляция</option>
+            <option>Комплексная аудиосистема</option>
+            <option>Консультация / подбор</option>
+          </select>
+          <input type="text" id="formCar" class="form-input" placeholder="Марка и модель авто (необязательно)">
+        </div>
+        <button type="submit" class="form-submit">Отправить заявку</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Данные не передаются третьим лицам.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">Автозвук<span>&nbsp;76</span></div>
+    <div class="footer__copy">© 2009–2025 ИП Цыцаркин · г. Серпухов</div>
+    <ul class="footer__links">
+      <li><a href="tel:+79162218806">+7 (916) 221-88-06</a></li>
+      <li><a href="mailto:avtozvuk1976@mail.ru">avtozvuk1976@mail.ru</a></li>
+      <li><a href="https://vk.ru/avtozvuk1976" target="_blank" rel="noopener">ВКонтакте</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // ─── BURGER ───
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ─── PHONE MASK ───
+  const phoneInput = document.getElementById('formPhone');
+  phoneInput.addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (!val.startsWith('7')) val = '7' + val;
+    val = val.slice(0, 11);
+    let result = '+7';
+    if (val.length > 1) result += ' (' + val.slice(1, 4);
+    if (val.length >= 4) result += ') ' + val.slice(4, 7);
+    if (val.length >= 7) result += '-' + val.slice(7, 9);
+    if (val.length >= 9) result += '-' + val.slice(9, 11);
+    this.value = result;
+  });
+
+  // ─── FORM ───
+  document.getElementById('bookForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('formName');
+    const phone = document.getElementById('formPhone');
+    let valid = true;
+    [name, phone].forEach(f => f.classList.remove('error'));
+    if (!name.value.trim()) { name.classList.add('error'); valid = false; }
+    if (!phone.value.trim() || phone.value.replace(/\D/g,'').length < 11) {
+      phone.classList.add('error'); valid = false;
+    }
+    if (!valid) return;
+    alert('Спасибо! Мы перезвоним.');
+    this.reset();
+  });
+
+  // ─── CALCULATOR ───
+  const calcCar = document.getElementById('calcCar');
+  const calcChecks = document.querySelectorAll('.calc-check');
+  const calcTotal = document.getElementById('calcTotal');
+  const calcBreakdown = document.getElementById('calcBreakdown');
+
+  const serviceNames = {
+    radio: 'Магнитола',
+    speakers: 'Динамики перед',
+    rear: 'Динамики зад',
+    sub: 'Сабвуфер',
+    amp: 'Усилитель',
+    noise: 'Шумоизоляция',
+    wiring: 'Проводка',
+    frame: 'Переходная рамка'
+  };
+
+  calcChecks.forEach(check => {
+    check.addEventListener('click', () => {
+      check.classList.toggle('active');
+      updateCalc();
+    });
+  });
+
+  calcCar.addEventListener('change', updateCalc);
+
+  function updateCalc() {
+    const multiplier = parseFloat(calcCar.value) || 1;
+    let total = 0;
+    const rows = [];
+
+    calcChecks.forEach(check => {
+      if (check.classList.contains('active')) {
+        const base = parseInt(check.dataset.price) || 0;
+        const price = Math.round(base * multiplier / 100) * 100;
+        total += price;
+        const key = check.dataset.key;
+        rows.push({ name: serviceNames[key] || 'Услуга', price });
+      }
+    });
+
+    calcTotal.textContent = total > 0
+      ? 'от ' + total.toLocaleString('ru-RU') + ' ₽'
+      : '0 ₽';
+
+    if (rows.length === 0) {
+      calcBreakdown.innerHTML = '<div class="calc-result__row"><span>Выберите услуги слева</span><span>—</span></div>';
+    } else {
+      calcBreakdown.innerHTML = rows.map(r =>
+        `<div class="calc-result__row"><span>${r.name}</span><span>от ${r.price.toLocaleString('ru-RU')} ₽</span></div>`
+      ).join('');
+    }
+  }
+
+  // ─── SCROLL ANIMATIONS ───
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.dataset.delay || 0;
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.product-card').forEach((el, i) => {
+    el.dataset.delay = i * 80;
+    observer.observe(el);
+  });
+
+  document.querySelectorAll('.step-item').forEach((el, i) => {
+    el.dataset.delay = i * 120;
+    observer.observe(el);
+  });
+
+  document.querySelectorAll('.why-card').forEach((el, i) => {
+    el.dataset.delay = i * 80;
+    observer.observe(el);
+  });
+
+  document.querySelectorAll('.gallery-item').forEach((el, i) => {
+    el.dataset.delay = i * 80;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

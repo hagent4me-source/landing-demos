@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кореана — корейские автозапчасти в Серпухове</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #e8192c;
+  --red-dark: #c01020;
+  --blue: #003087;
+  --blue-mid: #1a4fa0;
+  --blue-light: #e8eef8;
+  --gray-50: #f8f9fb;
+  --gray-100: #f0f2f5;
+  --gray-200: #e2e6ed;
+  --gray-400: #9aa3b0;
+  --gray-600: #5a6474;
+  --gray-800: #1e2430;
+  --white: #ffffff;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 2px 16px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.12);
+  --transition: 0.22s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--gray-800);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ─── УТИЛИТЫ ─── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--gray-800);
+}
+
+.section-title span { color: var(--blue); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(232,25,44,0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--blue);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid var(--blue);
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ─── HEADER ─── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+
+.header-top {
+  background: var(--blue);
+  padding: 7px 0;
+}
+
+.header-top-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.header-top-phones {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-top-phones a {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.header-top-phones a:hover { color: var(--white); }
+
+.header-top-email {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem;
+}
+
+.header-main {
+  padding: 14px 0;
+}
+
+.header-main-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 44px;
+  width: auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -0.02em;
+}
+
+.logo-name span { color: var(--red); }
+
+.logo-sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav a {
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  border-radius: 8px;
+  transition: color var(--transition), background var(--transition);
+}
+
+.nav a:hover {
+  color: var(--blue);
+  background: var(--blue-light);
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background var(--transition);
+}
+
+.burger:hover { background: var(--gray-100); }
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gray-800);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--gray-200);
+  background: var(--white);
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  border-radius: 8px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.mobile-menu a:hover {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(135deg, var(--blue) 0%, #0d3a8a 50%, #1a1a3e 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0 60px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('images/img_03.jpg') center/cover no-repeat;
+  opacity: 0.12;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(232,25,44,0.2);
+  border: 1px solid rgba(232,25,44,0.4);
+  border-radius: 100px;
+  color: #ff6b7a;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.hero-title .accent { color: #ff4d5e; }
+.hero-title .accent-blue { color: #7eb3ff; }
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.hero-chip {
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-img-main {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  object-fit: cover;
+  height: 380px;
+}
+
+.hero-img-badge {
+  position: absolute;
+  bottom: -16px;
+  left: -16px;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-img-badge-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--blue-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-badge-text {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  line-height: 1.3;
+}
+
+.hero-img-badge-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--gray-800);
+  font-weight: 700;
+}
+
+/* ─── STATS BAR ─── */
+.stats-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 28px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 20px;
+  border-right: 1px solid var(--gray-200);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-num span { color: var(--red); }
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ─── QUICK SEARCH ─── */
+.quick-search {
+  padding: 56px 0;
+  background: var(--gray-50);
+}
+
+.quick-search-inner {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+}
+
+.quick-search-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.quick-search-img {
+  width: 120px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a6474' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0,48,135,0.1);
+}
+
+/* ─── CATALOG GROUPS ─── */
+.catalog {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.catalog-header {
+  margin-bottom: 40px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.catalog-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  cursor: pointer;
+}
+
+.catalog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--blue);
+}
+
+.catalog-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: var(--gray-100);
+}
+
+.catalog-card-img-placeholder {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, var(--blue-light), var(--gray-100));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-card-body {
+  padding: 20px;
+}
+
+.catalog-card-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--blue-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.catalog-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 6px;
+}
+
+.catalog-card-desc {
+  font-size: 0.83rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.catalog-card-brands {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.brand-tag {
+  padding: 3px 10px;
+  background: var(--gray-100);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.catalog-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-100);
+}
+
+.catalog-card-price {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+}
+
+.catalog-card-price strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.catalog-card-arrow {
+  width: 32px;
+  height: 32px;
+  background: var(--blue-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+}
+
+.catalog-card:hover .catalog-card-arrow {
+  background: var(--blue);
+}
+
+.catalog-card:hover .catalog-card-arrow svg { color: white; }
+
+/* ─── ORIGINAL VS ANALOG ─── */
+.orig-vs {
+  padding: 72px 0;
+  background: var(--gray-50);
+}
+
+.orig-vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.orig-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border: 1.5px solid var(--gray-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.orig-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.orig-card.original::before { background: var(--blue); }
+.orig-card.analog::before { background: var(--red); }
+
+.orig-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.orig-card.original .orig-card-badge {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.orig-card.analog .orig-card-badge {
+  background: #fef2f3;
+  color: var(--red);
+}
+
+.orig-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--gray-800);
+}
+
+.orig-card-desc {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.orig-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orig-card-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+}
+
+.orig-card-list li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.orig-card.original .orig-card-list li::before { background: var(--blue); }
+.orig-card.analog .orig-card-list li::before { background: var(--red); }
+
+.orig-vs-img {
+  margin-top: 40px;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* ─── ADVANTAGES ─── */
+.advantages {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.adv-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 24px;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--gray-200);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.adv-card:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow);
+}
+
+.adv-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--blue-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.adv-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.adv-desc {
+  font-size: 0.83rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+/* ─── АКЦИЯ ─── */
+.promo-section {
+  padding: 56px 0;
+  background: var(--blue);
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('images/img_08.jpg') center/cover no-repeat;
+  opacity: 0.07;
+}
+
+.promo-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(232,25,44,0.3);
+  border: 1px solid rgba(232,25,44,0.5);
+  border-radius: 100px;
+  color: #ff8a94;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.promo-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.promo-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.promo-price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.promo-price-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+
+.promo-price {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+}
+
+.promo-price span {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+}
+
+.btn-promo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: background var(--transition), transform var(--transition);
+  white-space: nowrap;
+}
+
+.btn-promo:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+/* ─── REVIEWS ─── */
+.reviews {
+  padding: 72px 0;
+  background: var(--gray-50);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.review-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1.5px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-stars {
+  display: flex;
+  gap: 3px;
+}
+
+.review-stars span {
+  color: #f59e0b;
+  font-size: 1rem;
+}
+
+.review-text {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-100);
+}
+
+.review-avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--blue-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+/* ─── ФОРМА ЗАПИСИ ─── */
+.booking {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.booking-info-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  height: 280px;
+  object-fit: cover;
+  margin-bottom: 24px;
+}
+
+.booking-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.booking-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+}
+
+.booking-info-item-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--blue-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.booking-form {
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  border: 1.5px solid var(--gray-200);
+}
+
+.booking-form-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 6px;
+}
+
+.booking-form-sub {
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  margin-bottom: 24px;
+}
+
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.booking-form .form-group input,
+.booking-form .form-group select,
+.booking-form .form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 0.93rem;
+  font-family: inherit;
+  color: var(--gray-800);
+  background: var(--white);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  resize: vertical;
+}
+
+.booking-form .form-group textarea {
+  min-height: 90px;
+}
+
+.booking-form .form-group input:focus,
+.booking-form .form-group select:focus,
+.booking-form .form-group textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0,48,135,0.1);
+}
+
+.booking-form .form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 15px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  border: none;
+  font-family: inherit;
+}
+
+.form-submit:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+.form-note {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ─── CONTACTS ─── */
+.contacts {
+  padding: 72px 0;
+  background: var(--gray-50);
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 40px;
+}
+
+.contacts-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contacts-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1.5px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contacts-card-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.contacts-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contacts-phones a {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--blue);
+  transition: color var(--transition);
+}
+
+.contacts-phones a:hover { color: var(--red); }
+
+.contacts-emails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contacts-emails a {
+  font-size: 0.88rem;
+  color: var(--gray-600);
+  transition: color var(--transition);
+}
+
+.contacts-emails a:hover { color: var(--blue); }
+
+.contacts-hours {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.contacts-hours span {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 400;
+  color: var(--gray-600);
+  margin-top: 2px;
+}
+
+.contacts-map-placeholder {
+  background: var(--gray-200);
+  border-radius: var(--radius-lg);
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  border: 1.5px solid var(--gray-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.contacts-map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--gray-800);
+  padding: 48px 0 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand {}
+
+.footer-logo-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.footer-logo-name span { color: var(--red); }
+
+.footer-logo-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.footer-phones a {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+  margin-bottom: 4px;
+  transition: color var(--transition);
+}
+
+.footer-phones a:hover { color: var(--white); }
+
+.footer-col-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--white); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-copy a {
+  color: rgba(255,255,255,0.5);
+  transition: color var(--transition);
+}
+
+.footer-copy a:hover { color: rgba(255,255,255,0.8); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+  .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .header-top-phones a:not(:first-child) { display: none; }
+  .nav { display: none; }
+  .header-cta .btn-secondary { display: none; }
+  .burger { display: flex; }
+
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .hero { padding: 48px 0 44px; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-right: 1px solid var(--gray-200); }
+
+  .search-form { grid-template-columns: 1fr 1fr; }
+  .search-form .btn-primary { grid-column: 1 / -1; }
+
+  .catalog-grid { grid-template-columns: 1fr; }
+
+  .orig-vs-grid { grid-template-columns: 1fr; }
+
+  .advantages-grid { grid-template-columns: 1fr 1fr; }
+
+  .promo-inner { grid-template-columns: 1fr; gap: 24px; }
+  .promo-price-block { align-items: flex-start; text-align: left; }
+
+  .reviews-grid { grid-template-columns: 1fr; }
+
+  .booking-grid { grid-template-columns: 1fr; }
+  .booking-info-img { height: 200px; }
+
+  .contacts-grid { grid-template-columns: 1fr; }
+  .contacts-map-placeholder { min-height: 220px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .quick-search-inner { padding: 24px 20px; }
+  .search-form { grid-template-columns: 1fr; }
+  .advantages-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .booking-form { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="container">
+      <div class="header-top-inner">
+        <div class="header-top-phones">
+          <a href="tel:+78124003535">+7 (812) 400-35-35</a>
+          <a href="tel:+79312902063">+7 (931) 290-20-63</a>
+          <a href="tel:+75854305468">+7 (585) 430-54-68</a>
+        </div>
+        <div class="header-top-email">
+          <a href="mailto:info@koreanagroup.ru" style="">info@koreanagroup.ru</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-main">
+    <div class="container">
+      <div class="header-main-inner">
+        <a href="#" class="logo">
+          <div class="logo-text">
+            <span class="logo-name">Корея<span>на</span></span>
+            <span class="logo-sub">Корейские автозапчасти</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="#catalog">Каталог</a>
+          <a href="#quick-search">Подбор</a>
+          <a href="#orig-vs">Оригинал / Аналог</a>
+          <a href="#advantages">О нас</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <div class="header-cta">
+          <a href="#booking" class="btn-primary">Записаться на СТО</a>
+          <button class="burger" id="burger" aria-label="Меню">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#catalog">Каталог запчастей</a>
+    <a href="#quick-search">Быстрый подбор</a>
+    <a href="#orig-vs">Оригинал или аналог?</a>
+    <a href="#advantages">Почему Кореана</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#booking">Записаться на СТО</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Запчасти в наличии · Подбор по VIN
+        </div>
+        <h1 class="hero-title">
+          Корейские<br>
+          <span class="accent">автозапчасти</span><br>
+          <span class="accent-blue">без ожидания</span>
+        </h1>
+        <p class="hero-desc">
+          Оригинал и качественные аналоги для Hyundai, Kia, Genesis и SsangYong. 
+          Подберём точно под ваш VIN за 15 минут — в наличии и под заказ.
+        </p>
+        <div class="hero-chips">
+          <span class="hero-chip">Hyundai</span>
+          <span class="hero-chip">Kia</span>
+          <span class="hero-chip">Genesis</span>
+          <span class="hero-chip">SsangYong</span>
+          <span class="hero-chip">25 лет опыта</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#quick-search" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Подобрать запчасть
+          </a>
+          <a href="#catalog" class="btn-secondary">Смотреть каталог</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="images/img_04.jpg" alt="Корейские автозапчасти" class="hero-img-main">
+        <div class="hero-img-badge">
+          <div class="hero-img-badge-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+          </div>
+          <div class="hero-img-badge-text">
+            <strong>Гарантия</strong>
+            на все запчасти
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">25<span>+</span></div>
+        <div class="stat-label">лет на рынке</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">марки корейских авто</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">вида запчастей: оригинал и аналог</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Пн<span>-Вс</span></div>
+        <div class="stat-label">работаем без выходных</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK SEARCH -->
+<section class="quick-search" id="quick-search">
+  <div class="container">
+    <div class="quick-search-inner">
+      <div class="quick-search-header">
+        <div>
+          <div class="section-label">Быстрый подбор</div>
+          <h2 class="section-title">Уточнить наличие <span>по вашей марке</span></h2>
+          <p style="color:var(--gray-600);font-size:0.9rem;margin-top:8px;">Выберите марку и нужную категорию — мы перезвоним и подтвердим наличие.</p>
+        </div>
+        <img src="images/img_01.png" alt="Подбор запчастей" class="quick-search-img">
+      </div>
+      <form class="search-form" id="searchForm" action="#" novalidate>
+        <div class="form-group">
+          <label for="carBrand">Марка автомобиля</label>
+          <select id="carBrand" name="brand" required>
+            <option value="">Выберите марку</option>
+            <option value="hyundai">Hyundai</option>
+            <option value="kia">Kia</option>
+            <option value="genesis">Genesis</option>
+            <option value="ssangyong">SsangYong</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="partCategory">Категория запчастей</label>
+          <select id="partCategory" name="category" required>
+            <option value="">Что нужно?</option>
+            <option value="brakes">Тормозные колодки / диски</option>
+            <option value="filters">Фильтры (масло, воздух, топливо)</option>
+            <option value="shocks">Амортизаторы / стойки</option>
+            <option value="belts">Ремни / цепи ГРМ</option>
+            <option value="oils">Масла и расходники</option>
+            <option value="glass">Автостёкла</option>
+            <option value="body">Запчасти кузова</option>
+            <option value="lamps">Лампы / аккумуляторы</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="searchPhone">Ваш телефон</label>
+          <input type="tel" id="searchPhone" name="phone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <button type="submit" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          Уточнить наличие
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG GROUPS -->
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="catalog-header">
+      <div class="section-label">Каталог</div>
+      <h2 class="section-title">Запчасти для <span>корейских авто</span></h2>
+      <p style="color:var(--gray-600);font-size:0.9rem;margin-top:10px;max-width:520px;">Оригинальные и неоригинальные запчасти от официальных дистрибьюторов: Mando, Parts-Mall, Luzar, KRAFTTECH.</p>
+    </div>
+    <div class="catalog-grid">
+
+      <div class="catalog-card">
+        <img src="images/img_05.png" alt="Тормозные колодки" class="catalog-card-img">
+        <div class="catalog-card-body">
+          <div class="catalog-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <div class="catalog-card-title">Тормозные колодки и диски</div>
+          <div class="catalog-card-desc">Оригинал и аналоги. Быстрый подбор по марке и модели. В наличии на складе.</div>
+          <div class="catalog-card-brands">
+            <span class="brand-tag">Hyundai</span>
+            <span class="brand-tag">Kia</span>
+            <span class="brand-tag">SsangYong</span>
+          </div>
+          <div class="catalog-card-footer">
+            <div class="catalog-card-price">
+              <span>от</span>
+              <strong>уточнить цену</strong>
+            </div>
+            <div class="catalog-card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <img src="images/img_06.png" alt="Фильтры масляные воздушные" class="catalog-card-img">
+        <div class="catalog-card-body">
+          <div class="catalog-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+          </div>
+          <div class="catalog-card-title">Фильтры и масла</div>
+          <div class="catalog-card-desc">Масляные, воздушные, топливные фильтры. Комплекты для ТО. Масла для корейских авто.</div>
+          <div class="catalog-card-brands">
+            <span class="brand-tag">Parts-Mall</span>
+            <span class="brand-tag">Luzar</span>
+          </div>
+          <div class="catalog-card-footer">
+            <div class="catalog-card-price">
+              <span>от</span>
+              <strong>уточнить цену</strong>
+            </div>
+            <div class="catalog-card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <img src="images/img_07.png" alt="Амортизаторы стойки подвеска" class="catalog-card-img">
+        <div class="catalog-card-body">
+          <div class="catalog-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="catalog-card-title">Амортизаторы и подвеска</div>
+          <div class="catalog-card-desc">Стойки, амортизаторы, опоры, рычаги. Оригинал Mando и качественные аналоги.</div>
+          <div class="catalog-card-brands">
+            <span class="brand-tag">Mando</span>
+            <span class="brand-tag">Hyundai</span>
+            <span class="brand-tag">Kia</span>
+          </div>
+          <div class="catalog-card-footer">
+            <div class="catalog-card-price">
+              <span>от</span>
+              <strong>уточнить цену</strong>
+            </div>
+            <div class="catalog-card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <img src="images/img_09.jpg" alt="Ремни ГРМ расходники" class="catalog-card-img">
+        <div class="catalog-card-body">
+          <div class="catalog-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div class="catalog-card-title">Ремни и цепи ГРМ</div>
+          <div class="catalog-card-desc">Ремни ГРМ, приводные ремни, цепи, натяжители и ролики. Комплекты под ТО.</div>
+          <div class="catalog-card-brands">
+            <span class="brand-tag">Hyundai</span>
+            <span class="brand-tag">Kia</span>
+            <span class="brand-tag">Genesis</span>
+          </div>
+          <div class="catalog-card-footer">
+            <div class="catalog-card-price">
+              <span>от</span>
+              <strong>уточнить цену</strong>
+            </div>
+            <div class="catalog-card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <img src="images/img_02.png" alt="Запчасти кузова лампы аккумуляторы" class="catalog-card-img">
+        <div class="catalog-card-body">
+          <div class="catalog-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <div class="catalog-card-title">Лампы и аккумуляторы</div>
+          <div class="catalog-card-desc">Лампы для фар, ПТФ, салона. Аккумуляторы для корейских авто. Широкий выбор.</div>
+          <div class="catalog-card-brands">
+            <span class="brand-tag">Hyundai</span>
+            <span class="brand-tag">Kia</span>
+            <span class="brand-tag">SsangYong</span>
+          </div>
+          <div class="catalog-card-footer">
+            <div class="catalog-card-price">
+              <span>от</span>
+              <strong>уточнить цену</strong>
+            </div>
+            <div class="catalog-card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-card">
+        <img src="images/img_19.png" alt="Запчасти кузова автостёкла" class="catalog-card-img">
+        <div class="catalog-card-body">
+          <div class="catalog-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="catalog-card-title">Запчасти кузова и автостёкла</div>
+          <div class="catalog-card-desc">Бамперы, крылья, стёкла, зеркала, молдинги и кузовные панели. Оригинал и аналоги.</div>
+          <div class="catalog-card-brands">
+            <span class="brand-tag">Hyundai</span>
+            <span class="brand-tag">Kia</span>
+            <span class="brand-tag">Genesis</span>
+          </div>
+          <div class="catalog-card-footer">
+            <div class="catalog-card-price">
+              <span>от</span>
+              <strong>уточнить цену</strong>
+            </div>
+            <div class="catalog-card-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ORIGINAL VS ANALOG -->
+<section class="orig-vs" id="orig-vs">
+  <div class="container">
+    <div class="section-label">Помощь в выборе</div>
+    <h2 class="section-title">Оригинал или <span>аналог?</span></h2>
+    <p style="color:var(--gray-600);font-size:0.9rem;margin-top:10px;max-width:560px;">Подскажем, что выгоднее именно для вашего автомобиля и ситуации. Вот главное:</p>
+    <div class="orig-vs-grid">
+      <div class="orig-card original">
+        <div class="orig-card-badge">Оригинальная запчасть</div>
+        <div class="orig-card-title">Оригинал — максимальная надёжность</div>
+        <div class="orig-card-desc">
+          Произведена тем же заводом, что и ваш автомобиль. Идеальное соответствие, 
+          предсказуемый ресурс, подходит для гарантийных авто и тех, кто не хочет рисковать.
+        </div>
+        <ul class="orig-card-list">
+          <li>Точное соответствие заводским стандартам</li>
+          <li>Максимальный ресурс и предсказуемость</li>
+          <li>Подходит для гарантийных автомобилей</li>
+          <li>Лучший выбор для дорогих узлов: АКПП, двигатель</li>
+        </ul>
+      </div>
+      <div class="orig-card analog">
+        <div class="orig-card-badge">Аналог (неоригинал)</div>
+        <div class="orig-card-title">Аналог — выгода без потери качества</div>
+        <div class="orig-card-desc">
+          Производится сторонними заводами по тем же или близким стандартам. 
+          Дешевле оригинала на 20–50%. Для расходников и плановой замены — отличный выбор.
+        </div>
+        <ul class="orig-card-list">
+          <li>Экономия 20–50% по сравнению с оригиналом</li>
+          <li>Проверенные бренды: Mando, Parts-Mall, Luzar</li>
+          <li>Отлично для расходников: фильтры, колодки, ремни</li>
+          <li>Гарантия качества от официального дистрибьютора</li>
+        </ul>
+      </div>
+    </div>
+    <img src="images/img_20.png" alt="Ассортимент корейских запчастей" class="orig-vs-img">
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="advantages" id="advantages">
+  <div class="container">
+    <div class="section-label">Почему Кореана</div>
+    <h2 class="section-title">Владельцы корейских авто <span>выбирают нас</span></h2>
+    <div class="advantages-grid">
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="adv-title">Огромный склад в наличии</div>
+        <div class="adv-desc">Тысячи позиций для Hyundai, Kia, Genesis и SsangYong. Наличие отображается онлайн в режиме реального времени.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="adv-title">Доставка по всей России</div>
+        <div class="adv-desc">Интернет-магазин с доставкой через СДЭК и DPD. Пункты выдачи в десятках городов по всей стране.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <div class="adv-title">Гарантия на запчасти</div>
+        <div class="adv-desc">Официальная гарантия на все приобретённые запчасти. Прозрачные условия возврата и обмена.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="adv-title">Подбор по VIN за 15 минут</div>
+        <div class="adv-desc">Оригинальные каталоги запчастей на сайте. Менеджеры подберут деталь точно под ваш автомобиль.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="adv-title">Минимальная наценка</div>
+        <div class="adv-desc">Прямые поставки от производителей. Официальный дистрибьютор Mando, Parts-Mall, Luzar и KRAFTTECH.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="adv-title">Сервис «запчасти + ремонт»</div>
+        <div class="adv-desc">Сеть технических центров по ремонту корейских авто. Купили запчасть — тут же установим на СТО.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<section class="promo-section">
+  <div class="container">
+    <div class="promo-inner">
+      <div class="promo-content">
+        <div class="promo-badge">Акция · Шиномонтаж</div>
+        <h2 class="promo-title">Пора переобуваться!<br>Шиномонтаж от 2 890 ₽</h2>
+        <p class="promo-desc">Запишитесь на шиномонтаж в автосервис Кореана. Быстро, аккуратно, с гарантией. Работаем без выходных.</p>
+      </div>
+      <div class="promo-price-block">
+        <div class="promo-price-label">Стоимость от</div>
+        <div class="promo-price">2 890 ₽<br><span>за комплект</span></div>
+        <a href="#booking" class="btn-promo">Записаться</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-label">Отзывы клиентов</div>
+    <h2 class="section-title">Нам <span>доверяют</span></h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="review-text">
+          «На мою жалобу перезвонил начальник качества Алексей Юрьевич и оперативно с уважением решил мою проблему. Выражаю огромную благодарность. Надеюсь на дальнейшее сотрудничество.»
+        </div>
+        <div class="review-author">
+          <div class="review-avatar">Г</div>
+          <div class="review-name">Георгий</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="review-text">
+          «Все пришло быстро и в срок. Рекомендую!»
+        </div>
+        <div class="review-author">
+          <div class="review-avatar">М</div>
+          <div class="review-name">Михеев Денис Викторович</div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="review-text">
+          «Давно работаю с Кореаной, всё нравится, коллектив молодцы! Рекомендую!!!»
+        </div>
+        <div class="review-author">
+          <div class="review-avatar">В</div>
+          <div class="review-name">Волков Игорь Геннадьевич</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-info">
+        <div class="section-label">Сервис</div>
+        <h2 class="section-title">Записаться <span>на СТО</span></h2>
+        <p style="color:var(--gray-600);font-size:0.9rem;margin-top:10px;margin-bottom:24px;">Оставьте заявку — перезвоним и согласуем удобное время.</p>
+        <img src="images/img_21.png" alt="Автосервис Кореана" class="booking-info-img">
+        <ul class="booking-info-list">
+          <li class="booking-info-item">
+            <div class="booking-info-item-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            Москва и регионы — сеть технических центров
+          </li>
+          <li class="booking-info-item">
+            <div class="booking-info-item-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            Режим работы: Пн–Вс, 9:00–21:00
+          </li>
+          <li class="booking-info-item">
+            <div class="booking-info-item-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#003087" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+            </div>
+            <a href="tel:+78124003535">+7 (812) 400-35-35</a>
+          </li>
+        </ul>
+      </div>
+      <div class="booking-form">
+        <div class="booking-form-title">Заявка на запись</div>
+        <div class="booking-form-sub">Заполните форму — мы перезвоним в течение 15 минут</div>
+        <form id="bookingForm" action="#" novalidate>
+          <div class="form-group">
+            <label for="bookingName">Ваше имя</label>
+            <input type="text" id="bookingName" name="name" placeholder="Иван Иванов" required>
+          </div>
+          <div class="form-group">
+            <label for="bookingPhone">Телефон</label>
+            <input type="tel" id="bookingPhone" name="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="form-group">
+            <label for="bookingCar">Марка и модель авто</label>
+            <select id="bookingCar" name="car">
+              <option value="">Выберите марку</option>
+              <option value="hyundai">Hyundai</option>
+              <option value="kia">Kia</option>
+              <option value="genesis">Genesis</option>
+              <option value="ssangyong">SsangYong</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookingService">Услуга</label>
+            <select id="bookingService" name="service">
+              <option value="">Выберите услугу</option>
+              <option value="to">Плановое ТО</option>
+              <option value="shinomontazh">Шиномонтаж</option>
+              <option value="diagnostika">Компьютерная диагностика</option>
+              <option value="podveska">Диагностика и ремонт подвески</option>
+              <option value="tormoza">Ремонт тормозной системы</option>
+              <option value="razvalshozhd">Развал-схождение</option>
+              <option value="akpp">Ремонт АКПП</option>
+              <option value="dvigatel">Ремонт двигателя</option>
+              <option value="konditioner">Ремонт автокондиционера</option>
+              <option value="electrika">Ремонт автоэлектрики</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bookingComment">Комментарий (необязательно)</label>
+            <textarea id="bookingComment" name="comment" placeholder="Опишите проблему или укажите VIN..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Отправить заявку</button>
+          <div class="form-note">Данные не передаются третьим лицам. Это демо-форма.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts" id="contacts">
+  <div class="container">
+    <div class="section-label">Контакты</div>
+    <h2 class="section-title">Как с нами <span>связаться</span></h2>
+    <div class="contacts-grid">
+      <div class="contacts-block">
+        <div class="contacts-card">
+          <div class="contacts-card-label">Телефоны</div>
+          <div class="contacts-phones">
+            <a href="tel:+78124003535">+7 (812) 400-35-35</a>
+            <a href="tel:+79312902063">+7 (931) 290-20-63</a>
+            <a href="tel:+75854305468">+7 (585) 430-54-68</a>
+            <a href="tel:+78126402030">+7 (812) 640-20-30</a>
+            <a href="tel:+78126402056">+7 (812) 640-20-56</a>
+          </div>
+        </div>
+        <div class="contacts-card">
+          <div class="contacts-card-label">Email</div>
+          <div class="contacts-emails">
+            <a href="mailto:info@koreanagroup.ru">info@koreanagroup.ru</a>
+            <a href="mailto:zelenograd@mskkoreana.ru">zelenograd@mskkoreana.ru</a>
+            <a href="mailto:andreevka@mskkoreana.ru">andreevka@mskkoreana.ru</a>
+            <a href="mailto:krasnogorsk@mskkoreana.ru">krasnogorsk@mskkoreana.ru</a>
+            <a href="mailto:altufevo@mskkoreana.ru">altufevo@mskkoreana.ru</a>
+            <a href="mailto:kuntsevo@mskkoreana.ru">kuntsevo@mskkoreana.ru</a>
+          </div>
+        </div>
+        <div class="contacts-card">
+          <div class="contacts-card-label">Режим работы</div>
+          <div class="contacts-hours">
+            Понедельник — Воскресенье
+            <span>9:00 — 21:00, без выходных</span>
+          </div>
+        </div>
+      </div>
+      <div class="contacts-map-placeholder">
+        <img src="images/img_08.jpg" alt="Адреса магазинов Кореана" class="contacts-map-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-name">Корея<span>на</span></div>
+        <div class="footer-logo-sub">Корейские автозапчасти</div>
+        <div class="footer-desc">
+          Компания «Кореана» — запчасти, аксессуары и сервис для Hyundai, Kia, Genesis, SsangYong. 
+          25 лет на рынке, прямые поставки, собственные склады.
+        </div>
+        <div class="footer-phones">
+          <a href="tel:+78124003535">+7 (812) 400-35-35</a>
+          <a href="tel:+79312902063">+7 (931) 290-20-63</a>
+          <a href="mailto:info@koreanagroup.ru">info@koreanagroup.ru</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Запчасти</div>
+        <ul class="footer-links">
+          <li><a href="#catalog">Запчасти Hyundai</a></li>
+          <li><a href="#catalog">Запчасти Kia</a></li>
+          <li><a href="#catalog">Запчасти SsangYong</a></li>
+          <li><a href="#catalog">Запчасти для ТО</a></li>
+          <li><a href="#catalog">Комплекты для ТО</a></li>
+          <li><a href="#catalog">Запчасти кузова</a></li>
+          <li><a href="#catalog">Аккумуляторы</a></li>
+          <li><a href="#catalog">Ремни</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Сервис</div>
+        <ul class="footer-links">
+          <li><a href="#booking">Записаться на СТО</a></li>
+          <li><a href="#booking">Шиномонтаж</a></li>
+          <li><a href="#booking">Плановое ТО</a></li>
+          <li><a href="#booking">Развал-схождение</a></li>
+          <li><a href="#booking">Диагностика</a></li>
+          <li><a href="#contacts">Адреса магазинов</a></li>
+          <li><a href="#quick-search">Подбор по VIN</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        © 2012–2026 <a href="https://koreanaparts.ru/" target="_blank">koreanaparts.ru</a> · ООО «Альянс ЛТД» · Все права защищены
+      </div>
+      <div class="footer-copy">
+        <a href="#">Политика конфиденциальности</a> · <a href="#">Пользовательское соглашение</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── BURGER MENU ───
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+burger.addEventListener('click', function() {
+  this.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+
+mobileMenu.querySelectorAll('a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// ─── PHONE MASK ───
+function phoneMask(input) {
+  input.addEventListener('input', function(e) {
+    let val = this.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (!val.startsWith('7')) val = '7' + val;
+    val = val.slice(0, 11);
+    let result = '+7';
+    if (val.length > 1) result += ' (' + val.slice(1, 4);
+    if (val.length >= 4) result += ') ' + val.slice(4, 7);
+    if (val.length >= 7) result += '-' + val.slice(7, 9);
+    if (val.length >= 9) result += '-' + val.slice(9, 11);
+    this.value = result;
+  });
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Backspace' && this.value.length <= 3) {
+      this.value = '';
+    }
+  });
+}
+
+const phoneInputs = document.querySelectorAll('input[type="tel"]');
+phoneInputs.forEach(function(inp) { phoneMask(inp); });
+
+// ─── SEARCH FORM ───
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const brand = document.getElementById('carBrand').value;
+  const category = document.getElementById('partCategory').value;
+  const phone = document.getElementById('searchPhone').value;
+
+  if (!brand) { alert('Пожалуйста, выберите марку автомобиля.'); return; }
+  if (!category) { alert('Пожалуйста, выберите категорию запчастей.'); return; }
+  if (!phone || phone.length < 16) { alert('Пожалуйста, введите корректный номер телефона.'); return; }
+
+  alert('Спасибо! Мы перезвоним и уточним наличие запчасти для вашего автомобиля.');
+  this.reset();
+});
+
+// ─── BOOKING FORM ───
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('bookingName').value.trim();
+  const phone = document.getElementById('bookingPhone').value;
+
+  if (!name) { alert('Пожалуйста, введите ваше имя.'); return; }
+  if (!phone || phone.length < 16) { alert('Пожалуйста, введите корректный номер телефона.'); return; }
+
+  alert('Спасибо! Мы перезвоним и согласуем удобное время для записи.');
+  this.reset();
+});
+
+// ─── SMOOTH SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const headerHeight = document.querySelector('.header').offsetHeight;
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 12;
+      window.scrollTo({ top: targetTop, behavior: 'smooth' });
+    }
+  });
+});
+
+// ─── CARD HOVER EFFECT ───
+document.querySelectorAll('.catalog-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    const title = this.querySelector('.catalog-card-title').textContent;
+    alert('Раздел «' + title + '» — в полной версии сайта здесь будет каталог с ценами и наличием.');
+  });
+});
+</script>
+</body>
+</html>

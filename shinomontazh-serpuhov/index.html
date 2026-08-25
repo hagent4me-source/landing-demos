@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шиномонтаж Серпухов — Московское шоссе 106</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #FF6B00;
+    --orange-light: #FF8C33;
+    --orange-dark: #CC5500;
+    --black: #0D0D0D;
+    --dark: #1A1A1A;
+    --dark2: #242424;
+    --dark3: #2E2E2E;
+    --gray: #3A3A3A;
+    --gray2: #555;
+    --light-gray: #B0B0B0;
+    --white: #FFFFFF;
+    --off-white: #F5F5F5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--dark3);
+    padding: 0 1.5rem;
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .logo-sub {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav a {
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav a:hover { color: var(--orange); }
+
+  .header-phone {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .header-phone:hover { color: var(--orange); }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.active span:nth-child(2) { opacity: 0; }
+  .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav {
+    display: none;
+    background: var(--dark);
+    border-top: 1px solid var(--dark3);
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { color: var(--light-gray); text-decoration: none; font-size: 1rem; font-weight: 500; }
+  .mobile-nav a:hover { color: var(--orange); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 64px;
+    background: var(--black);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(255,107,0,0.12) 0%, transparent 70%);
+  }
+
+  .hero-grid-line {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255,107,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,107,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,107,0,0.15);
+    border: 1px solid rgba(255,107,0,0.3);
+    color: var(--orange);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--orange);
+    border-radius: 50%;
+    animation: pulse-dot 1.5s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--light-gray);
+    margin-bottom: 2rem;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .hero-desc strong { color: var(--white); }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--orange);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--dark3);
+  }
+
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--light-gray);
+    margin-top: 0.2rem;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .hero-img-main {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    border: 2px solid var(--dark3);
+  }
+
+  .hero-img-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    background: var(--orange);
+    color: var(--white);
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    box-shadow: 0 8px 32px rgba(255,107,0,0.4);
+  }
+
+  .hero-img-badge span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+
+  /* ===== SECTION BASE ===== */
+  .section { padding: 5rem 1.5rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--light-gray);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ===== TICKER ===== */
+  .ticker-wrap {
+    background: var(--orange);
+    overflow: hidden;
+    padding: 0.75rem 0;
+  }
+
+  .ticker-track {
+    display: flex;
+    gap: 3rem;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-track span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .ticker-track span::before {
+    content: '●';
+    font-size: 0.5rem;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ===== SERVICES ===== */
+  .services { background: var(--dark); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: border-color 0.25s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card.featured {
+    border-color: var(--orange);
+    background: linear-gradient(135deg, var(--dark2) 0%, rgba(255,107,0,0.08) 100%);
+  }
+
+  .service-card.featured::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255,107,0,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-icon svg { width: 28px; height: 28px; }
+
+  .service-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .service-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+
+  .price-from {
+    font-size: 0.7rem;
+    color: var(--gray2);
+    text-transform: uppercase;
+  }
+
+  .price-val {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--orange);
+  }
+
+  .price-unit {
+    font-size: 0.75rem;
+    color: var(--gray2);
+  }
+
+  .service-img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .badge-hot {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ===== PROMO BANNER ===== */
+  .promo-banner {
+    background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 50%, var(--orange-light) 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .promo-banner::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .promo-text { position: relative; z-index: 1; }
+
+  .promo-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .promo-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .promo-cta { position: relative; z-index: 1; }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white);
+    color: var(--orange-dark);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s;
+    white-space: nowrap;
+  }
+
+  .btn-white:hover { transform: translateY(-2px); }
+
+  /* ===== CALCULATOR ===== */
+  .calculator { background: var(--black); }
+
+  .calc-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .calc-box {
+    background: var(--dark);
+    border: 1px solid var(--dark3);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .calc-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .calc-title svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+  .calc-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .calc-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+  }
+
+  .calc-select, .calc-input {
+    width: 100%;
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .calc-select:focus, .calc-input:focus { border-color: var(--orange); }
+
+  .select-wrap {
+    position: relative;
+  }
+
+  .select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--light-gray);
+    pointer-events: none;
+  }
+
+  .calc-radios {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .calc-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .calc-radio-label:hover { border-color: var(--orange); }
+
+  .calc-radio-label input[type="radio"] {
+    accent-color: var(--orange);
+    width: 16px;
+    height: 16px;
+  }
+
+  .calc-radio-label.checked { border-color: var(--orange); background: rgba(255,107,0,0.08); }
+
+  .calc-qty {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .qty-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    color: var(--white);
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .qty-btn:hover { border-color: var(--orange); background: rgba(255,107,0,0.1); }
+
+  .qty-val {
+    flex: 1;
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 8px;
+    outline: none;
+  }
+
+  .calc-result {
+    background: linear-gradient(135deg, rgba(255,107,0,0.15) 0%, rgba(255,107,0,0.05) 100%);
+    border: 1px solid rgba(255,107,0,0.3);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .result-label {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+
+  .result-price {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .result-note {
+    font-size: 0.75rem;
+    color: var(--gray2);
+    margin-top: 0.3rem;
+  }
+
+  /* ===== BOOKING FORM ===== */
+  .booking-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--orange);
+  }
+
+  .form-group input::placeholder, .form-group textarea::placeholder {
+    color: var(--gray2);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--orange);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+  /* ===== WHY US ===== */
+  .why { background: var(--dark); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .why-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: border-color 0.25s;
+  }
+
+  .why-card:hover { border-color: var(--orange); }
+
+  .why-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255,107,0,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+  }
+
+  .why-icon svg { width: 32px; height: 32px; }
+
+  .why-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .why-desc {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    line-height: 1.6;
+  }
+
+  /* ===== PAMYATKA ===== */
+  .pamyatka { background: var(--black); }
+
+  .pamyatka-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .pamyatka-card {
+    background: var(--dark);
+    border: 1px solid var(--dark3);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pamyatka-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .pamyatka-card.winter::before { background: #4A9EFF; }
+  .pamyatka-card.summer::before { background: var(--orange); }
+  .pamyatka-card.tread::before { background: #44CC88; }
+  .pamyatka-card.tip::before { background: #FFD700; }
+
+  .pamyatka-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .pamyatka-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .pamyatka-desc {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    line-height: 1.65;
+  }
+
+  .pamyatka-highlight {
+    display: inline-block;
+    background: rgba(255,107,0,0.15);
+    color: var(--orange);
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+
+  /* ===== CONTACTS ===== */
+  .contacts { background: var(--dark); }
+
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .contact-item:hover { border-color: var(--orange); }
+
+  .contact-item:last-child { margin-bottom: 0; }
+
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,107,0,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg { width: 22px; height: 22px; }
+
+  .contact-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray2);
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-val {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .contact-val:hover { color: var(--orange); }
+
+  .contact-sub {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    margin-top: 0.2rem;
+  }
+
+  .map-placeholder {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .map-placeholder svg { width: 48px; height: 48px; opacity: 0.4; }
+  .map-placeholder p { color: var(--gray2); font-size: 0.9rem; text-align: center; padding: 0 2rem; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--black);
+    border-top: 1px solid var(--dark3);
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--gray2);
+  }
+
+  .footer-phones {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-phones a {
+    color: var(--light-gray);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+
+  .footer-phones a:hover { color: var(--orange); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .nav { display: none; }
+    .burger { display: flex; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .calc-wrap { grid-template-columns: 1fr; }
+    .contacts-grid { grid-template-columns: 1fr; }
+    .pamyatka-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 3.5rem 1rem; }
+    .hero-inner { padding: 2.5rem 1rem; }
+    .hero-stats { gap: 1.2rem; }
+    .promo-banner { padding: 2rem 1.5rem; }
+    .calc-box { padding: 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 420px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="17" stroke="#FF6B00" stroke-width="2"/>
+        <circle cx="18" cy="18" r="8" stroke="#FF6B00" stroke-width="2"/>
+        <circle cx="18" cy="18" r="3" fill="#FF6B00"/>
+        <line x1="18" y1="1" x2="18" y2="10" stroke="#FF6B00" stroke-width="2"/>
+        <line x1="18" y1="26" x2="18" y2="35" stroke="#FF6B00" stroke-width="2"/>
+        <line x1="1" y1="18" x2="10" y2="18" stroke="#FF6B00" stroke-width="2"/>
+        <line x1="26" y1="18" x2="35" y2="18" stroke="#FF6B00" stroke-width="2"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-title">Шиномонтаж</span>
+        <span class="logo-sub">Серпухов</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="#services">Услуги</a>
+      <a href="#booking">Запись</a>
+      <a href="#why">О нас</a>
+      <a href="#pamyatka">Памятка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a href="tel:+79263935867" class="header-phone">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.36a2 2 0 011.99-1.36h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L7.91 9.91a16 16 0 006.18 6.18l.98-.98a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72a2 2 0 011.72 2z"/>
+      </svg>
+      +7 (926) 393-58-67
+    </a>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#services" class="mob-link">Услуги</a>
+    <a href="#booking" class="mob-link">Запись</a>
+    <a href="#why" class="mob-link">О нас</a>
+    <a href="#pamyatka" class="mob-link">Памятка</a>
+    <a href="#contacts" class="mob-link">Контакты</a>
+    <a href="tel:+79263935867" class="mob-link">+7 (926) 393-58-67</a>
+    <a href="tel:+79692323338" class="mob-link">+7 (969) 232-33-38</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-line"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Серпухов · Московское шоссе 106</div>
+      <h1 class="hero-title">
+        Шиномонтаж<br>в <em>Серпухове</em><br>без очередей
+      </h1>
+      <p class="hero-desc">
+        <strong>Сезонная смена за 30–40 минут</strong> — запишитесь онлайн и приедьте к нужному времени. Балансировка, ремонт проколов, правка дисков. Работаем 24 часа.
+      </p>
+      <div class="hero-cta">
+        <a href="#booking" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Записаться онлайн
+        </a>
+        <a href="tel:+79263935867" class="btn-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.36a2 2 0 011.99-1.36h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L7.91 9.91a16 16 0 006.18 6.18l.98-.98a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72a2 2 0 011.72 2z"/>
+          </svg>
+          Позвонить
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">24ч</div>
+          <div class="stat-label">Работаем круглосуточно</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">30мин</div>
+          <div class="stat-label">Смена 4 колёс</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">R13–R22</div>
+          <div class="stat-label">Все диаметры</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="images/img_00.png" alt="Шиномонтаж Серпухов" class="hero-img-main">
+        <div class="hero-img-badge">
+          <span>−10%</span>
+          скидка постоянным<br>клиентам
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <span>Работаем 24 часа</span>
+    <span>Замена без очереди по записи</span>
+    <span>Балансировка колёс</span>
+    <span>Ремонт проколов и порезов</span>
+    <span>Правка дисков</span>
+    <span>Скидки постоянным клиентам</span>
+    <span>Московское шоссе 106</span>
+    <span>Принимаем заказы на постоянное обслуживание</span>
+    <span>Работаем 24 часа</span>
+    <span>Замена без очереди по записи</span>
+    <span>Балансировка колёс</span>
+    <span>Ремонт проколов и порезов</span>
+    <span>Правка дисков</span>
+    <span>Скидки постоянным клиентам</span>
+    <span>Московское шоссе 106</span>
+    <span>Принимаем заказы на постоянное обслуживание</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="section-label">Прайс-лист</div>
+    <h2 class="section-title">Услуги и цены</h2>
+    <p class="section-sub">Все работы выполняются на профессиональном оборудовании. Цены за одно колесо, если не указано иное.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card featured">
+        <div class="badge-hot">🔥 Хит сезона</div>
+        <img src="images/img_01.png" alt="Сезонная замена шин" class="service-img">
+        <div class="service-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <circle cx="14" cy="14" r="12"/>
+            <circle cx="14" cy="14" r="5"/>
+            <line x1="14" y1="2" x2="14" y2="9"/>
+            <line x1="14" y1="19" x2="14" y2="26"/>
+            <line x1="2" y1="14" x2="9" y2="14"/>
+            <line x1="19" y1="14" x2="26" y2="14"/>
+          </svg>
+        </div>
+        <div class="service-name">Сезонная замена шин</div>
+        <div class="service-desc">Снятие/установка колёс, демонтаж/монтаж шин на диски. Диаметры R13–R22. Быстро и аккуратно.</div>
+        <div class="service-price-row">
+          <span class="price-from">от</span>
+          <span class="price-val">200 ₽</span>
+          <span class="price-unit">/ колесо</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <path d="M14 2a12 12 0 100 24A12 12 0 0014 2z"/>
+            <path d="M14 8v6l4 2"/>
+            <circle cx="14" cy="14" r="2" fill="#FF6B00"/>
+          </svg>
+        </div>
+        <div class="service-name">Балансировка колёс</div>
+        <div class="service-desc">Устраняем биение и вибрацию руля. Точная балансировка на современном стенде.</div>
+        <div class="service-price-row">
+          <span class="price-from">от</span>
+          <span class="price-val">150 ₽</span>
+          <span class="price-unit">/ колесо</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <circle cx="14" cy="14" r="12"/>
+            <path d="M10 14l3 3 5-5"/>
+          </svg>
+        </div>
+        <div class="service-name">Ремонт прокола</div>
+        <div class="service-desc">Жгут или камерная заплата — выбираем оптимальный метод под повреждение. Быстро, надёжно.</div>
+        <div class="service-price-row">
+          <span class="price-from">от</span>
+          <span class="price-val">250 ₽</span>
+          <span class="price-unit">/ ремонт</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <rect x="4" y="8" width="20" height="12" rx="2"/>
+            <path d="M8 8V6a2 2 0 012-2h8a2 2 0 012 2v2"/>
+            <line x1="14" y1="12" x2="14" y2="16"/>
+            <line x1="12" y1="14" x2="16" y2="14"/>
+          </svg>
+        </div>
+        <div class="service-name">Ремонт и правка дисков</div>
+        <div class="service-desc">Правка литых и стальных дисков после ударов и деформаций. Восстановим геометрию.</div>
+        <div class="service-price-row">
+          <span class="price-from">от</span>
+          <span class="price-val">500 ₽</span>
+          <span class="price-unit">/ диск</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <path d="M5 4h18v4H5zM5 12h18v4H5zM5 20h18v4H5z"/>
+          </svg>
+        </div>
+        <div class="service-name">Постоянное обслуживание</div>
+        <div class="service-desc">Принимаем заказы на постоянное обслуживание. Скидка обязательна! Уточняйте условия.</div>
+        <div class="service-price-row">
+          <span class="price-from"></span>
+          <span class="price-val">Скидка!</span>
+          <span class="price-unit">для своих</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 28 28" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <circle cx="14" cy="14" r="12"/>
+            <path d="M9 14l3 3 7-7"/>
+          </svg>
+        </div>
+        <div class="service-name">Докачка и проверка давления</div>
+        <div class="service-desc">Проверяем и выставляем давление во всех шинах по норме производителя авто.</div>
+        <div class="service-price-row">
+          <span class="price-from"></span>
+          <span class="price-val">Бесплатно</span>
+          <span class="price-unit">при заезде</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="promo-banner">
+      <div class="promo-text">
+        <div class="promo-title">Постоянным клиентам — скидка обязательна!</div>
+        <div class="promo-desc">Принимаем заказы на постоянное обслуживание. Звоните — обсудим индивидуальные условия.</div>
+      </div>
+      <div class="promo-cta">
+        <a href="tel:+79263935867" class="btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.36a2 2 0 011.99-1.36h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L7.91 9.91a16 16 0 006.18 6.18l.98-.98a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72a2 2 0 011.72 2z"/>
+          </svg>
+          Позвонить
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR + BOOKING -->
+<section class="section calculator" id="booking">
+  <div class="section-inner">
+    <div class="section-label">Онлайн-сервис</div>
+    <h2 class="section-title">Рассчитайте стоимость<br>и запишитесь</h2>
+    <p class="section-sub">Выберите параметры — увидите примерную цену. Затем оставьте заявку — мы перезвоним и подтвердим время.</p>
+
+    <div class="calc-wrap">
+      <!-- CALCULATOR -->
+      <div class="calc-box">
+        <div class="calc-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <rect x="2" y="3" width="20" height="18" rx="2"/>
+            <line x1="8" y1="10" x2="16" y2="10"/>
+            <line x1="8" y1="14" x2="16" y2="14"/>
+            <line x1="8" y1="18" x2="12" y2="18"/>
+          </svg>
+          Калькулятор
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">Диаметр колеса</label>
+          <div class="select-wrap">
+            <select class="calc-select" id="calcR">
+              <option value="R13">R13</option>
+              <option value="R14">R14</option>
+              <option value="R15" selected>R15</option>
+              <option value="R16">R16</option>
+              <option value="R17">R17</option>
+              <option value="R18">R18</option>
+              <option value="R19">R19</option>
+              <option value="R20">R20</option>
+              <option value="R21">R21</option>
+              <option value="R22+">R22 и выше</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">Тип работы</label>
+          <div class="calc-radios">
+            <label class="calc-radio-label checked" id="radio1">
+              <input type="radio" name="calcType" value="full" checked> Замена + балансировка (1 колесо)
+            </label>
+            <label class="calc-radio-label" id="radio2">
+              <input type="radio" name="calcType" value="swap"> Только замена (1 колесо)
+            </label>
+            <label class="calc-radio-label" id="radio3">
+              <input type="radio" name="calcType" value="balance"> Только балансировка (1 колесо)
+            </label>
+            <label class="calc-radio-label" id="radio4">
+              <input type="radio" name="calcType" value="repair"> Ремонт прокола
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-group">
+          <label class="calc-label">Количество колёс</label>
+          <div class="calc-qty">
+            <button class="qty-btn" id="qtyMinus" type="button">−</button>
+            <input type="number" class="qty-val" id="qtyVal" value="4" min="1" max="4" readonly>
+            <button class="qty-btn" id="qtyPlus" type="button">+</button>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div>
+            <div class="result-label">Примерная стоимость</div>
+            <div class="result-price" id="calcResult">1 400 ₽</div>
+            <div class="result-note">Итого за <span id="calcQtyLabel">4</span> колеса</div>
+          </div>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.3"/>
+            <circle cx="24" cy="24" r="12" stroke="#FF6B00" stroke-width="2"/>
+            <circle cx="24" cy="24" r="4" fill="#FF6B00"/>
+            <line x1="24" y1="2" x2="24" y2="12" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.5"/>
+            <line x1="24" y1="36" x2="24" y2="46" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.5"/>
+            <line x1="2" y1="24" x2="12" y2="24" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.5"/>
+            <line x1="36" y1="24" x2="46" y2="24" stroke="#FF6B00" stroke-width="2" stroke-opacity="0.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- BOOKING FORM -->
+      <div class="calc-box">
+        <div class="calc-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Запись на шиномонтаж
+        </div>
+
+        <form class="booking-form" id="bookingForm" action="#">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fName">Ваше имя</label>
+              <input type="text" id="fName" name="name" placeholder="Александр">
+            </div>
+            <div class="form-group">
+              <label for="fPhone">Телефон</label>
+              <input type="tel" id="fPhone" name="phone" placeholder="+7 (___) ___-__-__">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fDate">Дата</label>
+              <input type="date" id="fDate" name="date">
+            </div>
+            <div class="form-group">
+              <label for="fTime">Время</label>
+              <div class="select-wrap">
+                <select id="fTime" name="time">
+                  <option value="">Выберите...</option>
+                  <option>09:00</option><option>09:30</option>
+                  <option>10:00</option><option>10:30</option>
+                  <option>11:00</option><option>11:30</option>
+                  <option>12:00</option><option>12:30</option>
+                  <option>13:00</option><option>14:00</option>
+                  <option>15:00</option><option>16:00</option>
+                  <option>17:00</option><option>18:00</option>
+                  <option>19:00</option><option>20:00</option>
+                  <option>21:00</option><option>22:00</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fCar">Автомобиль и диаметр колёс</label>
+            <input type="text" id="fCar" name="car" placeholder="Toyota Camry, R17">
+          </div>
+          <div class="form-group">
+            <label for="fComment">Комментарий</label>
+            <textarea id="fComment" name="comment" placeholder="Что нужно сделать?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Записаться — мы перезвоним</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section why" id="why">
+  <div class="section-inner">
+    <div class="section-label">Почему выбирают нас</div>
+    <h2 class="section-title">Ваш механик в Серпухове</h2>
+    <p class="section-sub">«Я твой механик» — не просто слова. Работаем честно, быстро и с гарантией на все виды работ.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <circle cx="16" cy="16" r="13"/>
+            <path d="M10 16l4 4 8-8"/>
+          </svg>
+        </div>
+        <div class="why-title">Работаем 24 часа</div>
+        <div class="why-desc">Прокол среди ночи — не проблема. Приезжайте в любое время, мы на месте.</div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <circle cx="16" cy="16" r="13"/>
+            <line x1="16" y1="8" x2="16" y2="16"/>
+            <line x1="16" y1="16" x2="21" y2="20"/>
+          </svg>
+        </div>
+        <div class="why-title">30–40 минут</div>
+        <div class="why-desc">Полная сезонная смена четырёх колёс — без лишних слов и затяжных очередей.</div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <path d="M4 8h24M4 16h24M4 24h16"/>
+            <circle cx="26" cy="24" r="4"/>
+            <line x1="26" y1="21" x2="26" y2="24"/>
+          </svg>
+        </div>
+        <div class="why-title">Запись без очереди</div>
+        <div class="why-desc">Бронируйте время онлайн — приедете к назначенному часу и сразу на подъёмник.</div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <path d="M16 4l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z"/>
+            <path d="M6 20c0 6 4 8 10 8s10-2 10-8"/>
+          </svg>
+        </div>
+        <div class="why-title">Опытный мастер</div>
+        <div class="why-desc">Один мастер — полная ответственность за результат. Всё делается аккуратно и с душой.</div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <rect x="4" y="8" width="24" height="16" rx="2"/>
+            <path d="M10 8V6a2 2 0 012-2h8a2 2 0 012 2v2"/>
+            <path d="M12 17l3 3 5-5"/>
+          </svg>
+        </div>
+        <div class="why-title">Гарантия на работу</div>
+        <div class="why-desc">Даём гарантию на все виды выполненных работ. Если что-то не так — вернём и исправим.</div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 32 32" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+            <path d="M16 4C10 4 5 9 5 16s5 12 11 12 11-5 11-12S22 4 16 4z"/>
+            <path d="M12 13c1-2 6-2 7 0s-1 3-3 4v2"/>
+            <circle cx="16" cy="23" r="1" fill="#FF6B00"/>
+          </svg>
+        </div>
+        <div class="why-title">Скидки постоянным</div>
+        <div class="why-desc">Принимаем на постоянное обслуживание. Скидка обязательна — уточните при звонке.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAMYATKA -->
+<section class="section pamyatka" id="pamyatka">
+  <div class="section-inner">
+    <div class="section-label">Полезно знать</div>
+    <h2 class="section-title">Памятка водителя:<br>когда менять шины</h2>
+    <p class="section-sub">Простые правила, которые сберегут ваши деньги и жизнь на дороге.</p>
+
+    <div class="pamyatka-grid">
+      <div class="pamyatka-card winter">
+        <span class="pamyatka-icon">❄️</span>
+        <div class="pamyatka-title">Переход на зимнюю резину</div>
+        <div class="pamyatka-desc">
+          Ставьте зимние шины, когда среднесуточная температура опускается ниже <span class="pamyatka-highlight">+7 °C</span>. Обычно это октябрь — ноябрь для Подмосковья. Не ждите первого снега — летняя резина уже плохо держит дорогу в холод.
+        </div>
+      </div>
+
+      <div class="pamyatka-card summer">
+        <span class="pamyatka-icon">☀️</span>
+        <div class="pamyatka-title">Переход на летнюю резину</div>
+        <div class="pamyatka-desc">
+          Снимайте зимние шины, когда температура стабильно держится выше <span class="pamyatka-highlight">+7 °C</span> — примерно апрель. Зимняя резина на тёплом асфальте быстро изнашивается и хуже тормозит.
+        </div>
+      </div>
+
+      <div class="pamyatka-card tread">
+        <span class="pamyatka-icon">📏</span>
+        <div class="pamyatka-title">Остаток протектора</div>
+        <div class="pamyatka-desc">
+          Минимально допустимый остаток: <span class="pamyatka-highlight">1,6 мм</span> для летних шин и <span class="pamyatka-highlight">4 мм</span> для зимних. Проверить легко: монета в 10 копеек — если видна вся цифра «10», пора менять.
+        </div>
+      </div>
+
+      <div class="pamyatka-card tip">
+        <span class="pamyatka-icon">💡</span>
+        <div class="pamyatka-title">Давление и балансировка</div>
+        <div class="pamyatka-desc">
+          Проверяйте давление раз в месяц и перед дальней дорогой. Дисбаланс проявляется вибрацией руля — не тяните, это ускоряет износ подвески. Рекомендуем балансировать при каждой сезонной смене.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section contacts" id="contacts">
+  <div class="section-inner">
+    <div class="section-label">Мы находимся</div>
+    <h2 class="section-title">Контакты</h2>
+    <p class="section-sub">Приезжайте или звоните — работаем круглосуточно.</p>
+
+    <div class="contacts-grid">
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.36a2 2 0 011.99-1.36h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L7.91 9.91a16 16 0 006.18 6.18l.98-.98a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72a2 2 0 011.72 2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Телефон</div>
+            <a href="tel:+79263935867" class="contact-val">+7 (926) 393-58-67</a>
+            <div class="contact-sub">Основной</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.36a2 2 0 011.99-1.36h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L7.91 9.91a16 16 0 006.18 6.18l.98-.98a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72a2 2 0 011.72 2z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Телефон</div>
+            <a href="tel:+79692323338" class="contact-val">+7 (969) 232-33-38</a>
+            <div class="contact-sub">Дополнительный</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Адрес</div>
+            <span class="contact-val">Московское шоссе 106</span>
+            <div class="contact-sub">Серпухов</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Режим работы</div>
+            <span class="contact-val">24 часа / 7 дней</span>
+            <div class="contact-sub">Без выходных и праздников</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round">
+          <path d="M24 4C16 4 10 10 10 18c0 11 14 26 14 26s14-15 14-26c0-8-6-14-14-14z"/>
+          <circle cx="24" cy="18" r="5"/>
+        </svg>
+        <p>Серпухов, Московское шоссе 106<br>Открыть на карте</p>
+        <a href="https://yandex.ru/maps/?text=Серпухов+Московское+шоссе+106" target="_blank" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Открыть карту
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-copy">© 2025 Шиномонтаж Серпухов · Московское шоссе 106 · Демо-сайт</div>
+    <div class="footer-phones">
+      <a href="tel:+79263935867">+7 (926) 393-58-67</a>
+      <a href="tel:+79692323338">+7 (969) 232-33-38</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== BURGER =====
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    mobileNav.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('active');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 64;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ===== CALCULATOR =====
+  const prices = {
+    R13:  { full: 200 + 150, swap: 200, balance: 150, repair: 250 },
+    R14:  { full: 220 + 150, swap: 220, balance: 150, repair: 250 },
+    R15:  { full: 250 + 170, swap: 250, balance: 170, repair: 270 },
+    R16:  { full: 280 + 180, swap: 280, balance: 180, repair: 300 },
+    R17:  { full: 320 + 200, swap: 320, balance: 200, repair: 350 },
+    R18:  { full: 380 + 220, swap: 380, balance: 220, repair: 400 },
+    R19:  { full: 430 + 250, swap: 430, balance: 250, repair: 450 },
+    R20:  { full: 500 + 280, swap: 500, balance: 280, repair: 500 },
+    R21:  { full: 550 + 300, swap: 550, balance: 300, repair: 550 },
+    'R22+': { full: 650 + 350, swap: 650, balance: 350, repair: 600 }
+  };
+
+  const calcR = document.getElementById('calcR');
+  const calcResult = document.getElementById('calcResult');
+  const calcQtyLabel = document.getElementById('calcQtyLabel');
+  const qtyVal = document.getElementById('qtyVal');
+  const qtyMinus = document.getElementById('qtyMinus');
+  const qtyPlus = document.getElementById('qtyPlus');
+  const radioLabels = [
+    document.getElementById('radio1'),
+    document.getElementById('radio2'),
+    document.getElementById('radio3'),
+    document.getElementById('radio4')
+  ];
+
+  function getSelectedType() {
+    const checked = document.querySelector('input[name="calcType"]:checked');
+    return checked ? checked.value : 'full';
+  }
+
+  function updateCalc() {
+    const r = calcR.value;
+    const type = getSelectedType();
+    const qty = parseInt(qtyVal.value) || 1;
+    const pricePerWheel = prices[r] ? prices[r][type] : 350;
+    const total = pricePerWheel * qty;
+    calcResult.textContent = total.toLocaleString('ru-RU') + ' ₽';
+    calcQtyLabel.textContent = qty;
+  }
+
+  calcR.addEventListener('change', updateCalc);
+
+  document.querySelectorAll('input[name="calcType"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      radioLabels.forEach(l => l.classList.remove('checked'));
+      this.closest('.calc-radio-label').classList.add('checked');
+      updateCalc();
+    });
+  });
+
+  qtyMinus.addEventListener('click', () => {
+    const val = parseInt(qtyVal.value);
+    if (val > 1) { qtyVal.value = val - 1; updateCalc(); }
+  });
+
+  qtyPlus.addEventListener('click', () => {
+    const val = parseInt(qtyVal.value);
+    if (val < 4) { qtyVal.value = val + 1; updateCalc(); }
+  });
+
+  updateCalc();
+
+  // ===== PHONE MASK =====
+  const phoneInput = document.getElementById('fPhone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function() {
+      let val = this.value.replace(/\D/g, '');
+      if (val.startsWith('8')) val = '7' + val.slice(1);
+      if (!val.startsWith('7')) val = '7' + val;
+      val = val.slice(0, 11);
+      let formatted = '+7';
+      if (val.length > 1) formatted += ' (' + val.slice(1, 4);
+      if (val.length >= 4) formatted += ') ' + val.slice(4, 7);
+      if (val.length >= 7) formatted += '-' + val.slice(7, 9);
+      if (val.length >= 9) formatted += '-' + val.slice(9, 11);
+      this.value = formatted;
+    });
+  }
+
+  // ===== FORM SUBMIT =====
+  const bookingForm = document.getElementById('bookingForm');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('fName').value.trim();
+      const phone = document.getElementById('fPhone').value.trim();
+      if (!name) { alert('Пожалуйста, введите ваше имя.'); return; }
+      if (phone.length < 16) { alert('Пожалуйста, введите корректный номер телефона.'); return; }
+      alert('Спасибо! Мы перезвоним.');
+      bookingForm.reset();
+    });
+  }
+
+  // ===== SET MIN DATE FOR BOOKING =====
+  const dateInput = document.getElementById('fDate');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+    dateInput.value = today;
+  }
+</script>
+</body>
+</html>
