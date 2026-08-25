@@ -1,127 +1,50 @@
 [
  {
   "file": "images/img_00.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/1a2/1a290564ca411fae3f1f48a6cc1313ca.jpg",
-  "size_kb": 82
+  "size_kb": 82,
+  "alt": "Автоэлектрика",
+  "url": "https://www.dsrv.ru/upload/iblock/1a2/1a290564ca411fae3f1f48a6cc1313ca.jpg"
  },
  {
   "file": "images/img_01.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/af1/af16f2b05b4f997a9fd5601430815b0a.jpg",
-  "size_kb": 32
+  "size_kb": 33,
+  "alt": "Двигатель",
+  "url": "https://www.dsrv.ru/upload/iblock/af1/af16f2b05b4f997a9fd5601430815b0a.jpg"
  },
  {
   "file": "images/img_02.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/fa3/fa3df789a184201ac2d9fcae69737fc4.jpg",
-  "size_kb": 47
+  "size_kb": 48,
+  "alt": "Подвеска",
+  "url": "https://www.dsrv.ru/upload/iblock/fa3/fa3df789a184201ac2d9fcae69737fc4.jpg"
  },
  {
   "file": "images/img_03.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/bea/bea3b0b6dec50d7e25c7f5efaafb4571.jpg",
-  "size_kb": 94
+  "size_kb": 95,
+  "alt": "Диагностика",
+  "url": "https://www.dsrv.ru/upload/iblock/bea/bea3b0b6dec50d7e25c7f5efaafb4571.jpg"
  },
  {
   "file": "images/img_04.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/caf/cafbf36edad9e5597c603bfb3f814911.jpg",
-  "size_kb": 56
+  "size_kb": 56,
+  "alt": "Климатическая система",
+  "url": "https://www.dsrv.ru/upload/iblock/caf/cafbf36edad9e5597c603bfb3f814911.jpg"
  },
  {
   "file": "images/img_05.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/872/8729e6dcb537f76eaf3aca08c7e5ae41.jpg",
-  "size_kb": 28
+  "size_kb": 28,
+  "alt": "Кузовной ремонт",
+  "url": "https://www.dsrv.ru/upload/iblock/872/8729e6dcb537f76eaf3aca08c7e5ae41.jpg"
  },
  {
   "file": "images/img_06.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/477/47768044d76c9e100b9c678c8fc226ec.jpg",
-  "size_kb": 70
+  "size_kb": 71,
+  "alt": "Трансмиссия",
+  "url": "https://www.dsrv.ru/upload/iblock/477/47768044d76c9e100b9c678c8fc226ec.jpg"
  },
  {
   "file": "images/img_07.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/aaf/aafe66aa2ec3b56043fd9ce17bfc7181.jpg",
-  "size_kb": 21
- },
- {
-  "file": "images/img_08.png",
-  "url": "https://www.dsrv.ru/upload/iblock/76a/76a9c5365877571a3abf893cbb4cb71c.png",
-  "size_kb": 8
- },
- {
-  "file": "images/img_09.png",
-  "url": "https://www.dsrv.ru/upload/iblock/180/18077d7d30277925fe1c12a719da921b.png",
-  "size_kb": 9
- },
- {
-  "file": "images/img_10.png",
-  "url": "https://www.dsrv.ru/upload/iblock/25c/25c39cb970fa4dbfe737415efb71e1ae.png",
-  "size_kb": 9
- },
- {
-  "file": "images/img_11.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/8b5/8b58b6b72d1162ca17b0e046fb37735c.jpg",
-  "size_kb": 4
- },
- {
-  "file": "images/img_12.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/0ec/0ec4207bbec8dde9c80cc7a3718506e5.jpg",
-  "size_kb": 9
- },
- {
-  "file": "images/img_13.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/d55/d55a0b2a243b47b946af85ba9c2c8231.jpg",
-  "size_kb": 8
- },
- {
-  "file": "images/img_14.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/298/298ef15f8d1c4261995009bc2ed9f688.jpg",
-  "size_kb": 4
- },
- {
-  "file": "images/img_15.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/281/281b3ac98a0d06c9b252eb3e22eea608.jpg",
-  "size_kb": 5
- },
- {
-  "file": "images/img_16.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/08a/08a2e5212a2134442848234803c6cadc.jpg",
-  "size_kb": 2
- },
- {
-  "file": "images/img_17.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/5e4/5e478d5619cb90de0a86e303bc106c77.jpg",
-  "size_kb": 10
- },
- {
-  "file": "images/img_18.jpg",
-  "url": "https://www.dsrv.ru/upload/iblock/3f5/3f53d12d2749b462e81814b863ba8aea.jpg",
-  "size_kb": 4
- },
- {
-  "file": "images/img_19.png",
-  "url": "https://www.dsrv.ru/upload/iblock/1ae/1aea99114d4ff3d653b1e579b74990b2.png",
-  "size_kb": 6
- },
- {
-  "file": "images/img_20.png",
-  "url": "https://www.dsrv.ru/upload/iblock/5b0/5b0cfa9335a13cfb92c7797fc731fa1f.png",
-  "size_kb": 7
- },
- {
-  "file": "images/img_21.png",
-  "url": "https://www.dsrv.ru/upload/iblock/22f/22f00203c21e36bef10ac9cb4d39f1f0.png",
-  "size_kb": 7
- },
- {
-  "file": "images/img_22.png",
-  "url": "https://www.dsrv.ru/upload/iblock/182/1826a10b9ed787138f4052d198b62cb6.png",
-  "size_kb": 6
- },
- {
-  "file": "images/img_23.png",
-  "url": "https://www.dsrv.ru/upload/iblock/2c8/2c877d83955ce1fef92541ddef14fad0.png",
-  "size_kb": 4
- },
- {
-  "file": "images/img_24.png",
-  "url": "https://www.dsrv.ru/images/vk.png",
-  "size_kb": 2
+  "size_kb": 22,
+  "alt": "Тормозная система",
+  "url": "https://www.dsrv.ru/upload/iblock/aaf/aafe66aa2ec3b56043fd9ce17bfc7181.jpg"
  }
 ]

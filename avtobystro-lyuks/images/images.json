@@ -1,127 +1,98 @@
 [
  {
   "file": "images/img_00.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/5_avtomoyka.webp",
-  "size_kb": 27
+  "size_kb": 27,
+  "alt": "Автомойка",
+  "url": "https://avtobystro.ru/userfls/menu/services/5_avtomoyka.webp"
  },
  {
   "file": "images/img_01.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/13_service-9.webp",
-  "size_kb": 17
+  "size_kb": 18,
+  "alt": "Автосервис",
+  "url": "https://avtobystro.ru/userfls/menu/services/13_service-9.webp"
  },
  {
   "file": "images/img_02.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/6_service-2.webp",
-  "size_kb": 22
+  "size_kb": 22,
+  "alt": "Детейлинг студия",
+  "url": "https://avtobystro.ru/userfls/menu/services/6_service-2.webp"
  },
  {
   "file": "images/img_03.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/7_khimchistka.webp",
-  "size_kb": 23
+  "size_kb": 23,
+  "alt": "Химчистка",
+  "url": "https://avtobystro.ru/userfls/menu/services/7_khimchistka.webp"
  },
  {
   "file": "images/img_04.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/8_service-4.webp",
-  "size_kb": 40
+  "size_kb": 41,
+  "alt": "Шиномонтаж",
+  "url": "https://avtobystro.ru/userfls/menu/services/8_service-4.webp"
  },
  {
   "file": "images/img_05.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/9_remont-kolesnykh-diskov.webp",
-  "size_kb": 39
+  "size_kb": 40,
+  "alt": "Ремонт колесных дисков",
+  "url": "https://avtobystro.ru/userfls/menu/services/9_remont-kolesnykh-diskov.webp"
  },
  {
   "file": "images/img_06.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/10_tonirovka-stekol.webp",
-  "size_kb": 10
+  "size_kb": 11,
+  "alt": "Тонировка стекол",
+  "url": "https://avtobystro.ru/userfls/menu/services/10_tonirovka-stekol.webp"
  },
  {
   "file": "images/img_07.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/11_okleyka-plenkami.webp",
-  "size_kb": 22
+  "size_kb": 23,
+  "alt": "Оклейка кузова пленкой",
+  "url": "https://avtobystro.ru/userfls/menu/services/11_okleyka-plenkami.webp"
  },
  {
   "file": "images/img_08.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/12_polirovka-avtomobiley.webp",
-  "size_kb": 31
+  "size_kb": 31,
+  "alt": "Полировка кузова автомобиля",
+  "url": "https://avtobystro.ru/userfls/menu/services/12_polirovka-avtomobiley.webp"
  },
  {
   "file": "images/img_09.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/14_service-10.webp",
-  "size_kb": 19
+  "size_kb": 19,
+  "alt": "Ремонт вмятин без покраски PDR",
+  "url": "https://avtobystro.ru/userfls/menu/services/14_service-10.webp"
  },
  {
   "file": "images/img_10.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/15_service-11.webp",
-  "size_kb": 6
+  "size_kb": 6,
+  "alt": "Ремонт автомобильных стекол",
+  "url": "https://avtobystro.ru/userfls/menu/services/15_service-11.webp"
  },
  {
   "file": "images/img_11.webp",
-  "url": "https://avtobystro.ru/userfls/menu/services/572_skhod-razval-3d.webp",
-  "size_kb": 5
+  "size_kb": 6,
+  "alt": "Сход-развал 3D",
+  "url": "https://avtobystro.ru/userfls/menu/services/572_skhod-razval-3d.webp"
  },
  {
   "file": "images/img_12.webp",
-  "url": "https://avtobystro.ru/userfls/site/medium/1_o-nas.webp",
-  "size_kb": 46
+  "size_kb": 44,
+  "alt": "Интерьер бокса 2",
+  "url": "https://avtobystro.ru/userfls/photo/medium/3_interior-2.webp"
  },
  {
   "file": "images/img_13.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1041_anons_novosti_progressivny.webp",
-  "size_kb": 20
+  "size_kb": 32,
+  "alt": "Интерьер бокса 3",
+  "url": "https://avtobystro.ru/userfls/photo/medium/2_interior-3.webp"
  },
  {
   "file": "images/img_14.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1034_deteyling---praktikum-kazan.webp",
-  "size_kb": 16
+  "size_kb": 47,
+  "alt": "Интерьер бокса 1",
+  "url": "https://avtobystro.ru/userfls/photo/medium/4_interior-1.webp"
  },
  {
   "file": "images/img_15.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1033_master-klass-po-deteylingu-.webp",
-  "size_kb": 21
- },
- {
-  "file": "images/img_16.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1032_master-klass-po-deteylingu.webp",
-  "size_kb": 22
- },
- {
-  "file": "images/img_17.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1031_master-klass-po-deteylingu-.webp",
-  "size_kb": 20
- },
- {
-  "file": "images/img_18.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1047_avtobystro-na-interavtom.webp",
-  "size_kb": 26
- },
- {
-  "file": "images/img_19.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1046_mir-trud-may---rezhim-raboty.webp",
-  "size_kb": 27
- },
- {
-  "file": "images/img_20.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1039_rasprodazha-kolodok-trw.webp",
-  "size_kb": 15
- },
- {
-  "file": "images/img_21.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1038_rasprodazha-sklada-3d-kovry.webp",
-  "size_kb": 16
- },
- {
-  "file": "images/img_22.webp",
-  "url": "https://avtobystro.ru/userfls/clauses/portfolio/1030_anons-novosti-pro-sto.webp",
-  "size_kb": 18
- },
- {
-  "file": "images/img_23.jpg",
-  "url": "https://avtobystro.ru/userfls/bs/video_10.jpg",
-  "size_kb": 137
- },
- {
-  "file": "images/img_24.jpg",
-  "url": "https://avtobystro.ru/userfls/bs/eikosha_18.jpg",
-  "size_kb": 412
+  "size_kb": 47,
+  "alt": "О нас — команда и цех",
+  "url": "https://avtobystro.ru/userfls/site/medium/1_o-nas.webp"
  }
 ]
