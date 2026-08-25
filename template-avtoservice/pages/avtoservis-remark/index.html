@@ -168,8 +168,7 @@
   .booking-form .btn-primary { justify-content: center; border: none; cursor: pointer; width: 100%; }
 
   /* ===== CONTACTS ===== */
-  .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
-  @media (max-width: 760px) { .contacts-grid { grid-template-columns: 1fr; } }
+  .contacts-grid { display: grid; grid-template-columns: 1fr; gap: 26px; max-width: 640px; }
   .contact-line { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
   .contact-ico {
     width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
@@ -179,12 +178,6 @@
   .contact-line b { display: block; font-size: 15px; }
   .contact-line a { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 16px; }
   .contact-line a:hover { text-decoration: underline; }
-  .map-placeholder {
-    border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden;
-    background: linear-gradient(135deg, #e8eef7, #d9e3f2); min-height: 240px;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: var(--text-muted); font-size: 14px; gap: 6px; padding: 20px; text-align: center;
-  }
 
   /* ===== FOOTER ===== */
   .footer { background: #0f2a4d; color: rgba(255,255,255,0.75); padding: 30px 0; text-align: center; font-size: 14px; }
@@ -337,12 +330,6 @@
           <div class="contact-ico">🕘</div>
           <div><b>Режим работы</b><span>Ежедневно 9:00–20:00</span></div>
         </div>
-      </div>
-      <div class="map-placeholder">
-        <div style="font-size:40px">🗺️</div>
-        <b>Автосервис «Ремарк»</b>
-        <span>Северное ш., 4</span>
-        <span>Карта появится после подключения сайта</span>
       </div>
     </div>
   </div>
