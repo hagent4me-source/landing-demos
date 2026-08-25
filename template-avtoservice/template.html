@@ -301,7 +301,7 @@
     <p>{{HERO_TEXT}}</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="tel:+{{WADIGITS}}">📞 Позвонить</a>
-      <a class="btn btn-wa" href="https://wa.me/{{WADIGITS}}" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+      <a class="btn btn-wa js-wa" href="https://wa.me/{{WADIGITS}}" data-wa="{{WADIGITS}}" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
     </div>
     <div class="hero-meta">
       <span class="pill">📍 <b>{{ADDR}}</b></span>
@@ -421,7 +421,7 @@
       </div>
       <div class="contact-line reveal">
         <div class="contact-ico">💬</div>
-        <div><b>WhatsApp</b><a href="https://wa.me/{{WADIGITS}}" target="_blank" rel="noopener">Написать сообщение</a></div>
+        <div><b>WhatsApp</b><a class="js-wa" href="https://wa.me/{{WADIGITS}}" data-wa="{{WADIGITS}}" target="_blank" rel="noopener">Написать сообщение</a></div>
       </div>
       <div class="contact-line reveal">
         <div class="contact-ico">📍</div>
@@ -441,7 +441,7 @@
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/{{WADIGITS}}" target="_blank" rel="noopener" title="Написать в WhatsApp">💬</a>
+<a class="wa-float js-wa" href="https://wa.me/{{WADIGITS}}" data-wa="{{WADIGITS}}" target="_blank" rel="noopener" title="Написать в WhatsApp">💬</a>
 
 <script>
 (function () {
@@ -452,6 +452,25 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  // WhatsApp: на телефоне — wa.me (открывает приложение),
+  // на десктопе — сначала протокол whatsapp:// (приложение Desktop), фолбэк wa.me
+  function waOpen(digits, text) {
+    var wa = 'https://wa.me/' + digits + (text ? '?text=' + encodeURIComponent(text) : '');
+    var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    if (isMobile) { location.href = wa; return; }
+    var opened = false;
+    var t = setTimeout(function () { if (!opened) location.href = wa; }, 2500);
+    window.addEventListener('blur', function () { opened = true; clearTimeout(t); });
+    location.href = 'whatsapp://send?phone=' + digits + (text ? '&text=' + encodeURIComponent(text) : '');
+  }
+
+  document.querySelectorAll('.js-wa').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      waOpen(a.getAttribute('data-wa') || a.getAttribute('href').replace(/^.*wa\.me\//, '').split('?')[0], '');
+    });
+  });
 
   // форма → заявка в WhatsApp
   var form = document.getElementById('booking-form');
@@ -468,7 +487,7 @@
         'Телефон: ' + f.phone.value.trim() + '\n' +
         (f.service.value ? 'Услуга: ' + f.service.value + '\n' : '') +
         (f.comment.value.trim() ? 'Комментарий: ' + f.comment.value.trim() : '');
-      window.open('https://wa.me/{{WADIGITS}}?text=' + encodeURIComponent(text), '_blank');
+      waOpen('{{WADIGITS}}', text);
     });
   }
 })();
