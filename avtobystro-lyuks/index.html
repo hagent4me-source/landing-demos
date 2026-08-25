@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АвтоБыстро Люкс — Автомойка и автосервис нового поколения в ЮВАО</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0f;
+    --dark: #111118;
+    --card: #16161f;
+    --card2: #1c1c28;
+    --border: #2a2a3a;
+    --accent: #e8b84b;
+    --accent2: #f5d080;
+    --accent-glow: rgba(232,184,75,0.18);
+    --red: #e84b4b;
+    --text: #e8e8f0;
+    --muted: #8888a0;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--black);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 16px;
+  }
+  .logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1.15;
+  }
+  .logo-main {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+  .logo-main span { color: var(--accent); }
+  .logo-sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .header-contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-phones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+  .header-phones a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .header-phones a:hover { color: var(--accent); }
+  .header-hours {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .btn-header {
+    background: var(--accent);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .2s, transform .15s;
+  }
+  .btn-header:hover { background: var(--accent2); transform: translateY(-1px); }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all .3s;
+  }
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color .2s, background .2s;
+  }
+  .nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 16px 24px 20px;
+    gap: 4px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav .mob-phones { padding: 12px 0 0; display: flex; flex-direction: column; gap: 6px; }
+  .mobile-nav .mob-phones a { border: none; color: var(--accent); font-weight: 700; font-size: 16px; padding: 4px 0; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 24px 60px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 50%, rgba(232,184,75,0.08) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(232,184,75,0.05) 0%, transparent 60%),
+      linear-gradient(160deg, #0a0a0f 0%, #111118 50%, #0d0d14 100%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(232,184,75,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,184,75,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 75%);
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,184,75,0.1);
+    border: 1px solid rgba(232,184,75,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+  .hero-title {
+    font-size: clamp(36px, 5.5vw, 68px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .hero-title .gold { color: var(--accent); }
+  .hero-title .line2 { color: var(--muted); font-weight: 300; }
+  .hero-desc {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .hero-desc strong { color: var(--text); }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--black);
+    font-weight: 800;
+    font-size: 15px;
+    padding: 14px 32px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 24px rgba(232,184,75,0.3);
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,184,75,0.4); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 32px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color .2s, background .2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--accent); background: var(--accent-glow); }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-stat-item { display: flex; flex-direction: column; }
+  .hero-stat-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+  }
+  .hero-stat-num span { color: var(--accent); }
+  .hero-stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* Hero card */
+  .hero-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+  .hero-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .hero-card-title span { color: var(--accent); }
+  .promo-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .promo-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .promo-icon {
+    width: 28px; height: 28px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(232,184,75,0.25);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .promo-list li strong { color: var(--accent); }
+  .hero-card-sep {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+  }
+  .hero-card-address {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .hero-card-address strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 13px; }
+
+  /* ─── SECTION COMMON ─── */
+  .section { padding: 80px 24px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-header { margin-bottom: 48px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    line-height: 1.15;
+  }
+  .section-title span { color: var(--accent); }
+  .section-sub {
+    font-size: 16px;
+    color: var(--muted);
+    margin-top: 10px;
+    max-width: 580px;
+    line-height: 1.6;
+  }
+
+  /* ─── HOW WE WORK ─── */
+  .how-bg { background: var(--dark); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .2s, transform .2s;
+  }
+  .step-card:hover { border-color: rgba(232,184,75,0.4); transform: translateY(-4px); }
+  .step-num {
+    font-size: 52px;
+    font-weight: 900;
+    color: rgba(232,184,75,0.1);
+    line-height: 1;
+    position: absolute;
+    top: 16px; right: 20px;
+    font-variant-numeric: tabular-nums;
+  }
+  .step-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .step-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* ─── SERVICES GRID ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .service-tile {
+    background: var(--card);
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+    transition: background .2s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-tile::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s;
+  }
+  .service-tile:hover { background: var(--card2); }
+  .service-tile:hover::after { transform: scaleX(1); }
+  .service-tile-icon { font-size: 36px; margin-bottom: 14px; display: block; }
+  .service-tile-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .service-tile-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .service-tile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .service-tile.featured {
+    background: linear-gradient(135deg, rgba(232,184,75,0.08) 0%, var(--card) 60%);
+    border-color: rgba(232,184,75,0.3);
+  }
+  .service-tile.featured .service-tile-name { color: var(--accent); }
+
+  /* ─── АКЦИИ ─── */
+  .promos-bg { background: var(--dark); }
+  .promos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .promo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color .2s, transform .2s;
+  }
+  .promo-card:hover { border-color: rgba(232,184,75,0.35); transform: translateY(-3px); }
+  .promo-card-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232,75,75,0.12);
+    border: 1px solid rgba(232,75,75,0.3);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #e84b4b;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  .promo-card-label.gold {
+    background: rgba(232,184,75,0.1);
+    border-color: rgba(232,184,75,0.3);
+    color: var(--accent);
+  }
+  .promo-card-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .promo-card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .promo-card-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-top: auto;
+  }
+  .promo-card-price s { font-size: 14px; color: var(--muted); font-weight: 400; margin-left: 8px; }
+  .promo-card-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+    text-align: center;
+    margin-top: 4px;
+  }
+  .promo-card-btn:hover { border-color: var(--accent); background: var(--accent-glow); color: var(--accent); }
+  .promo-card.wide { grid-column: span 2; }
+  .promo-card.wide .promo-card-name { font-size: 20px; }
+
+  /* ─── CALCULATOR ─── */
+  .calc-bg { background: var(--black); }
+  .calc-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+  }
+  .calc-form { padding: 40px; }
+  .calc-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .calc-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+  .calc-group { margin-bottom: 20px; }
+  .calc-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+  .calc-group select,
+  .calc-group input[type="range"] {
+    width: 100%;
+  }
+  .calc-group select {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: inherit;
+    padding: 12px 16px;
+    appearance: none;
+    cursor: pointer;
+    transition: border-color .2s;
+  }
+  .calc-group select:focus { outline: none; border-color: var(--accent); }
+  .calc-radios {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .calc-radio-item { display: none; }
+  .calc-radio-label {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .2s;
+    user-select: none;
+  }
+  .calc-radio-item:checked + .calc-radio-label {
+    background: var(--accent-glow);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .calc-result {
+    background: linear-gradient(135deg, rgba(232,184,75,0.08) 0%, var(--card2) 100%);
+    border-left: 1px solid var(--border);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .calc-result-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .calc-result-price {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .calc-result-price span { color: var(--accent); font-size: 28px; }
+  .calc-result-breakdown {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .calc-breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .calc-breakdown-row:last-child { border-bottom: none; }
+  .calc-breakdown-row strong { color: var(--text); }
+  .calc-result-note { font-size: 11px; color: var(--muted); line-height: 1.5; margin-top: 16px; }
+  .calc-result-cta {
+    background: var(--accent);
+    color: var(--black);
+    font-weight: 800;
+    font-size: 15px;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 24px;
+    transition: background .2s;
+    font-family: inherit;
+  }
+  .calc-result-cta:hover { background: var(--accent2); }
+
+  /* ─── POPULAR SERVICES LIST ─── */
+  .popular-bg { background: var(--dark); }
+  .popular-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .popular-col {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .popular-col-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .popular-col-icon { font-size: 24px; }
+  .popular-col-title { font-size: 15px; font-weight: 700; color: var(--white); }
+  .popular-col-list { list-style: none; padding: 16px 24px 20px; display: flex; flex-direction: column; gap: 2px; }
+  .popular-col-list li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .popular-col-list li::before {
+    content: '';
+    width: 3px; height: 3px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .popular-col-list li:last-child { border-bottom: none; }
+
+  /* ─── BONUS PROGRAM ─── */
+  .bonus-wrap {
+    background: linear-gradient(135deg, rgba(232,184,75,0.06) 0%, var(--card) 50%, rgba(232,184,75,0.04) 100%);
+    border: 1px solid rgba(232,184,75,0.2);
+    border-radius: 24px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .bonus-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .bonus-title span { color: var(--accent); }
+  .bonus-desc { font-size: 15px; color: var(--muted); line-height: 1.7; }
+  .bonus-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .bonus-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .bonus-step-num {
+    width: 32px; height: 32px;
+    background: var(--accent);
+    color: var(--black);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .bonus-step-text { font-size: 14px; color: var(--text); line-height: 1.4; }
+  .bonus-step-text strong { color: var(--white); display: block; font-size: 15px; margin-bottom: 2px; }
+
+  /* ─── CONTACTS / FORM ─── */
+  .contacts-bg { background: var(--dark); }
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 40px;
+    align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+  .contact-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .contact-block-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .contact-block-value {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .contact-block-value a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color .2s;
+  }
+  .contact-block-value a:hover { color: var(--accent); }
+  .contact-block-value .email-link {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), rgba(232,184,75,0.2), transparent);
+  }
+  .form-card-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .form-card-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: inherit;
+    padding: 12px 16px;
+    transition: border-color .2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .form-group input.error { border-color: var(--red); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-submit {
+    background: var(--accent);
+    color: var(--black);
+    font-weight: 800;
+    font-size: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-family: inherit;
+    transition: background .2s, transform .15s;
+    margin-top: 4px;
+  }
+  .form-submit:hover { background: var(--accent2); transform: translateY(-1px); }
+  .form-note { font-size: 11px; color: var(--muted); margin-top: 10px; text-align: center; line-height: 1.5; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-logo { font-size: 16px; font-weight: 800; color: var(--white); }
+  .footer-logo span { color: var(--accent); }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-card { display: none; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .promos-grid { grid-template-columns: repeat(2, 1fr); }
+    .promo-card.wide { grid-column: span 1; }
+    .calc-wrap { grid-template-columns: 1fr; }
+    .calc-result { border-left: none; border-top: 1px solid var(--border); }
+    .popular-cols { grid-template-columns: repeat(2, 1fr); }
+    .bonus-wrap { grid-template-columns: 1fr; gap: 28px; }
+    .contacts-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .header-contacts { display: none; }
+    .nav { display: none; }
+    .btn-header { display: none; }
+    .burger { display: flex; }
+    .section { padding: 56px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .promos-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .popular-cols { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .bonus-wrap { padding: 28px; }
+    .calc-form { padding: 24px; }
+    .calc-result { padding: 24px; }
+    .hero-stats { gap: 20px; }
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas .btn-primary, .hero-ctas .btn-ghost { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <span class="logo-main">АвтоБыстро<span> Люкс</span></span>
+      <span class="logo-sub">Автомойка &amp; Автосервис · ЮВАО</span>
+    </a>
+    <nav class="nav">
+      <a href="#services">Услуги</a>
+      <a href="#promos">Акции</a>
+      <a href="#calc">Расчёт цены</a>
+      <a href="#bonus">Бонусы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-contacts">
+      <div class="header-phones">
+        <a href="tel:+74954100537">+7 (495) 410-05-37</a>
+        <a href="tel:+79015819304">+7 (901) 581-93-04</a>
+        <span class="header-hours">Ежедневно 8:00–22:00</span>
+      </div>
+      <a class="btn-header" href="#contacts">Записаться</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#services">Услуги</a>
+    <a href="#promos">Акции</a>
+    <a href="#calc">Расчёт цены</a>
+    <a href="#bonus">Бонусная программа</a>
+    <a href="#contacts">Контакты</a>
+    <div class="mob-phones">
+      <a href="tel:+74954100537">+7 (495) 410-05-37</a>
+      <a href="tel:+79015819304">+7 (901) 581-93-04</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Открыты каждый день · 8:00 – 22:00</div>
+      <h1 class="hero-title">
+        Автомойка и<br>
+        <span class="gold">автосервис</span><br>
+        <span class="line2">нового поколения</span>
+      </h1>
+      <p class="hero-desc">
+        <strong>АвтоБыстро Люкс</strong> — полный цикл ухода за автомобилем в одном месте: мойка, детейлинг, шиномонтаж, химчистка, полировка, оклейка и ремонт. Находимся в ТРЦ «Город» Лефортово, парковка −1.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#contacts">Записаться онлайн</a>
+        <a class="btn-ghost" href="#calc">Рассчитать стоимость</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">11<span>+</span></span>
+          <span class="hero-stat-label">направлений услуг</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">14<span>ч</span></span>
+          <span class="hero-stat-label">работаем каждый день</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">3D</span>
+          <span class="hero-stat-label">сход-развал</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-num">PDR</span>
+          <span class="hero-stat-label">ремонт вмятин</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">🔥 Актуальные <span>акции</span></div>
+      <ul class="promo-list">
+        <li>
+          <div class="promo-icon">🚿</div>
+          <span>Мойка радиатора со снятием — <strong>от 5 000 ₽</strong>, мойка кузова в подарок</span>
+        </li>
+        <li>
+          <div class="promo-icon">❄️</div>
+          <span>Заправка кондиционера R-1234yf — <strong>от 15 000 ₽</strong></span>
+        </li>
+        <li>
+          <div class="promo-icon">🛞</div>
+          <span>3D сход-развал — <strong>мойка кузова в подарок</strong></span>
+        </li>
+        <li>
+          <div class="promo-icon">🧹</div>
+          <span>Химчистка салона — <strong>от 5 000 ₽</strong>, антибактериальная обработка в подарок</span>
+        </li>
+        <li>
+          <div class="promo-icon">🛡️</div>
+          <span>Бронирование лобового стекла — <strong>25 000 ₽</strong> вместо 30 000</span>
+        </li>
+        <li>
+          <div class="promo-icon">🏷️</div>
+          <span>Колодки TRW из ассортимента — <strong>900 ₽</strong></span>
+        </li>
+      </ul>
+      <div class="hero-card-sep"></div>
+      <div class="hero-card-address">
+        <strong>📍 Как нас найти</strong>
+        Москва, Шоссе Энтузиастов, д. 12, стр. 2<br>
+        ТРЦ «Город» Лефортово, парковка −1 уровень
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="section how-bg" id="how">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Как мы работаем</div>
+      <h2 class="section-title">Просто, быстро, <span>удобно</span></h2>
+      <p class="section-sub">Запись онлайн или по телефону — приезжаете в удобное время, мастера уже ждут.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <span class="step-icon">📱</span>
+        <div class="step-title">Запись</div>
+        <p class="step-text">Оставьте заявку на сайте или позвоните — выберем удобное время без очередей.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <span class="step-icon">🚗</span>
+        <div class="step-title">Приезжаете</div>
+        <p class="step-text">ТРЦ «Город» Лефортово, парковка −1. Удобно: пока ждёте — шопинг или кафе.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <span class="step-icon">🔧</span>
+        <div class="step-title">Выполняем работу</div>
+        <p class="step-text">Мастера приступают сразу. Профессиональное оборудование и расходники.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">04</span>
+        <span class="step-icon">✅</span>
+        <div class="step-title">Принимаете авто</div>
+        <p class="step-text">Проверяете результат, оплачиваете любым способом. Гарантия на все работы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Услуги</div>
+      <h2 class="section-title">Всё для вашего <span>автомобиля</span></h2>
+      <p class="section-sub">Одиннадцать направлений под одной крышей — от экспресс-мойки до полного детейлинга.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-tile featured">
+        <span class="service-tile-icon">🚿</span>
+        <div class="service-tile-name">Автомойка</div>
+        <p class="service-tile-desc">Бесконтактная мойка, трёхфазная мойка, удаление реагента, битумных пятен, тополиных почек, мойка двигателя паром, мойка мотоциклов.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Мойка днища</span>
+          <span class="tag">Твёрдый воск</span>
+          <span class="tag">Чернение резины</span>
+          <span class="tag">Антидождь</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">✨</span>
+        <div class="service-tile-name">Детейлинг</div>
+        <p class="service-tile-desc">Защитные покрытия кузова и салона, керамическое покрытие дисков, детейлинг по маркам авто, детейлинг мотоцикла, чистка кузова глиной.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Детейлинг стёкол</span>
+          <span class="tag">Детейлинг днища</span>
+          <span class="tag">Суппорта</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">🔩</span>
+        <div class="service-tile-name">Автосервис</div>
+        <p class="service-tile-desc">Диагностика, ремонт ходовой, замена масла/фильтров/свечей, ремонт рулевых реек, заправка кондиционеров, установка доп. оборудования.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Люфт-детектор</span>
+          <span class="tag">Вибростенд</span>
+          <span class="tag">Сход-развал 3D</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">🛞</span>
+        <div class="service-tile-name">Шиномонтаж</div>
+        <p class="service-tile-desc">Съём и установка колёс, балансировка, ремонт проколов и боковых порезов, хранение резины.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Хранение шин</span>
+          <span class="tag">Балансировка</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">🧹</span>
+        <div class="service-tile-name">Химчистка</div>
+        <p class="service-tile-desc">Химчистка текстильного и кожаного салона, сидений, потолка, пола, багажника, обивки дверей, детских кресел и колясок.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Сухой туман</span>
+          <span class="tag">Озонирование</span>
+          <span class="tag">Ароматизация</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">💎</span>
+        <div class="service-tile-name">Полировка</div>
+        <p class="service-tile-desc">Абразивная и защитная полировка, полировка фар, лобового и заднего стекла, хрома, пленки, мотошлема, вставок салона.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Локальная полировка</span>
+          <span class="tag">Полировка дисков</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">🛡️</span>
+        <div class="service-tile-name">Оклейка плёнкой</div>
+        <p class="service-tile-desc">Бронеплёнка, антигравийные полиуретановые плёнки, цветные плёнки, винилография, оклейка мотоцикла, снятие плёнки.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Антигравий</span>
+          <span class="tag">Цветные плёнки</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">🔲</span>
+        <div class="service-tile-name">Тонировка</div>
+        <p class="service-tile-desc">Тонировка по ГОСТ, атермальная, хамелеон, электронная тонировка. Плёнки ASWF, Llumar. Тонировка фар. Снятие тонировки.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Электронная</span>
+          <span class="tag">Llumar</span>
+          <span class="tag">ASWF</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">🪟</span>
+        <div class="service-tile-name">Ремонт стёкол</div>
+        <p class="service-tile-desc">Ремонт сколов и трещин на лобовом стекле, шлифовка лобового стекла, замена лобовых стёкол всех марок.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Ремонт сколов</span>
+          <span class="tag">Замена стёкол</span>
+        </div>
+      </div>
+      <div class="service-tile">
+        <span class="service-tile-icon">⭕</span>
+        <div class="service-tile-name">Ремонт дисков</div>
+        <p class="service-tile-desc">Правка дисков, реставрация, шлифовка, проточка лицевой части, пескоструйная обработка, покраска, детейлинг дисков.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Правка</span>
+          <span class="tag">Покраска</span>
+          <span class="tag">Реставрация</span>
+        </div>
+      </div>
+      <div class="service-tile featured">
+        <span class="service-tile-icon">🔨</span>
+        <div class="service-tile-name">Ремонт вмятин PDR</div>
+        <p class="service-tile-desc">Ремонт вмятин без покраски методом PDR — восстанавливаем форму кузова без нарушения лакокрасочного покрытия.</p>
+        <div class="service-tile-tags">
+          <span class="tag">Без покраски</span>
+          <span class="tag">Сохранение ЛКП</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- АКЦИИ -->
+<section class="section promos-bg" id="promos">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Акции</div>
+      <h2 class="section-title">Выгодные <span>предложения</span></h2>
+      <p class="section-sub">Актуальные акции — записывайтесь и экономьте прямо сейчас.</p>
+    </div>
+    <div class="promos-grid">
+      <div class="promo-card wide">
+        <div class="promo-card-label">🔥 Хит</div>
+        <div class="promo-card-name">Мойка кузова в подарок!</div>
+        <p class="promo-card-desc">При заказе мойки радиатора со снятием, 3D схода-развала, аппаратной замены масла в АКПП или обслуживания полного привода Hyundai/Kia — мойка кузова бесплатно.</p>
+        <div class="promo-card-price">от 5 000 ₽</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться и получить подарок</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label gold">Акция</div>
+        <div class="promo-card-name">Бронирование лобового стекла</div>
+        <p class="promo-card-desc">Забронируйте лобовое стекло по акции. Срок действия ограничен!</p>
+        <div class="promo-card-price">25 000 ₽ <s>30 000 ₽</s></div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Заказать</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label">−30%</div>
+        <div class="promo-card-name">Керамическое покрытие для стёкол</div>
+        <p class="promo-card-desc">Передняя полусфера — 3 500 ₽ −30%. Все стёкла: седан 6 000 ₽, кроссовер 7 000 ₽, джип 8 000 ₽ — скидка 30%.</p>
+        <div class="promo-card-price">от 2 450 ₽</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label gold">Акция</div>
+        <div class="promo-card-name">Химчистка салона от 5 000 ₽</div>
+        <p class="promo-card-desc">Химчистка переднего пола и передних сидений для седана. При заказе химчистки — антибактериальная обработка в подарок!</p>
+        <div class="promo-card-price">от 5 000 ₽</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Заказать</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label">🎁 Подарок</div>
+        <div class="promo-card-name">Антидождь при оклейке плёнкой</div>
+        <p class="promo-card-desc">При оклейке авто полиуретановой плёнкой — нанесение антидождя Аквапель в подарок. Не распространяется на оклейку фар, стоек, полосы на крышу.</p>
+        <div class="promo-card-price">Бесплатно</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Узнать подробнее</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label">🏷️ Распродажа</div>
+        <div class="promo-card-name">Колодки TRW — 900 ₽</div>
+        <p class="promo-card-desc">Любые тормозные колодки TRW из списка по специальной цене. Уточняйте наличие у менеджера.</p>
+        <div class="promo-card-price">900 ₽</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Уточнить наличие</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label gold">Сертификат</div>
+        <div class="promo-card-name">Подарочные сертификаты</div>
+        <p class="promo-card-desc">Подарочные сертификаты номиналом до 20 000 ₽ на любые услуги АвтоБыстро Люкс — отличный подарок автомобилисту.</p>
+        <div class="promo-card-price">до 20 000 ₽</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Заказать сертификат</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label">❄️ Новинка</div>
+        <div class="promo-card-name">Фреон R-1234yf</div>
+        <p class="promo-card-desc">Заправка автокондиционера фреоном нового поколения R-1234yf. Будущее автомобильных кондиционеров уже наступило.</p>
+        <div class="promo-card-price">от 15 000 ₽</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Заказать</button>
+      </div>
+      <div class="promo-card">
+        <div class="promo-card-label">🏷️ Ликвидация</div>
+        <div class="promo-card-name">3D ворсовые коврики</div>
+        <p class="promo-card-desc">Ликвидация склада! Коврики в салон со скидкой. Уточняйте размеры и наличие под вашу марку авто.</p>
+        <div class="promo-card-price">Со скидкой</div>
+        <button class="promo-card-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Узнать цену</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section calc-bg" id="calc">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Расчёт стоимости</div>
+      <h2 class="section-title">Узнайте цену <span>онлайн</span></h2>
+      <p class="section-sub">Выберите услугу и параметры — получите ориентировочную стоимость за секунды.</p>
+    </div>
+    <div class="calc-wrap">
+      <div class="calc-form">
+        <div class="calc-title">Конфигуратор услуги</div>
+        <p class="calc-sub">Итоговая цена уточняется у мастера после осмотра автомобиля.</p>
+
+        <div class="calc-group">
+          <label>Категория услуги</label>
+          <select id="calcService">
+            <option value="wash">Автомойка</option>
+            <option value="chem">Химчистка салона</option>
+            <option value="polish">Полировка кузова</option>
+            <option value="tint">Тонировка стёкол</option>
+            <option value="tire">Шиномонтаж</option>
+            <option value="service">Автосервис (замена масла)</option>
+            <option value="detail">Детейлинг (защитное покрытие)</option>
+          </select>
+        </div>
+
+        <div class="calc-group">
+          <label>Тип кузова</label>
+          <div class="calc-radios">
+            <input class="calc-radio-item" type="radio" name="body" id="b1" value="sedan" checked>
+            <label class="calc-radio-label" for="b1">Седан</label>
+            <input class="calc-radio-item" type="radio" name="body" id="b2" value="cross">
+            <label class="calc-radio-label" for="b2">Кроссовер</label>
+            <input class="calc-radio-item" type="radio" name="body" id="b3" value="jeep">
+            <label class="calc-radio-label" for="b3">Джип/Минивэн</label>
+          </div>
+        </div>
+
+        <div class="calc-group">
+          <label>Степень загрязнения / сложность</label>
+          <div class="calc-radios">
+            <input class="calc-radio-item" type="radio" name="dirty" id="d1" value="light" checked>
+            <label class="calc-radio-label" for="d1">Лёгкое</label>
+            <input class="calc-radio-item" type="radio" name="dirty" id="d2" value="medium">
+            <label class="calc-radio-label" for="d2">Среднее</label>
+            <input class="calc-radio-item" type="radio" name="dirty" id="d3" value="heavy">
+            <label class="calc-radio-label" for="d3">Сильное</label>
+          </div>
+        </div>
+
+        <div class="calc-group">
+          <label>Дополнительно</label>
+          <div class="calc-radios">
+            <input class="calc-radio-item" type="radio" name="extra" id="e0" value="none" checked>
+            <label class="calc-radio-label" for="e0">Без допуслуг</label>
+            <input class="calc-radio-item" type="radio" name="extra" id="e1" value="wax">
+            <label class="calc-radio-label" for="e1">+ Воск / антидождь</label>
+            <input class="calc-radio-item" type="radio" name="extra" id="e2" value="ozone">
+            <label class="calc-radio-label" for="e2">+ Озонирование</label>
+            <input class="calc-radio-item" type="radio" name="extra" id="e3" value="engine">
+            <label class="calc-radio-label" for="e3">+ Мойка двигателя</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div>
+          <div class="calc-result-label">Ориентировочная стоимость</div>
+          <div class="calc-result-price" id="calcPrice">2 500 <span>₽</span></div>
+          <div class="calc-result-breakdown" id="calcBreakdown">
+            <div class="calc-breakdown-row"><span>Базовая услуга</span><strong id="bBase">2 500 ₽</strong></div>
+            <div class="calc-breakdown-row"><span>Тип кузова</span><strong id="bBody">+0 ₽</strong></div>
+            <div class="calc-breakdown-row"><span>Сложность</span><strong id="bDirty">+0 ₽</strong></div>
+            <div class="calc-breakdown-row"><span>Доп. услуга</span><strong id="bExtra">+0 ₽</strong></div>
+          </div>
+          <div class="calc-result-note">* Цена ориентировочная. Точная стоимость определяется мастером после осмотра. Цены могут меняться в зависимости от сложности работ.</div>
+        </div>
+        <button class="calc-result-cta" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться по этой цене</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR SERVICES -->
+<section class="section popular-bg" id="popular">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Популярные услуги</div>
+      <h2 class="section-title">Что чаще всего <span>заказывают</span></h2>
+    </div>
+    <div class="popular-cols">
+      <div class="popular-col">
+        <div class="popular-col-header">
+          <span class="popular-col-icon">🚿</span>
+          <span class="popular-col-title">Автомойка</span>
+        </div>
+        <ul class="popular-col-list">
+          <li>Трёхфазная мойка автомобиля</li>
+          <li>Мойка двигателя паром</li>
+          <li>Мойка-чистка радиатора</li>
+          <li>Удаление тополиных почек</li>
+          <li>Удаление битумных пятен</li>
+          <li>Ароматизация салона</li>
+          <li>Озонирование салона</li>
+          <li>Устранение запахов сухим туманом</li>
+          <li>Нанесение твёрдого воска</li>
+          <li>Антидождь Аквапель</li>
+          <li>Мойка мотоциклов</li>
+        </ul>
+      </div>
+      <div class="popular-col">
+        <div class="popular-col-header">
+          <span class="popular-col-icon">🔩</span>
+          <span class="popular-col-title">Автосервис</span>
+        </div>
+        <ul class="popular-col-list">
+          <li>Замена масла в двигателе</li>
+          <li>Замена тормозных колодок</li>
+          <li>Замена тормозных дисков</li>
+          <li>Замена амортизаторов</li>
+          <li>Замена масла в АКПП / МКПП</li>
+          <li>Замена свечей зажигания</li>
+          <li>Заправка кондиционера R-1234yf</li>
+          <li>Замена антифриза с промывкой</li>
+          <li>Диагностика на вибростенде</li>
+          <li>Установка видеорегистратора</li>
+          <li>Установка автосигнализации</li>
+        </ul>
+      </div>
+      <div class="popular-col">
+        <div class="popular-col-header">
+          <span class="popular-col-icon">🧹</span>
+          <span class="popular-col-title">Химчистка &amp; Шиномонтаж</span>
+        </div>
+        <ul class="popular-col-list">
+          <li>Химчистка салона автомобиля</li>
+          <li>Химчистка сидений</li>
+          <li>Химчистка детских кресел</li>
+          <li>Химчистка багажника</li>
+          <li>Балансировка колёс</li>
+          <li>Ремонт проколов шин</li>
+          <li>Сезонное хранение резины</li>
+          <li>Ремонт боковых порезов</li>
+          <li>Съём и установка колёс</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="section" id="bonus">
+  <div class="section-inner">
+    <div class="bonus-wrap">
+      <div>
+        <div class="section-label">Бонусная программа</div>
+        <h2 class="bonus-title">Копите бонусы —<br><span>получайте скидки</span></h2>
+        <p class="bonus-desc">В АвтоБыстро Люкс действует бонусная программа для постоянных клиентов. Каждый визит приносит бонусные баллы, которые можно тратить на оплату услуг.</p>
+      </div>
+      <div class="bonus-steps">
+        <div class="bonus-step">
+          <div class="bonus-step-num">1</div>
+          <div class="bonus-step-text">
+            <strong>Зарегистрируйтесь</strong>
+            Оформите карту участника при первом визите или при записи онлайн.
+          </div>
+        </div>
+        <div class="bonus-step">
+          <div class="bonus-step-num">2</div>
+          <div class="bonus-step-text">
+            <strong>Копите баллы</strong>
+            С каждой оплаченной услуги на карту начисляются бонусные баллы.
+          </div>
+        </div>
+        <div class="bonus-step">
+          <div class="bonus-step-num">3</div>
+          <div class="bonus-step-text">
+            <strong>Экономьте</strong>
+            Оплачивайте баллами часть стоимости следующих услуг — чем чаще приезжаете, тем выгоднее.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS & FORM -->
+<section class="section contacts-bg" id="contacts">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Контакты</div>
+      <h2 class="section-title">Запишитесь <span>прямо сейчас</span></h2>
+      <p class="section-sub">Оставьте заявку — перезвоним и подберём удобное время.</p>
+    </div>
+    <div class="contacts-grid">
+      <div class="contact-info">
+        <div class="contact-block">
+          <div class="contact-block-label">Телефоны</div>
+          <div class="contact-block-value">
+            <a href="tel:+74954100537">+7 (495) 410-05-37</a>
+            <a href="tel:+79015819304">+7 (901) 581-93-04</a>
+            <a href="tel:+79067017032">+7 (906) 701-70-32</a>
+            <a class="email-link" href="mailto:info@avtobystro.ru">info@avtobystro.ru</a>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">Адрес</div>
+          <div class="contact-block-value">
+            Москва, Шоссе Энтузиастов, д. 12, стр. 2<br>
+            ТРЦ «Город» Лефортово<br>
+            Парковка −1 уровень
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">Режим работы</div>
+          <div class="contact-block-value">
+            Ежедневно, без выходных<br>
+            с 8:00 до 22:00
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-label">Способы оплаты</div>
+          <div class="contact-block-value">
+            Наличные, банковские карты,<br>
+            бонусные баллы, безналичный расчёт
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-card-title">Онлайн-запись</div>
+        <p class="form-card-sub">Заполните форму — мы перезвоним и подтвердим время.</p>
+        <form id="bookingForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Ваше имя</label>
+              <input type="text" id="fname" name="fname" placeholder="Александр">
+            </div>
+            <div class="form-group">
+              <label for="fphone">Телефон</label>
+              <input type="tel" id="fphone" name="fphone" placeholder="+7 (___) ___-__-__">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fservice">Услуга</label>
+            <select id="fservice" name="fservice">
+              <option value="">— Выберите услугу —</option>
+              <option>Автомойка</option>
+              <option>Детейлинг</option>
+              <option>Автосервис</option>
+              <option>Шиномонтаж</option>
+              <option>Химчистка</option>
+              <option>Полировка</option>
+              <option>Оклейка кузова плёнкой</option>
+              <option>Тонировка</option>
+              <option>Ремонт стёкол / Замена лобового</option>
+              <option>Ремонт дисков</option>
+              <option>Ремонт вмятин без покраски PDR</option>
+              <option>Сход-развал 3D</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fcar">Марка и модель авто</label>
+            <input type="text" id="fcar" name="fcar" placeholder="Например: Toyota Camry">
+          </div>
+          <div class="form-group">
+            <label for="fcomment">Комментарий</label>
+            <textarea id="fcomment" name="fcomment" placeholder="Опишите задачу или уточните детали..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Отправить заявку</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Данные не передаются третьим лицам.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">АвтоБыстро<span> Люкс</span></div>
+    <div class="footer-copy">Москва, Шоссе Энтузиастов, д. 12, стр. 2, ТРЦ «Город», парковка −1 · Ежедневно 8:00–22:00</div>
+    <div class="footer-links">
+      <a href="#services">Услуги</a>
+      <a href="#promos">Акции</a>
+      <a href="#bonus">Бонусная программа</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // Phone mask
+  const phoneInput = document.getElementById('fphone');
+  phoneInput.addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '');
+    if (v.startsWith('8')) v = '7' + v.slice(1);
+    if (!v.startsWith('7')) v = '7' + v;
+    v = v.slice(0, 11);
+    let out = '+7';
+    if (v.length > 1) out += ' (' + v.slice(1, 4);
+    if (v.length >= 4) out += ') ' + v.slice(4, 7);
+    if (v.length >= 7) out += '-' + v.slice(7, 9);
+    if (v.length >= 9) out += '-' + v.slice(9, 11);
+    this.value = out;
+  });
+
+  // Form validation
+  document.getElementById('bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('fname');
+    const phone = document.getElementById('fphone');
+    let valid = true;
+    [name, phone].forEach(f => f.classList.remove('error'));
+    if (!name.value.trim() || name.value.trim().length < 2) {
+      name.classList.add('error'); valid = false;
+    }
+    const digits = phone.value.replace(/\D/g, '');
+    if (digits.length < 11) {
+      phone.classList.add('error'); valid = false;
+    }
+    if (valid) {
+      alert('Спасибо! Мы перезвоним вам в ближайшее время.');
+      this.reset();
+    }
+  });
+
+  // Calculator
+  const serviceBase = {
+    wash: 2500, chem: 5000, polish: 8000,
+    tint: 4000, tire: 1800, service: 3500, detail: 12000
+  };
+  const serviceNames = {
+    wash: 'Автомойка', chem: 'Химчистка', polish: 'Полировка',
+    tint: 'Тонировка', tire: 'Шиномонтаж', service: 'Замена масла', detail: 'Детейлинг'
+  };
+  const bodyMult = { sedan: 0, cross: 800, jeep: 1600 };
+  const dirtyMult = { light: 0, medium: 800, heavy: 1800 };
+  const extraCost = { none: 0, wax: 1500, ozone: 2000, engine: 3000 };
+  const extraNames = { none: 'Без допуслуг', wax: 'Воск/антидождь', ozone: 'Озонирование', engine: 'Мойка двигателя' };
+
+  function calcUpdate() {
+    const svc = document.getElementById('calcService').value;
+    const body = document.querySelector('input[name="body"]:checked').value;
+    const dirty = document.querySelector('input[name="dirty"]:checked').value;
+    const extra = document.querySelector('input[name="extra"]:checked').value;
+
+    const base = serviceBase[svc];
+    const bAdd = bodyMult[body];
+    const dAdd = dirtyMult[dirty];
+    const eAdd = extraCost[extra];
+    const total = base + bAdd + dAdd + eAdd;
+
+    document.getElementById('calcPrice').innerHTML = total.toLocaleString('ru-RU') + ' <span>₽</span>';
+    document.getElementById('bBase').textContent = base.toLocaleString('ru-RU') + ' ₽';
+    document.getElementById('bBody').textContent = (bAdd === 0 ? '+0' : '+' + bAdd.toLocaleString('ru-RU')) + ' ₽';
+    document.getElementById('bDirty').textContent = (dAdd === 0 ? '+0' : '+' + dAdd.toLocaleString('ru-RU')) + ' ₽';
+    document.getElementById('bExtra').textContent = (eAdd === 0 ? '+0' : '+' + eAdd.toLocaleString('ru-RU')) + ' ₽';
+  }
+
+  document.getElementById('calcService').addEventListener('change', calcUpdate);
+  document.querySelectorAll('input[name="body"], input[name="dirty"], input[name="extra"]')
+    .forEach(r => r.addEventListener('change', calcUpdate));
+  calcUpdate();
+</script>
+</body>
+</html>
