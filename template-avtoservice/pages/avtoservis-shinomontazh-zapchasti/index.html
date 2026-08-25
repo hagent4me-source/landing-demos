@@ -135,16 +135,6 @@
   }
   .section-alt .service-card { background: var(--bg); }
   .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-  .service-card.spec-card {
-    border: 2px solid var(--orange);
-    background: linear-gradient(135deg, #fff7ef, #fff);
-    position: relative;
-  }
-  .service-card.spec-card::before {
-    content: 'Наша специализация'; position: absolute; top: -11px; left: 16px;
-    background: var(--orange); color: #fff; font-size: 11px; font-weight: 800;
-    padding: 3px 10px; border-radius: 999px; letter-spacing: 0.4px;
-  }
   .service-icon {
     width: 46px; height: 46px; border-radius: 12px; margin-bottom: 14px;
     background: linear-gradient(135deg, rgba(35,86,168,0.12), rgba(58,123,213,0.12));
@@ -162,6 +152,20 @@
   }
   .adv-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
   .adv-item p { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== BOOKING FORM ===== */
+  .booking-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: center; }
+  @media (max-width: 760px) { .booking-grid { grid-template-columns: 1fr; } }
+  .booking-form { display: grid; gap: 13px; }
+  .booking-form input, .booking-form select, .booking-form textarea {
+    width: 100%; padding: 13px 16px; border: 1px solid var(--border); border-radius: 10px;
+    font: inherit; font-size: 15px; background: #fff; color: var(--text);
+    transition: outline .15s, border-color .15s;
+  }
+  .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus {
+    outline: 2px solid var(--blue-light); border-color: transparent;
+  }
+  .booking-form .btn-primary { justify-content: center; border: none; cursor: pointer; width: 100%; }
 
   /* ===== CONTACTS ===== */
   .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
@@ -208,7 +212,7 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-cat">🔧 Ремонт и обслуживание автомобилей</div>
-    <h1>Автосервис Шиномонтаж Запчасти — <span class="accent">шиномонтаж и балансировка колёс</span></h1>
+    <h1>Автосервис Шиномонтаж Запчасти — <span class="accent">ремонт, который не подводит</span></h1>
     <p>Диагностика, техническое обслуживание и ремонт автомобилей любых марок. Честные цены, гарантия на работы, запчасти в наличии.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="tel:+79260876911">📞 Позвонить</a>
@@ -228,7 +232,7 @@
     <p class="section-sub">Чем мы занимаемся и почему нам доверяют.</p>
     <div class="about-grid">
       <div class="about-text">
-        <p><b>Автосервис Шиномонтаж Запчасти</b> — автосервис в Серпухове (ул. Подольская, 53). Наша специализация — шиномонтаж и балансировка колёс. Мы понимаем, как важно, чтобы машина не подводила, поэтому делаем работу честно: сначала диагностика и точная смета, потом ремонт — и всё с гарантией.</p>
+        <p><b>Автосервис Шиномонтаж Запчасти</b> — автосервис в Серпухове (ул. Подольская, 53). Направление — ремонт и обслуживание автомобилей. Мы понимаем, как важно, чтобы машина не подводила, поэтому делаем работу честно: сначала диагностика и точная смета, потом ремонт — и всё с гарантией.</p>
         
       </div>
       <div class="about-card">
@@ -250,7 +254,6 @@
     <h2 class="section-title">Услуги</h2>
     <p class="section-sub">Полный спектр работ по ремонту и обслуживанию автомобиля в одном месте.</p>
     <div class="services-grid">
-      <div class="service-card spec-card"><div class="service-icon">🔩</div><h3>Шиномонтаж и балансировка</h3><p>Сезонная смена шин, ремонт проколов, балансировка колёс.</p></div>
       <div class="service-card"><div class="service-icon">🛠️</div><h3>Ремонт двигателя</h3><p>Капитальный и текущий ремонт, замена ГРМ, устранение течей.</p></div>
       <div class="service-card"><div class="service-icon">⚙️</div><h3>Ходовая часть</h3><p>Замена амортизаторов, рычагов, сайлентблоков, ступиц.</p></div>
       <div class="service-card"><div class="service-icon">🔍</div><h3>Компьютерная диагностика</h3><p>Сканер, поиск ошибок, проверка всех систем автомобиля.</p></div>
@@ -272,6 +275,42 @@
       <div class="adv-item"><div class="adv-num">2</div><div><h4>Гарантия на работы</h4><p>Даём письменную гарантию — если что-то пошло не так, устраним бесплатно.</p></div></div>
       <div class="adv-item"><div class="adv-num">3</div><div><h4>Запчасти в наличии</h4><p>Не ждём доставку неделями: популярные позиции есть на складе.</p></div></div>
       <div class="adv-item"><div class="adv-num">4</div><div><h4>Опытные мастера</h4><p>Специалисты с опытом 10+ лет, работаем с любыми марками.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="booking">
+  <div class="container">
+    <h2 class="section-title">Запись онлайн</h2>
+    <p class="section-sub">Оставьте заявку — она сразу придёт нам в WhatsApp. Ответим в рабочее время.</p>
+    <div class="booking-grid">
+      <form class="booking-form" id="booking-form">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="tel" name="phone" placeholder="Ваш телефон" required>
+        <select name="service">
+          <option value="">— Выберите услугу —</option>
+          <option>Диагностика</option>
+          <option>Техническое обслуживание</option>
+          <option>Ремонт двигателя</option>
+          <option>Ремонт ходовой</option>
+          <option>Шиномонтаж</option>
+          <option>Сход-развал</option>
+          <option>Электрика</option>
+          <option>Кузовной ремонт</option>
+          <option>Другое</option>
+        </select>
+        <textarea name="comment" rows="3" placeholder="Марка авто, удобное время, комментарий"></textarea>
+        <button type="submit" class="btn btn-primary">💬 Отправить заявку в WhatsApp</button>
+      </form>
+      <div class="about-card">
+        <h3>Как это работает</h3>
+        <ul>
+          <li>💬 Заполняете форму — заявка открывается в WhatsApp</li>
+          <li>📲 Отправляете одним нажатием</li>
+          <li>⚡ Мы видим заявку и перезваниваем</li>
+          <li>🛡️ Никаких ожиданий на линии</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -317,6 +356,25 @@
 </footer>
 
 <a class="wa-float" href="https://wa.me/79260876911" target="_blank" rel="noopener" title="Написать в WhatsApp">💬</a>
+
+<script>
+(function () {
+  var form = document.getElementById('booking-form');
+  var wa = '79260876911';
+  if (form && wa) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = form.elements;
+      var text = 'Здравствуйте! Заявка с сайта.\n' +
+        'Имя: ' + (f.name.value || '') + '\n' +
+        'Телефон: ' + (f.phone.value || '') + '\n' +
+        (f.service.value ? 'Услуга: ' + f.service.value + '\n' : '') +
+        (f.comment.value ? 'Комментарий: ' + f.comment.value : '');
+      window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(text), '_blank');
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
