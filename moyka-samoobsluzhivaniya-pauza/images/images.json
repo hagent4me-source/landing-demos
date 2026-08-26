@@ -1,0 +1,27 @@
+[
+ {
+  "file": "images/img_00.jpg",
+  "size_kb": 7,
+  "alt": "Автомойка самообслуживания"
+ },
+ {
+  "file": "images/img_01.jpg",
+  "size_kb": 66,
+  "alt": "Автомойка в Коломне"
+ },
+ {
+  "file": "images/img_02.png",
+  "size_kb": 50,
+  "alt": "О мойке"
+ },
+ {
+  "file": "images/img_03.jpg",
+  "size_kb": 71,
+  "alt": "Мойка Пауза"
+ },
+ {
+  "file": "images/img_04.jpg",
+  "size_kb": 9,
+  "alt": "Мойка Пауза"
+ }
+]

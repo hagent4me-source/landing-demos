@@ -1,0 +1,37 @@
+[
+ {
+  "file": "images/img_00.jpg",
+  "size_kb": 283,
+  "alt": "Автосервис Брейн-Авто"
+ },
+ {
+  "file": "images/img_01.jpg",
+  "size_kb": 256,
+  "alt": "Диагностика автомобиля"
+ },
+ {
+  "file": "images/img_02.jpg",
+  "size_kb": 327,
+  "alt": "Ремонт ходовой"
+ },
+ {
+  "file": "images/img_03.jpg",
+  "size_kb": 280,
+  "alt": "Ремонт тормозной"
+ },
+ {
+  "file": "images/img_04.jpg",
+  "size_kb": 312,
+  "alt": "Замена ГРМ"
+ },
+ {
+  "file": "images/img_05.jpg",
+  "size_kb": 260,
+  "alt": "Ремонт выхлопной"
+ },
+ {
+  "file": "images/img_06.png",
+  "size_kb": 72,
+  "alt": "Логотип Брейн-Авто"
+ }
+]
