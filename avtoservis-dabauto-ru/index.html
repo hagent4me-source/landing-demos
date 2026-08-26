@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DabAuto — Автосервис в Сергиевом Посаде</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --c-bg: #f4f2ee;
+  --c-dark: #1a1a18;
+  --c-card: #ffffff;
+  --c-accent: #e8601c;
+  --c-accent2: #f59b2b;
+  --c-muted: #6b6b5f;
+  --c-border: #e0ddd7;
+  --c-hero-bg: #1a1a18;
+  --c-section-alt: #f0ede7;
+  --r-card: 16px;
+  --r-btn: 50px;
+  --gap: 24px;
+  --max: 1200px;
+  --font-head: 'Unbounded', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  background: var(--c-bg);
+  color: var(--c-dark);
+  scroll-behavior: smooth;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─── HEADER ─── */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: background 0.4s, box-shadow 0.4s;
+  padding: 18px 0;
+}
+.header.scrolled {
+  background: rgba(26,26,24,0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.logo {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--c-accent); }
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.header__phone {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.header__phone:hover { color: var(--c-accent); }
+.header__cta {
+  display: inline-block;
+  background: var(--c-accent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 22px;
+  border-radius: var(--r-btn);
+  transition: background 0.25s, transform 0.2s;
+  white-space: nowrap;
+}
+.header__cta:hover { background: var(--c-accent2); transform: translateY(-1px); }
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--c-hero-bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+.hero__mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(232,96,28,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(245,155,43,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 90% 90%, rgba(232,96,28,0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+.hero__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,96,28,0.15);
+  border: 1px solid rgba(232,96,28,0.35);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--c-accent2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero__label::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.4; transform:scale(1.5); }
+}
+.hero__title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(42px, 6vw, 96px);
+  line-height: 0.95;
+  color: #fff;
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+}
+.hero__title em {
+  font-style: normal;
+  color: var(--c-accent);
+  display: block;
+}
+.hero__sub {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--c-accent);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 16px 32px;
+  border-radius: var(--r-btn);
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.btn-primary:hover { background: #d4531a; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(232,96,28,0.4); }
+.btn-primary:hover::after { opacity: 1; }
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 16px 32px;
+  border-radius: var(--r-btn);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+
+.hero__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero__svg-wrap {
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+}
+.hero__svg-wrap svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 24px 64px rgba(232,96,28,0.25));
+}
+.hero__badge {
+  position: absolute;
+  bottom: -10px;
+  left: -20px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 14px 20px;
+  color: #fff;
+  font-family: var(--font-body);
+}
+.hero__badge-num {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--c-accent);
+  line-height: 1;
+}
+.hero__badge-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
+}
+.hero__badge2 {
+  position: absolute;
+  top: 10px;
+  right: -10px;
+  background: var(--c-accent);
+  border-radius: 14px;
+  padding: 12px 18px;
+  color: #fff;
+  font-family: var(--font-body);
+  text-align: center;
+}
+.hero__badge2-num {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1;
+}
+.hero__badge2-text {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* ─── MARQUEE ─── */
+.marquee-section {
+  background: var(--c-accent);
+  padding: 16px 0;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+.marquee-track span {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0 32px;
+  white-space: nowrap;
+}
+.marquee-track span.dot {
+  color: rgba(255,255,255,0.5);
+  padding: 0;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─── STATS ─── */
+.stats {
+  padding: 80px 0;
+  background: var(--c-dark);
+}
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.stats__item {
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+}
+.stats__item::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 20%; bottom: 20%;
+  width: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.stats__item:last-child::after { display: none; }
+.stats__num {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  color: var(--c-accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stats__label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+}
+
+/* ─── SECTION TITLES ─── */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--c-dark);
+  margin-bottom: 16px;
+}
+.section-title--light { color: #fff; }
+.section-sub {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--c-muted);
+  max-width: 520px;
+}
+.section-sub--light { color: rgba(255,255,255,0.55); }
+
+/* ─── SERVICES ─── */
+.services {
+  padding: 100px 0;
+  background: var(--c-bg);
+}
+.services__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.service-card {
+  background: var(--c-card);
+  border-radius: var(--r-card);
+  padding: 32px 28px;
+  border: 1px solid var(--c-border);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-accent), var(--c-accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.10); border-color: transparent; }
+.service-card:hover::before { transform: scaleX(1); }
+.service-card__icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, rgba(232,96,28,0.12), rgba(245,155,43,0.08));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.service-card__icon svg { width: 26px; height: 26px; }
+.service-card__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--c-dark);
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+.service-card__text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--c-muted);
+}
+.service-card--wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.service-card--dark {
+  background: var(--c-dark);
+  border-color: transparent;
+}
+.service-card--dark .service-card__title { color: #fff; }
+.service-card--dark .service-card__text { color: rgba(255,255,255,0.5); }
+.service-card--dark .service-card__icon {
+  background: rgba(232,96,28,0.2);
+}
+
+/* ─── WHY US ─── */
+.why {
+  padding: 100px 0;
+  background: var(--c-dark);
+  position: relative;
+  overflow: hidden;
+}
+.why__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 85% 50%, rgba(232,96,28,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(245,155,43,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.why__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.why__list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+}
+.why__item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.why__num {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--c-accent);
+  background: rgba(232,96,28,0.12);
+  border: 1px solid rgba(232,96,28,0.25);
+  border-radius: 8px;
+  padding: 6px 10px;
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+.why__item-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: -0.2px;
+}
+.why__item-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+}
+.why__visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.why__card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 28px 22px;
+  text-align: center;
+  transition: background 0.3s, transform 0.3s;
+}
+.why__card:hover { background: rgba(232,96,28,0.12); transform: translateY(-4px); }
+.why__card:first-child {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  padding: 24px 28px;
+}
+.why__card-icon {
+  width: 48px; height: 48px;
+  background: rgba(232,96,28,0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.why__card-icon svg { width: 24px; height: 24px; }
+.why__card-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+.why__card-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+}
+.why__card-big-icon {
+  width: 44px; height: 44px;
+  background: rgba(232,96,28,0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+.why__card-big-icon svg { width: 22px; height: 22px; }
+.why__card-val {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--c-accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.why__card-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ─── TEAM ─── */
+.team {
+  padding: 100px 0;
+  background: var(--c-section-alt);
+}
+.team__head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.team__head .section-sub { margin: 0 auto; text-align: center; }
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.team-card {
+  background: var(--c-card);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-card:hover { transform: translateY(-8px); box-shadow: 0 24px 56px rgba(0,0,0,0.12); }
+.team-card__avatar {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #2a2a28, #3a3a38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.team-card__avatar::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(26,26,24,0.6), transparent);
+}
+.team-card__avatar svg {
+  width: 80px; height: 80px;
+  opacity: 0.5;
+}
+.team-card__body {
+  padding: 24px;
+}
+.team-card__name {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--c-dark);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+.team-card__role {
+  font-size: 13px;
+  color: var(--c-accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.team-card__exp {
+  font-size: 13px;
+  color: var(--c-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.team-card__exp::before {
+  content: '';
+  width: 20px; height: 2px;
+  background: var(--c-accent);
+  border-radius: 2px;
+}
+
+/* ─── CALCULATOR ─── */
+.calc {
+  padding: 100px 0;
+  background: var(--c-bg);
+}
+.calc__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.calc__form {
+  background: var(--c-card);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid var(--c-border);
+}
+.calc__title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--c-dark);
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-dark);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.form-select, .form-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1.5px solid var(--c-border);
+  background: var(--c-bg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--c-dark);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-select:focus, .form-input:focus {
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(232,96,28,0.12);
+}
+.form-select-wrap {
+  position: relative;
+}
+.form-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 16px; top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--c-muted);
+  pointer-events: none;
+}
+.calc__result {
+  background: linear-gradient(135deg, var(--c-dark), #2a2a28);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.calc__result-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+.calc__result-price {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 32px;
+  color: var(--c-accent);
+  line-height: 1;
+}
+.calc__result-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 4px;
+}
+.calc__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.calc__promo {
+  background: linear-gradient(135deg, var(--c-accent), var(--c-accent2));
+  border-radius: 20px;
+  padding: 36px 32px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.calc__promo::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+.calc__promo-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 12px;
+}
+.calc__promo-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 22px;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+.calc__promo-text {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+.calc__features {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.calc__feature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--c-card);
+  border-radius: 12px;
+  border: 1px solid var(--c-border);
+}
+.calc__feature-icon {
+  width: 38px; height: 38px;
+  background: rgba(232,96,28,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.calc__feature-icon svg { width: 18px; height: 18px; }
+.calc__feature-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-dark);
+}
+
+/* ─── CONTACT ─── */
+.contact {
+  padding: 100px 0;
+  background: var(--c-dark);
+  position: relative;
+  overflow: hidden;
+}
+.contact__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 50% 100%, rgba(232,96,28,0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+.contact__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
+.contact__block {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.contact__block-icon {
+  width: 48px; height: 48px;
+  background: rgba(232,96,28,0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact__block-icon svg { width: 22px; height: 22px; }
+.contact__block-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 6px;
+}
+.contact__block-val {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  word-break: break-word;
+}
+.contact__block-val a {
+  color: #fff;
+  transition: color 0.2s;
+}
+.contact__block-val a:hover { color: var(--c-accent); }
+.contact__form {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 40px;
+}
+.contact__form-title {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+.form-input--dark {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+  color: #fff;
+}
+.form-input--dark::placeholder { color: rgba(255,255,255,0.3); }
+.form-input--dark:focus {
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(232,96,28,0.15);
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-agree {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: #111110;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer__copy {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+.footer__inn {
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+}
+.footer__links {
+  display: flex;
+  gap: 24px;
+}
+.footer__links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  transition: color 0.2s;
+}
+.footer__links a:hover { color: var(--c-accent); }
+
+/* ─── ANIMATIONS ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-up:nth-child(4) { transition-delay: 0.3s; }
+.fade-up:nth-child(5) { transition-delay: 0.4s; }
+.fade-up:nth-child(6) { transition-delay: 0.5s; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  .hero__grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero__visual { order: -1; }
+  .hero__svg-wrap { max-width: 360px; margin: 0 auto; }
+  .hero__badge { left: 0; }
+  .hero__badge2 { right: 0; }
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .stats__item:nth-child(2)::after { display: none; }
+  .stats__item:nth-child(4)::after { display: none; }
+  .services__head { grid-template-columns: 1fr; gap: 20px; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card--wide { grid-column: span 2; }
+  .why__layout { grid-template-columns: 1fr; gap: 48px; }
+  .team__grid { grid-template-columns: repeat(2, 1fr); }
+  .calc__layout { grid-template-columns: 1fr; gap: 40px; }
+  .contact__layout { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 600px) {
+  .header__contacts { display: none; }
+  .hero { padding: 100px 0 60px; }
+  .hero__title { font-size: 38px; letter-spacing: -1px; }
+  .hero__sub { font-size: 15px; }
+  .hero__actions { flex-direction: column; }
+  .hero__actions .btn-primary,
+  .hero__actions .btn-ghost { width: 100%; justify-content: center; }
+  .hero__badge { position: static; margin-top: 16px; }
+  .hero__badge2 { position: static; margin-top: 8px; }
+  .hero__visual { flex-direction: column; align-items: stretch; }
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .stats__item { padding: 28px 16px; }
+  .stats__item::after { display: none; }
+  .services { padding: 60px 0; }
+  .services__grid { grid-template-columns: 1fr; }
+  .service-card--wide { grid-column: span 1; grid-template-columns: 1fr; }
+  .why { padding: 60px 0; }
+  .why__visual { grid-template-columns: 1fr; }
+  .why__card:first-child { grid-column: span 1; }
+  .team { padding: 60px 0; }
+  .team__grid { grid-template-columns: 1fr; }
+  .calc { padding: 60px 0; }
+  .calc__form { padding: 24px 20px; }
+  .contact { padding: 60px 0; }
+  .contact__form { padding: 24px 20px; }
+  .footer__inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .section-title { font-size: 26px; }
+  .hero__badge, .hero__badge2 { display: none; }
+}
+
+@media (max-width: 360px) {
+  .container { padding: 0 14px; }
+  .hero__title { font-size: 32px; }
+  .logo { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="#" class="logo">Dab<span>Auto</span></a>
+      <div class="header__contacts">
+        <a href="tel:+79166259909" class="header__phone">+7 (916) 625-99-09</a>
+        <a href="tel:+79637116688" class="header__phone">+7 (963) 711-66-88</a>
+      </div>
+      <a href="#contact" class="header__cta">Записаться</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__mesh"></div>
+  <div class="hero__noise"></div>
+  <div class="container">
+    <div class="hero__grid">
+      <div class="hero__content">
+        <div class="hero__label">Сергиев Посад · Малокировская, 28</div>
+        <h1 class="hero__title">
+          Ваш авто<br>в надёжных
+          <em>руках.</em>
+        </h1>
+        <p class="hero__sub">
+          Профессиональный автосервис полного цикла. Диагностика, ремонт, техническое обслуживание — всё под одной крышей. Команда опытных мастеров и честные цены.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            Записаться на сервис
+          </a>
+          <a href="#services" class="btn-ghost">
+            Наши услуги
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__svg-wrap">
+          <!-- Hero SVG illustration -->
+          <svg viewBox="0 0 520 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="carGrad" x1="0" y1="0" x2="520" y2="380" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#2a2a28"/>
+                <stop offset="100%" stop-color="#1a1a18"/>
+              </linearGradient>
+              <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#e8601c"/>
+                <stop offset="100%" stop-color="#f59b2b"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <!-- Ground shadow -->
+            <ellipse cx="260" cy="340" rx="200" ry="18" fill="rgba(0,0,0,0.4)"/>
+            <!-- Car body -->
+            <rect x="60" y="200" width="400" height="110" rx="12" fill="url(#carGrad)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <!-- Car roof -->
+            <path d="M140 200 C160 150 200 130 260 128 C320 130 360 150 380 200Z" fill="#252523" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <!-- Windshield front -->
+            <path d="M290 200 C305 165 330 148 370 152 L380 200Z" fill="rgba(100,180,255,0.15)" stroke="rgba(100,180,255,0.25)" stroke-width="1"/>
+            <!-- Windshield rear -->
+            <path d="M230 200 C215 165 190 148 150 152 L140 200Z" fill="rgba(100,180,255,0.12)" stroke="rgba(100,180,255,0.2)" stroke-width="1"/>
+            <!-- Side windows -->
+            <rect x="248" y="148" width="44" height="44" rx="4" fill="rgba(100,180,255,0.1)" stroke="rgba(100,180,255,0.2)" stroke-width="1"/>
+            <!-- Hood -->
+            <path d="M380 200 L420 200 C440 200 460 210 460 225 L460 260 L380 260Z" fill="#202020"/>
+            <!-- Trunk -->
+            <path d="M140 200 L100 200 C80 200 60 210 60 225 L60 260 L140 260Z" fill="#202020"/>
+            <!-- Door line -->
+            <line x1="260" y1="200" x2="260" y2="305" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+            <!-- Door handles -->
+            <rect x="205" y="248" width="28" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <rect x="290" y="248" width="28" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <!-- Headlight front -->
+            <path d="M430 220 L460 225 L460 245 L430 248Z" fill="url(#accentGrad)" opacity="0.9" filter="url(#glow)"/>
+            <ellipse cx="445" cy="234" rx="8" ry="5" fill="#fff" opacity="0.3"/>
+            <!-- Headlight rear -->
+            <path d="M90 220 L60 225 L60 245 L90 248Z" fill="#c0392b" opacity="0.8"/>
+            <ellipse cx="75" cy="234" rx="8" ry="5" fill="#ff6b6b" opacity="0.3"/>
+            <!-- Wheels -->
+            <circle cx="155" cy="305" r="42" fill="#181818" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+            <circle cx="155" cy="305" r="28" fill="#222" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <circle cx="155" cy="305" r="16" fill="url(#accentGrad)" opacity="0.7"/>
+            <circle cx="155" cy="305" r="6" fill="#fff" opacity="0.4"/>
+            <!-- Wheel spokes -->
+            <line x1="155" y1="277" x2="155" y2="293" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <line x1="155" y1="317" x2="155" y2="333" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <line x1="127" y1="305" x2="143" y2="305" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <line x1="167" y1="305" x2="183" y2="305" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <!-- Wheel 2 -->
+            <circle cx="365" cy="305" r="42" fill="#181818" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+            <circle cx="365" cy="305" r="28" fill="#222" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <circle cx="365" cy="305" r="16" fill="url(#accentGrad)" opacity="0.7"/>
+            <circle cx="365" cy="305" r="6" fill="#fff" opacity="0.4"/>
+            <line x1="365" y1="277" x2="365" y2="293" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <line x1="365" y1="317" x2="365" y2="333" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <line x1="337" y1="305" x2="353" y2="305" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <line x1="377" y1="305" x2="393" y2="305" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+            <!-- Accent stripe -->
+            <rect x="60" y="258" width="400" height="4" rx="2" fill="url(#accentGrad)" opacity="0.6"/>
+            <!-- Glow under car -->
+            <ellipse cx="260" cy="318" rx="180" ry="8" fill="url(#accentGrad)" opacity="0.08" filter="url(#glow)"/>
+            <!-- Tools floating -->
+            <circle cx="470" cy="100" r="28" fill="rgba(232,96,28,0.1)" stroke="rgba(232,96,28,0.2)" stroke-width="1"/>
+            <text x="470" y="107" text-anchor="middle" font-size="22" fill="rgba(232,96,28,0.6)">⚙</text>
+            <circle cx="50" cy="130" r="22" fill="rgba(245,155,43,0.08)" stroke="rgba(245,155,43,0.18)" stroke-width="1"/>
+            <text x="50" y="137" text-anchor="middle" font-size="18" fill="rgba(245,155,43,0.5)">🔧</text>
+            <circle cx="490" cy="290" r="18" fill="rgba(232,96,28,0.07)" stroke="rgba(232,96,28,0.15)" stroke-width="1"/>
+            <text x="490" y="296" text-anchor="middle" font-size="14" fill="rgba(232,96,28,0.4)">🛞</text>
+          </svg>
+          <div class="hero__badge">
+            <div class="hero__badge-num" data-count="5000">0</div>
+            <div class="hero__badge-text">довольных клиентов</div>
+          </div>
+          <div class="hero__badge2">
+            <div class="hero__badge2-num" data-count="3">0</div>
+            <div class="hero__badge2-text">мастера в команде</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>Диагностика</span><span class="dot">·</span>
+    <span>Замена масла</span><span class="dot">·</span>
+    <span>Ремонт двигателя</span><span class="dot">·</span>
+    <span>Тормозная система</span><span class="dot">·</span>
+    <span>Подвеска</span><span class="dot">·</span>
+    <span>Электрика</span><span class="dot">·</span>
+    <span>Кузовные работы</span><span class="dot">·</span>
+    <span>Шиномонтаж</span><span class="dot">·</span>
+    <span>ТО любой сложности</span><span class="dot">·</span>
+    <span>Сергиев Посад</span><span class="dot">·</span>
+    <span>Диагностика</span><span class="dot">·</span>
+    <span>Замена масла</span><span class="dot">·</span>
+    <span>Ремонт двигателя</span><span class="dot">·</span>
+    <span>Тормозная система</span><span class="dot">·</span>
+    <span>Подвеска</span><span class="dot">·</span>
+    <span>Электрика</span><span class="dot">·</span>
+    <span>Кузовные работы</span><span class="dot">·</span>
+    <span>Шиномонтаж</span><span class="dot">·</span>
+    <span>ТО любой сложности</span><span class="dot">·</span>
+    <span>Сергиев Посад</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stats__item fade-up">
+        <div class="stats__num"><span data-count="5000">0</span>+</div>
+        <div class="stats__label">Довольных<br>клиентов</div>
+      </div>
+      <div class="stats__item fade-up">
+        <div class="stats__num"><span data-count="3">0</span></div>
+        <div class="stats__label">Опытных<br>мастера</div>
+      </div>
+      <div class="stats__item fade-up">
+        <div class="stats__num"><span data-count="100">0</span>%</div>
+        <div class="stats__label">Гарантия<br>на работы</div>
+      </div>
+      <div class="stats__item fade-up">
+        <div class="stats__num"><span data-count="1">0</span></div>
+        <div class="stats__label">День — срок<br>большинства работ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services__head">
+      <div>
+        <div class="section-tag">Что мы делаем</div>
+        <h2 class="section-title">Полный спектр<br>услуг</h2>
+      </div>
+      <p class="section-sub">От планового ТО до сложного ремонта — берёмся за любые задачи и делаем их хорошо.</p>
+    </div>
+    <div class="services__grid">
+
+      <div class="service-card fade-up">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="service-card__title">Компьютерная диагностика</div>
+        <div class="service-card__text">Точно определяем причину неисправности профессиональным оборудованием. Без лишних замен и переплат.</div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="service-card__title">Техническое обслуживание</div>
+        <div class="service-card__text">Замена масла, фильтров, свечей, тормозной жидкости. Плановое ТО по регламенту производителя.</div>
+      </div>
+
+      <div class="service-card service-card--dark fade-up">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <div class="service-card__title">Ремонт двигателя</div>
+        <div class="service-card__text">Капитальный и частичный ремонт. Работаем с отечественными и иномарками.</div>
+      </div>
+
+      <div class="service-card service-card--wide fade-up">
+        <div>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="service-card__title">Подвеска и рулевое управление</div>
+          <div class="service-card__text">Диагностика, замена амортизаторов, шаровых, рулевых тяг и наконечников. Проверяем ходовую часть полностью.</div>
+        </div>
+        <div>
+          <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:180px;margin:0 auto;opacity:0.7">
+            <circle cx="100" cy="100" r="55" stroke="rgba(232,96,28,0.3)" stroke-width="2" stroke-dasharray="6 4"/>
+            <circle cx="100" cy="100" r="38" fill="rgba(232,96,28,0.08)" stroke="rgba(232,96,28,0.2)" stroke-width="1.5"/>
+            <circle cx="100" cy="100" r="22" fill="rgba(232,96,28,0.15)" stroke="rgba(232,96,28,0.35)" stroke-width="2"/>
+            <circle cx="100" cy="100" r="8" fill="#e8601c"/>
+            <line x1="100" y1="45" x2="100" y2="62" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+            <line x1="100" y1="138" x2="100" y2="155" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+            <line x1="45" y1="100" x2="62" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+            <line x1="138" y1="100" x2="155" y2="100" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+            <line x1="61" y1="61" x2="73" y2="73" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="127" y1="127" x2="139" y2="139" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="139" y1="61" x2="127" y2="73" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+            <line x1="73" y1="127" x2="61" y2="139" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="service-card__title">Электрика автомобиля</div>
+        <div class="service-card__text">Поиск и устранение неисправностей в электросистеме. Замена аккумуляторов, генераторов, стартеров.</div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+          </svg>
+        </div>
+        <div class="service-card__title">Тормозная система</div>
+        <div class="service-card__text">Замена колодок, дисков, барабанов. Прокачка тормозов. Гарантия безопасности вашего автомобиля.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why__bg"></div>
+  <div class="container">
+    <div class="why__layout">
+      <div>
+        <div class="section-tag">Почему DabAuto</div>
+        <h2 class="section-title section-title--light">Основные причины,<br>почему выбирают нас</h2>
+        <div class="why__list">
+          <div class="why__item fade-up">
+            <div class="why__num">01</div>
+            <div>
+              <div class="why__item-title">Честная диагностика</div>
+              <div class="why__item-text">Показываем реальную проблему и не навязываем лишних работ. Только то, что действительно нужно вашему автомобилю.</div>
+            </div>
+          </div>
+          <div class="why__item fade-up">
+            <div class="why__num">02</div>
+            <div>
+              <div class="why__item-title">Профессиональная команда</div>
+              <div class="why__item-text">Болсуновский Дмитрий, Федянович Иван, Киселёв Дмитрий — мастера с реальным опытом и подтверждёнными сертификатами.</div>
+            </div>
+          </div>
+          <div class="why__item fade-up">
+            <div class="why__num">03</div>
+            <div>
+              <div class="why__item-title">Гарантия на все работы</div>
+              <div class="why__item-text">Даём письменную гарантию. Если что-то пойдёт не так — устраним бесплатно. Ваша уверенность важнее всего.</div>
+            </div>
+          </div>
+          <div class="why__item fade-up">
+            <div class="why__num">04</div>
+            <div>
+              <div class="why__item-title">Всегда хороший выбор</div>
+              <div class="why__item-text">Доверие 5 000+ клиентов Сергиева Посада. Работаем с отечественными авто и иномарками любых марок.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why__visual fade-up">
+        <div class="why__card">
+          <div class="why__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div>
+            <div class="why__card-title">Гарантия на все виды работ</div>
+            <div class="why__card-text">Письменно. Без исключений.</div>
+          </div>
+        </div>
+        <div class="why__card">
+          <div class="why__card-big-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="why__card-val">1 день</div>
+          <div class="why__card-sub">срок большинства работ</div>
+        </div>
+        <div class="why__card">
+          <div class="why__card-big-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div class="why__card-val">3</div>
+          <div class="why__card-sub">сертифицированных мастера</div>
+        </div>
+        <div class="why__card">
+          <div class="why__card-big-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+            </svg>
+          </div>
+          <div class="why__card-val">Честно</div>
+          <div class="why__card-sub">прозрачное ценообразование</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="team__head">
+      <div class="section-tag">Наши специалисты</div>
+      <h2 class="section-title">Профессиональная<br>команда</h2>
+      <p class="section-sub">Каждый мастер — специалист своего дела с подтверждёнными сертификатами и реальным опытом работы.</p>
+    </div>
+    <div class="team__grid">
+
+      <div class="team-card fade-up">
+        <div class="team-card__avatar">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="30" r="18" fill="rgba(232,96,28,0.25)" stroke="rgba(232,96,28,0.4)" stroke-width="2"/>
+            <path d="M8 72c0-17.67 14.33-32 32-32s32 14.33 32 32" stroke="rgba(232,96,28,0.3)" stroke-width="2" fill="none"/>
+            <circle cx="40" cy="30" r="10" fill="rgba(232,96,28,0.15)"/>
+            <path d="M32 30c0-4.42 3.58-8 8-8s8 3.58 8 8" stroke="rgba(232,96,28,0.5)" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-card__body">
+          <div class="team-card__name">Болсуновский Дмитрий</div>
+          <div class="team-card__role">Старший механик</div>
+          <div class="team-card__exp">Ремонт двигателей и ходовой</div>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-card__avatar">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="30" r="18" fill="rgba(245,155,43,0.2)" stroke="rgba(245,155,43,0.35)" stroke-width="2"/>
+            <path d="M8 72c0-17.67 14.33-32 32-32s32 14.33 32 32" stroke="rgba(245,155,43,0.25)" stroke-width="2" fill="none"/>
+            <circle cx="40" cy="30" r="10" fill="rgba(245,155,43,0.12)"/>
+            <path d="M32 30c0-4.42 3.58-8 8-8s8 3.58 8 8" stroke="rgba(245,155,43,0.45)" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-card__body">
+          <div class="team-card__name">Федянович Иван</div>
+          <div class="team-card__role">Автоэлектрик</div>
+          <div class="team-card__exp">Диагностика и электрика</div>
+        </div>
+      </div>
+
+      <div class="team-card fade-up">
+        <div class="team-card__avatar">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="30" r="18" fill="rgba(232,96,28,0.18)" stroke="rgba(232,96,28,0.3)" stroke-width="2"/>
+            <path d="M8 72c0-17.67 14.33-32 32-32s32 14.33 32 32" stroke="rgba(232,96,28,0.22)" stroke-width="2" fill="none"/>
+            <circle cx="40" cy="30" r="10" fill="rgba(232,96,28,0.1)"/>
+            <path d="M32 30c0-4.42 3.58-8 8-8s8 3.58 8 8" stroke="rgba(232,96,28,0.4)" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-card__body">
+          <div class="team-card__name">Киселёв Дмитрий</div>
+          <div class="team-card__role">Мастер-универсал</div>
+          <div class="team-card__exp">ТО, тормоза, подвеска</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc" id="calc">
+  <div class="container">
+    <div class="calc__layout">
+      <div class="calc__form fade-up">
+        <div class="calc__title">Рассчитайте стоимость<br>вашего ремонта</div>
+        <div class="form-group">
+          <label class="form-label">Тип услуги</label>
+          <div class="form-select-wrap">
+            <select class="form-select" id="calcService">
+              <option value="0">Выберите услугу</option>
+              <option value="1500">Диагностика двигателя</option>
+              <option value="2500">Замена масла + фильтр</option>
+              <option value="5000">Замена тормозных колодок (ось)</option>
+              <option value="8000">Ремонт подвески (одна сторона)</option>
+              <option value="3500">Замена ремня ГРМ</option>
+              <option value="12000">Ремонт стартера / генератора</option>
+              <option value="2000">Компьютерная диагностика</option>
+              <option value="15000">Капитальный ремонт двигателя (от)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Марка автомобиля</label>
+          <div class="form-select-wrap">
+            <select class="form-select" id="calcBrand">
+              <option value="1">Отечественное авто (ВАЗ, ГАЗ)</option>
+              <option value="1.2">Иномарка (Toyota, Nissan, Honda)</option>
+              <option value="1.4">Европейская марка (VW, BMW, Mercedes)</option>
+              <option value="1.6">Премиум (Audi, Lexus, Volvo)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Срочность</label>
+          <div class="form-select-wrap">
+            <select class="form-select" id="calcUrgency">
+              <option value="1">Обычная (в течение дня)</option>
+              <option value="1.3">Срочно (в течение 2-3 часов)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc__result">
+          <div>
+            <div class="calc__result-label">Предварительная стоимость</div>
+            <div class="calc__result-price" id="calcPrice">Выберите услугу</div>
+            <div class="calc__result-note">Точная цена — после диагностики</div>
+          </div>
+          <a href="#contact" class="btn-primary" style="white-space:nowrap;font-size:13px;padding:12px 20px;">Записаться</a>
+        </div>
+      </div>
+      <div class="calc__info fade-up">
+        <div class="calc__promo">
+          <div class="calc__promo-tag">Специальное предложение</div>
+          <div class="calc__promo-title">Диагностика при записи — бесплатно</div>
+          <div class="calc__promo-text">При записи на любой вид ремонта проводим полную компьютерную диагностику в подарок. Узнайте о состоянии своего авто всё.</div>
+        </div>
+        <div class="calc__features">
+          <div class="calc__feature">
+            <div class="calc__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div class="calc__feature-text">Оригинальные запчасти и расходники</div>
+          </div>
+          <div class="calc__feature">
+            <div class="calc__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="calc__feature-text">Гарантия на все выполненные работы</div>
+          </div>
+          <div class="calc__feature">
+            <div class="calc__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div class="calc__feature-text">Выдаём авто в срок без задержек</div>
+          </div>
+          <div class="calc__feature">
+            <div class="calc__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+              </svg>
+            </div>
+            <div class="calc__feature-text">Прозрачная смета до начала работ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact__bg"></div>
+  <div class="container">
+    <div class="contact__layout">
+      <div>
+        <div class="section-tag">Запись и контакты</div>
+        <h2 class="section-title section-title--light">Запишитесь<br>прямо сейчас</h2>
+        <div class="contact__info">
+          <div class="contact__block">
+            <div class="contact__block-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact__block-label">Телефоны</div>
+              <div class="contact__block-val">
+                <a href="tel:+79166259909">+7 (916) 625-99-09</a><br>
+                <a href="tel:+79637116688">+7 (963) 711-66-88</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact__block">
+            <div class="contact__block-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact__block-label">Адрес</div>
+              <div class="contact__block-val">Сергиев Посад,<br>Малокировская ул., 28 стр.2</div>
+            </div>
+          </div>
+          <div class="contact__block">
+            <div class="contact__block-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8601c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact__block-label">Email</div>
+              <div class="contact__block-val">
+                <a href="mailto:dabauto@mail.ru">dabauto@mail.ru</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact__form fade-up">
+        <div class="contact__form-title">Оставьте заявку</div>
+        <form id="contactForm" action="#" onsubmit="handleForm(event)">
+          <div class="form-group">
+            <label class="form-label" style="color:rgba(255,255,255,0.6)">Ваше имя</label>
+            <input type="text" class="form-input form-input--dark" placeholder="Как вас зовут?" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="color:rgba(255,255,255,0.6)">Телефон</label>
+            <input type="tel" class="form-input form-input--dark" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="color:rgba(255,255,255,0.6)">Услуга</label>
+            <div class="form-select-wrap">
+              <select class="form-select form-input--dark">
+                <option>Диагностика</option>
+                <option>Техническое обслуживание</option>
+                <option>Ремонт двигателя</option>
+                <option>Подвеска и рулевое</option>
+                <option>Электрика</option>
+                <option>Тормозная система</option>
+                <option>Другое</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="color:rgba(255,255,255,0.6)">Комментарий</label>
+            <textarea class="form-input form-input--dark form-textarea" placeholder="Опишите проблему кратко..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Отправить заявку
+          </button>
+          <div class="form-agree">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Мы не передаём ваши данные третьим лицам.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="logo" style="font-size:18px;">Dab<span>Auto</span></div>
+      <div class="footer__copy">© 2023–2025 dabauto.ru · Автосервис в Сергиевом Посаде</div>
+      <div class="footer__inn" style="color:rgba(255,255,255,0.2);font-size:12px;">ИНН 504200528536</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Counter animation
+function animateCounter(el, target, duration) {
+  const start = performance.now();
+  const update = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(update);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(update);
+}
+
+// Intersection Observer for fade-up and counters
+const fadeEls = document.querySelectorAll('.fade-up');
+const counterEls = document.querySelectorAll('[data-count]');
+let countersStarted = false;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+fadeEls.forEach(el => observer.observe(el));
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !countersStarted) {
+      countersStarted = true;
+      counterEls.forEach(el => {
+        const target = parseInt(el.dataset.count);
+        animateCounter(el, target, target > 100 ? 1800 : 1200);
+      });
+      counterObserver.disconnect();
+    }
+  });
+}, { threshold: 0.3 });
+
+const statsSection = document.querySelector('.stats');
+if (statsSection) counterObserver.observe(statsSection);
+
+// Calculator
+const calcService = document.getElementById('calcService');
+const calcBrand = document.getElementById('calcBrand');
+const calcUrgency = document.getElementById('calcUrgency');
+const calcPrice = document.getElementById('calcPrice');
+
+function updateCalc() {
+  const base = parseInt(calcService.value);
+  const brand = parseFloat(calcBrand.value);
+  const urgency = parseFloat(calcUrgency.value);
+  if (!base) {
+    calcPrice.textContent = 'Выберите услугу';
+    return;
+  }
+  const result = Math.round(base * brand * urgency / 100) * 100;
+  calcPrice.textContent = result.toLocaleString('ru-RU') + ' ₽';
+}
+
+[calcService, calcBrand, calcUrgency].forEach(el => el.addEventListener('change', updateCalc));
+
+// Form submit
+function handleForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.textContent = 'Отправляем...';
+  btn.disabled = true;
+  setTimeout(() => {
+    alert('Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время.');
+    e.target.reset();
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Отправить заявку';
+    btn.disabled = false;
+  }, 900);
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const target = document.getElementById(id);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
