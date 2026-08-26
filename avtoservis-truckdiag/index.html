@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TruckDiag — Автосервис в Чехове</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy2: #162032;
+  --blue: #1565c0;
+  --blue-light: #1976d2;
+  --accent: #f59e0b;
+  --accent2: #fbbf24;
+  --white: #ffffff;
+  --gray50: #f8fafc;
+  --gray100: #f1f5f9;
+  --gray200: #e2e8f0;
+  --gray400: #94a3b8;
+  --gray600: #475569;
+  --gray800: #1e293b;
+  --text: #0f172a;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 4px 24px rgba(13,27,42,0.10);
+  --shadow-lg: 0 8px 40px rgba(13,27,42,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--navy);
+  border-bottom: 2px solid var(--blue);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.logo-text span {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav a {
+  color: var(--gray200);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.nav a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.08);
+}
+
+.header-cta {
+  background: var(--accent);
+  color: var(--navy) !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+}
+
+.header-cta:hover {
+  background: var(--accent2) !important;
+  color: var(--navy) !important;
+}
+
+.header-phone {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  background: var(--navy2);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 12px 20px 20px;
+}
+
+.mobile-nav.open {
+  display: block;
+}
+
+.mobile-nav a {
+  display: block;
+  color: var(--gray200);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover { color: var(--accent); }
+
+/* ===== HERO ===== */
+.hero {
+  background: var(--navy);
+  padding: 100px 20px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 70% 50%, rgba(21,101,192,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(245,158,11,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(21,101,192,0.25);
+  border: 1px solid rgba(21,101,192,0.5);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hero-badge svg {
+  flex-shrink: 0;
+}
+
+.hero-title {
+  font-size: clamp(30px, 5vw, 58px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+.hero-title .accent {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--gray400);
+  max-width: 560px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: var(--accent2);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  border: 2px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-stat-val {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.hero-stat-val span {
+  color: var(--accent);
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--gray400);
+  margin-top: 4px;
+}
+
+.hero-trucks {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* ===== SECTION COMMONS ===== */
+.section {
+  padding: 72px 20px;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-title-white {
+  color: var(--white);
+}
+
+.section-desc {
+  font-size: 16px;
+  color: var(--gray600);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* ===== SERVICES ===== */
+.services {
+  background: var(--gray50);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  border: 1px solid var(--gray200);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--blue-light);
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-icon svg {
+  width: 26px;
+  height: 26px;
+  color: var(--white);
+}
+
+.service-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--gray600);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 4px;
+  transition: gap 0.2s;
+}
+
+.service-link:hover { gap: 10px; }
+
+/* ===== ABOUT ===== */
+.about {
+  background: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+}
+
+.about-graphic {
+  width: 100%;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-graphic svg {
+  width: 60%;
+  opacity: 0.2;
+}
+
+.about-graphic-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--accent);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+}
+
+.about-text .section-desc {
+  margin-bottom: 24px;
+}
+
+.about-text p {
+  font-size: 15px;
+  color: var(--gray600);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+/* ===== ADVANTAGES ===== */
+.advantages {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.advantages::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(21,101,192,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.adv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.adv-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.adv-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(245,158,11,0.35);
+}
+
+.adv-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adv-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+}
+
+.adv-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.adv-desc {
+  font-size: 14px;
+  color: var(--gray400);
+  line-height: 1.6;
+}
+
+/* ===== BRANDS ===== */
+.brands {
+  background: var(--gray50);
+  padding: 64px 20px;
+}
+
+.brands-intro {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.brand-pill {
+  background: var(--white);
+  border: 1px solid var(--gray200);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray600);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.brand-pill:hover {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+}
+
+/* ===== CLIENTS / ЮРЛИЦА ===== */
+.b2b {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+  padding: 72px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.b2b::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(245,158,11,0.08);
+  pointer-events: none;
+}
+
+.b2b-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.b2b-title {
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.8px;
+  margin-bottom: 16px;
+}
+
+.b2b-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.b2b-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.b2b-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.85);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.b2b-feature svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.b2b-form-wrap {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  backdrop-filter: blur(10px);
+}
+
+.b2b-form-wrap h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+/* ===== FORM ===== */
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--white);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-group select option {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.form-checkbox input[type="checkbox"] {
+  width: auto;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contacts {
+  background: var(--white);
+  padding: 72px 20px;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: var(--gray100);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon-wrap svg {
+  color: var(--blue);
+}
+
+.contact-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gray400);
+  margin-bottom: 4px;
+}
+
+.contact-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.contact-val a {
+  color: var(--blue);
+  transition: color 0.2s;
+}
+
+.contact-val a:hover { color: var(--blue-light); }
+
+.map-placeholder {
+  background: var(--gray100);
+  border-radius: var(--radius-lg);
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--gray400);
+  font-size: 14px;
+  font-weight: 500;
+  border: 2px dashed var(--gray200);
+}
+
+.map-placeholder svg {
+  color: var(--blue);
+  opacity: 0.5;
+}
+
+/* ===== BOOKING FORM ===== */
+.booking {
+  background: var(--gray50);
+  padding: 72px 20px;
+}
+
+.booking-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.booking-form {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray200);
+}
+
+.booking-form .form-group label {
+  color: var(--gray800);
+}
+
+.booking-form .form-group input,
+.booking-form .form-group select,
+.booking-form .form-group textarea {
+  background: var(--gray50);
+  border: 1px solid var(--gray200);
+  color: var(--text);
+}
+
+.booking-form .form-group input::placeholder,
+.booking-form .form-group textarea::placeholder {
+  color: var(--gray400);
+}
+
+.booking-form .form-group input:focus,
+.booking-form .form-group select:focus,
+.booking-form .form-group textarea:focus {
+  border-color: var(--blue);
+  background: var(--white);
+}
+
+.booking-form .form-group select option {
+  background: var(--white);
+  color: var(--text);
+}
+
+.booking-form .form-checkbox {
+  color: var(--gray600);
+}
+
+.booking-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--navy);
+  padding: 40px 20px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.footer-logo-text span { color: var(--accent); }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.footer-links a {
+  color: var(--gray400);
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--white); }
+
+.footer-copy {
+  color: var(--gray400);
+  font-size: 13px;
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-top: 8px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .b2b-inner { grid-template-columns: 1fr; gap: 32px; }
+  .contacts-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .header-phone { display: none; }
+  .burger { display: flex; }
+  .hero { padding: 88px 16px 56px; }
+  .hero-trucks { display: none; }
+  .section { padding: 56px 16px; }
+  .brands { padding: 48px 16px; }
+  .contacts { padding: 56px 16px; }
+  .booking { padding: 56px 16px; }
+  .b2b { padding: 56px 16px; }
+  .booking-form { padding: 28px 20px; }
+  .booking-form .form-row { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .adv-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats { gap: 16px; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .booking-form { padding: 24px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13" rx="2"/>
+          <path d="M16 8h4l3 5v4h-7V8z"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </div>
+      <span class="logo-text">Truck<span>Diag</span></span>
+    </a>
+
+    <nav class="nav">
+      <a href="#services">Услуги</a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#brands">Марки</a>
+      <a href="#b2b">Юр. лицам</a>
+      <a href="#contacts">Контакты</a>
+      <a href="#booking" class="header-cta">Записаться</a>
+    </nav>
+
+    <a href="tel:+74957757283" class="header-phone">+7 (495) 775-72-83</a>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#services">Услуги</a>
+    <a href="#advantages">Преимущества</a>
+    <a href="#brands">Марки авто</a>
+    <a href="#b2b">Юридическим лицам</a>
+    <a href="#contacts">Контакты</a>
+    <a href="#booking">Записаться на сервис</a>
+    <a href="tel:+74957757283">+7 (495) 775-72-83</a>
+    <a href="tel:+79851786644">+7 (985) 178-66-44 (WhatsApp)</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <svg class="hero-trucks" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="60" width="220" height="90" rx="10" fill="white"/>
+    <rect x="240" y="30" width="100" height="120" rx="10" fill="white"/>
+    <circle cx="70" cy="165" r="25" fill="white"/>
+    <circle cx="200" cy="165" r="25" fill="white"/>
+    <circle cx="310" cy="165" r="25" fill="white"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Автосервис в Чехове
+    </div>
+
+    <h1 class="hero-title">
+      Диагностика и ремонт<br>
+      <span class="accent">легковых и грузовых</span><br>
+      автомобилей
+    </h1>
+
+    <p class="hero-subtitle">
+      Оперативная диагностика, техническое обслуживание и ремонт легкового, коммерческого и грузового транспорта. Качественно — с гарантией на все работы.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Записаться на сервис
+      </a>
+      <a href="tel:+74957757283" class="btn-secondary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        Позвонить
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">6<span>+</span></div>
+        <div class="hero-stat-label">видов услуг</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">34<span>+</span></div>
+        <div class="hero-stat-label">марки авто</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val"><span>г.</span> Чехов</div>
+        <div class="hero-stat-label">ул. Гарнаева, 16</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <p class="section-label">Что мы делаем</p>
+    <h2 class="section-title">Наши услуги</h2>
+    <p class="section-desc">Полный спектр работ для легкового, коммерческого и грузового транспорта — в одном месте.</p>
+
+    <div class="services-grid">
+
+      <!-- Эвакуация -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h4l3 5v4h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <div class="service-name">Эвакуация</div>
+        <div class="service-desc">Собственный эвакуатор — быстро доставим ваш автомобиль в сервис в Чехове и Московской области.</div>
+        <span class="service-link">
+          Подробнее
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+
+      <!-- Шиномонтаж -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="6"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+            <line x1="2" y1="12" x2="6" y2="12"/>
+            <line x1="18" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="service-name">Легковой / грузовой шиномонтаж</div>
+        <div class="service-desc">Монтаж, демонтаж, балансировка колёс легковых и грузовых автомобилей. Современное оборудование.</div>
+        <span class="service-link">
+          Подробнее
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+
+      <!-- Сход-развал -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="service-name">Сход-развал</div>
+        <div class="service-desc">Регулировка углов установки колёс для равномерного износа шин и точного управления автомобилем.</div>
+        <span class="service-link">
+          Подробнее
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+
+      <!-- Диагностика -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="service-name">Диагностика</div>
+        <div class="service-desc">Компьютерная диагностика двигателя, трансмиссии, ходовой части и электронных систем автомобиля.</div>
+        <span class="service-link">
+          Подробнее
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+
+      <!-- ТО -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <div class="service-name">Техническое обслуживание</div>
+        <div class="service-desc">Замена масла, фильтров, технических жидкостей. Плановое ТО по регламенту производителя для любых марок.</div>
+        <span class="service-link">
+          Подробнее
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+
+      <!-- Ремонт -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <path d="M4.93 4.93a10 10 0 0 0 0 14.14"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M8.46 8.46a5 5 0 0 0 0 7.07"/>
+          </svg>
+        </div>
+        <div class="service-name">Ремонт автомобилей</div>
+        <div class="service-desc">Ремонт двигателя, подвески, тормозной системы, трансмиссии. Работаем с легковыми и грузовыми авто.</div>
+        <span class="service-link">
+          Подробнее
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual">
+        <div class="about-graphic">
+          <svg viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="120" height="60" rx="8" fill="white"/>
+            <path d="M130 50h40l20 30v20h-60V50z" fill="white"/>
+            <circle cx="35" cy="100" r="18" fill="white"/>
+            <circle cx="120" cy="100" r="18" fill="white"/>
+            <circle cx="168" cy="100" r="18" fill="white"/>
+          </svg>
+          <div class="about-graphic-badge">Чехов, ул. Гарнаева, 16</div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p class="section-label">О компании</p>
+        <h2 class="section-title">TruckDiag — сервис для легковых и грузовых</h2>
+        <p class="section-desc">
+          Автосервис TruckDiag — диагностика, техническое обслуживание и ремонт легковых, коммерческих и грузовых автомобилей.
+        </p>
+        <p>
+          Наш автосервис находится в самом центре Чехова. Если вы нуждаетесь в диагностике автомобиля, ремонте подвески, двигателя или настало время провести техническое обслуживание — мы всегда к вашим услугам!
+        </p>
+        <p>
+          Удобное расположение, опытный персонал и доступные цены. Гарантия на все выполненные работы. Наша команда всегда рада помочь вам!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="section advantages" id="advantages">
+  <div class="section-inner">
+    <p class="section-label" style="color: var(--accent);">Почему выбирают нас</p>
+    <h2 class="section-title section-title-white">Наши преимущества</h2>
+    <p class="section-desc" style="color: var(--gray400); margin-bottom: 40px;">Мы делаем всё, чтобы ваш автомобиль был в надёжных руках.</p>
+
+    <div class="adv-grid">
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h4l3 5v4h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <div class="adv-title">Собственный эвакуатор</div>
+        <div class="adv-desc">Не нужно искать сторонний эвакуатор — доставим ваш автомобиль прямо к нам в сервис.</div>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="adv-title">Современное оборудование</div>
+        <div class="adv-desc">Диагностируем и ремонтируем с помощью профессионального современного оборудования.</div>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="adv-title">Опытный персонал</div>
+        <div class="adv-desc">Специалисты с опытом работы с легковыми, коммерческими и грузовыми автомобилями.</div>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          </svg>
+        </div>
+        <div class="adv-title">Склад запчастей</div>
+        <div class="adv-desc">Собственный склад запчастей и расходных материалов — не нужно ждать доставки.</div>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="adv-title">Короткие сроки</div>
+        <div class="adv-desc">Ценим ваше время — стараемся выполнить работы максимально оперативно.</div>
+      </div>
+
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="adv-title">Гарантия на все работы</div>
+        <div class="adv-desc">Предоставляем гарантию на все выполненные работы — вы можете быть уверены в качестве.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands" id="brands">
+  <div class="section-inner">
+    <div class="brands-intro">
+      <p class="section-label">Работаем с любыми марками</p>
+      <h2 class="section-title">Марки легковых автомобилей</h2>
+      <p class="section-desc" style="margin: 0 auto; text-align: center;">Обслуживаем широкий спектр марок — от отечественных до европейских и азиатских производителей.</p>
+    </div>
+
+    <div class="brands-grid">
+      <span class="brand-pill">ACURA</span>
+      <span class="brand-pill">AUDI</span>
+      <span class="brand-pill">CADILLAC</span>
+      <span class="brand-pill">CHERY</span>
+      <span class="brand-pill">CHEVROLET</span>
+      <span class="brand-pill">CHRYSLER</span>
+      <span class="brand-pill">CITROËN</span>
+      <span class="brand-pill">DAEWOO</span>
+      <span class="brand-pill">FIAT</span>
+      <span class="brand-pill">FORD</span>
+      <span class="brand-pill">GREAT WALL</span>
+      <span class="brand-pill">HONDA</span>
+      <span class="brand-pill">HYUNDAI</span>
+      <span class="brand-pill">INFINITI</span>
+      <span class="brand-pill">JEEP</span>
+      <span class="brand-pill">LADA (ВАЗ)</span>
+      <span class="brand-pill">LAND ROVER</span>
+      <span class="brand-pill">LEXUS</span>
+      <span class="brand-pill">LIFAN</span>
+      <span class="brand-pill">MAZDA</span>
+      <span class="brand-pill">MERCEDES</span>
+      <span class="brand-pill">MITSUBISHI</span>
+      <span class="brand-pill">NISSAN</span>
+      <span class="brand-pill">OPEL</span>
+      <span class="brand-pill">PEUGEOT</span>
+      <span class="brand-pill">RENAULT</span>
+      <span class="brand-pill">SEAT</span>
+      <span class="brand-pill">SKODA</span>
+      <span class="brand-pill">SSANGYONG</span>
+      <span class="brand-pill">SUZUKI</span>
+      <span class="brand-pill">TOYOTA</span>
+      <span class="brand-pill">VOLVO</span>
+      <span class="brand-pill">VOLKSWAGEN</span>
+    </div>
+  </div>
+</section>
+
+<!-- B2B -->
+<section class="b2b" id="b2b">
+  <div class="b2b-inner">
+    <div>
+      <p class="section-label" style="color: var(--accent);">Корпоративный сервис</p>
+      <h2 class="b2b-title">Обслуживание юридических лиц</h2>
+      <p class="b2b-desc">
+        Предлагаем специальные условия обслуживания для корпоративных клиентов и компаний с автопарком. Диагностика, ТО и ремонт коммерческого и грузового транспорта.
+      </p>
+      <div class="b2b-features">
+        <div class="b2b-feature">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Работа с коммерческим и грузовым транспортом
+        </div>
+        <div class="b2b-feature">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Собственный эвакуатор — доставим любой транспорт
+        </div>
+        <div class="b2b-feature">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Гарантия на все выполненные работы
+        </div>
+        <div class="b2b-feature">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Склад запчастей — минимальные сроки простоя
+        </div>
+        <div class="b2b-feature">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Доступные цены для корпоративных клиентов
+        </div>
+      </div>
+    </div>
+
+    <div class="b2b-form-wrap">
+      <h3>Получить консультацию</h3>
+      <form id="b2b-form">
+        <div class="form-group">
+          <label for="b2b-name">Ваше имя *</label>
+          <input type="text" id="b2b-name" placeholder="Иван Иванов" required>
+        </div>
+        <div class="form-group">
+          <label for="b2b-phone">Телефон *</label>
+          <input type="tel" id="b2b-phone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group">
+          <label for="b2b-msg">Сообщение</label>
+          <textarea id="b2b-msg" placeholder="Опишите ваш запрос..."></textarea>
+        </div>
+        <label class="form-checkbox">
+          <input type="checkbox" id="b2b-agree" required>
+          Согласен на обработку персональных данных
+        </label>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <p class="section-label" style="text-align:center;">Онлайн-запись</p>
+      <h2 class="section-title" style="text-align:center;">Записаться на обслуживание</h2>
+      <p class="section-desc" style="text-align:center; margin: 0 auto;">Отправьте заявку и мы свяжемся с вами в ближайшее время!</p>
+    </div>
+
+    <div class="booking-form">
+      <form id="booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bk-name">Ваше имя *</label>
+            <input type="text" id="bk-name" placeholder="Иван Иванов" required>
+          </div>
+          <div class="form-group">
+            <label for="bk-phone">Телефон *</label>
+            <input type="tel" id="bk-phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bk-service">Вид обслуживания *</label>
+          <select id="bk-service" required>
+            <option value="">— Выберите услугу —</option>
+            <option value="tire">Шиномонтаж</option>
+            <option value="alignment">Сход-развал</option>
+            <option value="to">Техническое обслуживание</option>
+            <option value="repair">Ремонт автомобиля</option>
+            <option value="diag">Диагностика</option>
+            <option value="evac">Эвакуация</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="bk-info">Дополнительная информация</label>
+          <textarea id="bk-info" placeholder="Марка авто, описание проблемы..."></textarea>
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" id="bk-agree" required>
+          Согласен на обработку персональных данных
+        </label>
+
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center; font-size:17px; padding:16px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          Записаться
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts" id="contacts">
+  <div class="section-inner">
+    <p class="section-label">Как нас найти</p>
+    <h2 class="section-title">Контакты</h2>
+
+    <div class="contacts-grid">
+      <div class="contact-block">
+
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Адрес</div>
+            <div class="contact-val">Московская область, г. Чехов,<br>ул. Гарнаева, д. 16</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Телефон</div>
+            <div class="contact-val">
+              <a href="tel:+74957757283">+7 (495) 775-72-83</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">WhatsApp</div>
+            <div class="contact-val">
+              <a href="tel:+79851786644">+7 (985) 178-66-44</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">E-mail</div>
+            <div class="contact-val">
+              <a href="mailto:info@truckdiag.ru">info@truckdiag.ru</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="map-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>г. Чехов, ул. Гарнаева, д. 16</span>
+        <a href="https://yandex.ru/maps/?text=Чехов+ул+Гарнаева+16" target="_blank" rel="noopener" class="btn-primary" style="font-size:14px; padding:10px 20px;">
+          Открыть на карте
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13" rx="2"/>
+          <path d="M16 8h4l3 5v4h-7V8z"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </div>
+      <span class="footer-logo-text">Truck<span>Diag</span></span>
+    </div>
+
+    <nav class="footer-links">
+      <a href="#services">Услуги</a>
+      <a href="#about">О компании</a>
+      <a href="#brands">Марки авто</a>
+      <a href="#b2b">Юр. лицам</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="footer-copy">
+      © truckdiag.ru — Автосервис TruckDiag, г. Чехов, ул. Гарнаева, 16 &nbsp;|&nbsp;
+      <a href="tel:+74957757283" style="color: var(--accent);">+7 (495) 775-72-83</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== BURGER MENU =====
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  burger.addEventListener('click', function() {
+    mobileNav.classList.toggle('open');
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        var headerH = document.getElementById('header').offsetHeight;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ===== PHONE MASK =====
+  function phoneMask(input) {
+    input.addEventListener('input', function() {
+      var val = this.value.replace(/\D/g, '');
+      if (val.startsWith('8')) val = '7' + val.slice(1);
+      if (!val.startsWith('7')) val = '7' + val;
+      val = val.slice(0, 11);
+      var result = '+7';
+      if (val.length > 1) result += ' (' + val.slice(1, 4);
+      if (val.length >= 4) result += ') ' + val.slice(4, 7);
+      if (val.length >= 7) result += '-' + val.slice(7, 9);
+      if (val.length >= 9) result += '-' + val.slice(9, 11);
+      this.value = result;
+    });
+  }
+
+  document.querySelectorAll('input[type="tel"]').forEach(phoneMask);
+
+  // ===== BOOKING FORM =====
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = document.getElementById('bk-name').value.trim();
+    var phone = document.getElementById('bk-phone').value.trim();
+    var service = document.getElementById('bk-service').value;
+    var agree = document.getElementById('bk-agree').checked;
+
+    if (!name) { alert('Пожалуйста, введите ваше имя.'); return; }
+    if (phone.length < 16) { alert('Пожалуйста, введите корректный телефон.'); return; }
+    if (!service) { alert('Пожалуйста, выберите вид обслуживания.'); return; }
+    if (!agree) { alert('Необходимо согласие на обработку персональных данных.'); return; }
+
+    alert('Спасибо! Мы перезвоним вам в ближайшее время.');
+    this.reset();
+  });
+
+  // ===== B2B FORM =====
+  document.getElementById('b2b-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name = document.getElementById('b2b-name').value.trim();
+    var phone = document.getElementById('b2b-phone').value.trim();
+    var agree = document.getElementById('b2b-agree').checked;
+
+    if (!name) { alert('Пожалуйста, введите ваше имя.'); return; }
+    if (phone.length < 16) { alert('Пожалуйста, введите корректный телефон.'); return; }
+    if (!agree) { alert('Необходимо согласие на обработку персональных данных.'); return; }
+
+    alert('Спасибо! Мы перезвоним вам в ближайшее время.');
+    this.reset();
+  });
+
+  // ===== HEADER SCROLL SHADOW =====
+  window.addEventListener('scroll', function() {
+    var header = document.getElementById('header');
+    if (window.scrollY > 20) {
+      header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.35)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
