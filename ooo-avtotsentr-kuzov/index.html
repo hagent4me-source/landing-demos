@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автоцентр-Кузов — Кузовной ремонт и покраска в Волгограде</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --col-bg: #141414;
+  --col-bg2: #1a1a1a;
+  --col-surface: #222222;
+  --col-surface2: #2a2a2a;
+  --col-border: #333333;
+  --col-orange: #e8560a;
+  --col-orange-light: #ff6b1a;
+  --col-orange-glow: rgba(232,86,10,0.18);
+  --col-steel: #8a9ab0;
+  --col-steel-light: #b0bec5;
+  --col-white: #f5f5f5;
+  --col-text: #c8cfd8;
+  --col-muted: #6b7585;
+  --font-head: 'Russo One', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --r: 10px;
+  --r-lg: 16px;
+  --gap: 24px;
+  --section-py: clamp(56px, 8vw, 96px);
+  --container: 1240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--col-bg);
+  color: var(--col-text);
+  line-height: 1.6;
+  min-width: 320px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+/* ─── NOISE TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ─── HEADER ─── */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(20,20,20,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--col-border);
+  transition: background 0.3s;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 64px;
+  min-width: 0;
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.header__logo-name {
+  font-family: var(--font-head);
+  font-size: clamp(12px, 2.2vw, 18px);
+  color: var(--col-white);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.header__logo-sub {
+  font-size: 10px;
+  color: var(--col-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header__nav {
+  display: none;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.header__nav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--col-steel-light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.header__nav a:hover { color: var(--col-orange); }
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.header__phone {
+  font-family: var(--font-head);
+  font-size: clamp(10px, 1.8vw, 15px);
+  color: var(--col-orange);
+  white-space: nowrap;
+  overflow-wrap: anywhere;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: var(--r);
+  border: none;
+  cursor: pointer;
+  transition: all 0.22s;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--col-orange) 0%, var(--col-orange-light) 100%);
+  color: #fff;
+  padding: 14px 28px;
+  box-shadow: 0 4px 24px rgba(232,86,10,0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,86,10,0.5);
+  background: linear-gradient(135deg, var(--col-orange-light) 0%, #ff8040 100%);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--col-orange);
+  padding: 13px 26px;
+  border: 2px solid var(--col-orange);
+}
+
+.btn-outline:hover {
+  background: var(--col-orange-glow);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  font-size: 12px;
+  padding: 10px 18px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--col-white);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--col-bg2);
+  border-top: 1px solid var(--col-border);
+  padding: 20px clamp(16px, 4vw, 40px);
+  gap: 4px;
+}
+
+.mobile-menu.open { display: flex; }
+
+.mobile-menu a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--col-steel-light);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--col-border);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--col-orange); }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.22;
+}
+
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 50%, rgba(232,86,10,0.12) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(20,20,20,0.97) 0%, rgba(20,20,20,0.75) 50%, rgba(20,20,20,0.92) 100%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: clamp(48px, 8vw, 96px) 0;
+}
+
+.hero__content {
+  max-width: 720px;
+  min-width: 0;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--col-orange-glow);
+  border: 1px solid rgba(232,86,10,0.4);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--col-orange-light);
+  margin-bottom: 24px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hero__badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: var(--col-orange);
+  box-shadow: 0 0 8px var(--col-orange);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero__title {
+  font-family: var(--font-head);
+  font-size: clamp(32px, 7vw, 88px);
+  color: var(--col-white);
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hero__title span {
+  color: var(--col-orange);
+  display: block;
+}
+
+.hero__sub {
+  font-size: clamp(14px, 2vw, 19px);
+  color: var(--col-steel-light);
+  margin-bottom: 32px;
+  max-width: 540px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  gap: 16px;
+  max-width: 560px;
+}
+
+.hero__stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r);
+  padding: 16px 20px;
+  min-width: 0;
+}
+
+.hero__stat-num {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 4vw, 36px);
+  color: var(--col-orange);
+  line-height: 1;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hero__stat-label {
+  font-size: 12px;
+  color: var(--col-muted);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  background: var(--col-orange);
+  overflow: hidden;
+  padding: 14px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 32px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.marquee-item::after {
+  content: '//';
+  opacity: 0.5;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── SECTION TITLES ─── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--col-orange);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 4.5vw, 52px);
+  color: var(--col-white);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.section-title span { color: var(--col-orange); }
+
+.section-desc {
+  font-size: clamp(14px, 1.6vw, 16px);
+  color: var(--col-steel);
+  max-width: 560px;
+  margin-top: 16px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ─── CALCULATOR ─── */
+.calc-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg2);
+  position: relative;
+  overflow: hidden;
+}
+
+.calc-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,86,10,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.calc-card {
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 4vw, 40px);
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.calc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--col-orange) 0%, var(--col-orange-light) 100%);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--col-steel);
+}
+
+.form-control {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  background: var(--col-bg);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r);
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--col-white);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: var(--col-orange);
+  box-shadow: 0 0 0 3px var(--col-orange-glow);
+}
+
+.form-control option {
+  background: var(--col-bg);
+  color: var(--col-white);
+}
+
+.calc-counter {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--col-bg);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.calc-counter button {
+  background: var(--col-surface2);
+  border: none;
+  color: var(--col-white);
+  width: 40px;
+  min-width: 40px;
+  height: 46px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+}
+
+.calc-counter button:hover { background: var(--col-orange); }
+
+.calc-counter input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  color: var(--col-white);
+  font-family: var(--font-head);
+  font-size: 18px;
+  text-align: center;
+  outline: none;
+  padding: 0 4px;
+  width: 100%;
+}
+
+.calc-note {
+  font-size: 11px;
+  color: var(--col-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.calc-result {
+  background: var(--col-bg);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 4vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.calc-result-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--col-muted);
+  margin-bottom: 20px;
+}
+
+.calc-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--col-border);
+  gap: 12px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.calc-line:last-of-type { border-bottom: none; }
+
+.calc-line-name {
+  font-size: 13px;
+  color: var(--col-steel);
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.calc-line-val {
+  font-family: var(--font-head);
+  font-size: 15px;
+  color: var(--col-white);
+  white-space: nowrap;
+  overflow-wrap: anywhere;
+  flex-shrink: 0;
+}
+
+.calc-total {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--col-orange-glow);
+  border: 1px solid rgba(232,86,10,0.35);
+  border-radius: var(--r);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.calc-total-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--col-steel-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.calc-total-sum {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 4vw, 36px);
+  color: var(--col-orange);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.calc-guarantee {
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--col-muted);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.calc-guarantee svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ─── SERVICES ─── */
+.services-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg);
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  min-width: 0;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  border-color: rgba(232,86,10,0.4);
+}
+
+.service-card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card__body {
+  padding: 20px;
+  min-width: 0;
+}
+
+.service-card__tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--col-orange);
+  background: var(--col-orange-glow);
+  border-radius: 100px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+.service-card__title {
+  font-family: var(--font-head);
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--col-white);
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.service-card__text {
+  font-size: 13px;
+  color: var(--col-steel);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ─── TYPES SECTION ─── */
+.types-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg2);
+  overflow: hidden;
+}
+
+.types-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.types-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.type-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r);
+  padding: 20px;
+  transition: border-color 0.2s, transform 0.2s;
+  min-width: 0;
+}
+
+.type-item:hover {
+  border-color: var(--col-orange);
+  transform: translateX(4px);
+}
+
+.type-item__num {
+  font-family: var(--font-head);
+  font-size: 28px;
+  color: var(--col-orange);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 40px;
+}
+
+.type-item__title {
+  font-family: var(--font-head);
+  font-size: 15px;
+  color: var(--col-white);
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.type-item__text {
+  font-size: 13px;
+  color: var(--col-steel);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.types-visual {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  min-height: 300px;
+  min-width: 0;
+}
+
+.types-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.types-visual__badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(20,20,20,0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r);
+  padding: 16px 20px;
+}
+
+.types-visual__badge-title {
+  font-family: var(--font-head);
+  font-size: 14px;
+  color: var(--col-orange);
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.types-visual__badge-text {
+  font-size: 12px;
+  color: var(--col-steel);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ─── GALLERY ─── */
+.gallery-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--r);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.gallery-item:hover img { transform: scale(1.06); }
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover::after { opacity: 1; }
+
+/* ─── HOW IT WORKS ─── */
+.how-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg2);
+  overflow: hidden;
+  position: relative;
+}
+
+.how-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,86,10,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 20px;
+  margin-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.how-step {
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.how-step:hover {
+  border-color: rgba(232,86,10,0.4);
+  transform: translateY(-4px);
+}
+
+.how-step__num {
+  font-family: var(--font-head);
+  font-size: 64px;
+  color: var(--col-orange);
+  opacity: 0.12;
+  line-height: 1;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  pointer-events: none;
+}
+
+.how-step__icon {
+  width: 48px;
+  height: 48px;
+  background: var(--col-orange-glow);
+  border: 1px solid rgba(232,86,10,0.3);
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.how-step__title {
+  font-family: var(--font-head);
+  font-size: 15px;
+  color: var(--col-white);
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.how-step__text {
+  font-size: 13px;
+  color: var(--col-steel);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ─── FAQ ─── */
+.faq-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg);
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.faq-item {
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: border-color 0.2s;
+  min-width: 0;
+}
+
+.faq-item.open { border-color: rgba(232,86,10,0.4); }
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: clamp(13px, 1.6vw, 15px);
+  color: var(--col-white);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.faq-question:hover { color: var(--col-orange); }
+
+.faq-question span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.faq-arrow {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  flex-shrink: 0;
+  border: 1px solid var(--col-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background 0.2s;
+}
+
+.faq-item.open .faq-arrow {
+  transform: rotate(180deg);
+  background: var(--col-orange);
+  border-color: var(--col-orange);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 20px 18px;
+  font-size: 13px;
+  color: var(--col-steel);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.faq-item.open .faq-answer { display: block; }
+
+.faq-promo {
+  background: linear-gradient(135deg, var(--col-surface) 0%, var(--col-surface2) 100%);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r-lg);
+  padding: clamp(24px, 4vw, 40px);
+  min-width: 0;
+}
+
+.faq-promo__tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--col-orange);
+  background: var(--col-orange-glow);
+  border-radius: 100px;
+  padding: 4px 12px;
+  margin-bottom: 16px;
+}
+
+.faq-promo__title {
+  font-family: var(--font-head);
+  font-size: clamp(16px, 2.5vw, 26px);
+  color: var(--col-white);
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.faq-promo__text {
+  font-size: 14px;
+  color: var(--col-steel);
+  margin-bottom: 24px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.faq-promo__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--r);
+  margin-bottom: 20px;
+}
+
+/* ─── CALLBACK FORM ─── */
+.callback-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg2);
+  position: relative;
+  overflow: hidden;
+}
+
+.callback-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,86,10,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.callback-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.callback-form {
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r-lg);
+  padding: clamp(24px, 5vw, 48px);
+  margin-top: 36px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.callback-form::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--col-orange) 0%, var(--col-orange-light) 100%);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  border-radius: var(--r);
+  margin-top: 8px;
+}
+
+.form-note {
+  font-size: 11px;
+  color: var(--col-muted);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ─── CONTACTS ─── */
+.contacts-section {
+  padding: var(--section-py) 0;
+  background: var(--col-bg);
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.contact-card {
+  background: var(--col-surface);
+  border: 1px solid var(--col-border);
+  border-radius: var(--r-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.contact-card:hover {
+  border-color: rgba(232,86,10,0.35);
+  transform: translateY(-3px);
+}
+
+.contact-card__icon {
+  width: 48px;
+  height: 48px;
+  background: var(--col-orange-glow);
+  border: 1px solid rgba(232,86,10,0.3);
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--col-muted);
+}
+
+.contact-card__value {
+  font-family: var(--font-head);
+  font-size: clamp(13px, 2vw, 18px);
+  color: var(--col-white);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.contact-card__value a {
+  color: var(--col-orange);
+  transition: color 0.2s;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.contact-card__value a:hover { color: var(--col-orange-light); }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: #0e0e0e;
+  border-top: 1px solid var(--col-border);
+  padding: 32px 0;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.footer__logo {
+  font-family: var(--font-head);
+  font-size: 16px;
+  color: var(--col-white);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.footer__copy {
+  font-size: 12px;
+  color: var(--col-muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-width: 0;
+}
+
+.footer__links a {
+  font-size: 12px;
+  color: var(--col-muted);
+  transition: color 0.2s;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.footer__links a:hover { color: var(--col-orange); }
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── DESKTOP ─── */
+@media (min-width: 768px) {
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 2vw, 32px);
+  }
+
+  .burger { display: none; }
+
+  /* Hide phone in header on mid-range to avoid overflow — shown in mobile menu */
+  .header__phone {
+    display: block;
+  }
+
+  .calc-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .types-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .faq-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* On small screens hide header phone to prevent overflow */
+@media (max-width: 480px) {
+  .header__phone {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <span class="header__logo-name">Автоцентр-Кузов</span>
+        <span class="header__logo-sub">Волгоград — с 2009 года</span>
+      </a>
+      <nav class="header__nav">
+        <a href="#calc">Калькулятор</a>
+        <a href="#services">Услуги</a>
+        <a href="#gallery">Работы</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="header__right">
+        <a href="tel:+78442506334" class="header__phone">+7 (844) 250-63-34</a>
+        <button class="burger" id="burger" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="#calc" onclick="closeMobile()">Калькулятор</a>
+    <a href="#services" onclick="closeMobile()">Услуги</a>
+    <a href="#gallery" onclick="closeMobile()">Работы</a>
+    <a href="#faq" onclick="closeMobile()">Вопросы</a>
+    <a href="#contacts" onclick="closeMobile()">Контакты</a>
+    <a href="tel:+78442506334" onclick="closeMobile()">+7 (844) 250-63-34</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <img src="images/img_01.jpg" alt="Кузовной цех Автоцентр-Кузов">
+  </div>
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__badge">Волгоград — Ворошиловский район</div>
+        <h1 class="hero__title">
+          Кузовной ремонт
+          <span>и покраска</span>
+        </h1>
+        <p class="hero__sub">Рассчитайте стоимость онлайн — и мы гарантируем выполнение работ по рассчитанной цене. Никаких сюрпризов после сдачи авто.</p>
+        <div class="hero__ctas">
+          <a href="#calc" class="btn btn-primary">Рассчитать стоимость</a>
+          <a href="#callback" class="btn btn-outline">Бесплатная оценка</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <div class="hero__stat-num" data-counter="15">0</div>
+            <div class="hero__stat-label">лет на рынке</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-num">0 ₽</div>
+            <div class="hero__stat-label">оценка ущерба</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-num">5%</div>
+            <div class="hero__stat-label">скидка на запчасти</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-num">3 вида</div>
+            <div class="hero__stat-label">ЛКП на выбор</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Кузовной ремонт</span>
+    <span class="marquee-item">Рихтовка</span>
+    <span class="marquee-item">Покраска акрил</span>
+    <span class="marquee-item">Металлик</span>
+    <span class="marquee-item">Перламутр</span>
+    <span class="marquee-item">Геометрия кузова</span>
+    <span class="marquee-item">Замена элементов</span>
+    <span class="marquee-item">Ремонт бамперов</span>
+    <span class="marquee-item">Страховые случаи</span>
+    <span class="marquee-item">Бесплатная оценка</span>
+    <span class="marquee-item">Кузовной ремонт</span>
+    <span class="marquee-item">Рихтовка</span>
+    <span class="marquee-item">Покраска акрил</span>
+    <span class="marquee-item">Металлик</span>
+    <span class="marquee-item">Перламутр</span>
+    <span class="marquee-item">Геометрия кузова</span>
+    <span class="marquee-item">Замена элементов</span>
+    <span class="marquee-item">Ремонт бамперов</span>
+    <span class="marquee-item">Страховые случаи</span>
+    <span class="marquee-item">Бесплатная оценка</span>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calc">
+  <div class="container">
+    <div class="section-label">Онлайн-калькулятор</div>
+    <h2 class="section-title">Узнайте стоимость <span>до начала работ</span></h2>
+    <p class="section-desc">При правильном вводе данных ООО «Автоцентр-Кузов» гарантирует выполнение работ по рассчитанной стоимости.</p>
+
+    <div class="calc-layout reveal">
+      <div class="calc-card">
+        <div class="calc-grid">
+          <div class="form-group">
+            <label class="form-label" for="car-class">Класс автомобиля</label>
+            <select class="form-control" id="car-class">
+              <option value="">— Выберите —</option>
+              <option value="small">Малый (Polo, Solaris, Rio)</option>
+              <option value="mid">Средний (Camry, Octavia, Focus)</option>
+              <option value="biz">Бизнес / Представительский</option>
+              <option value="suv">Джип / Минивэн</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="paint-type">Лакокрасочное покрытие</label>
+            <select class="form-control" id="paint-type">
+              <option value="">— Выберите —</option>
+              <option value="acrylic">Акрил (однослойный)</option>
+              <option value="metallic">Металлик (база + лак)</option>
+              <option value="pearl">Перламутр / Ксиралик (3 слоя)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-grid">
+          <div class="form-group">
+            <label class="form-label">Позиций на окраску</label>
+            <div class="calc-counter">
+              <button type="button" onclick="changeCount('paint-count', -1)">−</button>
+              <input type="number" id="paint-count" value="0" min="0" max="30" readonly>
+              <button type="button" onclick="changeCount('paint-count', 1)">+</button>
+            </div>
+            <div class="calc-note">Бампер, крыло, капот, дверь, порог — каждый элемент = 1 позиция</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Позиций на ремонт</label>
+            <div class="calc-counter">
+              <button type="button" onclick="changeCount('repair-count', -1)">−</button>
+              <input type="number" id="repair-count" value="0" min="0" max="30" readonly>
+              <button type="button" onclick="changeCount('repair-count', 1)">+</button>
+            </div>
+            <div class="calc-note">Рихтовка, восстановление геометрии, замена элементов</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%; margin-top:8px;" onclick="calcPrice()">Рассчитать стоимость</button>
+
+        <div class="calc-guarantee">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Гарантия выполнения работ по рассчитанной стоимости — это наш ключевой принцип
+        </div>
+      </div>
+
+      <div class="calc-result" id="calc-result">
+        <div class="calc-result-title">Детализация расчёта</div>
+        <div class="calc-line">
+          <span class="calc-line-name">Арматурные работы (снятие/установка)</span>
+          <span class="calc-line-val" id="r-armat">—</span>
+        </div>
+        <div class="calc-line">
+          <span class="calc-line-name">Кузовные работы (рихтовка, геометрия)</span>
+          <span class="calc-line-val" id="r-body">—</span>
+        </div>
+        <div class="calc-line">
+          <span class="calc-line-name">Малярные работы (подготовка и окраска)</span>
+          <span class="calc-line-val" id="r-paint">—</span>
+        </div>
+        <div class="calc-line">
+          <span class="calc-line-name">Расходные материалы</span>
+          <span class="calc-line-val" id="r-mats">—</span>
+        </div>
+        <div class="calc-total">
+          <div style="min-width:0;">
+            <div class="calc-total-label">Ориентировочная стоимость</div>
+            <div style="font-size:11px;color:var(--col-muted);margin-top:2px;">Итоговая цена после осмотра</div>
+          </div>
+          <div class="calc-total-sum" id="r-total">0 ₽</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-label">Что мы делаем</div>
+        <h2 class="section-title">Наши <span>услуги</span></h2>
+      </div>
+      <a href="#callback" class="btn btn-outline btn-sm">Записаться на оценку</a>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <img src="images/img_02.jpg" alt="Кузовной ремонт — рихтовка вмятин" class="service-card__img">
+        <div class="service-card__body">
+          <span class="service-card__tag">Основное</span>
+          <h3 class="service-card__title">Кузовной ремонт</h3>
+          <p class="service-card__text">Устранение вмятин, сколов, царапин. Ремонт и замена капота, крыльев, дверей, порогов, крышки багажника. Сварочные работы.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <img src="images/img_03.jpg" alt="Восстановление геометрии кузова на стапеле" class="service-card__img">
+        <div class="service-card__body">
+          <span class="service-card__tag">После ДТП</span>
+          <h3 class="service-card__title">Геометрия кузова</h3>
+          <p class="service-card__text">Восстановление и коррекция геометрии кузова на современном стапельном оборудовании. Работаем со сложными случаями после серьёзных ДТП.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <img src="images/img_04.jpg" alt="Покраска автомобиля в покрасочной камере" class="service-card__img">
+        <div class="service-card__body">
+          <span class="service-card__tag">Покраска</span>
+          <h3 class="service-card__title">Покраска автомобиля</h3>
+          <p class="service-card__text">Акрил, металлик, перламутр (Ксиралик). Полная покраска или отдельных элементов. Профессиональный колорист подберёт точный оттенок.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <img src="images/img_05.jpg" alt="Ремонт пластикового бампера" class="service-card__img">
+        <div class="service-card__body">
+          <span class="service-card__tag">Пластик</span>
+          <h3 class="service-card__title">Ремонт бамперов</h3>
+          <p class="service-card__text">Ремонт, замена и покраска пластиковых бамперов. Трещины, сколы, деформации — восстанавливаем до заводского вида.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <img src="images/img_06.jpg" alt="Замена и вклейка автостёкол" class="service-card__img">
+        <div class="service-card__body">
+          <span class="service-card__tag">Стёкла</span>
+          <h3 class="service-card__title">Замена автостёкол</h3>
+          <p class="service-card__text">Замена и вклейка лобовых, боковых и задних стёкол. Замена блок-фар, ПТФ и задних фонарей.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <img src="images/img_07.jpg" alt="Бесплатная оценка повреждений кузова" class="service-card__img">
+        <div class="service-card__body">
+          <span class="service-card__tag">Бесплатно</span>
+          <h3 class="service-card__title">Бесплатная оценка</h3>
+          <p class="service-card__text">Приезжайте в удобное время — мастер осмотрит автомобиль и составит точную смету. Без навязывания лишних работ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR TYPES -->
+<section class="types-section" id="types">
+  <div class="container">
+    <div class="section-label">Виды ремонта</div>
+    <h2 class="section-title">Любая <span>сложность</span></h2>
+    <p class="section-desc">От скола до полного восстановления после перевёртыша — у нас есть оборудование и специалисты для любого случая.</p>
+
+    <div class="types-layout">
+      <div class="types-list reveal">
+        <div class="type-item">
+          <div class="type-item__num">01</div>
+          <div style="min-width:0;">
+            <div class="type-item__title">Косметический</div>
+            <p class="type-item__text">Устранение сколов и небольших царапин (потёртостей). Быстро, без разборки кузова.</p>
+          </div>
+        </div>
+        <div class="type-item">
+          <div class="type-item__num">02</div>
+          <div style="min-width:0;">
+            <div class="type-item__title">Локальный</div>
+            <p class="type-item__text">Ремонт небольших вмятин и глубоких царапин. Как правило, не требует снятия элемента кузова.</p>
+          </div>
+        </div>
+        <div class="type-item">
+          <div class="type-item__num">03</div>
+          <div style="min-width:0;">
+            <div class="type-item__title">Средний</div>
+            <p class="type-item__text">Более серьёзные повреждения нескольких соседних элементов. Частичная разборка, нередко — сварочные работы.</p>
+          </div>
+        </div>
+        <div class="type-item">
+          <div class="type-item__num">04</div>
+          <div style="min-width:0;">
+            <div class="type-item__title">Сложный</div>
+            <p class="type-item__text">Нарушение геометрии кузова. Серьёзная разборка, снятие узлов и агрегатов. Работаем с перевёрнутыми автомобилями.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="types-visual reveal">
+        <img src="images/img_08.jpg" alt="Работы по восстановлению кузова в цеху">
+        <div class="types-visual__badge">
+          <div class="types-visual__badge-title">Окраска 1 детали — 2-3 дня</div>
+          <div class="types-visual__badge-text">2-3 детали — 3-4 дня. Срок зависит от сложности ремонта.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-label">Примеры работ</div>
+    <h2 class="section-title">Наши <span>работы</span></h2>
+    <p class="section-desc">Реальные автомобили из нашего цеха. Кузовной ремонт и покраска любой сложности.</p>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="images/img_09.jpg" alt="Кузовной ремонт — результат работы 1">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_10.jpg" alt="Кузовной ремонт — результат работы 2">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_11.jpg" alt="Покраска автомобиля — результат 1">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_12.jpg" alt="Покраска автомобиля — результат 2">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_13.jpg" alt="Ремонт после ДТП — результат 1">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_14.jpg" alt="Ремонт после ДТП — результат 2">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_15.jpg" alt="Восстановление геометрии кузова">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_16.jpg" alt="Ремонт бампера — результат">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_17.jpg" alt="Покраска крыла — результат">
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_18.jpg" alt="Кузовные работы — финальный вид">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="section-label">Как мы работаем</div>
+    <h2 class="section-title">Цена известна <span>до начала работ</span></h2>
+    <p class="section-desc">Прозрачная схема: от первого звонка до выдачи автомобиля. Никаких доплат «по ходу».</p>
+
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step__num">1</div>
+        <div class="how-step__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
+        </div>
+        <div class="how-step__title">Онлайн-расчёт</div>
+        <p class="how-step__text">Выберите класс авто, тип ЛКП и количество позиций — калькулятор даст ориентировочную сумму прямо сейчас.</p>
+      </div>
+
+      <div class="how-step reveal">
+        <div class="how-step__num">2</div>
+        <div class="how-step__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="how-step__title">Бесплатная оценка</div>
+        <p class="how-step__text">Приезжайте в наш цех на Автотранспортной, 33. Мастер осмотрит автомобиль и составит точную смету. Бесплатно.</p>
+      </div>
+
+      <div class="how-step reveal">
+        <div class="how-step__num">3</div>
+        <div class="how-step__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="how-step__title">Фиксация цены</div>
+        <p class="how-step__text">Согласованная стоимость фиксируется. Мы гарантируем выполнение работ по рассчитанной цене — без доплат и сюрпризов.</p>
+      </div>
+
+      <div class="how-step reveal">
+        <div class="how-step__num">4</div>
+        <div class="how-step__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="how-step__title">Выдача автомобиля</div>
+        <p class="how-step__text">Получаете автомобиль в согласованный срок. Гарантия на все виды выполненных работ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-label">Часто спрашивают</div>
+    <h2 class="section-title">Ответы на <span>вопросы</span></h2>
+
+    <div class="faq-layout">
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Ремонтируете авто с нарушением геометрии?</span>
+            <span class="faq-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">Да, наш центр оснащён всем оборудованием для сложных кузовных работ по исправлению геометрии кузова. Работаем в том числе с перевёрнутыми автомобилями.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Сколько времени занимает покраска?</span>
+            <span class="faq-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">Окраска 1 детали занимает 2-3 дня, 2-3 детали — 3-4 дня. Итоговый срок зависит от сложности ремонта конкретной детали. Точные сроки назовём после осмотра.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Как добраться после сдачи авто?</span>
+            <span class="faq-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">В 50 метрах от Автоцентра — остановка «Автобаза». Можно добраться на маршрутном такси №4 или №84, а также на автобусе №4.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Ремонтируете пластиковые детали и бамперы?</span>
+            <span class="faq-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">Да, ремонтируем пластиковые детали кузова и бамперы. После ремонта бампер потребует покраски — это входит в стоимость работ.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Какая гарантия на работы?</span>
+            <span class="faq-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">Мы даём гарантию на все виды выполненных работ. Конкретные условия уточняйте при оформлении заказа у мастера-приёмщика.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Нужно ли мыть машину перед ремонтом?</span>
+            <span class="faq-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">Желательно, но не обязательно. Мастера сами подготовят поверхность к ремонту. Если есть возможность — помойте, это ускорит первичный осмотр.</div>
+        </div>
+      </div>
+
+      <div class="faq-promo reveal">
+        <span class="faq-promo__tag">Акция</span>
+        <h3 class="faq-promo__title">Скидка 5% на запчасти при заказе у нас</h3>
+        <p class="faq-promo__text">При заказе запчастей через наш собственный магазин автозапчастей вы получаете скидку 5% на весь ремонт. Это выгоднее, чем привозить детали самому.</p>
+        <img src="images/img_16.jpg" alt="Собственный склад запчастей Автоцентр-Кузов" class="faq-promo__img">
+        <a href="#callback" class="btn btn-primary" style="width:100%;">Узнать подробнее</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALLBACK -->
+<section class="callback-section" id="callback">
+  <div class="container">
+    <div class="callback-inner">
+      <div class="section-label">Бесплатно</div>
+      <h2 class="section-title">Заказать <span>обратный звонок</span></h2>
+      <p class="section-desc" style="margin: 0 auto; text-align:center;">Оставьте имя и номер — перезвоним в течение 15 минут в рабочее время. Бесплатная оценка ущерба.</p>
+
+      <div class="callback-form reveal">
+        <form id="callback-form" action="#" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cb-name">Ваше имя</label>
+              <input type="text" class="form-control" id="cb-name" placeholder="Например: Александр" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cb-phone">Телефон</label>
+              <input type="tel" class="form-control" id="cb-phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:16px;">
+            <label class="form-label" for="cb-service">Услуга (необязательно)</label>
+            <select class="form-control" id="cb-service">
+              <option value="">— Выберите услугу —</option>
+              <option>Кузовной ремонт</option>
+              <option>Покраска</option>
+              <option>Восстановление геометрии</option>
+              <option>Ремонт бампера</option>
+              <option>Замена стекла</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Перезвоните мне</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Никакого спама.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts-section" id="contacts">
+  <div class="container">
+    <div class="section-label">Где мы находимся</div>
+    <h2 class="section-title">Контакты</h2>
+
+    <div class="contacts-grid reveal">
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.18 2 2 0 012.07.1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-.41a2 2 0 012.11.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="contact-card__label">Телефон</div>
+          <div class="contact-card__value"><a href="tel:+78442506334">+7 (844) 250-63-34</a></div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="contact-card__label">Email</div>
+          <div class="contact-card__value"><a href="mailto:autocentrkuzov@yandex.ru">autocentrkuzov@yandex.ru</a></div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="contact-card__label">Адрес</div>
+          <div class="contact-card__value">Волгоград,<br>ул. Автотранспортная, 33</div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--col-orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div style="min-width:0;">
+          <div class="contact-card__label">Как добраться</div>
+          <div class="contact-card__value" style="font-size:14px;font-family:var(--font-body);font-weight:600;">Ворошиловский район. Ост. «Автобаза» — 50 м. Маршрутки №4, №84, автобус №4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__logo">Автоцентр-Кузов</div>
+      <div class="footer__copy">© 2009—2024 ООО «Автоцентр-Кузов», Волгоград</div>
+      <div class="footer__links">
+        <a href="tel:+78442506334">+7 (844) 250-63-34</a>
+        <a href="mailto:autocentrkuzov@yandex.ru">autocentrkuzov@yandex.ru</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── BURGER ───
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+
+function closeMobile() {
+  burger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+// ─── HEADER SCROLL ───
+window.addEventListener('scroll', () => {
+  const h = document.getElementById('header');
+  if (window.scrollY > 60) {
+    h.style.background = 'rgba(14,14,14,0.97)';
+  } else {
+    h.style.background = 'rgba(20,20,20,0.85)';
+  }
+});
+
+// ─── SCROLL REVEAL ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+
+// ─── COUNTER ANIMATION ───
+const counterEls = document.querySelectorAll('[data-counter]');
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.counter);
+      let current = 0;
+      const step = Math.ceil(target / 40);
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current;
+        if (current >= target) clearInterval(timer);
+      }, 40);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counterEls.forEach(el => counterObs.observe(el));
+
+// ─── CALCULATOR ───
+function changeCount(id, delta) {
+  const input = document.getElementById(id);
+  const val = parseInt(input.value) || 0;
+  const newVal = Math.max(0, Math.min(30, val + delta));
+  input.value = newVal;
+}
+
+// Base prices per element per class
+const classMult = { small: 1.0, mid: 1.3, biz: 1.7, suv: 1.5 };
+const paintMult = { acrylic: 1.0, metallic: 1.25, pearl: 1.55 };
+
+// Base rates (rubles per element)
+const BASE_ARMAT = 1200;
+const BASE_BODY = 2800;
+const BASE_PAINT = 3500;
+const BASE_MATS = 900;
+
+function fmt(n) {
+  return n.toLocaleString('ru-RU') + ' ₽';
+}
+
+function calcPrice() {
+  const carClass = document.getElementById('car-class').value;
+  const paintType = document.getElementById('paint-type').value;
+  const paintCount = parseInt(document.getElementById('paint-count').value) || 0;
+  const repairCount = parseInt(document.getElementById('repair-count').value) || 0;
+
+  if (!carClass || !paintType) {
+    alert('Пожалуйста, выберите класс автомобиля и тип ЛКП.');
+    return;
+  }
+
+  const cm = classMult[carClass] || 1;
+  const pm = paintMult[paintType] || 1;
+
+  const totalPos = paintCount + repairCount;
+
+  const armat = Math.round(totalPos * BASE_ARMAT * cm);
+  const body = Math.round(repairCount * BASE_BODY * cm);
+  const paint = Math.round(paintCount * BASE_PAINT * cm * pm);
+  const mats = Math.round(totalPos * BASE_MATS * cm * pm);
+  const total = armat + body + paint + mats;
+
+  document.getElementById('r-armat').textContent = fmt(armat);
+  document.getElementById('r-body').textContent = fmt(body);
+  document.getElementById('r-paint').textContent = fmt(paint);
+  document.getElementById('r-mats').textContent = fmt(mats);
+  document.getElementById('r-total').textContent = total > 0 ? fmt(total) : '0 ₽';
+
+  document.getElementById('calc-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ─── FAQ ───
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ─── PHONE MASK ───
+const phoneInput = document.getElementById('cb-phone');
+if (phoneInput) {
+  phoneInput.addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (!val.startsWith('7')) val = '7' + val;
+    val = val.slice(0, 11);
+    let res = '+7';
+    if (val.length > 1) res += ' (' + val.slice(1, 4);
+    if (val.length >= 4) res += ') ' + val.slice(4, 7);
+    if (val.length >= 7) res += '-' + val.slice(7, 9);
+    if (val.length >= 9) res += '-' + val.slice(9, 11);
+    this.value = res;
+  });
+}
+
+// ─── CALLBACK FORM ───
+document.getElementById('callback-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = document.getElementById('cb-name').value.trim();
+  const phone = document.getElementById('cb-phone').value.trim();
+
+  if (!name) {
+    alert('Пожалуйста, введите ваше имя.');
+    document.getElementById('cb-name').focus();
+    return;
+  }
+  if (phone.length < 16) {
+    alert('Пожалуйста, введите корректный номер телефона.');
+    document.getElementById('cb-phone').focus();
+    return;
+  }
+
+  alert('Спасибо, ' + name + '! Мы перезвоним вам в ближайшее время.');
+  this.reset();
+});
+</script>
+</body>
+</html>
