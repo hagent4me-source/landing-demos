@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис — Серпухов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue: #1a3c6e;
+    --blue-mid: #2356a8;
+    --blue-light: #3a7bd5;
+    --orange: #f47c20;
+    --orange-dark: #d96a10;
+    --bg: #f5f7fb;
+    --bg-white: #ffffff;
+    --text: #1a1f2e;
+    --text-muted: #5a6278;
+    --border: #e2e7f0;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(26,60,110,0.10);
+    --shadow-md: 0 8px 40px rgba(26,60,110,0.14);
+    --green: #25D366;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,60,110,0.07);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 20px; max-width: 1120px; margin: 0 auto;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: var(--blue); }
+  .logo-badge {
+    width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, var(--blue-mid), var(--blue-light));
+    display: flex; align-items: center; justify-content: center; color: #fff; font-size: 19px;
+  }
+  .header-phone { font-weight: 700; color: var(--blue); text-decoration: none; font-size: 16px; white-space: nowrap; }
+  @media (max-width: 560px) { .header-phone { font-size: 14px; } }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #0f2a4d 0%, var(--blue-mid) 60%, var(--blue-light) 100%);
+    color: #fff;
+    padding: 64px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: ''; position: absolute; right: -120px; top: -120px;
+    width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(244,124,32,0.35), transparent 70%);
+  }
+  .hero-inner { position: relative; z-index: 2; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .hero h1 { font-size: clamp(28px, 4.5vw, 46px); font-weight: 900; line-height: 1.15; margin-bottom: 14px; }
+  .hero h1 .accent { color: var(--orange); }
+  .hero p { font-size: 17px; opacity: 0.92; max-width: 640px; margin-bottom: 30px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 16px;
+    text-decoration: none; transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 6px 24px rgba(244,124,32,0.4); }
+  .btn-primary:hover { background: var(--orange-dark); }
+  .btn-wa { background: var(--green); color: #fff; box-shadow: 0 6px 24px rgba(37,211,102,0.35); }
+  .btn-wa:hover { filter: brightness(1.05); }
+  .hero-meta { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; opacity: 0.85; }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+  /* ===== SECTIONS ===== */
+  .section { padding: 56px 0; }
+  .section-alt { background: var(--bg-white); }
+  .section-title { font-size: clamp(22px, 3vw, 32px); font-weight: 800; color: var(--blue); margin-bottom: 8px; }
+  .section-sub { color: var(--text-muted); margin-bottom: 34px; max-width: 560px; }
+
+  /* ===== SERVICES ===== */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+  .service-card {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; box-shadow: var(--shadow); transition: transform .15s, box-shadow .15s;
+  }
+  .section-alt .service-card { background: var(--bg); }
+  .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .service-icon {
+    width: 46px; height: 46px; border-radius: 12px; margin-bottom: 14px;
+    background: linear-gradient(135deg, rgba(35,86,168,0.12), rgba(58,123,213,0.12));
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .service-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .service-card p { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== ADVANTAGES ===== */
+  .adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .adv-item { display: flex; gap: 14px; align-items: flex-start; }
+  .adv-num {
+    min-width: 40px; height: 40px; border-radius: 10px; background: var(--blue);
+    color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 17px;
+  }
+  .adv-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .adv-item p { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== STEPS ===== */
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+  .step-card {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; text-align: center; box-shadow: var(--shadow);
+  }
+  .step-num {
+    width: 44px; height: 44px; margin: 0 auto 12px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff;
+    font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .step-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .step-card p { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== CONTACTS ===== */
+  .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+  @media (max-width: 760px) { .contacts-grid { grid-template-columns: 1fr; } }
+  .contact-line { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .contact-ico {
+    width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(35,86,168,0.12), rgba(58,123,213,0.12));
+    display: flex; align-items: center; justify-content: center; font-size: 19px;
+  }
+  .contact-line b { display: block; font-size: 15px; }
+  .contact-line a { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 16px; }
+  .contact-line a:hover { text-decoration: underline; }
+  .map-placeholder {
+    border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden;
+    background: linear-gradient(135deg, #e8eef7, #d9e3f2); min-height: 240px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--text-muted); font-size: 14px; gap: 6px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer { background: #0f2a4d; color: rgba(255,255,255,0.75); padding: 30px 0; text-align: center; font-size: 14px; }
+  .footer b { color: #fff; }
+
+  .wa-float {
+    position: fixed; right: 18px; bottom: 18px; z-index: 200;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: var(--green); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45); text-decoration: none;
+    font-size: 28px; transition: transform .15s;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+
+
+
+</style>
+<style>
+/* ===== MOBILE GUARD (ручная правка, авто-фикс вылезания за экран) ===== */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden !important; }
+  body * { min-width: 0 !important; flex-shrink: 1 !important; }
+  div, section, header, footer, main, nav, article, aside, form, ul, ol, table {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  [class*="grid"] > *, [class*="inner"] > *, [class*="layout"] > *,
+  [class*="wrap"] > *, [class*="row"] > *, [class*="header"] > *,
+  [class*="nav"] > *, [class*="menu"] > *, [class*="actions"] > * {
+    max-width: 100% !important;
+  }
+  img, svg, video, iframe, select, input, textarea, pre {
+    max-width: 100% !important;
+  }
+  h1, h2, h3, h4, p, span, a, [class*="title"], [class*="price"], [class*="name"], [class*="label"] {
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  .marquee-track, [class*="marquee"], [class*="ticker"], [data-marquee] {
+    max-width: none !important;
+    min-width: auto !important;
+  }
+}
+/* ===== /MOBILE GUARD ===== */
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><div class="logo-badge">🔧</div><span id="logo-name">Автосервис</span></div>
+    <a class="header-phone" id="header-phone" href="tel:+79000000000">+7 (900) 000-00-00</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1><span id="hero-name">Автосервис</span> в Серпухове —<br>ремонт, который <span class="accent">не подводит</span></h1>
+    <p>Диагностика, техническое обслуживание и ремонт автомобилей любых марок. Честные цены, гарантия на работы, запчасти в наличии.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" id="call-btn" href="tel:+79000000000">📞 Позвонить</a>
+      <a class="btn btn-wa" id="wa-btn" href="https://wa.me/79000000000" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+    </div>
+    <div class="hero-meta">
+      <span>📍 <span id="hero-addr">г. Серпухов</span></span>
+      <span>🕘 Ежедневно 9:00–20:00</span>
+      <span>✅ Гарантия на работы</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Услуги</h2>
+    <p class="section-sub">Полный спектр работ по ремонту и обслуживанию автомобиля в одном месте.</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🛠️</div><h3>Ремонт двигателя</h3><p>Капитальный и текущий ремонт, замена ГРМ, устранение течей.</p></div>
+      <div class="service-card"><div class="service-icon">⚙️</div><h3>Ходовая часть</h3><p>Замена амортизаторов, рычагов, сайлентблоков, ступиц.</p></div>
+      <div class="service-card"><div class="service-icon">🔍</div><h3>Компьютерная диагностика</h3><p>Сканер, поиск ошибок, проверка всех систем автомобиля.</p></div>
+      <div class="service-card"><div class="service-icon">🔄</div><h3>Техническое обслуживание</h3><p>Замена масла, фильтров, свечей, тормозных колодок.</p></div>
+      <div class="service-card"><div class="service-icon">🔩</div><h3>Шиномонтаж</h3><p>Балансировка, сезонная замена шин, ремонт проколов.</p></div>
+      <div class="service-card"><div class="service-icon">📐</div><h3>Сход-развал</h3><p>Регулировка углов установки колёс на современном стенде.</p></div>
+      <div class="service-card"><div class="service-icon">🔋</div><h3>Электрика</h3><p>Диагностика и ремонт электрооборудования, генератора, АКБ.</p></div>
+      <div class="service-card"><div class="service-icon">🚗</div><h3>Кузовные работы</h3><p>Мелкий кузовной ремонт, покраска, подготовка к продаже.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Почему выбирают нас</h2>
+    <p class="section-sub">Работаем честно и прозрачно — вы всегда знаете, за что платите.</p>
+    <div class="adv-grid">
+      <div class="adv-item"><div class="adv-num">1</div><div><h4>Честная диагностика</h4><p>Сначала показываем и объясняем, потом ремонтируем. Без навязанных работ.</p></div></div>
+      <div class="adv-item"><div class="adv-num">2</div><div><h4>Гарантия на работы</h4><p>Даём письменную гарантию — если что-то пошло не так, устраним бесплатно.</p></div></div>
+      <div class="adv-item"><div class="adv-num">3</div><div><h4>Запчасти в наличии</h4><p>Не ждём доставку неделями: популярные позиции есть на складе.</p></div></div>
+      <div class="adv-item"><div class="adv-num">4</div><div><h4>Опытные мастера</h4><p>Специалисты с опытом 10+ лет, работаем с любыми марками.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Как мы работаем</h2>
+    <p class="section-sub">Просто и понятно — от звонка до готового автомобиля.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><h4>Заявка</h4><p>Позвоните или напишите в WhatsApp — запишем удобное время.</p></div>
+      <div class="step-card"><div class="step-num">2</div><h4>Диагностика</h4><p>Проверим автомобиль, назовём точную стоимость работ.</p></div>
+      <div class="step-card"><div class="step-num">3</div><h4>Ремонт</h4><p>Выполняем работы в срок, сообщаем о ходе по WhatsApp.</p></div>
+      <div class="step-card"><div class="step-num">4</div><h4>Готово</h4><p>Забираете автомобиль с гарантией и полной отчётностью.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contacts">
+  <div class="container">
+    <h2 class="section-title">Контакты</h2>
+    <p class="section-sub">Свяжитесь удобным способом — ответим быстро.</p>
+    <div class="contacts-grid">
+      <div>
+        <div class="contact-line">
+          <div class="contact-ico">📞</div>
+          <div><b>Телефон</b><a id="contact-phone" href="tel:+79000000000">+7 (900) 000-00-00</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-ico">💬</div>
+          <div><b>WhatsApp</b><a id="contact-wa" href="https://wa.me/79000000000" target="_blank" rel="noopener">Написать сообщение</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-ico">📍</div>
+          <div><b>Адрес</b><span id="contact-addr">г. Серпухов</span></div>
+        </div>
+        <div class="contact-line">
+          <div class="contact-ico">🕘</div>
+          <div><b>Режим работы</b><span>Ежедневно 9:00–20:00</span></div>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <div style="font-size:40px">🗺️</div>
+        <b id="map-name">Автосервис</b>
+        <span id="map-addr">г. Серпухов</span>
+        <span>Карта появится после подключения сайта</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <b id="footer-name">Автосервис</b> · Серпухов<br>
+    Ремонт и обслуживание автомобилей · Работаем ежедневно
+  </div>
+</footer>
+
+<a class="wa-float" id="wa-float" href="https://wa.me/79000000000" target="_blank" rel="noopener" title="Написать в WhatsApp">💬</a>
+
+<script>
+(function () {
+  var p = new URLSearchParams(window.location.search);
+  var name = p.get('name') || 'Автосервис';
+  var phone = p.get('phone') || '+7 (900) 000-00-00';
+  var wa = p.get('wa') || '79000000000';
+  var addr = p.get('addr') || 'г. Серпухов';
+
+  var digits = wa.replace(/\D/g, '');
+  var tel = 'tel:+' + digits;
+  var waLink = 'https://wa.me/' + digits;
+
+  var ids = ['logo-name', 'hero-name', 'footer-name', 'map-name'];
+  ids.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = name;
+  });
+  document.title = name + ' — автосервис в Серпухове';
+
+  var addrEls = ['hero-addr', 'contact-addr', 'map-addr'];
+  addrEls.forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = addr;
+  });
+
+  ['header-phone', 'contact-phone'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.textContent = phone; el.href = tel; }
+  });
+  ['call-btn'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.href = tel;
+  });
+  ['wa-btn', 'contact-wa', 'wa-float'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.href = waLink;
+  });
+})();
+</script>
+</body>
+</html>
