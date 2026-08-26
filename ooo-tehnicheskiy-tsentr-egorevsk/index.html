@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Технический центр Егорьевск — техосмотр, ремонт, шиномонтаж, автомойка. Московская область, ул. Радио, 1. Тел: +7 903 555 20 37">
+<title>Технический центр — Егорьевск | Техосмотр, ремонт, шиномонтаж</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f2240;
+    --navy-mid: #1a3560;
+    --blue: #1e5fc2;
+    --blue-light: #2e72d9;
+    --sky: #e8f0fb;
+    --accent: #f5a623;
+    --accent-dark: #d4891a;
+    --text: #1a1f2e;
+    --text-mid: #3d4560;
+    --text-soft: #6b7494;
+    --white: #ffffff;
+    --bg: #f7f9fd;
+    --border: #dce4f0;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  html, body { overflow-x: hidden; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ===== NAV ===== */
+  .nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(15,34,64,0.18);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .nav-logo-main {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .nav-logo-sub {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.82);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-phone {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .nav-phone:hover { color: #ffc04d; }
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    background: var(--navy-mid);
+    padding: 16px 20px 20px;
+  }
+  .mobile-menu.open { display: block; }
+  .mobile-menu ul { list-style: none; }
+  .mobile-menu ul li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mobile-menu ul li a {
+    display: block;
+    padding: 12px 0;
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .mobile-menu .mob-phone {
+    display: block;
+    margin-top: 14px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 16px;
+    word-break: break-all;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #1a4a8a 100%);
+    padding: 64px 20px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -120px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(30,95,194,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -80px;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(245,166,35,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,166,35,0.15);
+    border: 1px solid rgba(245,166,35,0.35);
+    border-radius: 100px;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+  }
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .hero h1 {
+    font-size: clamp(26px, 4vw, 46px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.18;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 28px;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+  .hero-cert {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    margin-bottom: 32px;
+  }
+  .hero-cert-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+  .hero-cert-text { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.4; }
+  .hero-cert-text strong { color: var(--white); display: block; font-size: 14px; }
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--radius);
+    padding: 18px 14px;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .hero-card:hover { background: rgba(255,255,255,0.11); }
+  .hero-card-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px;
+    opacity: 0.9;
+  }
+  .hero-card-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .hero-info-strip {
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.25);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+  }
+  .hero-info-item svg { flex-shrink: 0; }
+
+  /* ===== SECTION COMMON ===== */
+  .section { padding: 64px 20px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 36px);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-soft);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .about-text .section-desc { margin-bottom: 28px; }
+  .about-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .about-fact {
+    background: var(--sky);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+  }
+  .about-fact-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .about-fact-label {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.4;
+  }
+  .about-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .about-registry {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    color: var(--white);
+  }
+  .about-registry-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 8px;
+  }
+  .about-registry-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .about-registry-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+  .about-cats {
+    background: var(--sky);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  .about-cats-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .about-cats-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .cat-badge {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-cert-link {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s;
+  }
+  .about-cert-link:hover { border-color: var(--blue); }
+  .about-cert-link-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+  .about-cert-link-text { font-size: 14px; color: var(--text-mid); line-height: 1.4; }
+  .about-cert-link-text strong { color: var(--navy); display: block; }
+
+  /* ===== SERVICES ===== */
+  .services { background: var(--bg); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .service-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 22px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .service-card:hover {
+    border-color: var(--blue-light);
+    box-shadow: 0 8px 32px rgba(30,95,194,0.10);
+    transform: translateY(-2px);
+  }
+  .service-card-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 16px;
+  }
+  .service-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .service-card-desc {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+  .service-card.featured {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-color: transparent;
+  }
+  .service-card.featured .service-card-title { color: var(--white); }
+  .service-card.featured .service-card-desc { color: rgba(255,255,255,0.65); }
+  .service-card.featured .service-card-icon-bg {
+    background: rgba(245,166,35,0.15);
+    border-radius: 12px;
+    padding: 8px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  /* ===== TECHOSMOTR ===== */
+  .techosmotr { background: var(--white); }
+  .techosmotr-inner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .techosmotr-steps { display: flex; flex-direction: column; gap: 16px; }
+  .step-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--blue);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .step-content-desc { font-size: 14px; color: var(--text-soft); line-height: 1.5; }
+  .techosmotr-cats {
+    background: var(--sky);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .techosmotr-cats-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .techosmotr-cats-sub {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+  }
+  .cats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .cat-item {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 14px 8px;
+    text-align: center;
+  }
+  .cat-item-letter {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .cat-item-name { font-size: 10px; color: rgba(255,255,255,0.65); line-height: 1.3; }
+  .techosmotr-note {
+    font-size: 13px;
+    color: var(--text-soft);
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    line-height: 1.5;
+  }
+  .techosmotr-note strong { color: var(--navy); }
+
+  /* ===== CONTACTS ===== */
+  .contacts { background: var(--bg); }
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .contact-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .contact-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .contact-row:last-child { margin-bottom: 0; }
+  .contact-row-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--sky);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-row-label {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .contact-row-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    word-break: break-word;
+  }
+  .contact-row-value a { color: var(--blue); }
+  .contact-row-value a:hover { color: var(--accent-dark); }
+  .form-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+  .form-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .form-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 14px; }
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 6px;
+  }
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.09);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    color: var(--white);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--accent);
+  }
+  .form-select option { background: var(--navy); color: var(--white); }
+  .form-textarea { resize: none; height: 80px; }
+  .form-btn {
+    width: 100%;
+    background: var(--accent);
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .form-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .form-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--navy);
+    padding: 36px 20px;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-logo {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-phones {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-phone {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    font-weight: 600;
+    word-break: break-all;
+  }
+  .footer-phone:hover { color: var(--accent); }
+  .footer-addr {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+  }
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-disclaimer {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .techosmotr-inner-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contacts-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .nav-phone-desktop { display: none; }
+    .burger { display: flex; }
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 48px 16px; }
+    .hero { padding: 44px 16px 52px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about-facts { grid-template-columns: 1fr 1fr; }
+    .cats-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .cat-item { padding: 10px 4px; }
+    .cat-item-letter { font-size: 18px; }
+    .cat-item-name { font-size: 9px; }
+    .hero-cards-grid { grid-template-columns: 1fr 1fr; }
+    .form-card { padding: 24px 18px; }
+    .contact-card { padding: 22px 18px; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; }
+  }
+
+  @media (max-width: 360px) {
+    .nav-inner { padding: 0 12px; }
+    .hero { padding: 36px 12px 44px; }
+    .section { padding: 40px 12px; }
+    .about-facts { grid-template-columns: 1fr; }
+    .cats-grid { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .cat-item-name { display: none; }
+    .hero-info-strip { flex-direction: column; gap: 10px; }
+    .footer-phones { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="nav-logo-main">Технический центр</span>
+      <span class="nav-logo-sub">Егорьевск</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#techosmotr">Техосмотр</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <a class="nav-phone nav-phone-desktop" href="tel:+79035552037">+7 903 555-20-37</a>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mob-link">О нас</a></li>
+      <li><a href="#services" class="mob-link">Услуги</a></li>
+      <li><a href="#techosmotr" class="mob-link">Техосмотр</a></li>
+      <li><a href="#contacts" class="mob-link">Контакты</a></li>
+    </ul>
+    <a class="mob-phone" href="tel:+79035552037">+7 903 555-20-37</a>
+    <a class="mob-phone" href="tel:+79160852253">+7 916 085-22-53</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Официальный оператор ТО</span>
+      </div>
+      <h1>Техосмотр и&nbsp;полный ремонт авто в&nbsp;<em>Егорьевске</em></h1>
+      <p class="hero-desc">Технический осмотр категорий А, В, С, Д, Е для оформления ОСАГО. Компьютерная диагностика, ремонт двигателей, подвески, шиномонтаж и автомойка — всё в одном месте.</p>
+      <div class="hero-cert">
+        <svg class="hero-cert-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="40" height="40" rx="10" fill="rgba(245,166,35,0.18)"/>
+          <path d="M20 8l3.09 6.26L30 15.27l-5 4.87 1.18 6.86L20 23.77l-6.18 3.23L15 20.14l-5-4.87 6.91-1.01L20 8z" fill="#f5a623"/>
+        </svg>
+        <div class="hero-cert-text">
+          <strong>Реестр операторов ТО № 8082</strong>
+          Сертифицировано с 20.06.2016 · Имеется сертификат на все виды работ
+        </div>
+      </div>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('contacts').scrollIntoView({behavior:'smooth'})">Записаться на приём</button>
+        <button class="btn-outline" onclick="document.getElementById('techosmotr').scrollIntoView({behavior:'smooth'})">Пройти техосмотр</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-cards-grid">
+        <div class="hero-card">
+          <svg class="hero-card-icon" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.08)"/>
+            <path d="M8 28h24M10 28l2-8h16l2 8" stroke="#f5a623" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="14" cy="28" r="2.5" fill="#f5a623"/>
+            <circle cx="26" cy="28" r="2.5" fill="#f5a623"/>
+            <path d="M12 20l1.5-4h13l1.5 4" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <div class="hero-card-label">Ремонт двигателей</div>
+        </div>
+        <div class="hero-card">
+          <svg class="hero-card-icon" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.08)"/>
+            <circle cx="20" cy="20" r="9" stroke="#f5a623" stroke-width="2"/>
+            <circle cx="20" cy="20" r="4" fill="rgba(245,166,35,0.25)" stroke="#f5a623" stroke-width="1.5"/>
+            <path d="M20 11v2M20 27v2M11 20h2M27 20h2" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <div class="hero-card-label">Шиномонтаж</div>
+        </div>
+        <div class="hero-card">
+          <svg class="hero-card-icon" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.08)"/>
+            <path d="M12 30V18l8-8 8 8v12H12z" stroke="#f5a623" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="17" y="23" width="6" height="7" rx="1" fill="rgba(245,166,35,0.25)" stroke="#f5a623" stroke-width="1.5"/>
+            <path d="M16 18h8" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <div class="hero-card-label">Сход-Развал</div>
+        </div>
+        <div class="hero-card">
+          <svg class="hero-card-icon" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.08)"/>
+            <path d="M10 20c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10S10 25.52 10 20z" stroke="#f5a623" stroke-width="2"/>
+            <path d="M15 20l4 4 7-7" stroke="#f5a623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="hero-card-label">Техосмотр</div>
+        </div>
+      </div>
+      <div class="hero-info-strip">
+        <div class="hero-info-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1.5A4.5 4.5 0 018 10.5a4.5 4.5 0 010-9z" stroke="#f5a623" stroke-width="1.5"/>
+            <path d="M3 14c0-2.21 2.24-4 5-4s5 1.79 5 4" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>ул. Радио, 1, Егорьевск</span>
+        </div>
+        <div class="hero-info-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6.5" stroke="#f5a623" stroke-width="1.5"/>
+            <path d="M8 4.5V8.5l2.5 1.5" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Пн–Сб: 09:00–19:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">О компании</div>
+        <h2 class="section-title">Полный цикл обслуживания автомобиля</h2>
+        <p class="section-desc">Технический центр в Егорьевске — это возможность пройти техосмотр мотоциклам, легковым, грузовым автомобилям, автобусам и автопоездам для оформления полиса ОСАГО. Производим все виды ремонта на месте. Имеется сертификат на все виды работ.</p>
+        <div class="about-facts">
+          <div class="about-fact">
+            <div class="about-fact-value">10+</div>
+            <div class="about-fact-label">лет в реестре операторов ТО</div>
+          </div>
+          <div class="about-fact">
+            <div class="about-fact-value">5</div>
+            <div class="about-fact-label">категорий ТС на техосмотр</div>
+          </div>
+          <div class="about-fact">
+            <div class="about-fact-value">10</div>
+            <div class="about-fact-label">видов услуг на одной площадке</div>
+          </div>
+          <div class="about-fact">
+            <div class="about-fact-value">6 дн</div>
+            <div class="about-fact-label">в неделю, 09:00–19:00</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-registry">
+          <div class="about-registry-label">Реестр операторов технического осмотра</div>
+          <div class="about-registry-num">№ 8082</div>
+          <div class="about-registry-text">Внесён в реестр 20 июня 2016 года. Официальная карточка оператора подтверждает право на проведение технического осмотра всех категорий.</div>
+        </div>
+        <div class="about-cats">
+          <div class="about-cats-title">Категории транспортных средств</div>
+          <div class="about-cats-list">
+            <div class="cat-badge">А</div>
+            <div class="cat-badge">В</div>
+            <div class="cat-badge">С</div>
+            <div class="cat-badge">Д</div>
+            <div class="cat-badge">Е</div>
+          </div>
+        </div>
+        <div class="about-cert-link">
+          <svg class="about-cert-link-icon" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="9" fill="#e8f0fb"/>
+            <path d="M10 9h16v18H10z" stroke="#1e5fc2" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M13 14h10M13 18h10M13 22h6" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <div class="about-cert-link-text">
+            <strong>Диагностика 12В и 24В</strong>
+            Компьютерная диагностика легковых и грузовых автомобилей
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="section-label">Наши услуги</div>
+    <h2 class="section-title">Всё для вашего автомобиля</h2>
+    <p class="section-desc">Полный спектр работ — от техосмотра до автомойки. Производим все виды ремонта на месте.</p>
+    <div class="services-grid">
+
+      <div class="service-card featured">
+        <div class="service-card-icon-bg">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <path d="M18 4l2.47 5 5.53.81-4 3.9.94 5.5L18 16.5l-4.94 2.71.94-5.5-4-3.9 5.53-.81L18 4z" fill="#f5a623"/>
+            <path d="M9 26h18M12 30h12" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="service-card-title">Технический осмотр</div>
+        <div class="service-card-desc">Категорий А, В, С, Д, Е. Официальный оператор ТО № 8082. Для мотоциклов, легковых, грузовых, автобусов и автопоездов.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <rect x="13" y="18" width="26" height="16" rx="3" stroke="#1e5fc2" stroke-width="2"/>
+          <circle cx="19" cy="34" r="3" fill="#1e5fc2"/>
+          <circle cx="33" cy="34" r="3" fill="#1e5fc2"/>
+          <path d="M17 22h6l2 4h-8l0-4z" fill="rgba(30,95,194,0.2)" stroke="#1e5fc2" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M27 22h8v4h-8v-4z" fill="rgba(30,95,194,0.2)" stroke="#1e5fc2" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <div class="service-card-title">Ремонт двигателей</div>
+        <div class="service-card-desc">Диагностика и капитальный ремонт двигателей легковых и грузовых автомобилей.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <circle cx="26" cy="26" r="11" stroke="#1e5fc2" stroke-width="2"/>
+          <circle cx="26" cy="26" r="5" fill="rgba(30,95,194,0.15)" stroke="#1e5fc2" stroke-width="1.5"/>
+          <path d="M26 15v3M26 34v3M15 26h3M34 26h3" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-card-title">Ремонт подвески</div>
+        <div class="service-card-desc">Диагностика и замена амортизаторов, рычагов, шаровых, сайлентблоков и рулевых наконечников.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <path d="M16 36V22l10-10 10 10v14H16z" stroke="#1e5fc2" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M22 36v-9h8v9" stroke="#1e5fc2" stroke-width="1.5" stroke-linejoin="round"/>
+          <circle cx="26" cy="22" r="2" fill="#1e5fc2"/>
+        </svg>
+        <div class="service-card-title">Автоэлектрика</div>
+        <div class="service-card-desc">Диагностика и ремонт электрооборудования, поиск неисправностей, замена проводки.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <circle cx="26" cy="26" r="12" stroke="#1e5fc2" stroke-width="2"/>
+          <circle cx="26" cy="26" r="5" stroke="#1e5fc2" stroke-width="2"/>
+          <path d="M26 14v4M26 34v4M14 26h4M34 26h4M18.34 18.34l2.83 2.83M30.83 30.83l2.83 2.83M18.34 33.66l2.83-2.83M30.83 21.17l2.83-2.83" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-card-title">Шиномонтаж</div>
+        <div class="service-card-desc">Монтаж/демонтаж шин, балансировка колёс для легковых и грузовых автомобилей.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <path d="M14 30l6-10 6 6 4-6 8 10H14z" stroke="#1e5fc2" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M26 14v4M20 16l2 3M32 16l-2 3" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-card-title">Сход-Развал</div>
+        <div class="service-card-desc">Компьютерная регулировка углов установки колёс. Устраняет увод, снижает износ резины.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <path d="M20 38V26c0-3.31 2.69-6 6-6s6 2.69 6 6v12" stroke="#1e5fc2" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 38h20" stroke="#1e5fc2" stroke-width="2" stroke-linecap="round"/>
+          <path d="M26 20v-4M22 17l2 2M30 17l-2 2" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M20 30h12" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/>
+        </svg>
+        <div class="service-card-title">Заправка кондиционеров</div>
+        <div class="service-card-desc">Диагностика, вакуумирование и заправка автомобильных кондиционеров хладагентом.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <path d="M18 34l4-14h8l4 14H18z" stroke="#1e5fc2" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M22 28h8M23 24h6" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M21 20c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M24 20v-3M28 20v-3" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1.5 1.5"/>
+        </svg>
+        <div class="service-card-title">Промывка инжектора</div>
+        <div class="service-card-desc">Ультразвуковая очистка форсунок — восстанавливает мощность и снижает расход топлива.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <path d="M13 34c0-6.08 5.82-11 13-11s13 4.92 13 11" stroke="#1e5fc2" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 34l6-8 6 8" stroke="#1e5fc2" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M16 38h20" stroke="#1e5fc2" stroke-width="2" stroke-linecap="round"/>
+          <path d="M26 22v-4" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-card-title">Автомойка</div>
+        <div class="service-card-desc">Мойка кузова, колёс и днища. Быстрая обработка перед техосмотром или ремонтом.</div>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-card-icon" viewBox="0 0 52 52" fill="none">
+          <rect width="52" height="52" rx="14" fill="#e8f0fb"/>
+          <rect x="13" y="18" width="10" height="7" rx="2" fill="rgba(30,95,194,0.15)" stroke="#1e5fc2" stroke-width="1.5"/>
+          <rect x="29" y="18" width="10" height="7" rx="2" fill="rgba(30,95,194,0.15)" stroke="#1e5fc2" stroke-width="1.5"/>
+          <path d="M23 21.5h6" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M18 25v5M34 25v5" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M14 30h24" stroke="#1e5fc2" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="service-card-title">Компьютерная диагностика</div>
+        <div class="service-card-desc">Легковая 12В и грузовая 24В. Считывание ошибок, диагностика всех систем автомобиля.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TECHOSMOTR -->
+<section class="section techosmotr" id="techosmotr">
+  <div class="section-inner">
+    <div class="section-label">Техосмотр</div>
+    <h2 class="section-title">Пройдите техосмотр для ОСАГО</h2>
+    <p class="section-desc">Официальный оператор технического осмотра № 8082 — принимаем все категории транспортных средств.</p>
+    <div class="techosmotr-inner-grid">
+      <div>
+        <div class="techosmotr-steps">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div>
+              <div class="step-content-title">Запишитесь или приезжайте</div>
+              <div class="step-content-desc">Позвоните по телефону или оставьте заявку — согласуем удобное время. Принимаем без предварительной записи в рабочие часы.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div>
+              <div class="step-content-title">Диагностика и осмотр</div>
+              <div class="step-content-desc">Проводим полную проверку технического состояния ТС по всем регламентным точкам. При необходимости — устраним неисправности прямо на месте.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div>
+              <div class="step-content-title">Получите диагностическую карту</div>
+              <div class="step-content-desc">Выдаём официальную диагностическую карту, необходимую для оформления полиса ОСАГО. Данные вносятся в федеральную систему ЕАИСТО.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div>
+              <div class="step-content-title">Оформляйте ОСАГО</div>
+              <div class="step-content-desc">С действующей диагностической картой вы можете оформить полис обязательного страхования в любой страховой компании.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="techosmotr-cats">
+          <div class="techosmotr-cats-title">Принимаем ТС всех категорий</div>
+          <div class="techosmotr-cats-sub">Мотоциклы, легковые, грузовые, автобусы, автопоезда</div>
+          <div class="cats-grid">
+            <div class="cat-item">
+              <div class="cat-item-letter">А</div>
+              <div class="cat-item-name">Мото-циклы</div>
+            </div>
+            <div class="cat-item">
+              <div class="cat-item-letter">В</div>
+              <div class="cat-item-name">Легко-вые</div>
+            </div>
+            <div class="cat-item">
+              <div class="cat-item-letter">С</div>
+              <div class="cat-item-name">Грузо-вые</div>
+            </div>
+            <div class="cat-item">
+              <div class="cat-item-letter">Д</div>
+              <div class="cat-item-name">Авто-бусы</div>
+            </div>
+            <div class="cat-item">
+              <div class="cat-item-letter">Е</div>
+              <div class="cat-item-name">Авто-поезда</div>
+            </div>
+          </div>
+          <div class="techosmotr-note">
+            <strong>Реестр операторов ТО:</strong> № 8082 от 20.06.2016. Технический центр внесён в официальный реестр Российского Союза Автостраховщиков. Имеется сертификат на все виды работ.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section contacts" id="contacts">
+  <div class="section-inner">
+    <div class="section-label">Контакты</div>
+    <h2 class="section-title">Приезжайте или звоните</h2>
+    <p class="section-desc">Мы находимся в Егорьевске. Работаем шесть дней в неделю.</p>
+    <div class="contacts-grid">
+      <div>
+        <div class="contact-card">
+          <div class="contact-card-title">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2a6 6 0 016 6c0 4-6 10-6 10S4 12 4 8a6 6 0 016-6z" stroke="#1e5fc2" stroke-width="1.5"/>
+              <circle cx="10" cy="8" r="2" stroke="#1e5fc2" stroke-width="1.5"/>
+            </svg>
+            Как нас найти
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 2a6 6 0 016 6c0 4-6 10-6 10S4 12 4 8a6 6 0 016-6z" stroke="#1e5fc2" stroke-width="1.5"/>
+                <circle cx="10" cy="8" r="2" stroke="#1e5fc2" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Адрес</div>
+              <div class="contact-row-value">Московская область, г. Егорьевск, ул. Радио, 1</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="7.5" stroke="#1e5fc2" stroke-width="1.5"/>
+                <path d="M10 6v4.5l2.5 1.5" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Режим работы</div>
+              <div class="contact-row-value">Понедельник–Суббота: 09:00–19:00</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 4h12v12H4z" stroke="#1e5fc2" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M4 7l6 5 6-5" stroke="#1e5fc2" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Email</div>
+              <div class="contact-row-value"><a href="mailto:arinosov@gmail.com">arinosov@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.5 3h3l1.5 4-2 1.5c.93 1.87 2.13 3.07 4 4L13 10.5l4 1.5v3c0 1.1-.9 2-2 2C7.16 17 3 12.84 3 7.5 3 5.57 3.9 4 4.5 3z" stroke="#1e5fc2" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Телефоны</div>
+              <div class="contact-row-value">
+                <a href="tel:+79035552037">+7 903 555-20-37</a><br>
+                <a href="tel:+79160852253">+7 916 085-22-53</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-row-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M10 2C5.58 2 2 5.58 2 10c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.22.48-2.69-1.07-2.69-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.82 1.23.82.71 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 0110 6.84c.68 0 1.36.09 2 .27 1.52-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38C15.71 16.53 18 13.54 18 10c0-4.42-3.58-8-8-8z" fill="#1e5fc2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-row-label">Telegram</div>
+              <div class="contact-row-value">MAX бот — быстрые ответы</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <div class="form-title">Записаться на приём</div>
+        <div class="form-subtitle">Оставьте заявку — мы перезвоним и согласуем время</div>
+        <form id="bookingForm" action="#" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="fname">Ваше имя</label>
+            <input class="form-input" type="text" id="fname" name="name" placeholder="Как вас зовут?" autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fphone">Телефон</label>
+            <input class="form-input" type="tel" id="fphone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fservice">Услуга</label>
+            <select class="form-select" id="fservice" name="service">
+              <option value="">— Выберите услугу —</option>
+              <option value="to">Технический осмотр (ТО)</option>
+              <option value="diag">Компьютерная диагностика</option>
+              <option value="engine">Ремонт двигателя</option>
+              <option value="suspension">Ремонт подвески</option>
+              <option value="electro">Автоэлектрика</option>
+              <option value="tyre">Шиномонтаж</option>
+              <option value="alignment">Сход-Развал</option>
+              <option value="ac">Заправка кондиционера</option>
+              <option value="injector">Промывка инжектора</option>
+              <option value="wash">Автомойка</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fcomment">Комментарий (необязательно)</label>
+            <textarea class="form-textarea" id="fcomment" name="comment" placeholder="Марка, модель авто, описание проблемы..."></textarea>
+          </div>
+          <button class="form-btn" type="submit">Отправить заявку</button>
+          <div class="form-note">Не является офертой. Данные используются только для связи с вами.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Технический центр <span>Егорьевск</span></div>
+    <div class="footer-phones">
+      <a class="footer-phone" href="tel:+79035552037">+7 903 555-20-37</a>
+      <a class="footer-phone" href="tel:+79160852253">+7 916 085-22-53</a>
+    </div>
+    <div class="footer-addr">Московская область, г. Егорьевск, ул. Радио, 1 &nbsp;·&nbsp; Пн–Сб 09:00–19:00</div>
+    <div class="footer-copy">ООО Технический центр — Егорьевск</div>
+    <div class="footer-disclaimer">Сайт является демонстрационным макетом. Не является публичной офертой.</div>
+  </div>
+</footer>
+
+<script>
+  // Burger menu
+  var burger = document.getElementById('burger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function() {
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mob-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Phone mask
+  var phoneInput = document.getElementById('fphone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      var val = e.target.value.replace(/\D/g, '');
+      if (val.length === 0) { e.target.value = ''; return; }
+      if (val[0] === '8') val = '7' + val.slice(1);
+      if (val[0] !== '7') val = '7' + val;
+      val = val.slice(0, 11);
+      var res = '+7';
+      if (val.length > 1) res += ' (' + val.slice(1, 4);
+      if (val.length >= 4) res += ') ' + val.slice(4, 7);
+      if (val.length >= 7) res += '-' + val.slice(7, 9);
+      if (val.length >= 9) res += '-' + val.slice(9, 11);
+      e.target.value = res;
+    });
+  }
+
+  // Form submit
+  var form = document.getElementById('bookingForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('fname').value.trim();
+      var phone = document.getElementById('fphone').value.trim();
+      if (!name) {
+        alert('Пожалуйста, введите ваше имя.');
+        document.getElementById('fname').focus();
+        return;
+      }
+      if (phone.replace(/\D/g, '').length < 11) {
+        alert('Пожалуйста, введите корректный номер телефона.');
+        document.getElementById('fphone').focus();
+        return;
+      }
+      alert('Спасибо! Мы перезвоним.');
+      form.reset();
+    });
+  }
+</script>
+</body>
+</html>
