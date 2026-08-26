@@ -1265,6 +1265,15 @@
     .brands-grid { grid-template-columns: 1fr; }
     .hero-stats { gap: 8px; }
   }
+
+  /* FIX mobile overflow: телефон и бургер */
+  @media (max-width: 768px) {
+    .header-phone { display: none !important; }
+    .header-inner { gap: 8px; padding: 10px 12px; }
+    .logo { flex-shrink: 1; min-width: 0; }
+    .burger { flex-shrink: 0; }
+  }
+
 </style>
 </head>
 <body>

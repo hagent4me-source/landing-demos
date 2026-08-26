@@ -1393,6 +1393,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .booking-form { padding: 24px 20px; }
 }
+
+  /* FIX mobile overflow: header-cta не скрывался */
+  @media (max-width: 768px) {
+    .header-cta { display: none !important; }
+    .header-main-inner { gap: 8px; padding: 10px 12px; }
+    .logo { flex-shrink: 1; min-width: 0; }
+    .logo-name { font-size: 1.05rem; }
+    .burger { flex-shrink: 0; }
+  }
+
 </style>
 </head>
 <body>

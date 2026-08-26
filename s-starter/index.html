@@ -1306,6 +1306,11 @@
     .howto__steps { grid-template-columns: 1fr; }
     .catalog-card__footer { flex-direction: column; align-items: flex-start; gap: 10px; }
   }
+
+  /* FIX mobile overflow: бегущая строка */
+  html, body { overflow-x: hidden; }
+  .ticker__track { max-width: 100%; }
+
 </style>
 </head>
 <body>
