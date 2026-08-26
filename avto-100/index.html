@@ -882,6 +882,15 @@
     .hero__actions { flex-direction: column; }
     .btn-primary, .btn-accent, .btn-outline { justify-content: center; }
   }
+
+  /* FIX mobile overflow: логотип не сжимался, бургер вылезал за край */
+  @media (max-width: 768px) {
+    .logo { flex-shrink: 1; min-width: 0; }
+    .logo__img { max-width: 90px; height: auto; }
+    .header__inner { gap: 10px; padding: 0 12px; }
+    .burger { flex-shrink: 0; }
+  }
+
 </style>
 </head>
 <body>
