@@ -1,0 +1,62 @@
+[
+ {
+  "file": "images/img_00.jpg",
+  "size_kb": 196,
+  "alt": "Фото 1",
+  "src": "https://toningnn.ru/images/dizain/1.jpg"
+ },
+ {
+  "file": "images/img_01.jpg",
+  "size_kb": 61,
+  "alt": "Фото 2",
+  "src": "https://toningnn.ru/images/stories/1.jpg"
+ },
+ {
+  "file": "images/img_02.jpg",
+  "size_kb": 39,
+  "alt": "Фото 3",
+  "src": "https://toningnn.ru/images/stories/2.jpg"
+ },
+ {
+  "file": "images/img_03.jpg",
+  "size_kb": 51,
+  "alt": "Фото 4",
+  "src": "https://toningnn.ru/images/stories/3.jpg"
+ },
+ {
+  "file": "images/img_04.jpg",
+  "size_kb": 81,
+  "alt": "Фото 5",
+  "src": "https://toningnn.ru/images/stories/4.jpg"
+ },
+ {
+  "file": "images/img_05.jpg",
+  "size_kb": 42,
+  "alt": "Фото 6",
+  "src": "https://toningnn.ru/images/stories/5.jpg"
+ },
+ {
+  "file": "images/img_06.jpg",
+  "size_kb": 81,
+  "alt": "Фото 7",
+  "src": "https://toningnn.ru/images/stories/6.jpg"
+ },
+ {
+  "file": "images/img_07.jpg",
+  "size_kb": 62,
+  "alt": "Фото 8",
+  "src": "https://toningnn.ru/images/stories/8.jpg"
+ },
+ {
+  "file": "images/img_08.jpg",
+  "size_kb": 68,
+  "alt": "Фото 9",
+  "src": "https://toningnn.ru/images/stories/9-1.jpg"
+ },
+ {
+  "file": "images/img_09.jpg",
+  "size_kb": 72,
+  "alt": "Фото 10",
+  "src": "https://toningnn.ru/images/stories/7.jpg"
+ }
+]
