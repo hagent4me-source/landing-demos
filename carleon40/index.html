@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARLEON40 — Магазин автозапчастей в Обнинске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #e63946;
+  --red-dark: #c1121f;
+  --dark: #1a1a2e;
+  --gray: #2d2d3a;
+  --gray-mid: #555566;
+  --gray-light: #f4f4f6;
+  --white: #ffffff;
+  --border: #e0e0e8;
+  --accent-yellow: #ffd60a;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans', system-ui, sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Rubik', system-ui, sans-serif;
+  line-height: 1.2;
+}
+
+img { display: block; max-width: 100%; }
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ======= HEADER ======= */
+.header {
+  background: var(--dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-name {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.logo-name span {
+  color: var(--red);
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  color: #aaa;
+  font-family: 'Noto Sans', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.header-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.header-phone a {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.header-phone a:hover { color: var(--red); }
+
+.header-phone-label {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav a {
+  color: #ccc;
+  font-size: 0.85rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav a:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.burger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  background: var(--gray);
+  padding: 12px 16px 16px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav a {
+  color: #ddd;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  padding: 9px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.mobile-nav a:hover { background: var(--red); color: var(--white); }
+.mobile-nav.open { display: flex; }
+
+/* ======= HERO ======= */
+.hero {
+  position: relative;
+  background: var(--dark);
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero-slide.active { opacity: 1; }
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(26,26,46,0.88) 50%, rgba(26,26,46,0.4) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.hero-title span { color: var(--red); }
+
+.hero-address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.hero-address svg { flex-shrink: 0; }
+
+.hero-desc {
+  color: #ddd;
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 13px 28px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.08);
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+.hero-dot.active { background: var(--red); }
+
+/* ======= VIN SECTION ======= */
+.vin-section {
+  background: var(--gray-light);
+  padding: 56px 0;
+}
+
+.section-label {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  color: var(--gray-mid);
+  font-size: 1rem;
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+
+.vin-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  max-width: 820px;
+}
+
+.vin-card-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--dark);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vin-badge {
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.vin-card-sub {
+  color: var(--gray-mid);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.vin-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-field select,
+.form-field input {
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--dark);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-field select:focus,
+.form-field input:focus {
+  border-color: var(--red);
+}
+
+.vin-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--gray-mid);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.vin-divider::before,
+.vin-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.vin-input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.vin-note {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+}
+
+/* ======= CATALOG ======= */
+.catalog-section {
+  padding: 64px 0;
+  background: var(--white);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.catalog-card {
+  background: var(--gray-light);
+  border-radius: 14px;
+  padding: 28px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.catalog-card:hover {
+  border-color: var(--red);
+  box-shadow: 0 6px 24px rgba(230,57,70,0.12);
+  transform: translateY(-3px);
+}
+
+.catalog-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--dark);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-card-icon svg { color: var(--white); }
+
+.catalog-card-name {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.3;
+}
+
+.catalog-card-sub {
+  font-size: 0.8rem;
+  color: var(--gray-mid);
+  line-height: 1.4;
+}
+
+.badge-stock {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #22c55e;
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.catalog-card-arrow {
+  margin-top: auto;
+  color: var(--red);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ======= AUTOGLASS ======= */
+.glass-section {
+  background: var(--dark);
+  padding: 0;
+  overflow: hidden;
+}
+
+.glass-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+.glass-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.glass-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--dark) 100%);
+}
+
+.glass-content {
+  padding: 60px 48px 60px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.glass-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.glass-title span { color: var(--red); }
+
+.glass-subtitle {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.glass-services {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.glass-service-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.glass-service-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--red);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.glass-service-text {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.glass-service-sub {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* ======= TIRE CALC ======= */
+.calc-section {
+  padding: 64px 0;
+  background: var(--gray-light);
+}
+
+.calc-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.calc-form-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+
+.calc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calc-field label {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--gray-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calc-field select {
+  padding: 11px 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--dark);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.calc-field select:focus { border-color: var(--red); }
+
+.calc-result-box {
+  background: var(--dark);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.calc-result-label {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.calc-result-value {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.calc-result-note {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+.calc-result-badge {
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.calc-visual-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.calc-visual-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  text-align: center;
+}
+
+.tire-diagram {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.tire-circle-outer {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.tire-circle-inner {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tire-hub {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #888;
+  border: 3px solid #aaa;
+}
+
+.tire-label-width {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.tire-label-profile {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.tire-label-diam {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--red);
+  white-space: nowrap;
+}
+
+.calc-specs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calc-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.calc-spec-row:last-child { border-bottom: none; }
+
+.calc-spec-name { color: var(--gray-mid); }
+
+.calc-spec-val {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* ======= HOW TO ORDER ======= */
+.order-section {
+  padding: 64px 0;
+  background: var(--white);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.steps-grid::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(16.67% + 16px);
+  right: calc(16.67% + 16px);
+  height: 3px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--red) 100%);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.step-card {
+  background: var(--gray-light);
+  border-radius: 16px;
+  padding: 32px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--red);
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(230,57,70,0.35);
+}
+
+.step-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--dark);
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: var(--gray-mid);
+  line-height: 1.5;
+}
+
+.step-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+/* ======= CONTACTS ======= */
+.contacts-section {
+  padding: 64px 0;
+  background: var(--dark);
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 32px;
+}
+
+.contact-block-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-label {
+  font-size: 0.78rem;
+  color: #888;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+}
+
+.contact-value {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--white);
+}
+
+.contact-value a {
+  color: var(--white);
+  transition: color 0.2s;
+}
+
+.contact-value a:hover { color: var(--red); }
+
+.contact-value-sub {
+  font-size: 0.82rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.contact-form-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 32px 28px;
+}
+
+.contact-form-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.contact-form-sub {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 13px 16px;
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  color: var(--white);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: #666; }
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--red);
+}
+
+.contact-form input.error,
+.contact-form textarea.error {
+  border-color: var(--red);
+  background: rgba(230,57,70,0.07);
+}
+
+/* ======= FOOTER ======= */
+.footer {
+  background: #0f0f1a;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+
+.footer-logo span { color: var(--red); }
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links a {
+  font-size: 0.8rem;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--red); }
+
+/* ======= CATALOG EXTRA ======= */
+.catalog-extra {
+  padding: 0 0 64px;
+  background: var(--white);
+}
+
+.catalog-extra-title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.catalog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.catalog-tag {
+  background: var(--gray-light);
+  color: var(--gray-mid);
+  font-size: 0.82rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.catalog-tag:hover {
+  background: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 900px) {
+  .glass-inner { grid-template-columns: 1fr; }
+  .glass-img { height: 280px; }
+  .glass-img-overlay { background: linear-gradient(0deg, var(--dark) 0%, transparent 60%); }
+  .glass-content { padding: 32px 24px; }
+  .calc-wrapper { grid-template-columns: 1fr; }
+  .contacts-grid { grid-template-columns: 1fr; gap: 32px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .steps-grid::before { display: none; }
+  .vin-form { grid-template-columns: 1fr 1fr; }
+  .vin-input-row { grid-template-columns: 1fr; }
+  .vin-input-row .btn-primary { width: 100%; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .burger { display: flex; }
+  .header-phone a { font-size: 0.95rem; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+  .vin-form { grid-template-columns: 1fr; }
+  .calc-row { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+@media (max-width: 480px) {
+  .catalog-grid { grid-template-columns: 1fr; }
+  .hero-content { padding: 44px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner container">
+    <a href="#" class="logo">
+      <span class="logo-name">CAR<span>LEON</span>40</span>
+      <span class="logo-sub">Автозапчасти · Обнинск</span>
+    </a>
+    <nav class="nav">
+      <a href="#catalog">Каталог</a>
+      <a href="#vin">Подбор по VIN</a>
+      <a href="#autoglass">Автостёкла</a>
+      <a href="#tirecalc">Калькулятор шин</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-phone">
+      <a href="tel:+79208990039">+7 (920) 899-00-39</a>
+      <span class="header-phone-label">Павильон 39, рынок «7авто»</span>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#catalog">Каталог</a>
+    <a href="#vin">Подбор по VIN</a>
+    <a href="#autoglass">Автостёкла</a>
+    <a href="#tirecalc">Калькулятор шин</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide active">
+      <img src="images/img_00.jpg" alt="Магазин запчастей CARLEON40 — вид 1">
+    </div>
+    <div class="hero-slide">
+      <img src="images/img_01.jpg" alt="Магазин запчастей CARLEON40 — вид 2">
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Обнинск · Рынок «7авто»</span>
+    <h1 class="hero-title">Магазин автозапчастей<br><span>CARLEON40</span></h1>
+    <p class="hero-address">
+      <svg width="18" height="18" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      Киевское ш., 49а, рынок «7авто», павильон 39
+    </p>
+    <p class="hero-desc">Подбор по VIN, диски и шины, АКБ, лампы, автостёкла — продажа, установка, ремонт. Заказал онлайн — забрал в павильоне.</p>
+    <div class="hero-actions">
+      <a href="#vin" class="btn-primary">Подобрать по VIN</a>
+      <a href="#catalog" class="btn-outline">Смотреть каталог</a>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <button class="hero-dot active" data-slide="0"></button>
+    <button class="hero-dot" data-slide="1"></button>
+  </div>
+</section>
+
+<!-- VIN SECTION -->
+<section class="vin-section" id="vin">
+  <div class="container">
+    <p class="section-label">Умный поиск</p>
+    <h2 class="section-title">Каталог CarBase — подбор по VIN</h2>
+    <p class="section-desc">Укажите марку, модель и нужную деталь — система подберёт совместимые запчасти для вашего автомобиля. Или введите VIN напрямую.</p>
+    <div class="vin-card">
+      <div class="vin-card-title">
+        Подбор запчасти
+        <span class="vin-badge">CarBase</span>
+      </div>
+      <p class="vin-card-sub">Выберите параметры автомобиля и категорию детали</p>
+      <div class="vin-form" id="vinForm">
+        <div class="form-field">
+          <label>Марка</label>
+          <select id="vinMarka">
+            <option value="">— выберите —</option>
+            <option>LADA / ВАЗ</option>
+            <option>Toyota</option>
+            <option>Volkswagen</option>
+            <option>Kia</option>
+            <option>Hyundai</option>
+            <option>Ford</option>
+            <option>Renault</option>
+            <option>Nissan</option>
+            <option>BMW</option>
+            <option>Mercedes-Benz</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Модель</label>
+          <select id="vinModel">
+            <option value="">— выберите —</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Деталь</label>
+          <select id="vinPart">
+            <option value="">— выберите —</option>
+            <option>Фильтры</option>
+            <option>Тормозные колодки</option>
+            <option>Диски тормозные</option>
+            <option>Амортизаторы</option>
+            <option>Ремни ГРМ</option>
+            <option>Свечи зажигания</option>
+            <option>Масла и жидкости</option>
+            <option>Лампы</option>
+            <option>АКБ</option>
+            <option>Шины и диски</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>&nbsp;</label>
+          <button class="btn-primary" onclick="handleVinSearch(event)">Найти</button>
+        </div>
+      </div>
+      <div class="vin-divider">или введите VIN-номер</div>
+      <div class="vin-input-row">
+        <div class="form-field">
+          <label>VIN-номер автомобиля</label>
+          <input type="text" id="vinInput" placeholder="Например: XTA210990Y2XXXXXX" maxlength="17">
+        </div>
+        <div class="form-field">
+          <label>&nbsp;</label>
+          <button class="btn-primary" onclick="handleVinSearch(event)">Подобрать</button>
+        </div>
+      </div>
+      <p class="vin-note">* Демо-форма. На реальном сайте откроется каталог CarBase с подходящими запчастями для вашего автомобиля.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog-section" id="catalog">
+  <div class="container">
+    <p class="section-label">Что есть в наличии</p>
+    <h2 class="section-title">Каталог товаров</h2>
+    <p class="section-desc">Широкий ассортимент запчастей и аксессуаров. Подбор по VIN, TecDoc, по параметрам.</p>
+    <div class="catalog-grid">
+
+      <div class="catalog-card">
+        <span class="badge-stock">В наличии</span>
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <span class="catalog-card-name">Диски</span>
+        <span class="catalog-card-sub">Литые и штампованные, R13–R22</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+      <div class="catalog-card">
+        <span class="badge-stock">В наличии</span>
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>
+        </div>
+        <span class="catalog-card-name">Шины</span>
+        <span class="catalog-card-sub">Легковые, грузовые, мотошины</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+      <div class="catalog-card">
+        <span class="badge-stock">В наличии</span>
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/><line x1="12" y1="12" x2="12" y2="14"/></svg>
+        </div>
+        <span class="catalog-card-name">АКБ</span>
+        <span class="catalog-card-sub">Аккумуляторы, пусковые провода</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+      <div class="catalog-card">
+        <span class="badge-stock">В наличии</span>
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L9 9H2l5.5 4-2 7L12 16l6.5 4-2-7L22 9h-7z"/></svg>
+        </div>
+        <span class="catalog-card-name">Лампы</span>
+        <span class="catalog-card-sub">Подбор по схеме и ТТХ</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+      <div class="catalog-card">
+        <span class="badge-stock">В наличии</span>
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M3 14h18"/></svg>
+        </div>
+        <span class="catalog-card-name">Автостёкла</span>
+        <span class="catalog-card-sub">Продажа, установка, ремонт</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+      <div class="catalog-card">
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 7h13l-1.5-7"/></svg>
+        </div>
+        <span class="catalog-card-name">Масла и жидкости</span>
+        <span class="catalog-card-sub">Моторные, трансмиссионные, охлаждающие и др.</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+      <div class="catalog-card">
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <span class="catalog-card-name">Инструменты</span>
+        <span class="catalog-card-sub">Наборы, ключи, домкраты, компрессоры</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+      <div class="catalog-card">
+        <div class="catalog-card-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <span class="catalog-card-name">Ремни поликлиновые</span>
+        <span class="catalog-card-sub">Щётки стеклоочистителя, гофры глушителя</span>
+        <span class="catalog-card-arrow">Смотреть →</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG EXTRA TAGS -->
+<div class="catalog-extra" id="catalogExtra">
+  <div class="container">
+    <p class="catalog-extra-title">Ещё в каталоге:</p>
+    <div class="catalog-tags">
+      <span class="catalog-tag">Грузовые шины</span>
+      <span class="catalog-tag">Мотошины</span>
+      <span class="catalog-tag">Колпаки на колёса</span>
+      <span class="catalog-tag">Пуско-зарядные устройства</span>
+      <span class="catalog-tag">Предпусковые подогреватели</span>
+      <span class="catalog-tag">Автокресла и бустеры</span>
+      <span class="catalog-tag">Видеорегистраторы</span>
+      <span class="catalog-tag">Огнетушители</span>
+      <span class="catalog-tag">Аптечки</span>
+      <span class="catalog-tag">Чехлы автомобильные</span>
+      <span class="catalog-tag">Ароматизаторы</span>
+      <span class="catalog-tag">Компрессоры</span>
+      <span class="catalog-tag">Тросы буксировочные</span>
+      <span class="catalog-tag">Цепи противоскольжения</span>
+      <span class="catalog-tag">Жидкости AdBlue</span>
+      <span class="catalog-tag">Антисептики</span>
+      <span class="catalog-tag">Велосипеды</span>
+      <span class="catalog-tag">Самокаты</span>
+    </div>
+  </div>
+</div>
+
+<!-- AUTOGLASS -->
+<section class="glass-section" id="autoglass">
+  <div class="glass-inner">
+    <div class="glass-img">
+      <img src="images/img_02.png" alt="Автомобиль — автостёкла установка и ремонт">
+      <div class="glass-img-overlay"></div>
+    </div>
+    <div class="glass-content">
+      <p class="section-label" style="">Отдельный блок</p>
+      <h2 class="glass-title">АВТО<span>СТЁКЛА</span></h2>
+      <p class="glass-subtitle">Продажа · Установка · Ремонт</p>
+      <div class="glass-services">
+        <div class="glass-service-item">
+          <div class="glass-service-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+          </div>
+          <div>
+            <div class="glass-service-text">Продажа автостёкол</div>
+            <div class="glass-service-sub">Лобовые, боковые, задние — на все марки</div>
+          </div>
+        </div>
+        <div class="glass-service-item">
+          <div class="glass-service-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div>
+            <div class="glass-service-text">Установка</div>
+            <div class="glass-service-sub">Профессиональный монтаж в павильоне</div>
+          </div>
+        </div>
+        <div class="glass-service-item">
+          <div class="glass-service-icon">
+            <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="glass-service-text">Ремонт сколов и трещин</div>
+            <div class="glass-service-sub">Восстановление без замены стекла</div>
+          </div>
+        </div>
+      </div>
+      <a href="#contacts" class="btn-primary">Записаться на установку</a>
+    </div>
+  </div>
+</section>
+
+<!-- TIRE CALCULATOR -->
+<section class="calc-section" id="tirecalc">
+  <div class="container">
+    <p class="section-label">Шинный калькулятор</p>
+    <h2 class="section-title">Подберите размер шины</h2>
+    <p class="section-desc">Выберите ширину, высоту профиля и диаметр — калькулятор покажет маркировку и характеристики шины.</p>
+    <div class="calc-wrapper">
+      <div class="calc-form-card">
+        <div class="calc-row">
+          <div class="calc-field">
+            <label>Ширина (мм)</label>
+            <select id="tireWidth">
+              <option value="155">155</option>
+              <option value="165">165</option>
+              <option value="175">175</option>
+              <option value="185" selected>185</option>
+              <option value="195">195</option>
+              <option value="205">205</option>
+              <option value="215">215</option>
+              <option value="225">225</option>
+              <option value="235">235</option>
+              <option value="245">245</option>
+              <option value="255">255</option>
+              <option value="265">265</option>
+              <option value="275">275</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label>Профиль (%)</label>
+            <select id="tireProfile">
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+              <option value="55">55</option>
+              <option value="60">60</option>
+              <option value="65" selected>65</option>
+              <option value="70">70</option>
+              <option value="75">75</option>
+              <option value="80">80</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label>Диаметр (R)</label>
+            <select id="tireDiam">
+              <option value="13">R13</option>
+              <option value="14">R14</option>
+              <option value="15" selected>R15</option>
+              <option value="16">R16</option>
+              <option value="17">R17</option>
+              <option value="18">R18</option>
+              <option value="19">R19</option>
+              <option value="20">R20</option>
+              <option value="21">R21</option>
+              <option value="22">R22</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result-box">
+          <div>
+            <div class="calc-result-label">Размер шины</div>
+            <div class="calc-result-value" id="calcResultSize">185/65 R15</div>
+            <div class="calc-result-note" id="calcResultNote">Внешний диаметр: <strong id="calcOuterDiam">—</strong> мм · Высота профиля: <strong id="calcProfileHeight">—</strong> мм</div>
+          </div>
+          <div class="calc-result-badge" id="calcBadge">Цена<br>по подбору</div>
+        </div>
+      </div>
+      <div class="calc-visual-card">
+        <div class="calc-visual-title">Визуализация профиля шины</div>
+        <div class="tire-diagram">
+          <div class="tire-circle-outer">
+            <div class="tire-circle-inner">
+              <div class="tire-hub"></div>
+            </div>
+          </div>
+          <span class="tire-label-width" id="diagWidth">185 мм</span>
+          <span class="tire-label-profile" id="diagProfile">65%</span>
+          <span class="tire-label-diam" id="diagDiam">R15</span>
+        </div>
+        <div class="calc-specs">
+          <div class="calc-spec-row">
+            <span class="calc-spec-name">Ширина профиля</span>
+            <span class="calc-spec-val" id="specWidth">185 мм</span>
+          </div>
+          <div class="calc-spec-row">
+            <span class="calc-spec-name">Высота профиля</span>
+            <span class="calc-spec-val" id="specHeight">120 мм</span>
+          </div>
+          <div class="calc-spec-row">
+            <span class="calc-spec-name">Посадочный диаметр</span>
+            <span class="calc-spec-val" id="specDiam">R15 (381 мм)</span>
+          </div>
+          <div class="calc-spec-row">
+            <span class="calc-spec-name">Внешний диаметр</span>
+            <span class="calc-spec-val" id="specOuter">621 мм</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="order-section" id="howtoorder">
+  <div class="container">
+    <p class="section-label">Просто и быстро</p>
+    <h2 class="section-title">Как заказать</h2>
+    <p class="section-desc">Три шага — от выбора детали до получения в павильоне 39.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-icon-wrap">
+          <svg width="28" height="28" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="step-title">Выбрать онлайн</div>
+        <div class="step-desc">Найдите нужную запчасть через каталог CarBase, подбор по VIN или категорию. Оформите заказ на сайте.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-icon-wrap">
+          <svg width="28" height="28" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="step-title">Забрать в павильоне 39</div>
+        <div class="step-desc">Приезжайте на рынок «7авто», Киевское ш. 49а, павильон 39. Товар будет ждать вас.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-icon-wrap">
+          <svg width="28" height="28" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="step-title">Установка на месте</div>
+        <div class="step-desc">Автостёкла, шины и АКБ — устанавливаем в павильоне. Уточните возможность при заказе.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts-section" id="contacts">
+  <div class="container">
+    <p class="section-label" style="color: #e63946;">Мы здесь</p>
+    <div class="contacts-grid">
+      <div>
+        <h2 class="contact-block-title">Контакты CARLEON40</h2>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Адрес</div>
+            <div class="contact-value">г. Обнинск, Киевское ш., 49а</div>
+            <div class="contact-value-sub">Рынок «7авто», павильон 39</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.59 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.62-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Телефон</div>
+            <div class="contact-value"><a href="tel:+79208990039">+7 (920) 899-00-39</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:carleon40@mail.ru">carleon40@mail.ru</a></div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" fill="none" stroke="#e63946" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Оплата</div>
+            <div class="contact-value">Банковские карты</div>
+            <div class="contact-value-sub">Принимаем к оплате Visa, Mastercard, Мир</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 8px;">
+          <img src="images/img_01.jpg" alt="Магазин CARLEON40 на рынке 7авто" style="">
+        </div>
+
+      </div>
+
+      <div>
+        <div class="contact-form-card">
+          <div class="contact-form-title">Заказать звонок</div>
+          <div class="contact-form-sub">Оставьте контакты — перезвоним и поможем с подбором запчасти</div>
+          <form class="contact-form" id="callbackForm" action="#">
+            <input type="text" id="cbName" placeholder="Ваше имя" autocomplete="name">
+            <input type="tel" id="cbPhone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+            <textarea id="cbComment" rows="3" placeholder="Что нужно подобрать? (необязательно)"></textarea>
+            <button type="submit" class="btn-primary">Перезвоните мне</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">CAR<span>LEON</span>40</span>
+      <span class="footer-copy">© 2025 CARLEON40 · Автозапчасти в Обнинске</span>
+      <div class="footer-links">
+        <a href="#">Доставка</a>
+        <a href="#">Возврат</a>
+        <a href="#">Оплата</a>
+        <a href="#">Оферта</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// --- BURGER ---
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileNav = document.getElementById('mobileNav');
+burgerBtn.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+
+// --- HERO SLIDER ---
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+let currentSlide = 0;
+let sliderInterval;
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    clearInterval(sliderInterval);
+    goToSlide(i);
+    sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 4500);
+  });
+});
+
+sliderInterval = setInterval(() => goToSlide(currentSlide + 1), 4500);
+
+// --- VIN MODELS ---
+const modelMap = {
+  'LADA / ВАЗ': ['Granta', 'Vesta', 'Largus', 'Niva', '2107', '2109', '2110', '2114', '2115'],
+  'Toyota': ['Camry', 'Corolla', 'RAV4', 'Land Cruiser', 'Yaris', 'Prius', 'Highlander'],
+  'Volkswagen': ['Polo', 'Golf', 'Passat', 'Tiguan', 'Jetta', 'Touareg'],
+  'Kia': ['Rio', 'Ceed', 'Sportage', 'Sorento', 'Cerato', 'Soul'],
+  'Hyundai': ['Solaris', 'Elantra', 'Tucson', 'Santa Fe', 'Creta', 'i30'],
+  'Ford': ['Focus', 'Mondeo', 'Fiesta', 'Explorer', 'Kuga'],
+  'Renault': ['Logan', 'Sandero', 'Duster', 'Megane', 'Kaptur'],
+  'Nissan': ['Almera', 'Qashqai', 'X-Trail', 'Tiida', 'Pathfinder'],
+  'BMW': ['3 Series', '5 Series', 'X3', 'X5', '1 Series'],
+  'Mercedes-Benz': ['C-Class', 'E-Class', 'GLC', 'A-Class', 'GLE']
+};
+
+const vinMarka = document.getElementById('vinMarka');
+const vinModel = document.getElementById('vinModel');
+
+vinMarka.addEventListener('change', () => {
+  const models = modelMap[vinMarka.value] || [];
+  vinModel.innerHTML = '<option value="">— выберите —</option>';
+  models.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m;
+    opt.textContent = m;
+    vinModel.appendChild(opt);
+  });
+});
+
+function handleVinSearch(e) {
+  e.preventDefault();
+  const vinVal = document.getElementById('vinInput').value.trim();
+  const marka = vinMarka.value;
+  const model = vinModel.value;
+  const part = document.getElementById('vinPart').value;
+  if (!vinVal && (!marka || !model || !part)) {
+    alert('Пожалуйста, выберите марку, модель и деталь — или введите VIN-номер.');
+    return;
+  }
+  alert('Демо-форма. На реальном сайте откроется каталог CarBase с подходящими запчастями для вашего автомобиля.');
+}
+
+// --- TIRE CALCULATOR ---
+function calcTire() {
+  const w = parseInt(document.getElementById('tireWidth').value);
+  const p = parseInt(document.getElementById('tireProfile').value);
+  const d = parseInt(document.getElementById('tireDiam').value);
+
+  const profileHeightMm = Math.round(w * p / 100);
+  const rimDiamMm = d * 25.4;
+  const outerDiamMm = Math.round(rimDiamMm + 2 * profileHeightMm);
+
+  document.getElementById('calcResultSize').textContent = w + '/' + p + ' R' + d;
+  document.getElementById('calcOuterDiam').textContent = outerDiamMm + ' мм';
+  document.getElementById('calcProfileHeight').textContent = profileHeightMm + ' мм';
+
+  document.getElementById('diagWidth').textContent = w + ' мм';
+  document.getElementById('diagProfile').textContent = p + '%';
+  document.getElementById('diagDiam').textContent = 'R' + d;
+
+  document.getElementById('specWidth').textContent = w + ' мм';
+  document.getElementById('specHeight').textContent = profileHeightMm + ' мм';
+  document.getElementById('specDiam').textContent = 'R' + d + ' (' + Math.round(rimDiamMm) + ' мм)';
+  document.getElementById('specOuter').textContent = outerDiamMm + ' мм';
+}
+
+document.getElementById('tireWidth').addEventListener('change', calcTire);
+document.getElementById('tireProfile').addEventListener('change', calcTire);
+document.getElementById('tireDiam').addEventListener('change', calcTire);
+calcTire();
+
+// --- PHONE MASK ---
+function applyPhoneMask(input) {
+  input.addEventListener('input', function() {
+    let val = this.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (!val.startsWith('7')) val = '7' + val;
+    val = val.slice(0, 11);
+    let result = '+7';
+    if (val.length > 1) result += ' (' + val.slice(1, 4);
+    if (val.length >= 4) result += ') ' + val.slice(4, 7);
+    if (val.length >= 7) result += '-' + val.slice(7, 9);
+    if (val.length >= 9) result += '-' + val.slice(9, 11);
+    this.value = result;
+  });
+}
+
+const cbPhone = document.getElementById('cbPhone');
+if (cbPhone) applyPhoneMask(cbPhone);
+
+// --- CALLBACK FORM ---
+document.getElementById('callbackForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('cbName');
+  const phone = document.getElementById('cbPhone');
+  let valid = true;
+
+  [name, phone].forEach(f => f.classList.remove('error'));
+
+  if (!name.value.trim()) { name.classList.add('error'); valid = false; }
+  if (!phone.value.trim() || phone.value.replace(/\D/g,'').length < 11) { phone.classList.add('error'); valid = false; }
+
+  if (!valid) { return; }
+
+  alert('Спасибо! Мы перезвоним.');
+  this.reset();
+});
+
+// --- SMOOTH SCROLL ---
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 64;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>

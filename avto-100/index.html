@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АВТО-100 — Автозапчасти и Автосервис в Обнинске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1a56db;
+    --primary-dark: #1341b0;
+    --primary-light: #e8f0fe;
+    --accent: #f59e0b;
+    --accent-dark: #d97706;
+    --dark: #0f172a;
+    --dark-2: #1e293b;
+    --mid: #334155;
+    --muted: #64748b;
+    --light: #f1f5f9;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(15,23,42,0.10);
+    --shadow-lg: 0 8px 40px rgba(15,23,42,0.16);
+    --transition: 0.22s ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a { text-decoration: none; color: inherit; }
+
+  ul { list-style: none; }
+
+  /* ─── HEADER ─── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .logo__img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .logo__text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .logo__text span {
+    color: var(--accent);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav__link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: color var(--transition), background var(--transition);
+  }
+
+  .nav__link:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .header__phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--primary);
+    padding: 9px 18px;
+    border-radius: 8px;
+    transition: background var(--transition);
+    flex-shrink: 0;
+  }
+
+  .header__phone:hover { background: var(--primary-dark); }
+
+  .header__phone svg { flex-shrink: 0; }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .burger__line {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+
+  .mobile-nav {
+    display: none;
+    background: var(--dark-2);
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .mobile-nav.open { display: block; }
+
+  .mobile-nav__list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .mobile-nav__link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: background var(--transition);
+  }
+
+  .mobile-nav__link:hover { background: rgba(255,255,255,0.07); color: var(--white); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.32;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(15,23,42,0.97) 40%, rgba(26,86,219,0.55) 100%);
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 24px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.4);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+
+  .hero__title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero__sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px;
+    margin-bottom: 32px;
+    line-height: 1.65;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+  }
+
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+  .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--dark);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+  }
+
+  .btn-accent:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: border-color var(--transition), background var(--transition);
+  }
+
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+
+  .hero__stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .hero__stat-num {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .hero__stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .hero__card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero__card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero__card-title svg { color: var(--accent); }
+
+  .vin-form { display: flex; flex-direction: column; gap: 12px; }
+
+  .vin-form input,
+  .vin-form textarea,
+  .vin-form select {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-family: inherit;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color var(--transition);
+    width: 100%;
+  }
+
+  .vin-form input::placeholder,
+  .vin-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+
+  .vin-form input:focus,
+  .vin-form textarea:focus { border-color: var(--primary); }
+
+  .vin-form textarea { resize: none; height: 72px; }
+
+  /* ─── SECTION COMMON ─── */
+  .section { padding: 80px 0; }
+
+  .section--light { background: var(--light); }
+
+  .section--dark { background: var(--dark); color: var(--white); }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  .section--dark .section-label { color: var(--accent); }
+
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    line-height: 1.18;
+    margin-bottom: 14px;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.65;
+  }
+
+  .section--dark .section-sub { color: rgba(255,255,255,0.6); }
+
+  .section-head {
+    margin-bottom: 48px;
+  }
+
+  .section-head--center { text-align: center; }
+
+  .section-head--center .section-sub { margin: 0 auto; }
+
+  /* ─── ADVANTAGES ─── */
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .adv-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+
+  .adv-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+  .adv-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .adv-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .adv-card__text {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ─── CATALOG ─── */
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .cat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow var(--transition), transform var(--transition);
+    cursor: pointer;
+  }
+
+  .cat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+  .cat-card__img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    background: var(--light);
+  }
+
+  .cat-card__icon-wrap {
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(135deg, var(--primary-light), #dbeafe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+  }
+
+  .cat-card__body {
+    padding: 18px 20px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cat-card__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+  }
+
+  .cat-card__desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .cat-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 6px;
+    transition: gap var(--transition);
+  }
+
+  .cat-card:hover .cat-card__link { gap: 8px; }
+
+  /* ─── SERVICE SECTION ─── */
+  .service-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .service-img-wrap {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-img-wrap img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+  }
+
+  .service-img-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: var(--accent);
+    color: var(--dark);
+    font-size: 0.82rem;
+    font-weight: 800;
+    padding: 10px 18px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--light);
+    border-radius: var(--radius);
+    transition: background var(--transition);
+  }
+
+  .service-item:hover { background: var(--primary-light); }
+
+  .service-item__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .service-item__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .service-item__desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  /* ─── SUPPLIERS ─── */
+  .suppliers-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  .supplier-tag {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 100px;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .supplier-tag:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }
+
+  /* ─── VIN SECTION ─── */
+  .vin-section {
+    background: linear-gradient(120deg, var(--primary-dark) 0%, var(--primary) 60%, #3b82f6 100%);
+    padding: 72px 0;
+  }
+
+  .vin-inner {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .vin-title {
+    font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .vin-title span { color: var(--accent); }
+
+  .vin-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .vin-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .vin-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  .vin-feature svg { color: var(--accent); flex-shrink: 0; }
+
+  .vin-form-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .vin-form-card .form-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .vin-form-card input,
+  .vin-form-card textarea {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    padding: 11px 14px;
+    color: var(--dark);
+    background: var(--white);
+    outline: none;
+    transition: border-color var(--transition);
+    margin-bottom: 12px;
+  }
+
+  .vin-form-card input::placeholder,
+  .vin-form-card textarea::placeholder { color: #94a3b8; }
+
+  .vin-form-card input:focus,
+  .vin-form-card textarea:focus { border-color: var(--primary); }
+
+  .vin-form-card textarea { resize: none; height: 80px; margin-bottom: 16px; }
+
+  .vin-form-card .btn-primary { width: 100%; justify-content: center; font-size: 1rem; padding: 14px; }
+
+  /* ─── CONTACTS ─── */
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .contact-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .contact-card__head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .contact-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .contact-card__type {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .contact-card__name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-top: 2px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--mid);
+  }
+
+  .contact-row svg { color: var(--primary); flex-shrink: 0; margin-top: 2px; }
+
+  .contact-row a { color: var(--primary); font-weight: 600; transition: color var(--transition); }
+
+  .contact-row a:hover { color: var(--primary-dark); }
+
+  .messenger-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .messenger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    color: var(--mid);
+    transition: border-color var(--transition), color var(--transition), background var(--transition);
+  }
+
+  .messenger-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    padding: 32px 0;
+    font-size: 0.85rem;
+  }
+
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer__logo {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--white);
+  }
+
+  .footer__logo span { color: var(--accent); }
+
+  .footer__copy { text-align: center; }
+
+  .footer__dev { text-align: right; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    .adv-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero__inner { grid-template-columns: 1fr; }
+    .hero__card { max-width: 520px; }
+    .vin-inner { grid-template-columns: 1fr; }
+    .vin-form-card { max-width: 520px; }
+    .service-split { grid-template-columns: 1fr; }
+    .service-img-wrap img { height: 320px; }
+  }
+
+  @media (max-width: 768px) {
+    .nav { display: none; }
+    .header__phone { display: none; }
+    .burger { display: flex; }
+    .section { padding: 56px 0; }
+    .adv-grid { grid-template-columns: 1fr; }
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    .contacts-grid { grid-template-columns: 1fr; }
+    .hero__inner { padding: 48px 24px; }
+    .hero__stats { gap: 20px; }
+    .footer__inner { flex-direction: column; text-align: center; }
+    .footer__dev { text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .catalog-grid { grid-template-columns: 1fr; }
+    .hero__actions { flex-direction: column; }
+    .btn-primary, .btn-accent, .btn-outline { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="header">
+  <div class="header__inner">
+    <a href="#" class="logo">
+      <img src="images/img_02.png" alt="Логотип АВТО100" class="logo__img">
+      <span class="logo__text">АВТО<span>-100</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#catalog" class="nav__link">Каталог</a>
+      <a href="#autoservice" class="nav__link">Автосервис</a>
+      <a href="#suppliers" class="nav__link">Поставщики</a>
+      <a href="#vin" class="nav__link">VIN-запрос</a>
+      <a href="#contacts" class="nav__link">Контакты</a>
+    </nav>
+    <a href="tel:+79657003311" class="header__phone">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +7 (965) 700-33-11
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Меню">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav__list">
+      <li><a href="#catalog" class="mobile-nav__link">Каталог запчастей</a></li>
+      <li><a href="#autoservice" class="mobile-nav__link">Автосервис</a></li>
+      <li><a href="#suppliers" class="mobile-nav__link">Поставщики</a></li>
+      <li><a href="#vin" class="mobile-nav__link">VIN-запрос</a></li>
+      <li><a href="#contacts" class="mobile-nav__link">Контакты</a></li>
+      <li><a href="tel:+79657003311" class="mobile-nav__link">+7 (965) 700-33-11</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <img src="images/img_01.jpeg" alt="Фон: автосервис АВТО100" class="hero__bg">
+  <div class="hero__overlay"></div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+        Магазин и сервис · г. Обнинск
+      </div>
+      <h1 class="hero__title">
+        Оригинальные<br>автозапчасти<br><em>для любых машин</em>
+      </h1>
+      <p class="hero__sub">
+        Более 437 производителей из Германии, Италии, Японии, Китая, США и России. В наличии и под заказ — от Приора до Ferrari. Полное сервисное обслуживание.
+      </p>
+      <div class="hero__actions">
+        <a href="#catalog" class="btn-accent">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Онлайн-каталог
+        </a>
+        <a href="#vin" class="btn-outline">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          VIN-запрос
+        </a>
+      </div>
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-num">437+</div>
+          <div class="hero__stat-label">производителей</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">6</div>
+          <div class="hero__stat-label">стран-поставщиков</div>
+        </div>
+        <div>
+          <div class="hero__stat-num">2020</div>
+          <div class="hero__stat-label">год основания</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__card">
+      <div class="hero__card-title">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        Быстрый VIN-запрос
+      </div>
+      <div class="vin-form" id="heroVinForm">
+        <input type="text" name="vin" placeholder="VIN-номер автомобиля" maxlength="17">
+        <input type="text" name="name" placeholder="Ваше имя">
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" id="heroPhone">
+        <textarea name="message" placeholder="Какие запчасти нужны?"></textarea>
+        <button type="button" class="btn-primary" onclick="submitVin('heroVinForm')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Отправить запрос
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ADVANTAGES ─── -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <div class="section-label">Почему выбирают нас</div>
+      <h2 class="section-title">Широкий ассортимент. Качество. Экономия.</h2>
+      <p class="section-sub">Всё, что нужно вашему автомобилю — в одном месте, с сертификатами производителей и скидками на крупные заказы.</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="adv-card__title">Качество с сертификатами</div>
+        <div class="adv-card__text">Все комплектующие сопровождаются сертификатами качества производителей. Только оригинальные запчасти и качественные аналоги.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <div class="adv-card__title">437+ производителей</div>
+        <div class="adv-card__text">В нашем магазине представлены производители из Германии, Италии, Японии, Китая, США и России. Запчасти для любых автомобилей.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div class="adv-card__title">Экономия на крупных заказах</div>
+        <div class="adv-card__text">Покупая в «Авто100», вы экономите не только время, но и бюджет. Для крупных заказов у нас предусмотрены скидки.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="adv-card__title">В наличии и под заказ</div>
+        <div class="adv-card__text">Большинство позиций есть в наличии. Редкие детали привозим под заказ в кратчайшие сроки по VIN-номеру вашего автомобиля.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <div class="adv-card__title">Магазин + Автосервис</div>
+        <div class="adv-card__text">Два адреса в Обнинске: магазин автозапчастей и автосервис. Купили деталь — тут же установим.</div>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">
+          <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="adv-card__title">Связь удобным способом</div>
+        <div class="adv-card__text">Отвечаем по телефону, WhatsApp и Viber. Оставьте VIN-запрос онлайн и получите точный подбор запчастей.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CATALOG ─── -->
+<section class="section section--light" id="catalog">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">Онлайн-каталог</div>
+      <h2 class="section-title">Надёжные комплектующие и расходные материалы</h2>
+      <p class="section-sub">Подберите запчасти по VIN в нашем online-каталоге. Оригиналы и качественные аналоги от мировых брендов.</p>
+    </div>
+    <div class="catalog-grid">
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26"/><circle cx="32" cy="32" r="14"/><circle cx="32" cy="32" r="4"/><line x1="32" y1="6" x2="32" y2="18"/><line x1="32" y1="46" x2="32" y2="58"/><line x1="6" y1="32" x2="18" y2="32"/><line x1="46" y1="32" x2="58" y2="32"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Подвеска</div>
+          <div class="cat-card__desc">Подбор качественных деталей для подвески любых марок автомобилей.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><rect x="10" y="22" width="44" height="20" rx="4"/><path d="M18 22V16a6 6 0 0112 0v6"/><path d="M34 22V16a6 6 0 0112 0v6"/><circle cx="22" cy="32" r="4"/><circle cx="42" cy="32" r="4"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Запчасти для двигателя</div>
+          <div class="cat-card__desc">Сальники, ремни, комплекты для ГРМ, свечи, помпы, форсунки и другие детали.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><circle cx="20" cy="44" r="10"/><circle cx="44" cy="44" r="10"/><path d="M10 44H6V24l8-14h36l6 14v20H54"/><path d="M30 44H34"/><line x1="14" y1="10" x2="14" y2="30"/><line x1="50" y1="10" x2="50" y2="30"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Трансмиссия</div>
+          <div class="cat-card__desc">Широкий ассортимент сцепления, привода, ШРУСов для легковых автомобилей.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><circle cx="20" cy="44" r="10"/><circle cx="44" cy="44" r="10"/><path d="M10 44V30l4-12h36l4 12v14"/><path d="M16 30h32"/><path d="M20 24v6"/><path d="M44 24v6"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Тормозная система</div>
+          <div class="cat-card__desc">Запасные части и расходные материалы для тормозной системы в магазине «Авто100» в Обнинске.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><rect x="12" y="18" width="40" height="22" rx="3"/><path d="M12 28h40"/><path d="M8 22v12"/><path d="M56 22v12"/><circle cx="20" cy="44" r="4"/><circle cx="44" cy="44" r="4"/><line x1="24" y1="44" x2="40" y2="44"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Аккумуляторные батареи</div>
+          <div class="cat-card__desc">АКБ в наличии и под заказ на любую легковую машину.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><circle cx="20" cy="20" r="8"/><circle cx="44" cy="20" r="8"/><path d="M12 20h40"/><rect x="18" y="36" width="28" height="18" rx="3"/><line x1="26" y1="44" x2="38" y2="44"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Оптика и электрика</div>
+          <div class="cat-card__desc">Фонари, реле, противотуманки, приборная панель — всё для комфортного вождения.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="32" rx="4"/><path d="M20 44v8"/><path d="M44 44v8"/><path d="M14 44h36"/><path d="M24 24h16"/><path d="M32 18v12"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Запчасти для ТО</div>
+          <div class="cat-card__desc">В наличии и на заказ качественные запчасти для технического обслуживания любых автомобилей.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-card__icon-wrap">
+          <svg width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 64 64"><path d="M32 8C18 8 8 18 8 32s10 24 24 24 24-10 24-24S46 8 32 8z"/><path d="M22 32c0-5.5 4.5-10 10-10s10 4.5 10 10"/><path d="M26 40l-4-8 8 4"/></svg>
+        </div>
+        <div class="cat-card__body">
+          <div class="cat-card__title">Автохимия / Аксессуары</div>
+          <div class="cat-card__desc">Полироли, воски, шампуни, чехлы, ароматизаторы, средства для экстерьера и интерьера.</div>
+          <span class="cat-card__link">Смотреть каталог <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AUTOSERVICE ─── -->
+<section class="section" id="autoservice">
+  <div class="container">
+    <div class="service-split">
+      <div class="service-img-wrap">
+        <img src="images/img_00.jpg" alt="Автосервис АВТО100: ремонт автомобилей">
+        <div class="service-img-badge">Автосервис · г. Обнинск</div>
+      </div>
+      <div>
+        <div class="section-label">Полное сервисное обслуживание</div>
+        <h2 class="section-title">Автосервис АВТО-100</h2>
+        <p class="section-sub">Профессиональный ремонт и техническое обслуживание автомобилей. Купили запчасть в нашем магазине — установим в сервисе.</p>
+        <div class="service-list">
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="service-item__title">Ремонт двигателя</div>
+              <div class="service-item__desc">Сальники, ремни, комплекты для ГРМ, свечи, помпы, форсунки и другие работы.</div>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+            </div>
+            <div>
+              <div class="service-item__title">Ремонт подвески</div>
+              <div class="service-item__desc">Замена и ремонт деталей подвески. Подбор по VIN.</div>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="service-item__title">Тормозная система</div>
+              <div class="service-item__desc">Замена колодок, дисков, барабанов, прокачка тормозов.</div>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <div class="service-item__title">Техническое обслуживание</div>
+              <div class="service-item__desc">Замена масла, фильтров, свечей, технических жидкостей.</div>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="service-item__icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <div class="service-item__title">Электрика и оптика</div>
+              <div class="service-item__desc">Диагностика и ремонт электрических систем, замена оптики.</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:28px">
+          <a href="#contacts" class="btn-primary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Записаться в сервис
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SUPPLIERS ─── -->
+<section class="section section--dark" id="suppliers">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <div class="section-label">Основные поставщики</div>
+      <h2 class="section-title">437+ производителей из 6 стран</h2>
+      <p class="section-sub">Мы работаем с ведущими мировыми брендами автозапчастей. Все комплектующие сопровождаются сертификатами качества.</p>
+    </div>
+    <div class="suppliers-strip">
+      <span class="supplier-tag">🇩🇪 Германия</span>
+      <span class="supplier-tag">🇮🇹 Италия</span>
+      <span class="supplier-tag">🇯🇵 Япония</span>
+      <span class="supplier-tag">🇨🇳 Китай</span>
+      <span class="supplier-tag">🇺🇸 США</span>
+      <span class="supplier-tag">🇷🇺 Россия</span>
+      <span class="supplier-tag">Bosch</span>
+      <span class="supplier-tag">NGK</span>
+      <span class="supplier-tag">Denso</span>
+      <span class="supplier-tag">Brembo</span>
+      <span class="supplier-tag">SKF</span>
+      <span class="supplier-tag">Febi</span>
+      <span class="supplier-tag">LUK</span>
+      <span class="supplier-tag">Gates</span>
+      <span class="supplier-tag">Valeo</span>
+      <span class="supplier-tag">Mann</span>
+      <span class="supplier-tag">Sachs</span>
+      <span class="supplier-tag">TRW</span>
+    </div>
+    <div style="margin-top:40px; text-align:center;">
+      <p style="color:rgba(255,255,255,0.5); font-size:0.85rem; margin-bottom:20px;">От Приора до Ferrari — запчасти для любых автомобилей в наличии и под заказ</p>
+      <a href="#vin" class="btn-accent">Подобрать запчасти по VIN</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── VIN REQUEST ─── -->
+<section class="vin-section" id="vin">
+  <div class="container">
+    <div class="vin-inner">
+      <div>
+        <div class="section-label" style="color:rgba(255,255,255,0.6);">VIN-запрос онлайн</div>
+        <h2 class="vin-title">Отправьте <span>VIN</span> —<br>получите запрос<br>в нашем online-каталоге</h2>
+        <p class="vin-desc">Для получения информации об интересующих вас запчастях — заполните форму. Мы подберём оригинальные детали и качественные аналоги точно под ваш автомобиль.</p>
+        <div class="vin-features">
+          <div class="vin-feature">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Точный подбор по VIN-номеру
+          </div>
+          <div class="vin-feature">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Оригинальные запчасти и качественные аналоги
+          </div>
+          <div class="vin-feature">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            В наличии и под заказ
+          </div>
+          <div class="vin-feature">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Скидки на крупные заказы
+          </div>
+          <div class="vin-feature">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Ответ по телефону, WhatsApp, Viber
+          </div>
+        </div>
+      </div>
+      <div class="vin-form-card">
+        <div class="form-title">
+          <svg width="22" height="22" fill="none" stroke="#1a56db" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          VIN-запрос запчастей
+        </div>
+        <form id="vinMainForm" action="#" onsubmit="return false;">
+          <input type="text" name="vin" placeholder="VIN-номер (17 символов)" maxlength="17">
+          <input type="text" name="name" placeholder="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" id="vinPhone">
+          <input type="email" name="email" placeholder="Email (необязательно)">
+          <textarea name="message" placeholder="Какие запчасти нужны? Укажите детали."></textarea>
+          <button type="submit" class="btn-primary" onclick="submitMainVin()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Отправить VIN-запрос
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACTS ─── -->
+<section class="section section--light" id="contacts">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <div class="section-label">Контакты</div>
+      <h2 class="section-title">Два адреса в Обнинске</h2>
+      <p class="section-sub">Магазин автозапчастей и автосервис — всё рядом. Приезжайте или звоните!</p>
+    </div>
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <div class="contact-card__head">
+          <div class="contact-card__icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="contact-card__type">Магазин</div>
+            <div class="contact-card__name">Автозапчасти АВТО-100</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>г. Обнинск, Маркса пр-кт, 83</span>
+        </div>
+        <div class="contact-row">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+79657003311">+7 (965) 700-33-11</a>
+        </div>
+        <div class="contact-row">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:aavto100@mail.ru">aavto100@mail.ru</a>
+        </div>
+        <div class="messenger-row">
+          <a href="#" class="messenger-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            WhatsApp
+          </a>
+          <a href="#" class="messenger-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Viber
+          </a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card__head">
+          <div class="contact-card__icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div>
+            <div class="contact-card__type">Сервис</div>
+            <div class="contact-card__name">Автосервис АВТО-100</div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>г. Обнинск, ул. Королёва, 13А</span>
+        </div>
+        <div class="contact-row">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+79657003311">+7 (965) 700-33-11</a>
+        </div>
+        <div class="contact-row">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:aavto100@mail.ru">aavto100@mail.ru</a>
+        </div>
+        <div class="messenger-row">
+          <a href="#" class="messenger-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            WhatsApp
+          </a>
+          <a href="#" class="messenger-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Viber
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__logo">АВТО<span>-100</span></div>
+    <div class="footer__copy">© 2020–2025 АВТО-100 · Автозапчасти и автосервис в Обнинске</div>
+    <div class="footer__dev">Демо-лендинг</div>
+  </div>
+</footer>
+
+<script>
+  // ─── BURGER MENU ───
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  burgerBtn.addEventListener('click', function() {
+    mobileNav.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-nav__link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // ─── PHONE MASK ───
+  function applyPhoneMask(input) {
+    if (!input) return;
+    input.addEventListener('input', function(e) {
+      var val = e.target.value.replace(/\D/g, '');
+      if (val.startsWith('8')) val = '7' + val.slice(1);
+      if (!val.startsWith('7')) val = '7' + val;
+      val = val.slice(0, 11);
+      var result = '+7';
+      if (val.length > 1) result += ' (' + val.slice(1, 4);
+      if (val.length >= 4) result += ') ' + val.slice(4, 7);
+      if (val.length >= 7) result += '-' + val.slice(7, 9);
+      if (val.length >= 9) result += '-' + val.slice(9, 11);
+      e.target.value = result;
+    });
+  }
+
+  applyPhoneMask(document.getElementById('heroPhone'));
+  applyPhoneMask(document.getElementById('vinPhone'));
+
+  // ─── VIN FORM SUBMIT (hero) ───
+  function submitVin(formId) {
+    var form = document.getElementById(formId);
+    var vinInput = form.querySelector('input[name="vin"]');
+    var nameInput = form.querySelector('input[name="name"]');
+    var phoneInput = form.querySelector('input[name="phone"]');
+
+    if (!vinInput.value.trim()) {
+      vinInput.style.borderColor = '#ef4444';
+      vinInput.focus();
+      setTimeout(function() { vinInput.style.borderColor = ''; }, 2000);
+      return;
+    }
+    if (!nameInput.value.trim()) {
+      nameInput.style.borderColor = '#ef4444';
+      nameInput.focus();
+      setTimeout(function() { nameInput.style.borderColor = ''; }, 2000);
+      return;
+    }
+    if (!phoneInput.value.trim() || phoneInput.value.replace(/\D/g,'').length < 11) {
+      phoneInput.style.borderColor = '#ef4444';
+      phoneInput.focus();
+      setTimeout(function() { phoneInput.style.borderColor = ''; }, 2000);
+      return;
+    }
+    alert('Спасибо! Ваш VIN-запрос принят. Мы перезвоним вам в ближайшее время.');
+    form.querySelectorAll('input, textarea').forEach(function(el) { el.value = ''; });
+  }
+
+  // ─── VIN FORM SUBMIT (main) ───
+  function submitMainVin() {
+    var form = document.getElementById('vinMainForm');
+    var nameInput = form.querySelector('input[name="name"]');
+    var phoneInput = form.querySelector('input[name="phone"]');
+
+    if (!nameInput.value.trim()) {
+      nameInput.style.borderColor = '#ef4444';
+      nameInput.focus();
+      setTimeout(function() { nameInput.style.borderColor = ''; }, 2000);
+      return;
+    }
+    if (!phoneInput.value.trim() || phoneInput.value.replace(/\D/g,'').length < 11) {
+      phoneInput.style.borderColor = '#ef4444';
+      phoneInput.focus();
+      setTimeout(function() { phoneInput.style.borderColor = ''; }, 2000);
+      return;
+    }
+    alert('Спасибо за заполнение анкеты! Мы перезвоним вам в ближайшее время.');
+    form.querySelectorAll('input, textarea').forEach(function(el) { el.value = ''; });
+  }
+
+  // ─── SMOOTH SCROLL ───
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        var headerH = document.querySelector('.header').offsetHeight;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 16;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

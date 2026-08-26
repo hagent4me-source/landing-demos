@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АВТОСТАРТ — Ремонт стартеров и генераторов в Обнинске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e45;
+    --steel: #2c4a6e;
+    --accent: #e8a020;
+    --accent-light: #f5b93a;
+    --accent-dark: #c8870a;
+    --light: #f4f7fb;
+    --white: #ffffff;
+    --gray: #6b7a8d;
+    --gray-light: #e2e8f0;
+    --text: #1a2533;
+    --text-mid: #3d4f63;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(13,27,42,0.10);
+    --shadow-lg: 0 8px 40px rgba(13,27,42,0.16);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: var(--navy);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 16px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-icon svg { width: 26px; height: 26px; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav a:hover { color: var(--accent); }
+
+  .header-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .header-phone {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+
+  .header-phone:hover { color: var(--accent); }
+
+  .header-hours {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: var(--navy-mid);
+    z-index: 999;
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--accent);
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--accent); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    padding-top: 68px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, var(--steel) 100%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(232,160,32,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(44,74,110,0.4) 0%, transparent 50%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,160,32,0.15);
+    border: 1px solid rgba(232,160,32,0.3);
+    border-radius: 100px;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.8); }
+  }
+
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .hero-title-accent { color: var(--accent); }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-stat-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-light);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-img-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4/3;
+  }
+
+  .hero-img-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-img-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .hero-img-small {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 3/2;
+    box-shadow: var(--shadow);
+  }
+
+  .hero-img-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-guarantee {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--accent);
+    color: var(--navy);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 800;
+    line-height: 1.1;
+    box-shadow: 0 4px 16px rgba(232,160,32,0.5);
+    z-index: 3;
+  }
+
+  .hero-guarantee-num { font-size: 22px; }
+  .hero-guarantee-text { font-size: 9px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  /* ===== SECTION COMMON ===== */
+  .section { padding: 80px 0; }
+  .section-alt { background: var(--light); }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-title-light {
+    color: var(--white);
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .section-desc-light {
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img-main {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about-img-main img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    min-width: 130px;
+  }
+
+  .about-badge-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .about-badge-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  .about-content { padding-bottom: 20px; }
+
+  .about-text {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-light);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .about-feature-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(232,160,32,0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .about-feature-icon svg { width: 18px; height: 18px; }
+
+  .about-feature-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+  }
+
+  /* ===== SERVICES ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .service-card-img {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .service-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .service-card:hover .service-card-img img { transform: scale(1.05); }
+
+  .service-card-num {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent);
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+  }
+
+  .service-card-body {
+    padding: 20px 24px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .service-card-desc {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  /* ===== VOLTAGE BADGE ===== */
+  .voltage-strip {
+    background: var(--navy);
+    padding: 28px 0;
+  }
+
+  .voltage-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .voltage-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .voltage-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .voltage-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,160,32,0.12);
+    border: 1.5px solid rgba(232,160,32,0.3);
+    border-radius: 100px;
+    padding: 8px 18px;
+  }
+
+  .voltage-badge svg { width: 16px; height: 16px; color: var(--accent); }
+
+  .voltage-badge span {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .voltage-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .voltage-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+  }
+
+  /* ===== WHY US ===== */
+  .why-section {
+    background: var(--navy);
+    padding: 80px 0;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+
+  .why-card:hover {
+    background: rgba(232,160,32,0.08);
+    border-color: rgba(232,160,32,0.3);
+  }
+
+  .why-card-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(232,160,32,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+
+  .why-card-icon svg { width: 26px; height: 26px; }
+
+  .why-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .why-card-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .gallery-item {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .gallery-item:hover img { transform: scale(1.08); }
+
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(13,27,42,0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+  .gallery-item-overlay svg {
+    width: 32px;
+    height: 32px;
+    color: var(--white);
+  }
+
+  .gallery-item-wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+  }
+
+  /* ===== BRANDS ===== */
+  .brands-section { padding: 60px 0; background: var(--light); }
+
+  .brands-desc {
+    font-size: 15px;
+    color: var(--text-mid);
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .brands-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .brand-tag {
+    background: var(--white);
+    border: 1.5px solid var(--gray-light);
+    border-radius: 100px;
+    padding: 7px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-mid);
+    letter-spacing: 0.04em;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .brand-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+    background: rgba(232,160,32,0.06);
+  }
+
+  /* ===== FORM SECTION ===== */
+  .form-section {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-section::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .form-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .form-content {}
+
+  .form-guarantees {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .form-guarantee-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .form-guarantee-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(232,160,32,0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .form-guarantee-icon svg { width: 20px; height: 20px; }
+
+  .form-guarantee-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.35;
+  }
+
+  .form-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .form-card-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .form-card-sub {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-mid);
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--gray-light);
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--light);
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+    background: var(--white);
+  }
+
+  .form-group input.error,
+  .form-group select.error {
+    border-color: #e05252;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover {
+    background: var(--accent-light);
+    transform: translateY(-1px);
+  }
+
+  .form-note {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* ===== CONTACTS ===== */
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contacts-info { display: flex; flex-direction: column; gap: 20px; }
+
+  .contact-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-light);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .contact-block-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(232,160,32,0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  .contact-block-icon svg { width: 22px; height: 22px; }
+
+  .contact-block-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .contact-block-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .contact-block-value a {
+    color: var(--text);
+    transition: color 0.2s;
+  }
+
+  .contact-block-value a:hover { color: var(--accent-dark); }
+
+  .contacts-map {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--gray-light);
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contacts-map iframe {
+    width: 100%;
+    flex: 1;
+    border: none;
+    min-height: 360px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--navy);
+    padding: 36px 0;
+    border-top: 2px solid rgba(232,160,32,0.2);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item-wide { grid-column: span 1; aspect-ratio: 1; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .nav { display: none; }
+    .header-contacts { display: none; }
+    .burger { display: flex; }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 40px 24px 60px;
+    }
+
+    .hero-visual { order: -1; }
+
+    .hero-img-row { display: none; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-badge { display: none; }
+
+    .why-grid { grid-template-columns: 1fr; }
+
+    .form-inner { grid-template-columns: 1fr; gap: 40px; }
+
+    .contacts-grid { grid-template-columns: 1fr; }
+
+    .footer-inner { flex-direction: column; text-align: center; }
+
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-features { grid-template-columns: 1fr; }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .voltage-inner { gap: 16px; }
+    .voltage-divider { display: none; }
+
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .section { padding: 56px 0; }
+    .hero-stats { gap: 20px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .form-card { padding: 24px 20px; }
+    .hero-guarantee { width: 64px; height: 64px; }
+    .hero-guarantee-num { font-size: 17px; }
+    .hero-guarantee-text { font-size: 7px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="top">
+  <div class="header-inner">
+    <a href="#top" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Автостарт</span>
+        <span class="logo-sub">Обнинск · с 2006 года</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="#about">О компании</a>
+      <a href="#services">Услуги</a>
+      <a href="#why">Преимущества</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#brands">Марки</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-contacts">
+      <a href="tel:+74843992322" class="header-phone">+7 (484) 399-23-22</a>
+      <span class="header-hours">Пн–Пт: 10:00–19:00 · Сб: 10:00–15:00</span>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">О компании</a>
+  <a href="#services" onclick="closeMobile()">Услуги</a>
+  <a href="#why" onclick="closeMobile()">Преимущества</a>
+  <a href="#gallery" onclick="closeMobile()">Галерея</a>
+  <a href="#brands" onclick="closeMobile()">Марки и бренды</a>
+  <a href="#contacts" onclick="closeMobile()">Контакты</a>
+  <a href="tel:+74843992322" onclick="closeMobile()">📞 +7 (484) 399-23-22</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Профессиональный ремонт · Обнинск</span>
+      </div>
+      <h1 class="hero-title">
+        Стартеры<br>и <span class="hero-title-accent">генераторы</span><br>12 / 24 V
+      </h1>
+      <p class="hero-subtitle">Диагностика, ремонт и установка</p>
+      <p class="hero-desc">
+        Ремонт от 2 часов. Более 20 лет опыта. Собственный склад запчастей.
+        Гарантия 6 месяцев на все работы и установленные детали.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">20+</span>
+          <span class="hero-stat-label">лет<br>опыта</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">от 2ч</span>
+          <span class="hero-stat-label">срок<br>ремонта</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">6 мес</span>
+          <span class="hero-stat-label">гарантия<br>на работы</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#form" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          Записаться на ремонт
+        </a>
+        <a href="#services" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Наши услуги
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-img-main">
+        <img src="images/img_00.png" alt="Ремонт стартеров и генераторов в Обнинске">
+        <div class="hero-guarantee">
+          <span class="hero-guarantee-num">6</span>
+          <span class="hero-guarantee-text">мес гарантия</span>
+        </div>
+      </div>
+      <div class="hero-img-row">
+        <div class="hero-img-small">
+          <img src="images/img_02.png" alt="Ремонт генераторов">
+        </div>
+        <div class="hero-img-small">
+          <img src="images/img_03.png" alt="Ремонт стартеров">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLTAGE STRIP -->
+<div class="voltage-strip">
+  <div class="voltage-inner">
+    <span class="voltage-label">Работаем с напряжением:</span>
+    <div class="voltage-badges">
+      <div class="voltage-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>12 Вольт — легковые</span>
+      </div>
+      <div class="voltage-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>24 Вольта — грузовые</span>
+      </div>
+    </div>
+    <div class="voltage-divider"></div>
+    <span class="voltage-note">Отечественные и иностранные автомобили</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-main">
+          <img src="images/img_01.jpg" alt="Компания Автостарт — мастерская в Обнинске">
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">2006</div>
+          <div class="about-badge-text">год<br>основания</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-label">О компании</span>
+        <h2 class="section-title">«АВТОСТАРТ» — специалисты по стартерам и генераторам</h2>
+        <p class="about-text">
+          Компания «АВТОСТАРТ» имеет большой опыт работы — более 20 лет. Любая неполадка будет устранена в минимально короткие сроки: от 2 часов до 2 дней.
+        </p>
+        <p class="about-text">
+          Среди наших клиентов — владельцы отечественных автомобилей и иномарок, которые ценят добросовестно выполненную работу. Мы располагаем специализированным оборудованием, инструментами и большим складом запасных частей.
+        </p>
+        <p class="about-text">
+          Заказывая у нас ремонт, вам не придётся тратить время на поиск комплектующих — всё необходимое есть в наличии. Мы проведём диагностику, выясним причину поломки, устраним её и протестируем на специальном оборудовании.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="about-feature-text">Гарантия 6 месяцев на работы и запчасти</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="about-feature-text">Срочный ремонт от 2 часов</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <span class="about-feature-text">Специализированное оборудование и тестеры</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            </div>
+            <span class="about-feature-text">Наличная и безналичная оплата</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <span class="section-label">Услуги</span>
+    <h2 class="section-title">Что мы ремонтируем</h2>
+    <p class="section-desc">
+      Компания «АВТОСТАРТ» быстро и качественно осуществляет ремонт стартеров и генераторов в Обнинске. В комплекс услуг входит замена ротора, щёток, регулятора реле, якоря, втулок, щёточного узла.
+    </p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="images/img_02.png" alt="Диагностика и ремонт генераторов">
+          <div class="service-card-num">01</div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-card-title">Диагностика и ремонт генераторов</h3>
+          <p class="service-card-desc">Диагностику, плановый и капитальный ремонт генератора выполняет только квалифицированный персонал. У нас есть специализированное диагностическое оборудование для точного выявления любой неисправности.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="images/img_03.png" alt="Диагностика и ремонт стартеров">
+          <div class="service-card-num">02</div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-card-title">Диагностика и ремонт стартеров</h3>
+          <p class="service-card-desc">Ваша машина внезапно перестала заводиться? Виной тому может быть вышедший из строя стартер. Каждый узел и агрегат имеет свой срок службы — мы быстро определим и устраним причину.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="images/img_04.png" alt="Ремонт электродвигателей отопителя салона">
+          <div class="service-card-num">03</div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-card-title">Ремонт электродвигателей отопителя салона</h3>
+          <p class="service-card-desc">При длительной эксплуатации этот узел также может выйти из строя. Самой популярной неисправностью является износ щёток. Не редки случаи полного износа медных ламелей коллектора.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-img">
+          <img src="images/img_05.png" alt="Снятие и установка стартеров и генераторов">
+          <div class="service-card-num">04</div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-card-title">Снятие и установка стартеров и генераторов</h3>
+          <p class="service-card-desc">Компания «АВТОСТАРТ» производит работы по снятию и установке генераторов и стартеров на вашем автомобиле. Вместе с автомехаником есть возможность уточнить стоимость предполагаемых работ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="why">
+  <div class="container">
+    <span class="section-label">Почему нас выбирают</span>
+    <h2 class="section-title section-title-light">Наши преимущества</h2>
+    <p class="section-desc section-desc-light">
+      Мы индивидуально подходим к каждому клиенту и в случае постоянного сотрудничества готовы представить значительные скидки на все комплектующие и услуги.
+    </p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="why-card-title">Кратчайшие сроки ремонта</h3>
+        <p class="why-card-desc">Срочный ремонт генератора или стартера может выполняться в течение короткого времени — от 2 часов до 2 дней.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="why-card-title">Диагностика и дефектовка</h3>
+        <p class="why-card-desc">Наши мастера проверят работоспособность генератора или стартера специальным оборудованием, а также произведут разборку агрегата для выявления дефекта.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="why-card-title">Высокий профессионализм</h3>
+        <p class="why-card-desc">Наши мастера имеют более чем 20-летний опыт работы по самым сложным типам генераторов и стартеров всех марок и производителей.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3 class="why-card-title">Снятие и установка агрегатов</h3>
+        <p class="why-card-desc">Мы располагаем специализированным оборудованием, поэтому без проблем снимем и установим стартер или генератор на ваш автомобиль.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <h3 class="why-card-title">Наличная и безналичная оплата</h3>
+        <p class="why-card-desc">Работаем как с физическими, так и с юридическими лицами. Оплата наличными, переводом на счёт или банковской картой.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="why-card-title">Гарантия на произведённые работы</h3>
+        <p class="why-card-desc">Мы уверены в качестве произведённых работ, поэтому даём гарантию 6 месяцев, в том числе и на установленные запчасти.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="container">
+    <span class="section-label">Галерея работ</span>
+    <h2 class="section-title">Наши работы</h2>
+    <p class="section-desc">Ждём вас — квалифицированно поможем решить любые проблемы, касающиеся ремонта генераторов и стартеров, а также дадим исчерпывающую консультацию по любым техническим вопросам.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-item-wide">
+        <img src="images/img_06.jpg" alt="Галерея работ Автостарт">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_07.jpg" alt="Галерея работ Автостарт">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_08.jpg" alt="Галерея работ Автостарт">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_09.jpg" alt="Галерея работ Автостарт">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-section" id="brands">
+  <div class="container">
+    <span class="section-label">Марки и бренды</span>
+    <h2 class="section-title">Работаем со всеми марками</h2>
+    <p class="brands-desc">
+      Компания «АВТОСТАРТ» производит ремонт стартеров и генераторов автомобилей следующих марок с использованием специального оборудования, приборов и тестеров:
+    </p>
+    <div class="brands-grid">
+      <span class="brand-tag">ALFA ROMEO</span>
+      <span class="brand-tag">AUDI</span>
+      <span class="brand-tag">BMW</span>
+      <span class="brand-tag">CHEVROLET</span>
+      <span class="brand-tag">CHRYSLER</span>
+      <span class="brand-tag">DAIHATSU</span>
+      <span class="brand-tag">DODGE</span>
+      <span class="brand-tag">IVECO</span>
+      <span class="brand-tag">FIAT</span>
+      <span class="brand-tag">FORD</span>
+      <span class="brand-tag">GMC</span>
+      <span class="brand-tag">HONDA</span>
+      <span class="brand-tag">HYUNDAI</span>
+      <span class="brand-tag">INFINITI</span>
+      <span class="brand-tag">ISUZU</span>
+      <span class="brand-tag">JAGUAR</span>
+      <span class="brand-tag">JEEP</span>
+      <span class="brand-tag">KIA</span>
+      <span class="brand-tag">LANCIA</span>
+      <span class="brand-tag">LAND ROVER</span>
+      <span class="brand-tag">LEXUS</span>
+      <span class="brand-tag">MAZDA</span>
+      <span class="brand-tag">MAN</span>
+      <span class="brand-tag">MERCEDES</span>
+      <span class="brand-tag">MITSUBISHI</span>
+      <span class="brand-tag">NISSAN</span>
+      <span class="brand-tag">PEUGEOT</span>
+      <span class="brand-tag">RENAULT</span>
+      <span class="brand-tag">ROVER</span>
+      <span class="brand-tag">SAAB</span>
+      <span class="brand-tag">SATURN</span>
+      <span class="brand-tag">SCANIA</span>
+      <span class="brand-tag">SUBARU</span>
+      <span class="brand-tag">SUZUKI</span>
+      <span class="brand-tag">TOYOTA</span>
+      <span class="brand-tag">VOLKSWAGEN</span>
+      <span class="brand-tag">VOLVO</span>
+      <span class="brand-tag">ВАЗ</span>
+      <span class="brand-tag">ГАЗ</span>
+      <span class="brand-tag">УАЗ</span>
+      <span class="brand-tag">ЗИЛ</span>
+      <span class="brand-tag">КАМАЗ</span>
+      <span class="brand-tag">МАЗ</span>
+      <span class="brand-tag">и многие другие</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="container">
+    <div class="form-inner">
+      <div class="form-content">
+        <span class="section-label">Записаться</span>
+        <h2 class="section-title section-title-light">Запишитесь на ремонт<br>прямо сейчас!</h2>
+        <div class="form-guarantees">
+          <div class="form-guarantee-item">
+            <div class="form-guarantee-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="form-guarantee-text">Минимальные сроки ремонта!</span>
+          </div>
+          <div class="form-guarantee-item">
+            <div class="form-guarantee-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span class="form-guarantee-text">Контроль на каждом этапе работы!</span>
+          </div>
+          <div class="form-guarantee-item">
+            <div class="form-guarantee-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="form-guarantee-text">Гарантия на наши услуги — 6 месяцев!</span>
+          </div>
+        </div>
+        <div style="margin-top:28px">
+          <p style="font-size:14px;color:rgba(255,255,255,0.5)">Или позвоните нам:</p>
+          <a href="tel:+74843992322" style="font-size:22px;font-weight:800;color:var(--accent);display:block;margin-top:6px">+7 (484) 399-23-22</a>
+          <a href="tel:+79056402307" style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.7);display:block;margin-top:4px">+7 (905) 640-23-07</a>
+          <a href="tel:+79208720707" style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.7);display:block;margin-top:2px">+7 (920) 872-07-07</a>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3 class="form-card-title">Оставить заявку</h3>
+        <p class="form-card-sub">Перезвоним и уточним детали в рабочее время</p>
+        <form id="repairForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">Ваше имя</label>
+              <input type="text" id="fname" name="name" placeholder="Иван">
+            </div>
+            <div class="form-group">
+              <label for="fphone">Телефон *</label>
+              <input type="tel" id="fphone" name="phone" placeholder="+7 (___) ___-__-__" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fservice">Что нужно отремонтировать</label>
+            <select id="fservice" name="service">
+              <option value="">— Выберите услугу —</option>
+              <option value="generator">Диагностика и ремонт генератора</option>
+              <option value="starter">Диагностика и ремонт стартера</option>
+              <option value="heater">Ремонт электродвигателя отопителя салона</option>
+              <option value="install">Снятие и установка стартера / генератора</option>
+              <option value="other">Другое / не знаю</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fcar">Марка и модель автомобиля</label>
+            <input type="text" id="fcar" name="car" placeholder="Например: Toyota Camry 2018">
+          </div>
+          <div class="form-group">
+            <label for="fcomment">Описание проблемы</label>
+            <textarea id="fcomment" name="comment" rows="3" placeholder="Опишите симптомы неисправности..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Отправить заявку</button>
+          <p class="form-note">Нажимая кнопку «Отправить заявку», вы автоматически даёте согласие на обработку персональных данных.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section" id="contacts">
+  <div class="container">
+    <span class="section-label">Контакты</span>
+    <h2 class="section-title">Наши контакты</h2>
+    <div class="contacts-grid">
+      <div class="contacts-info">
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">Адрес</div>
+            <div class="contact-block-value">г. Обнинск, ул. Кабицынская 14, бокс №45</div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">Телефоны</div>
+            <div class="contact-block-value">
+              <a href="tel:+74843956322">+7 (484) 395-63-22</a> (городской)<br>
+              <a href="tel:+74843992322">+7 (484) 399-23-22</a><br>
+              <a href="tel:+79056402307">+7 (905) 640-23-07</a><br>
+              <a href="tel:+79208720707">+7 (920) 872-07-07</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">Режим работы</div>
+            <div class="contact-block-value">
+              Пн–Пт: 10:00–19:00<br>
+              Сб: 10:00–15:00<br>
+              Вс: Выходной
+            </div>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-block-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-block-label">E-mail</div>
+            <div class="contact-block-value">
+              <a href="mailto:boref@mail.ru">boref@mail.ru</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contacts-map">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?text=%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%2C+%D1%83%D0%BB.+%D0%9A%D0%B0%D0%B1%D0%B8%D1%86%D1%8B%D0%BD%D1%81%D0%BA%D0%B0%D1%8F+14&z=16"
+          allowfullscreen
+          title="Карта — Автостарт Обнинск"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name" style="font-size:15px">Автостарт</span>
+        <span class="logo-sub">г. Обнинск</span>
+      </div>
+    </div>
+    <span class="footer-copy">© 2006–2025 «АВТОСТАРТ» — Ремонт стартеров и генераторов в Обнинске</span>
+    <div class="footer-links">
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Согласие на обработку данных</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  burger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Phone mask
+  const phoneInput = document.getElementById('fphone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function () {
+      let val = this.value.replace(/\D/g, '');
+      if (val.startsWith('8')) val = '7' + val.slice(1);
+      if (!val.startsWith('7')) val = '7' + val;
+      val = val.slice(0, 11);
+      let formatted = '+7';
+      if (val.length > 1) formatted += ' (' + val.slice(1, 4);
+      if (val.length >= 4) formatted += ') ' + val.slice(4, 7);
+      if (val.length >= 7) formatted += '-' + val.slice(7, 9);
+      if (val.length >= 9) formatted += '-' + val.slice(9, 11);
+      this.value = formatted;
+    });
+  }
+
+  // Form submit
+  const form = document.getElementById('repairForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const phone = document.getElementById('fphone');
+      const digits = phone.value.replace(/\D/g, '');
+
+      phone.classList.remove('error');
+
+      if (digits.length < 11) {
+        phone.classList.add('error');
+        phone.focus();
+        return;
+      }
+
+      alert('Спасибо! Мы перезвоним вам в ближайшее время.');
+      form.reset();
+    });
+  }
+
+  // Smooth scroll for nav links (fallback for older browsers)
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 72;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        closeMobile();
+      }
+    });
+  });
+
+  // Header shadow on scroll
+  const header = document.querySelector('.header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.style.boxShadow = '0 2px 24px rgba(0,0,0,0.3)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>

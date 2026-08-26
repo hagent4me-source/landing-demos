@@ -1,0 +1,38 @@
+[
+ {
+  "file": "images/img_00.jpg",
+  "size_kb": 483,
+  "alt": "Автосервис Фаэтон",
+  "url": "http://faeton-avto.com/mt-content/uploads/2015/05/mt-0039-home-slider2.jpg"
+ },
+ {
+  "file": "images/img_01.jpg",
+  "size_kb": 412,
+  "alt": "Автомобили Geely",
+  "url": "http://faeton-avto.com/mt-content/uploads/2025/10/geely-obninsk.jpg"
+ },
+ {
+  "file": "images/img_02.jpg",
+  "size_kb": 485,
+  "alt": "Коммерческий транспорт",
+  "url": "http://faeton-avto.com/mt-content/uploads/2025/04/com-transport.jpg"
+ },
+ {
+  "file": "images/img_03.jpg",
+  "size_kb": 480,
+  "alt": "Автосервис Фаэтон",
+  "url": "http://faeton-avto.com/mt-content/uploads/2015/05/mt-0039-home-slider1.jpg"
+ },
+ {
+  "file": "images/img_04.jpg",
+  "size_kb": 58,
+  "alt": "Ремонт радиаторов",
+  "url": "http://faeton-avto.com/mt-content/uploads/2026/02/radiator-avto.jpg"
+ },
+ {
+  "file": "images/img_05.jpg",
+  "size_kb": 130,
+  "alt": "Диагностика на вибростенде",
+  "url": "http://faeton-avto.com/mt-content/uploads/2025/10/obninsk-vibrostend-370.jpg"
+ }
+]

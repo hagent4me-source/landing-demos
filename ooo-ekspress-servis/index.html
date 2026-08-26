@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Экспресс-Сервис — ИТ-инфраструктура под ключ в Обнинске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #0d1b2a;
+    --dark2: #112233;
+    --dark3: #1a2e45;
+    --accent: #2ec4b6;
+    --accent2: #1aa99d;
+    --light: #f4f7fb;
+    --white: #ffffff;
+    --text: #2d3a4a;
+    --muted: #6b7a8d;
+    --border: #d8e2ee;
+    --font-head: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(13,27,42,.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,27,42,.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(46,196,182,.15);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-text {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -.02em;
+    line-height: 1.2;
+  }
+
+  .logo-text span {
+    display: block;
+    font-size: .65rem;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav a {
+    font-family: var(--font-body);
+    font-size: .88rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.75);
+    transition: color .2s;
+  }
+
+  .nav a:hover { color: var(--accent); }
+
+  .header-contacts {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .header-phone {
+    font-family: var(--font-head);
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--white);
+    white-space: nowrap;
+  }
+
+  .header-phone:hover { color: var(--accent); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-head);
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn:active { transform: scale(.97); }
+
+  .btn-accent {
+    background: var(--accent);
+    color: var(--dark);
+    padding: 10px 20px;
+    font-size: .88rem;
+  }
+
+  .btn-accent:hover { background: var(--accent2); box-shadow: 0 4px 16px rgba(46,196,182,.35); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(46,196,182,.5);
+    padding: 10px 20px;
+    font-size: .88rem;
+  }
+
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .btn-lg {
+    padding: 14px 32px;
+    font-size: 1rem;
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all .3s;
+  }
+
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: var(--dark2);
+    border-top: 1px solid rgba(46,196,182,.15);
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a {
+    font-family: var(--font-body);
+    font-size: .95rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.8);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    transition: color .2s;
+  }
+
+  .mobile-nav a:hover { color: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 68px;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    opacity: .07;
+    background-image:
+      linear-gradient(rgba(46,196,182,.8) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,.8) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .hero-nodes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(46,196,182,.12);
+    border: 1px solid rgba(46,196,182,.3);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(1.4); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -.03em;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.65);
+    max-width: 480px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-head);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .hero-stat-num span { color: var(--accent); }
+
+  .hero-stat-label {
+    font-size: .78rem;
+    color: rgba(255,255,255,.45);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-photos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 160px;
+    gap: 10px;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .hero-photo-main {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .hero-photo-side {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .hero-photo-bottom1 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .hero-photo-bottom2 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .hero-photos-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+  }
+
+  .hero-photos-grid img:hover { transform: scale(1.04); }
+
+  .hero-label {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark3);
+    border: 1px solid rgba(46,196,182,.25);
+    border-radius: 8px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  .hero-label-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(46,196,182,.15);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-label-text {
+    font-family: var(--font-head);
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .hero-label-sub {
+    font-size: .72rem;
+    color: rgba(255,255,255,.45);
+  }
+
+  /* ─── SECTION COMMONS ─── */
+  .section {
+    padding: 96px 24px;
+  }
+
+  .section-alt {
+    background: var(--light);
+  }
+
+  .section-dark {
+    background: var(--dark);
+  }
+
+  .section-dark2 {
+    background: var(--dark2);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-dark .section-title,
+  .section-dark2 .section-title {
+    color: var(--white);
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 52px;
+  }
+
+  .section-dark .section-subtitle,
+  .section-dark2 .section-subtitle {
+    color: rgba(255,255,255,.55);
+  }
+
+  /* ─── SERVICES ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .25s, box-shadow .25s, transform .25s;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity .25s;
+  }
+
+  .service-card:hover {
+    border-color: rgba(46,196,182,.4);
+    box-shadow: 0 8px 32px rgba(46,196,182,.1);
+    transform: translateY(-4px);
+  }
+
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(46,196,182,.08);
+    border: 1.5px solid rgba(46,196,182,.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: background .25s;
+  }
+
+  .service-card:hover .service-icon {
+    background: rgba(46,196,182,.15);
+  }
+
+  .service-abbr {
+    font-family: var(--font-head);
+    font-size: .68rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .service-card p {
+    font-size: .88rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    aspect-ratio: 4/3;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+  }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,27,42,.7) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity .3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .gallery-overlay-text {
+    font-family: var(--font-head);
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  /* ─── PROCESS ─── */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(46,196,182,.4), rgba(46,196,182,.4), rgba(46,196,182,.4), transparent);
+    z-index: 0;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--dark3);
+    border: 2px solid rgba(46,196,182,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    transition: border-color .3s, background .3s;
+  }
+
+  .process-step:hover .step-circle {
+    border-color: var(--accent);
+    background: rgba(46,196,182,.08);
+  }
+
+  .step-num {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 22px;
+    height: 22px;
+    background: var(--accent);
+    border-radius: 50%;
+    font-family: var(--font-head);
+    font-size: .65rem;
+    font-weight: 700;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-title {
+    font-family: var(--font-head);
+    font-size: .92rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .step-desc {
+    font-size: .78rem;
+    color: rgba(255,255,255,.45);
+    line-height: 1.5;
+  }
+
+  /* ─── WHO WE WORK FOR ─── */
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .client-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    transition: border-color .25s, box-shadow .25s, transform .25s;
+  }
+
+  .client-card:hover {
+    border-color: rgba(46,196,182,.4);
+    box-shadow: 0 6px 24px rgba(46,196,182,.08);
+    transform: translateY(-3px);
+  }
+
+  .client-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    background: rgba(46,196,182,.07);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .client-card h4 {
+    font-family: var(--font-head);
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .client-card p {
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ─── WHY US ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: border-color .25s, background .25s;
+  }
+
+  .why-card:hover {
+    border-color: rgba(46,196,182,.3);
+    background: rgba(46,196,182,.04);
+  }
+
+  .why-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(46,196,182,.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .why-card h4 {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .why-card p {
+    font-size: .85rem;
+    color: rgba(255,255,255,.5);
+    line-height: 1.65;
+  }
+
+  /* ─── CALCULATOR ─── */
+  .calc-wrap {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 48px;
+    box-shadow: var(--shadow);
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .calc-title {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .calc-sub {
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: 36px;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .calc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .calc-field label {
+    font-family: var(--font-head);
+    font-size: .82rem;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  .calc-field select,
+  .calc-field input[type="range"] {
+    width: 100%;
+  }
+
+  .calc-field select {
+    appearance: none;
+    background: var(--light);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: var(--font-body);
+    font-size: .9rem;
+    color: var(--dark);
+    cursor: pointer;
+    transition: border-color .2s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232ec4b6' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  .calc-field select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .calc-field input[type="range"] {
+    -webkit-appearance: none;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+
+  .calc-field input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+    cursor: pointer;
+  }
+
+  .calc-range-val {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .calc-range-val span { color: var(--accent); }
+
+  .calc-result {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark3) 100%);
+    border-radius: 12px;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .calc-result-label {
+    font-size: .82rem;
+    color: rgba(255,255,255,.5);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 4px;
+  }
+
+  .calc-result-price {
+    font-family: var(--font-head);
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .calc-result-price span { color: var(--accent); }
+
+  .calc-note {
+    font-size: .75rem;
+    color: rgba(255,255,255,.35);
+    margin-top: 4px;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -.02em;
+  }
+
+  .contact-info p {
+    font-size: .95rem;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .contact-item-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(46,196,182,.1);
+    border: 1px solid rgba(46,196,182,.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-item-label {
+    font-size: .75rem;
+    color: rgba(255,255,255,.4);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-bottom: 2px;
+  }
+
+  .contact-item-val {
+    font-family: var(--font-head);
+    font-size: .98rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .contact-item-val a {
+    color: var(--white);
+    transition: color .2s;
+  }
+
+  .contact-item-val a:hover { color: var(--accent); }
+
+  .contact-item-sub {
+    font-size: .78rem;
+    color: rgba(255,255,255,.35);
+    margin-top: 2px;
+  }
+
+  /* ─── FORM ─── */
+  .contact-form {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.2);
+  }
+
+  .form-title {
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .form-sub {
+    font-size: .85rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-family: var(--font-head);
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--light);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: var(--font-body);
+    font-size: .9rem;
+    color: var(--dark);
+    transition: border-color .2s, box-shadow .2s;
+    width: 100%;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(46,196,182,.12);
+  }
+
+  .form-group.error input,
+  .form-group.error select {
+    border-color: #e74c3c;
+  }
+
+  .form-error-msg {
+    font-size: .75rem;
+    color: #e74c3c;
+    display: none;
+  }
+
+  .form-group.error .form-error-msg { display: block; }
+
+  .form-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    margin-top: 4px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: #080f17;
+    border-top: 1px solid rgba(46,196,182,.1);
+    padding: 40px 24px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font-size: .8rem;
+    color: rgba(255,255,255,.3);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: .8rem;
+    color: rgba(255,255,255,.35);
+    transition: color .2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .clients-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { display: none; }
+    .process-steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .process-steps::before { display: none; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .nav { display: none; }
+    .header-contacts .btn { display: none; }
+    .burger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .clients-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .calc-grid { grid-template-columns: 1fr; }
+    .calc-wrap { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 28px 20px; }
+    .section { padding: 64px 20px; }
+    .hero-stats { gap: 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .clients-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .calc-result { flex-direction: column; align-items: flex-start; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#2ec4b6" fill-opacity=".12"/>
+        <circle cx="8" cy="8" r="3" fill="#2ec4b6"/>
+        <circle cx="28" cy="8" r="3" fill="#2ec4b6"/>
+        <circle cx="8" cy="28" r="3" fill="#2ec4b6"/>
+        <circle cx="28" cy="28" r="3" fill="#2ec4b6"/>
+        <circle cx="18" cy="18" r="4" fill="#2ec4b6"/>
+        <line x1="8" y1="8" x2="18" y2="18" stroke="#2ec4b6" stroke-width="1.5" stroke-opacity=".5"/>
+        <line x1="28" y1="8" x2="18" y2="18" stroke="#2ec4b6" stroke-width="1.5" stroke-opacity=".5"/>
+        <line x1="8" y1="28" x2="18" y2="18" stroke="#2ec4b6" stroke-width="1.5" stroke-opacity=".5"/>
+        <line x1="28" y1="28" x2="18" y2="18" stroke="#2ec4b6" stroke-width="1.5" stroke-opacity=".5"/>
+      </svg>
+      <div class="logo-text">
+        Экспресс-Сервис
+        <span>ИТ-инфраструктура</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="#services">Услуги</a>
+      <a href="#works">Наши работы</a>
+      <a href="#process">Этапы</a>
+      <a href="#calculator">Оценка СКС</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-contacts">
+      <a href="tel:+79109116786" class="header-phone">+7 910 911-67-86</a>
+      <a href="#contacts" class="btn btn-accent">Оставить заявку</a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#services" class="mobile-link">Услуги</a>
+    <a href="#works" class="mobile-link">Наши работы</a>
+    <a href="#process" class="mobile-link">Этапы проекта</a>
+    <a href="#calculator" class="mobile-link">Оценка СКС</a>
+    <a href="#contacts" class="mobile-link">Контакты</a>
+    <a href="tel:+79109116786" class="mobile-link">+7 910 911-67-86</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <svg class="hero-nodes" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="120" cy="150" r="4" fill="#2ec4b6" opacity=".3"/>
+    <circle cx="380" cy="80" r="3" fill="#2ec4b6" opacity=".2"/>
+    <circle cx="950" cy="200" r="5" fill="#2ec4b6" opacity=".25"/>
+    <circle cx="1100" cy="450" r="3" fill="#2ec4b6" opacity=".2"/>
+    <circle cx="200" cy="550" r="4" fill="#2ec4b6" opacity=".2"/>
+    <line x1="120" y1="150" x2="380" y2="80" stroke="#2ec4b6" stroke-width="1" opacity=".12"/>
+    <line x1="380" y1="80" x2="950" y2="200" stroke="#2ec4b6" stroke-width="1" opacity=".1"/>
+    <line x1="950" y1="200" x2="1100" y2="450" stroke="#2ec4b6" stroke-width="1" opacity=".12"/>
+    <line x1="120" y1="150" x2="200" y2="550" stroke="#2ec4b6" stroke-width="1" opacity=".08"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        ИТ-компания в Обнинске с 2007 года
+      </div>
+      <h1>ИТ-инфраструктура<br><em>под ключ</em></h1>
+      <p class="hero-desc">
+        Проектируем и монтируем кабельные системы (СКС), локальные сети (ЛВС), видеонаблюдение и СКУД. Берём на ИТ-аутсорсинг. Работаем с офисами, складами и производствами.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacts" class="btn btn-accent btn-lg">Оставить заявку</a>
+        <a href="#services" class="btn btn-outline btn-lg">Наши услуги</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">2007<span>г</span></div>
+          <div class="hero-stat-label">Год основания</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">6<span>+</span></div>
+          <div class="hero-stat-label">Направлений</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">Пн–Пт</div>
+          <div class="hero-stat-label">9:00 – 18:00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-photos-grid">
+        <div class="hero-photo-main">
+          <img src="images/img_00.jpg" alt="Монтаж кабельной системы">
+        </div>
+        <div class="hero-photo-side">
+          <img src="images/img_01.jpg" alt="Прокладка локальной сети">
+        </div>
+        <div class="hero-photo-bottom1">
+          <img src="images/img_02.jpg" alt="Объект видеонаблюдения">
+        </div>
+        <div class="hero-photo-bottom2">
+          <img src="images/img_03.jpg" alt="Монтаж оборудования СКУД">
+        </div>
+      </div>
+      <div class="hero-label">
+        <div class="hero-label-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M2 8h12M8 2l6 6-6 6" stroke="#2ec4b6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="hero-label-text">Полный цикл</div>
+          <div class="hero-label-sub">Проект → Монтаж → Обслуживание</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-tag">Что мы делаем</div>
+    <h2 class="section-title">Услуги компании</h2>
+    <p class="section-subtitle">Полный комплекс мер по созданию и поддержке ИТ-инфраструктуры предприятия — от кабеля до аутсорсинга.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M3 13h20M3 8h10M3 18h10" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="8" r="3" stroke="#2ec4b6" stroke-width="2"/>
+            <circle cx="20" cy="18" r="3" stroke="#2ec4b6" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="service-abbr">СКС</div>
+        <h3>Кабельные системы</h3>
+        <p>Структурированные кабельные системы — кабельная часть телекоммуникационной инфраструктуры зданий. Проектируем, монтируем, сертифицируем.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="2" y="10" width="6" height="6" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <rect x="18" y="10" width="6" height="6" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <rect x="10" y="2" width="6" height="6" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <rect x="10" y="18" width="6" height="6" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <path d="M8 13h10M13 8v10" stroke="#2ec4b6" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="service-abbr">ЛВС</div>
+        <h3>Локальные сети</h3>
+        <p>Сети для обработки, хранения и передачи данных. На сегодняшний день трудно представить работу предприятия без надёжной ЛВС.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <circle cx="13" cy="13" r="4" stroke="#2ec4b6" stroke-width="2"/>
+            <path d="M7 7a8.5 8.5 0 0112 0M5 5a11.5 11.5 0 0116 0" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="13" cy="13" r="1.5" fill="#2ec4b6"/>
+          </svg>
+        </div>
+        <div class="service-abbr">CCTV</div>
+        <h3>Видеонаблюдение</h3>
+        <p>Системы видеонаблюдения для офисов, бизнес-центров, магазинов и производств. Аналоговые и IP-решения, удалённый доступ.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="8" y="12" width="10" height="10" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <path d="M10 12V9a3 3 0 016 0v3" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="13" cy="17" r="1.5" fill="#2ec4b6"/>
+          </svg>
+        </div>
+        <div class="service-abbr">СКУД</div>
+        <h3>Системы контроля доступа</h3>
+        <p>Важнейший компонент безопасности крупного офисного и производственного объекта. Турникеты, карты, биометрия.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <path d="M17 10h4l2 3v3h-6V10z" stroke="#2ec4b6" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M7 15v4M11 15v4M7 19h4" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="service-abbr">ИТ-аутсорсинг</div>
+        <h3>ИТ-аутсорсинг</h3>
+        <p>Обслуживание инфраструктуры предприятия или отдельных её компонентов. Берём на себя все ИТ-задачи — вы сосредоточены на бизнесе.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+            <path d="M4 20l4-4 4 4 4-8 4 4" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="4" cy="20" r="1.5" fill="#2ec4b6"/>
+            <circle cx="8" cy="16" r="1.5" fill="#2ec4b6"/>
+            <circle cx="12" cy="20" r="1.5" fill="#2ec4b6"/>
+            <circle cx="16" cy="12" r="1.5" fill="#2ec4b6"/>
+            <circle cx="20" cy="16" r="1.5" fill="#2ec4b6"/>
+          </svg>
+        </div>
+        <div class="service-abbr">ИТ-аудит</div>
+        <h3>ИТ-аудит</h3>
+        <p>Основа для оптимизации расходов на информационные технологии и снижения текущих затрат. Анализируем, рекомендуем, внедряем.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WORKS / GALLERY -->
+<section class="section section-alt" id="works">
+  <div class="container">
+    <div class="section-tag">Портфолио</div>
+    <h2 class="section-title">Наши работы</h2>
+    <p class="section-subtitle">Реализованные объекты — офисы, производства, склады. Монтаж СКС, ЛВС, видеонаблюдения и СКУД.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/img_00.jpg" alt="Монтаж кабельной инфраструктуры">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-text">Кабельная система</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_01.jpg" alt="Прокладка локальной сети">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-text">Локальная сеть</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_02.jpg" alt="Монтаж видеонаблюдения">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-text">Видеонаблюдение</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_03.jpg" alt="Установка СКУД">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-text">Система контроля доступа</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_04.jpg" alt="Серверное оборудование">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-text">Серверная инфраструктура</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="images/img_05.jpg" alt="Пусконаладка оборудования">
+        <div class="gallery-overlay">
+          <span class="gallery-overlay-text">Пусконаладка</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-dark" id="process">
+  <div class="container">
+    <div class="section-tag">Как мы работаем</div>
+    <h2 class="section-title">Этапы проекта</h2>
+    <p class="section-subtitle">От заявки до постоянного обслуживания — полный цикл без посредников и лишних согласований.</p>
+
+    <div class="process-steps">
+
+      <div class="process-step">
+        <div class="step-circle">
+          <span class="step-num">1</span>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 4v10l6 4" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="14" cy="14" r="10" stroke="#2ec4b6" stroke-width="2" opacity=".4"/>
+          </svg>
+        </div>
+        <div class="step-title">Заявка</div>
+        <div class="step-desc">Оставляете заявку или звоните — обсуждаем задачу и выезжаем на объект</div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">
+          <span class="step-num">2</span>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="5" y="5" width="18" height="18" rx="3" stroke="#2ec4b6" stroke-width="2" opacity=".4"/>
+            <path d="M9 14h10M9 10h6M9 18h8" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-title">Проектирование</div>
+        <div class="step-desc">Разрабатываем техническое решение, подбираем оборудование, согласовываем смету</div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">
+          <span class="step-num">3</span>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M8 20l4-4 4 4 4-8" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/>
+            <path d="M10 8h8M14 5v6" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="step-title">Монтаж</div>
+        <div class="step-desc">Выполняем монтажные работы в согласованные сроки, аккуратно и профессионально</div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">
+          <span class="step-num">4</span>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="8" stroke="#2ec4b6" stroke-width="2" opacity=".4"/>
+            <path d="M10 14l3 3 5-5" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="step-title">Пусконаладка</div>
+        <div class="step-desc">Настраиваем оборудование, тестируем все системы, передаём документацию</div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-circle">
+          <span class="step-num">5</span>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 6v4M14 18v4M6 14h4M18 14h4" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round" opacity=".4"/>
+            <circle cx="14" cy="14" r="5" stroke="#2ec4b6" stroke-width="2"/>
+            <circle cx="14" cy="14" r="2" fill="#2ec4b6"/>
+          </svg>
+        </div>
+        <div class="step-title">Обслуживание</div>
+        <div class="step-desc">Берём инфраструктуру на ИТ-аутсорсинг — поддерживаем, обновляем, реагируем</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE WORK FOR -->
+<section class="section" id="clients">
+  <div class="container">
+    <div class="section-tag">Для кого</div>
+    <h2 class="section-title">Работаем с любыми объектами</h2>
+    <p class="section-subtitle">Многолетний опыт позволяет выполнять проекты разного уровня сложности и масштаба.</p>
+
+    <div class="clients-grid">
+
+      <div class="client-card">
+        <div class="client-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect x="4" y="10" width="22" height="16" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <path d="M10 10V7a5 5 0 0110 0v3" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"/>
+            <rect x="12" y="17" width="6" height="6" rx="1" stroke="#2ec4b6" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h4>Офисы</h4>
+        <p>Рабочие места, переговорные, серверные комнаты, СКУД на входе</p>
+      </div>
+
+      <div class="client-card">
+        <div class="client-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect x="3" y="12" width="24" height="14" rx="2" stroke="#2ec4b6" stroke-width="2"/>
+            <path d="M3 16h24" stroke="#2ec4b6" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10 12V8h10v4" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Склады</h4>
+        <p>Видеонаблюдение по периметру, контроль доступа, кабельная разводка</p>
+      </div>
+
+      <div class="client-card">
+        <div class="client-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M4 24V10l11-6 11 6v14H4z" stroke="#2ec4b6" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="12" y="16" width="6" height="8" rx="1" stroke="#2ec4b6" stroke-width="1.5"/>
+            <path d="M10 14h10" stroke="#2ec4b6" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>Производство</h4>
+        <p>Промышленные СКС, видеоконтроль линий, надёжная ЛВС в цехах</p>
+      </div>
+
+      <div class="client-card">
+        <div class="client-icon">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M5 24V12l10-8 10 8v12H5z" stroke="#2ec4b6" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M10 24v-6h10v6" stroke="#2ec4b6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="15" cy="11" r="2" stroke="#2ec4b6" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h4>Торговля</h4>
+        <p>Видеонаблюдение торговых залов, кассовые зоны, контроль персонала</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section-dark2" id="why">
+  <div class="container">
+    <div class="section-tag">Почему мы</div>
+    <h2 class="section-title">Наши преимущества</h2>
+    <p class="section-subtitle">Компания основана в 2007 году. За эти годы решено множество разнообразных задач в сфере безопасности и ИТ.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2l2.4 6.6H20l-5.4 3.9 2 6.5L11 15l-5.6 4 2-6.5L2 8.6h6.6L11 2z" stroke="#2ec4b6" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Готовые решения</h4>
+        <p>Предоставляем готовые решения, а не просто монтаж оборудования там, где укажут. Проектируем под задачу.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="9" stroke="#2ec4b6" stroke-width="1.8" opacity=".5"/>
+            <path d="M11 6v5l3 3" stroke="#2ec4b6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Большой опыт</h4>
+        <p>Компания создана в 2007 году. За эти годы нами решено множество разнообразных задач в сфере безопасности.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 3l2 5.5h5.5L14 12l2 5.5L11 14l-5 3.5 2-5.5-4.5-3.5H9L11 3z" stroke="#2ec4b6" stroke-width="1.8" stroke-linejoin="round" opacity=".5"/>
+            <path d="M7 11l3 3 5-5" stroke="#2ec4b6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Надёжность с гарантией</h4>
+        <p>Работаем только с проверенными поставщиками. Приобретаем оборудование с длительным сроком гарантии и не экономим на надёжности.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section section-alt" id="calculator">
+  <div class="container">
+    <div class="section-tag">Оценка стоимости</div>
+    <h2 class="section-title">Калькулятор СКС</h2>
+    <p class="section-subtitle">Предварительная оценка стоимости структурированной кабельной системы. Точная цена — после обследования объекта.</p>
+
+    <div class="calc-wrap">
+      <div class="calc-title">Оценка проекта СКС</div>
+      <p class="calc-sub">Укажите параметры объекта — получите ориентировочную вилку стоимости</p>
+
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label>Тип объекта</label>
+          <select id="calcType">
+            <option value="office">Офис</option>
+            <option value="warehouse">Склад</option>
+            <option value="production">Производство</option>
+            <option value="retail">Торговый объект</option>
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label>Категория кабеля</label>
+          <select id="calcCat">
+            <option value="5e">Cat 5e (100 Мбит/с)</option>
+            <option value="6">Cat 6 (1 Гбит/с)</option>
+            <option value="6a">Cat 6A (10 Гбит/с)</option>
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label>Площадь объекта</label>
+          <div class="calc-range-val">До <span id="areaVal">200</span> м²</div>
+          <input type="range" id="calcArea" min="50" max="2000" step="50" value="200">
+        </div>
+
+        <div class="calc-field">
+          <label>Рабочих мест</label>
+          <div class="calc-range-val"><span id="wsVal">20</span> рабочих мест</div>
+          <input type="range" id="calcWs" min="5" max="200" step="5" value="20">
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div>
+          <div class="calc-result-label">Ориентировочная стоимость СКС</div>
+          <div class="calc-result-price" id="calcPrice">от <span>45 000</span> ₽</div>
+          <div class="calc-note">* Предварительная оценка. Точная цена — после выезда на объект.</div>
+        </div>
+        <a href="#contacts" class="btn btn-accent btn-lg">Получить точный расчёт</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section section-dark" id="contacts">
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="section-tag">Контакты</div>
+        <h2>Обсудим ваш проект</h2>
+        <p>Оставьте заявку или позвоните нам. Проконсультируем, выедем на объект, подготовим коммерческое предложение.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M3 3h12v12H3V3z" stroke="#2ec4b6" stroke-width="1.5" stroke-linejoin="round" opacity=".4"/>
+                <path d="M3 7h12" stroke="#2ec4b6" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="7" cy="11" r="1" fill="#2ec4b6"/>
+                <circle cx="11" cy="11" r="1" fill="#2ec4b6"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Адрес</div>
+              <div class="contact-item-val">г. Обнинск, ул. Комарова 1, оф. 2</div>
+              <div class="contact-item-sub">Калужская область</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M3 3.5c0 7.456 6.044 13.5 13.5 13.5V14l-3-1-1.5 1.5C10 13 7 10 5.5 8L7 6.5 6 3.5H3z" stroke="#2ec4b6" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Телефон</div>
+              <div class="contact-item-val"><a href="tel:+79109116786">+7 910 911-67-86</a></div>
+              <div class="contact-item-sub">пн–пт с 9:00 до 18:00</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <rect x="2" y="4" width="14" height="10" rx="2" stroke="#2ec4b6" stroke-width="1.5"/>
+                <path d="M2 6l7 5 7-5" stroke="#2ec4b6" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val"><a href="mailto:eservis@obninsk.com">eservis@obninsk.com</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-title">Оставить заявку</div>
+        <p class="form-sub">Опишите задачу — перезвоним и проконсультируем бесплатно</p>
+
+        <form id="contactForm" action="#" novalidate>
+          <div class="form-row">
+            <div class="form-group" id="fg-name">
+              <label for="fname">Ваше имя</label>
+              <input type="text" id="fname" name="name" placeholder="Иван Петров">
+              <span class="form-error-msg">Введите имя</span>
+            </div>
+            <div class="form-group" id="fg-phone">
+              <label for="fphone">Телефон</label>
+              <input type="tel" id="fphone" name="phone" placeholder="+7 (___) ___-__-__">
+              <span class="form-error-msg">Введите телефон</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fservice">Услуга</label>
+            <select id="fservice" name="service">
+              <option value="">— Выберите услугу —</option>
+              <option>Кабельные системы (СКС)</option>
+              <option>Локальные сети (ЛВС)</option>
+              <option>Видеонаблюдение</option>
+              <option>Системы контроля доступа (СКУД)</option>
+              <option>ИТ-аутсорсинг</option>
+              <option>ИТ-аудит</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fmsg">Комментарий</label>
+            <textarea id="fmsg" name="message" rows="3" placeholder="Опишите объект, задачу или вопрос"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-accent form-submit">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-copy">© 2007–2025 ООО «Экспресс-Сервис». Обнинск, ул. Комарова 1, оф. 2</div>
+    <div class="footer-links">
+      <a href="mailto:eservis@obninsk.com">eservis@obninsk.com</a>
+      <a href="tel:+79109116786">+7 910 911-67-86</a>
+      <a href="#">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── BURGER MENU ───
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // ─── PHONE MASK ───
+  const phoneInput = document.getElementById('fphone');
+  phoneInput.addEventListener('input', (e) => {
+    let val = e.target.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (!val.startsWith('7')) val = '7' + val;
+    val = val.slice(0, 11);
+    let formatted = '+7';
+    if (val.length > 1) formatted += ' (' + val.slice(1, 4);
+    if (val.length >= 4) formatted += ') ' + val.slice(4, 7);
+    if (val.length >= 7) formatted += '-' + val.slice(7, 9);
+    if (val.length >= 9) formatted += '-' + val.slice(9, 11);
+    e.target.value = formatted;
+  });
+
+  // ─── CALCULATOR ───
+  const calcArea = document.getElementById('calcArea');
+  const calcWs = document.getElementById('calcWs');
+  const calcType = document.getElementById('calcType');
+  const calcCat = document.getElementById('calcCat');
+  const areaVal = document.getElementById('areaVal');
+  const wsVal = document.getElementById('wsVal');
+  const calcPrice = document.getElementById('calcPrice');
+
+  const typeCoeff = { office: 1.0, warehouse: 0.85, production: 1.2, retail: 0.95 };
+  const catCoeff = { '5e': 1.0, '6': 1.25, '6a': 1.65 };
+
+  function calcEstimate() {
+    const area = parseInt(calcArea.value);
+    const ws = parseInt(calcWs.value);
+    const tc = typeCoeff[calcType.value];
+    const cc = catCoeff[calcCat.value];
+
+    areaVal.textContent = area;
+    wsVal.textContent = ws;
+
+    const base = ws * 3500 + area * 80;
+    const low = Math.round(base * tc * cc / 1000) * 1000;
+    const high = Math.round(low * 1.35 / 1000) * 1000;
+
+    const fmt = n => n.toLocaleString('ru-RU');
+    calcPrice.innerHTML = `от <span>${fmt(low)}</span> до ${fmt(high)} ₽`;
+  }
+
+  calcArea.addEventListener('input', calcEstimate);
+  calcWs.addEventListener('input', calcEstimate);
+  calcType.addEventListener('change', calcEstimate);
+  calcCat.addEventListener('change', calcEstimate);
+  calcEstimate();
+
+  // ─── FORM VALIDATION ───
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById('fname');
+    const phone = document.getElementById('fphone');
+    const fgName = document.getElementById('fg-name');
+    const fgPhone = document.getElementById('fg-phone');
+
+    fgName.classList.remove('error');
+    fgPhone.classList.remove('error');
+
+    if (!name.value.trim() || name.value.trim().length < 2) {
+      fgName.classList.add('error');
+      valid = false;
+    }
+
+    const rawPhone = phone.value.replace(/\D/g, '');
+    if (rawPhone.length < 11) {
+      fgPhone.classList.add('error');
+      valid = false;
+    }
+
+    if (valid) {
+      alert('Спасибо! Мы перезвоним.');
+      e.target.reset();
+    }
+  });
+
+  // ─── SMOOTH SCROLL OFFSET (for fixed header) ───
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ─── HEADER SCROLL SHADOW ───
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.style.boxShadow = '0 4px 24px rgba(0,0,0,.3)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>

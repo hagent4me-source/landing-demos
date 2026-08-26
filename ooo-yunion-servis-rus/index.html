@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ООО Юнион Сервис Рус — комплексные решения в сфере складской логистики и транспортных услуг. Работаем 24/7.">
+<title>Юнион Сервис Рус — Складская логистика и транспортные услуги</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b1f3a;
+    --navy-dark: #071429;
+    --navy-mid: #112a4e;
+    --gold: #d4a017;
+    --gold-light: #e8b82a;
+    --gold-pale: #f5e6b0;
+    --white: #ffffff;
+    --gray-light: #f4f6f9;
+    --gray: #8a9ab5;
+    --text: #1e2e45;
+    --card-shadow: 0 4px 24px rgba(11,31,58,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Roboto', system-ui, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+
+  a { text-decoration: none; color: inherit; }
+
+  ul { list-style: none; }
+
+  /* ===== TYPOGRAPHY ===== */
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--navy);
+  }
+
+  .section-title--white { color: var(--white); }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-top: 0.75rem;
+    max-width: 560px;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .section-pad { padding: 5rem 0; }
+  .section-pad--sm { padding: 3.5rem 0; }
+
+  /* ===== HEADER ===== */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--navy-dark);
+    border-bottom: 2px solid var(--gold);
+    transition: box-shadow 0.3s;
+  }
+
+  .header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    gap: 1rem;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .header__logo-mark {
+    width: 40px;
+    height: 40px;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+  }
+
+  .header__logo-mark svg { width: 24px; height: 24px; }
+
+  .header__logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: 0.03em;
+  }
+
+  .header__logo-text span { color: var(--gold); }
+
+  .header__nav { display: flex; align-items: center; gap: 0.25rem; }
+
+  .header__nav a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+
+  .header__nav a:hover { color: var(--gold); background: rgba(212,160,23,0.08); }
+
+  .header__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  .header__phone {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .header__phone-label {
+    font-size: 0.68rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav {
+    display: none;
+    background: var(--navy-dark);
+    border-top: 1px solid rgba(212,160,23,0.2);
+    padding: 1rem 1.25rem 1.5rem;
+  }
+
+  .mobile-nav.open { display: block; }
+
+  .mobile-nav a {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    padding: 0.65rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.2s;
+  }
+
+  .mobile-nav a:hover { color: var(--gold); }
+
+  .mobile-nav__phones {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .mobile-nav__phones a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    border: none;
+    padding: 0;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--navy-dark);
+    padding-top: 68px;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.22;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, rgba(7,20,41,0.97) 45%, rgba(11,31,58,0.7) 100%);
+    z-index: 1;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 4rem 0;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(212,160,23,0.15);
+    border: 1px solid rgba(212,160,23,0.4);
+    border-radius: 2px;
+    padding: 0.35rem 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero__badge span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero__title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero__title em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero__desc {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    max-width: 580px;
+  }
+
+  .hero__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero__pill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  .hero__pill svg { flex-shrink: 0; }
+
+  .hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gold);
+    color: var(--navy-dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    border: 2px solid var(--gold);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(212,160,23,0.35);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero__stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: rgba(7,20,41,0.85);
+    border-top: 1px solid rgba(212,160,23,0.2);
+    backdrop-filter: blur(8px);
+  }
+
+  .hero__stats-inner {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1.25rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .hero__stat {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .hero__stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .hero__stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  .hero__stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.1);
+    align-self: stretch;
+  }
+
+  /* ===== ABOUT ===== */
+  .about { background: var(--white); }
+
+  .about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about__img-wrap {
+    position: relative;
+  }
+
+  .about__img-main {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .about__img-accent {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 45%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 4px solid var(--white);
+    box-shadow: var(--card-shadow);
+  }
+
+  .about__corner {
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    width: 80px;
+    height: 80px;
+    border-top: 4px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    border-radius: 2px;
+  }
+
+  .about__text { padding-right: 1rem; }
+
+  .about__body {
+    font-size: 0.97rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-top: 1.25rem;
+  }
+
+  .about__body p { margin-bottom: 1rem; }
+
+  .about__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .about__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.75rem;
+    background: var(--gray-light);
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .about__feature-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about__feature-icon svg { width: 16px; height: 16px; }
+
+  .about__feature-text {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  /* ===== SERVICES ===== */
+  .services { background: var(--gray-light); }
+
+  .services__head {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .services__head .section-subtitle { margin: 0.75rem auto 0; text-align: center; }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 36px rgba(11,31,58,0.15);
+  }
+
+  .service-card--wide {
+    grid-column: span 2;
+  }
+
+  .service-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .service-card--wide .service-card__img { height: 240px; }
+
+  .service-card__body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card__tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .service-card__title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .service-card__desc {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .service-card__list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .service-card__list li {
+    font-size: 0.83rem;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .service-card__list li::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== ADVANTAGES ===== */
+  .advantages { background: var(--navy); }
+
+  .advantages__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .advantages__left { }
+
+  .advantages__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .adv-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,160,23,0.15);
+    border-radius: 6px;
+    padding: 1.5rem 1.25rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .adv-card:hover {
+    background: rgba(212,160,23,0.07);
+    border-color: rgba(212,160,23,0.4);
+  }
+
+  .adv-card__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gold);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .adv-card__icon svg { width: 24px; height: 24px; }
+
+  .adv-card__title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+
+  .adv-card__text {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  .advantages__right {
+    position: relative;
+  }
+
+  .advantages__img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 6px;
+    opacity: 0.85;
+  }
+
+  .advantages__img-label {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    background: rgba(7,20,41,0.88);
+    backdrop-filter: blur(6px);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.25rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .advantages__img-label p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+
+  .advantages__img-label strong {
+    color: var(--gold);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ===== HOW WE WORK ===== */
+  .howwork { background: var(--white); }
+
+  .howwork__head { margin-bottom: 3rem; }
+
+  .howwork__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .howwork__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    position: relative;
+  }
+
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 52px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .step__num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--gold);
+    margin-top: 0.1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step__body { padding-bottom: 2rem; }
+
+  .step__title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .step__text {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.65;
+  }
+
+  .howwork__map {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    position: sticky;
+    top: 88px;
+  }
+
+  .howwork__map img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+  }
+
+  .howwork__map-caption {
+    background: var(--navy);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .howwork__map-caption svg { flex-shrink: 0; }
+
+  .howwork__map-caption p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .howwork__map-caption strong { color: var(--gold); }
+
+  /* ===== CALCULATOR ===== */
+  .calculator { background: var(--navy-dark); }
+
+  .calculator__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .calculator__info { padding-top: 1rem; }
+
+  .calc-note {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(212,160,23,0.08);
+    border: 1px solid rgba(212,160,23,0.2);
+    border-radius: 4px;
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .calc-note strong { color: var(--gold); }
+
+  .calculator__form {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,160,23,0.15);
+    border-radius: 8px;
+    padding: 2rem;
+  }
+
+  .calc-group { margin-bottom: 1.25rem; }
+
+  .calc-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.04em;
+  }
+
+  .calc-group select,
+  .calc-group input[type="number"] {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 0.7rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  .calc-group select:focus,
+  .calc-group input[type="number"]:focus { border-color: var(--gold); }
+
+  .calc-group select option { background: var(--navy-dark); color: var(--white); }
+
+  .calc-group--range label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calc-range-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .calc-group input[type="range"] {
+    width: 100%;
+    accent-color: var(--gold);
+    cursor: pointer;
+    height: 4px;
+  }
+
+  .calc-radios {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-radio {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .calc-radio input { display: none; }
+
+  .calc-radio label {
+    display: block;
+    text-align: center;
+    padding: 0.55rem 0.5rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    margin: 0;
+  }
+
+  .calc-radio input:checked + label {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(212,160,23,0.1);
+  }
+
+  .calc-result {
+    background: var(--navy);
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .calc-result__label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+  }
+
+  .calc-result__label strong { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.8); margin-bottom: 0.15rem; }
+
+  .calc-result__price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .calc-result__disclaimer {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+  }
+
+  /* ===== PARTNERS ===== */
+  .partners { background: var(--gray-light); }
+
+  .partners__head { text-align: center; margin-bottom: 3rem; }
+  .partners__head .section-subtitle { margin: 0.75rem auto 0; text-align: center; }
+
+  .partners__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .partners__thanks {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+  }
+
+  .partners__thanks img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .partners__thanks-caption {
+    background: var(--navy);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .partners__thanks-caption p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .partners__thanks-caption strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+    font-style: normal;
+  }
+
+  .partners__info { }
+
+  .partners__info .section-label { margin-bottom: 0.5rem; }
+
+  .partners__info .section-title { margin-bottom: 1rem; }
+
+  .partners__text {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .partners__region {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: var(--white);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--gold);
+    box-shadow: var(--card-shadow);
+  }
+
+  .partners__region-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .partners__region-icon svg { width: 20px; height: 20px; }
+
+  .partners__region-text {
+    font-size: 0.88rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .partners__region-text strong { display: block; color: var(--navy); font-weight: 700; margin-bottom: 0.15rem; }
+
+  /* ===== CONTACT FORM ===== */
+  .contact-section { background: var(--white); }
+
+  .contact__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact__info { }
+
+  .contact__phones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .contact__phone-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1.25rem;
+    background: var(--gray-light);
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .contact__phone-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact__phone-icon svg { width: 16px; height: 16px; }
+
+  .contact__phone-data { flex: 1; }
+
+  .contact__phone-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+  }
+
+  .contact__phone-label {
+    font-size: 0.72rem;
+    color: var(--gray);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .contact__address {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--navy);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .contact__address svg { flex-shrink: 0; margin-top: 0.1rem; }
+
+  .contact__address strong { color: var(--gold); display: block; font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; letter-spacing: 0.04em; margin-bottom: 0.2rem; }
+
+  .contact__email-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    background: var(--gray-light);
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .contact__email-row svg { flex-shrink: 0; }
+
+  .contact__email-row a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--navy);
+    transition: color 0.2s;
+  }
+
+  .contact__email-row a:hover { color: var(--gold); }
+
+  .contact__form {
+    background: var(--gray-light);
+    border-radius: 8px;
+    padding: 2.5rem;
+  }
+
+  .contact__form-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .contact__form-sub {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.03em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--white);
+    border: 1.5px solid #d8e0ea;
+    border-radius: 4px;
+    padding: 0.7rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.93rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-group input.error,
+  .form-group select.error,
+  .form-group textarea.error { border-color: #e53e3e; }
+
+  .form-error-msg {
+    font-size: 0.75rem;
+    color: #e53e3e;
+    margin-top: 0.25rem;
+    display: none;
+  }
+
+  .form-error-msg.show { display: block; }
+
+  /* ===== FOOTER ===== */
+  .footer { background: var(--navy-dark); border-top: 2px solid var(--gold); }
+
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding: 3rem 0 2rem;
+  }
+
+  .footer__brand { }
+
+  .footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer__logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--gold);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer__logo-mark svg { width: 22px; height: 22px; }
+
+  .footer__logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .footer__logo-text span { color: var(--gold); }
+
+  .footer__desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    max-width: 280px;
+  }
+
+  .footer__col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .footer__links { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .footer__links a {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+
+  .footer__links a:hover { color: var(--gold); }
+
+  .footer__contacts { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .footer__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .footer__contact-item a { color: rgba(255,255,255,0.8); transition: color 0.2s; }
+  .footer__contact-item a:hover { color: var(--gold); }
+
+  .footer__contact-item svg { flex-shrink: 0; opacity: 0.6; }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 1.25rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer__copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer__legal {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ===== MEDIA QUERIES ===== */
+  @media (max-width: 1024px) {
+    .services__grid { grid-template-columns: 1fr 1fr; }
+    .service-card--wide { grid-column: span 1; }
+    .about__grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about__img-accent { display: none; }
+    .about__img-main { height: 320px; }
+    .advantages__inner { grid-template-columns: 1fr; }
+    .advantages__img { height: 300px; }
+    .howwork__layout { grid-template-columns: 1fr; }
+    .howwork__map { position: static; }
+    .calculator__inner { grid-template-columns: 1fr; }
+    .contact__inner { grid-template-columns: 1fr; }
+    .partners__layout { grid-template-columns: 1fr; }
+    .footer__inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .header__nav { display: none; }
+    .header__contacts { display: none; }
+    .burger { display: flex; }
+    .section-pad { padding: 3.5rem 0; }
+    .services__grid { grid-template-columns: 1fr; }
+    .about__features { grid-template-columns: 1fr; }
+    .advantages__grid { grid-template-columns: 1fr; }
+    .hero__stats-inner { justify-content: center; gap: 1.5rem; }
+    .hero__stat-divider { display: none; }
+    .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .calculator__form { padding: 1.5rem; }
+    .contact__form { padding: 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero__title { font-size: 2rem; }
+    .hero__cta { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+    .calc-radios { flex-direction: column; }
+    .calc-result { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <div class="header__logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#0b1f3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 22V12h6v10" stroke="#0b1f3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="header__logo-text">Union<span>Service</span><br>Рус</div>
+      </a>
+
+      <nav class="header__nav">
+        <a href="#about">О компании</a>
+        <a href="#services">Услуги</a>
+        <a href="#howwork">Как работаем</a>
+        <a href="#calculator">Расчёт стоимости</a>
+        <a href="#partners">Партнёры</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header__contacts">
+        <a href="tel:+78003502576" class="header__phone">8 800 350-25-76</a>
+        <span class="header__phone-label">Звонок бесплатный</span>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about">О компании</a>
+    <a href="#services">Услуги</a>
+    <a href="#howwork">Как работаем</a>
+    <a href="#calculator">Расчёт стоимости</a>
+    <a href="#partners">Партнёры</a>
+    <a href="#contacts">Контакты</a>
+    <div class="mobile-nav__phones">
+      <a href="tel:+74956467046">+7 495 646-70-46</a>
+      <a href="tel:+78003502576">8 800 350-25-76</a>
+      <a href="tel:+78002006080">8 800 200-60-80</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__bg">
+    <img src="images/img_03.jpg" alt="Работа компании Юнион Сервис Рус">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="container">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        <span>Работаем 24/7 — без выходных</span>
+      </div>
+      <h1 class="hero__title">
+        Комплексные решения<br>в сфере <em>складской<br>логистики</em>
+      </h1>
+      <p class="hero__desc">
+        ООО «Юнион Сервис Рус» — полный спектр логистических услуг по складскому хранению и перевозке грузов. Собственный автопарк, технологии WMS/TMS, команда профессионалов.
+      </p>
+      <div class="hero__pills">
+        <div class="hero__pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          Ответственное хранение
+        </div>
+        <div class="hero__pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Собственный автопарк
+        </div>
+        <div class="hero__pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Системы WMS / TMS
+        </div>
+        <div class="hero__pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Международные перевозки (МАП)
+        </div>
+      </div>
+      <div class="hero__cta">
+        <a href="#contacts" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Получить консультацию
+        </a>
+        <a href="#calculator" class="btn-outline">
+          Рассчитать стоимость
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__stats">
+    <div class="container">
+      <div class="hero__stats-inner">
+        <div class="hero__stat">
+          <div class="hero__stat-num">24/7</div>
+          <div class="hero__stat-label">Режим работы</div>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">WMS</div>
+          <div class="hero__stat-label">Система учёта</div>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">TMS</div>
+          <div class="hero__stat-label">Контроль перевозок</div>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">МАП</div>
+          <div class="hero__stat-label">Международный допуск</div>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">∞</div>
+          <div class="hero__stat-label">Индивидуальный подход</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__img-wrap">
+        <div class="about__corner"></div>
+        <img src="images/img_00.jpg" alt="Логистика и сервис Юнион Сервис Рус" class="about__img-main">
+        <img src="images/img_01.jpg" alt="Сервисный автомобиль компании" class="about__img-accent">
+      </div>
+      <div class="about__text">
+        <div class="section-label">О компании</div>
+        <h2 class="section-title">ООО «Юнион Сервис Рус»</h2>
+        <div class="about__body">
+          <p>Компания предоставляет комплекс логистических услуг по складскому хранению и перевозке грузов. Большой опыт работы, квалифицированные сотрудники, надёжные партнёры и собственный транспорт — всё это позволяет предлагать клиентам оптимальные логистические решения.</p>
+          <p>В штате компании высококлассные специалисты с огромным опытом работы в области складской и транспортной логистики. Высокая компетентность и профессионализм наших сотрудников позволяет решать самые трудные и неординарные задачи.</p>
+          <p>Оптимальная организация складской и транспортной логистики, а также эффективное управление всеми ресурсами — залог успеха нашей компании.</p>
+        </div>
+        <div class="about__features">
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="about__feature-text">Работаем 24/7, подстраиваем график под клиента</div>
+          </div>
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="about__feature-text">Высококвалифицированный персонал</div>
+          </div>
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="about__feature-text">Собственный автопарк, низкие тарифы</div>
+          </div>
+          <div class="about__feature">
+            <div class="about__feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="about__feature-text">Современные IT-технологии WMS/TMS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section-pad" id="services">
+  <div class="container">
+    <div class="services__head">
+      <div class="section-label">Наши услуги</div>
+      <h2 class="section-title">Полный спектр логистических решений</h2>
+      <p class="section-subtitle">Складская логистика, грузоперевозки, ответственное хранение, кросс-докинг и IT-обеспечение — комплексно и под ключ.</p>
+    </div>
+    <div class="services__grid">
+
+      <!-- Складская логистика -->
+      <div class="service-card service-card--wide">
+        <img src="images/img_05.jpg" alt="Складская система WMS" class="service-card__img">
+        <div class="service-card__body">
+          <div class="service-card__tag">Основное направление</div>
+          <h3 class="service-card__title">Складская логистика</h3>
+          <p class="service-card__desc">Организуем логистику складской деятельности любой сложности — от размещения и маркировки до подбора заказов и подготовки документов. Современные подъёмно-транспортные и погрузочные комплексы, приём грузов в паллетах, коробках, штучно.</p>
+          <ul class="service-card__list">
+            <li>Ответственное хранение с полной прозрачностью процесса</li>
+            <li>Складская обработка мало- и крупногабаритных, тяжеловесных грузов</li>
+            <li>Кросс-докинг: приёмка и отгрузка без долговременного хранения</li>
+            <li>Дополнительные услуги: стикеровка, упаковка, сопроводительные документы</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ответственное хранение -->
+      <div class="service-card">
+        <img src="images/img_00.jpg" alt="Ответственное хранение грузов" class="service-card__img">
+        <div class="service-card__body">
+          <div class="service-card__tag">Складские услуги</div>
+          <h3 class="service-card__title">Ответственное хранение</h3>
+          <p class="service-card__desc">100% сохранность вверенного груза. Все работы строго по договору, максимальная прозрачность, исключение незапланированных затрат.</p>
+        </div>
+      </div>
+
+      <!-- Грузоперевозки -->
+      <div class="service-card service-card--wide">
+        <img src="images/img_02.jpg" alt="Транспорт компании для грузоперевозок" class="service-card__img">
+        <div class="service-card__body">
+          <div class="service-card__tag">Транспортные услуги</div>
+          <h3 class="service-card__title">Грузоперевозки</h3>
+          <p class="service-card__desc">Доставка грузов крупными партиями по России и международные перевозки (имеется допуск МАП). Собственный автопарк, конкурентная стоимость, мобильность и надёжность.</p>
+          <ul class="service-card__list">
+            <li>Оптимальный подбор автомобиля под габариты груза</li>
+            <li>Кратчайший маршрут до адреса назначения</li>
+            <li>Гарантии сохранности и соблюдения сроков доставки</li>
+            <li>Низкие тарифы благодаря собственному автопарку</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- IT-обеспечение -->
+      <div class="service-card">
+        <img src="images/img_06.jpg" alt="Транспортная система TMS" class="service-card__img">
+        <div class="service-card__body">
+          <div class="service-card__tag">IT-технологии</div>
+          <h3 class="service-card__title">IT-обеспечение WMS / TMS</h3>
+          <p class="service-card__desc">Внедрение систем WMS/TMS открывает доступ к планированию, выполнению и контролю всех технологических операций в реальном времени. Собственные системы учёта товаров и контроля перевозок.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="advantages section-pad" id="advantages">
+  <div class="container">
+    <div class="advantages__inner">
+      <div class="advantages__left">
+        <div class="section-label">Почему выбирают нас</div>
+        <h2 class="section-title section-title--white">Преимущества<br>компании</h2>
+        <div class="advantages__grid">
+          <div class="adv-card">
+            <div class="adv-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0b1f3a" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="adv-card__title">Работаем 24/7</div>
+            <div class="adv-card__text">Подстраиваем свой график под каждого клиента индивидуально. Без перерывов и выходных.</div>
+          </div>
+          <div class="adv-card">
+            <div class="adv-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0b1f3a" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="adv-card__title">Высококвалифицированный персонал</div>
+            <div class="adv-card__text">Грамотная работа наших сотрудников позволяет решать самые трудные и неординарные задачи.</div>
+          </div>
+          <div class="adv-card">
+            <div class="adv-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0b1f3a" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div class="adv-card__title">Индивидуальный подход</div>
+            <div class="adv-card__text">Внимательное и доброжелательное отношение к каждому клиенту. Творческий подход к нестандартным задачам.</div>
+          </div>
+          <div class="adv-card">
+            <div class="adv-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0b1f3a" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="adv-card__title">IT-обеспечение</div>
+            <div class="adv-card__text">Внедряем новые IT-технологии. Используем современное оборудование и собственные системы учёта.</div>
+          </div>
+        </div>
+      </div>
+      <div class="advantages__right">
+        <img src="images/img_01.jpg" alt="Сервисный автомобиль Юнион Сервис Рус" class="advantages__img">
+        <div class="advantages__img-label">
+          <strong>Собственный автопарк</strong>
+          <p>К вашим услугам команда профессионалов своего дела, мощная инфраструктура, современные IT-технологии и собственный автопарк.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="howwork section-pad" id="howwork">
+  <div class="container">
+    <div class="howwork__head">
+      <div class="section-label">Процесс работы</div>
+      <h2 class="section-title">Как мы работаем</h2>
+      <p class="section-subtitle">Прозрачный и отлаженный процесс от первой заявки до финального отчёта клиенту.</p>
+    </div>
+    <div class="howwork__layout">
+      <div class="howwork__steps">
+        <div class="step">
+          <div class="step__num">01</div>
+          <div class="step__body">
+            <div class="step__title">Заявка и консультация</div>
+            <div class="step__text">Клиент оставляет заявку по телефону, email или через форму. Менеджер связывается в течение рабочего дня, уточняет параметры груза, объём, маршрут и сроки.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <div class="step__body">
+            <div class="step__title">Расчёт и договор</div>
+            <div class="step__text">Формируем коммерческое предложение с учётом индивидуальных параметров. Подписываем договор — все условия фиксируются, исключаются незапланированные расходы.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <div class="step__body">
+            <div class="step__title">Приёмка и обработка груза</div>
+            <div class="step__text">Принимаем груз на склад, проводим маркировку, размещение или кросс-докинг. Все операции фиксируются в системе WMS в реальном времени.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">04</div>
+          <div class="step__body">
+            <div class="step__title">Хранение или доставка</div>
+            <div class="step__text">Обеспечиваем ответственное хранение либо отправляем груз собственным транспортом по оптимальному маршруту. Контроль через TMS на каждом этапе.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">05</div>
+          <div class="step__body">
+            <div class="step__title">Отчёт и закрывающие документы</div>
+            <div class="step__text">По завершении предоставляем полный отчёт, закрывающие документы и акты выполненных работ. Полная прозрачность процесса для клиента.</div>
+          </div>
+        </div>
+      </div>
+      <div class="howwork__map">
+        <img src="images/img_04.jpg" alt="Карта маршрутов и схема работы">
+        <div class="howwork__map-caption">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p><strong>Маршруты по всей России</strong> и международные перевозки с допуском МАП. Кратчайший путь до адреса назначения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calculator section-pad" id="calculator">
+  <div class="container">
+    <div class="calculator__inner">
+      <div class="calculator__info">
+        <div class="section-label">Предварительный расчёт</div>
+        <h2 class="section-title section-title--white">Рассчитать стоимость хранения</h2>
+        <p class="section-subtitle" style="">Укажите параметры вашего груза — система покажет ориентировочную стоимость. Точный тариф согласовывается индивидуально с менеджером.</p>
+        <div class="calc-note">
+          <strong>Обратите внимание:</strong> данный калькулятор носит информационный характер. Итоговая стоимость рассчитывается с учётом типа товара, условий хранения, дополнительных услуг и объёма. Свяжитесь с нами для получения точного коммерческого предложения.
+        </div>
+      </div>
+      <div class="calculator__form">
+        <div class="calc-group">
+          <label for="calcService">Тип услуги</label>
+          <select id="calcService">
+            <option value="storage">Ответственное хранение</option>
+            <option value="handling">Складская обработка грузов</option>
+            <option value="crossdock">Кросс-докинг</option>
+            <option value="transport">Грузоперевозки</option>
+          </select>
+        </div>
+
+        <div class="calc-group">
+          <label>Единица измерения</label>
+          <div class="calc-radios">
+            <div class="calc-radio">
+              <input type="radio" name="unit" id="unitPallet" value="pallet" checked>
+              <label for="unitPallet">Паллеты</label>
+            </div>
+            <div class="calc-radio">
+              <input type="radio" name="unit" id="unitCbm" value="cbm">
+              <label for="unitCbm">Куб. м.</label>
+            </div>
+            <div class="calc-radio">
+              <input type="radio" name="unit" id="unitKg" value="kg">
+              <label for="unitKg">Тонны</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-group calc-group--range">
+          <label for="calcVolume">
+            Объём / количество
+            <span class="calc-range-val" id="calcVolumeVal">20</span>
+          </label>
+          <input type="range" id="calcVolume" min="1" max="200" value="20">
+        </div>
+
+        <div class="calc-group calc-group--range">
+          <label for="calcDays">
+            Срок хранения (дни)
+            <span class="calc-range-val" id="calcDaysVal">30</span>
+          </label>
+          <input type="range" id="calcDays" min="1" max="365" value="30">
+        </div>
+
+        <div class="calc-group">
+          <label for="calcExtra">Дополнительные услуги</label>
+          <select id="calcExtra">
+            <option value="0">Без дополнительных услуг</option>
+            <option value="1">Стикеровка / маркировка</option>
+            <option value="2">Упаковка товаров</option>
+            <option value="3">Комплекс дополнительных услуг</option>
+          </select>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-result__label">
+            <strong>Ориентировочная стоимость</strong>
+            Предварительный расчёт
+          </div>
+          <div class="calc-result__price" id="calcPrice">— ₽</div>
+        </div>
+        <div class="calc-result__disclaimer">* Расчёт носит информационный характер. Точная стоимость — по запросу.</div>
+
+        <div style="margin-top: 1.25rem;">
+          <a href="#contacts" class="btn-primary">
+            Получить точный расчёт
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS / БЛАГОДАРНОСТИ -->
+<section class="partners section-pad" id="partners">
+  <div class="container">
+    <div class="partners__head">
+      <div class="section-label">Клиенты и партнёры</div>
+      <h2 class="section-title">Отзывы и благодарности</h2>
+      <p class="section-subtitle">Наша компания принимает активное участие в общественной жизни региона и социально-экономическом развитии Калужской области.</p>
+    </div>
+    <div class="partners__layout">
+      <div class="partners__thanks">
+        <img src="images/img_07.jpg" alt="Благодарность клиента компании Юнион Сервис Рус">
+        <div class="partners__thanks-caption">
+          <strong>Благодарственное письмо</strong>
+          <p>Мы всегда сохраняем внимательное и доброжелательное отношение к нашим клиентам. Доверие партнёров — главная ценность компании.</p>
+        </div>
+      </div>
+      <div class="partners__info">
+        <div class="section-label">О нас говорят</div>
+        <h3 class="section-title">Надёжный партнёр в логистике</h3>
+        <p class="partners__text">
+          Компания «Юнион Сервис Рус» выстраивает долгосрочные партнёрские отношения с клиентами, основанные на прозрачности, профессионализме и индивидуальном подходе. Мы несём ответственность за каждый доверенный нам груз и за каждый выполненный маршрут.
+        </p>
+        <p class="partners__text">
+          К вашим услугам — команда профессионалов своего дела, мощная инфраструктура, современные IT-технологии и собственный автопарк. Мы с вниманием относимся к потребностям каждого из наших клиентов.
+        </p>
+        <div class="partners__region">
+          <div class="partners__region-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="partners__region-text">
+            <strong>Калужская область, г. Обнинск</strong>
+            Россия, 249030, Калужская область, г. Обнинск, пр-кт Маркса, дом 14а
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contact-section section-pad" id="contacts">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="contact__info">
+        <div class="section-label">Контакты</div>
+        <h2 class="section-title">Свяжитесь с нами</h2>
+        <p class="section-subtitle">Остались вопросы? Напишите нам или позвоните — ответим в рабочее время, работаем 24/7.</p>
+
+        <div class="contact__phones">
+          <div class="contact__phone-item">
+            <div class="contact__phone-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="contact__phone-data">
+              <a href="tel:+74956467046" class="contact__phone-num">+7 495 646-70-46</a>
+              <div class="contact__phone-label">Основной номер</div>
+            </div>
+          </div>
+          <div class="contact__phone-item">
+            <div class="contact__phone-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="contact__phone-data">
+              <a href="tel:+78003502576" class="contact__phone-num">8 800 350-25-76</a>
+              <div class="contact__phone-label">Работа — звонок бесплатный</div>
+            </div>
+          </div>
+          <div class="contact__phone-item">
+            <div class="contact__phone-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="contact__phone-data">
+              <a href="tel:+78002006080" class="contact__phone-num">8 800 200-60-80</a>
+              <div class="contact__phone-label">Услуги — звонок бесплатный</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__address">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <strong>Адрес</strong>
+            Россия, 249030, Калужская область, г. Обнинск, пр-кт Маркса, дом 14а
+          </div>
+        </div>
+
+        <div class="contact__email-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d4a017" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:sales@union-services.ru">sales@union-services.ru</a>
+        </div>
+      </div>
+
+      <div class="contact__form">
+        <div class="contact__form-title">Напишите нам</div>
+        <div class="contact__form-sub">Заполните форму — менеджер свяжется с вами в ближайшее время.</div>
+        <form id="contactForm" action="#" novalidate>
+          <div class="form-group">
+            <label for="fname">Ваше имя *</label>
+            <input type="text" id="fname" name="name" placeholder="Иван Иванов">
+            <div class="form-error-msg" id="fnameErr">Пожалуйста, укажите ваше имя</div>
+          </div>
+          <div class="form-group">
+            <label for="fphone">Телефон *</label>
+            <input type="tel" id="fphone" name="phone" placeholder="+7 (___) ___-__-__">
+            <div class="form-error-msg" id="fphoneErr">Пожалуйста, укажите корректный телефон</div>
+          </div>
+          <div class="form-group">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="email" placeholder="example@company.ru">
+            <div class="form-error-msg" id="femailErr">Пожалуйста, укажите корректный email</div>
+          </div>
+          <div class="form-group">
+            <label for="fservice">Интересующая услуга</label>
+            <select id="fservice" name="service">
+              <option value="">— Выберите услугу —</option>
+              <option>Складская логистика</option>
+              <option>Ответственное хранение</option>
+              <option>Складская обработка грузов</option>
+              <option>Кросс-докинг</option>
+              <option>Грузоперевозки</option>
+              <option>IT-обеспечение (WMS/TMS)</option>
+              <option>Дополнительные услуги</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fmsg">Сообщение</label>
+            <textarea id="fmsg" name="message" placeholder="Опишите вашу задачу или вопрос..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Отправить заявку
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <div class="footer__logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#0b1f3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 22V12h6v10" stroke="#0b1f3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="footer__logo-text">Union<span>Service</span><br>Рус</div>
+        </div>
+        <p class="footer__desc">ООО «Юнион Сервис Рус» — комплексные решения в сфере складской логистики и транспортных услуг. Работаем 24/7.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Навигация</div>
+        <div class="footer__links">
+          <a href="#about">О компании</a>
+          <a href="#services">Наши услуги</a>
+          <a href="#howwork">Как работаем</a>
+          <a href="#calculator">Расчёт стоимости</a>
+          <a href="#partners">Партнёры</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Контакты</div>
+        <div class="footer__contacts">
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+74956467046">+7 495 646-70-46</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+78003502576">8 800 350-25-76</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+78002006080">8 800 200-60-80</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:sales@union-services.ru">sales@union-services.ru</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>г. Обнинск, пр-кт Маркса, 14а</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 ООО «Юнион Сервис Рус». Все права защищены.</div>
+      <div class="footer__legal">Демо-лендинг. Данные взяты с официального сайта union-services.ru</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== BURGER MENU =====
+  const burger = document.getElementById('burger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  burger.addEventListener('click', function() {
+    burger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      burger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  // ===== HEADER SCROLL =====
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // ===== PHONE MASK =====
+  const phoneInput = document.getElementById('fphone');
+  phoneInput.addEventListener('input', function(e) {
+    let val = e.target.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (val.startsWith('7')) {
+      let result = '+7';
+      if (val.length > 1) result += ' (' + val.slice(1, 4);
+      if (val.length >= 4) result += ') ' + val.slice(4, 7);
+      if (val.length >= 7) result += '-' + val.slice(7, 9);
+      if (val.length >= 9) result += '-' + val.slice(9, 11);
+      e.target.value = result;
+    } else if (val.length > 0) {
+      e.target.value = '+' + val.slice(0, 11);
+    }
+  });
+
+  // ===== CALCULATOR =====
+  const calcService = document.getElementById('calcService');
+  const calcVolume = document.getElementById('calcVolume');
+  const calcVolumeVal = document.getElementById('calcVolumeVal');
+  const calcDays = document.getElementById('calcDays');
+  const calcDaysVal = document.getElementById('calcDaysVal');
+  const calcExtra = document.getElementById('calcExtra');
+  const calcPrice = document.getElementById('calcPrice');
+
+  const baseRates = {
+    storage: { pallet: 85, cbm: 42, kg: 3.5 },
+    handling: { pallet: 120, cbm: 65, kg: 5.2 },
+    crossdock: { pallet: 95, cbm: 50, kg: 4.0 },
+    transport: { pallet: 200, cbm: 110, kg: 8.5 }
+  };
+
+  const extraMult = { 0: 1, 1: 1.08, 2: 1.12, 3: 1.22 };
+
+  function getUnit() {
+    const checked = document.querySelector('input[name="unit"]:checked');
+    return checked ? checked.value : 'pallet';
+  }
+
+  function calcEstimate() {
+    const service = calcService.value;
+    const unit = getUnit();
+    const volume = parseInt(calcVolume.value);
+    const days = parseInt(calcDays.value);
+    const extra = parseInt(calcExtra.value);
+
+    const rate = baseRates[service][unit];
+    let price;
+
+    if (service === 'transport') {
+      price = rate * volume;
+    } else {
+      price = rate * volume * (days / 30);
+    }
+
+    price = price * extraMult[extra];
+    price = Math.round(price / 100) * 100;
+
+    if (price < 500) price = 500;
+
+    calcPrice.textContent = price.toLocaleString('ru-RU') + ' ₽';
+  }
+
+  calcVolume.addEventListener('input', function() {
+    calcVolumeVal.textContent = calcVolume.value;
+    calcEstimate();
+  });
+
+  calcDays.addEventListener('input', function() {
+    calcDaysVal.textContent = calcDays.value;
+    calcEstimate();
+  });
+
+  calcService.addEventListener('change', calcEstimate);
+  calcExtra.addEventListener('change', calcEstimate);
+
+  document.querySelectorAll('input[name="unit"]').forEach(function(radio) {
+    radio.addEventListener('change', calcEstimate);
+  });
+
+  calcEstimate();
+
+  // ===== FORM VALIDATION =====
+  const contactForm = document.getElementById('contactForm');
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    const name = document.getElementById('fname');
+    const phone = document.getElementById('fphone');
+    const email = document.getElementById('femail');
+    const nameErr = document.getElementById('fnameErr');
+    const phoneErr = document.getElementById('fphoneErr');
+    const emailErr = document.getElementById('femailErr');
+
+    name.classList.remove('error');
+    phone.classList.remove('error');
+    email.classList.remove('error');
+    nameErr.classList.remove('show');
+    phoneErr.classList.remove('show');
+    emailErr.classList.remove('show');
+
+    if (!name.value.trim() || name.value.trim().length < 2) {
+      name.classList.add('error');
+      nameErr.classList.add('show');
+      valid = false;
+    }
+
+    const phoneClean = phone.value.replace(/\D/g, '');
+    if (!phone.value.trim() || phoneClean.length < 10) {
+      phone.classList.add('error');
+      phoneErr.classList.add('show');
+      valid = false;
+    }
+
+    if (email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+      email.classList.add('error');
+      emailErr.classList.add('show');
+      valid = false;
+    }
+
+    if (valid) {
+      alert('Спасибо! Мы перезвоним.');
+      contactForm.reset();
+    }
+  });
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const headerH = document.getElementById('header').offsetHeight;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>

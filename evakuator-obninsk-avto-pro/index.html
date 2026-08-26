@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Эвакуатор 24/7 — АвтоПро40 Обнинск | Калужская область</title>
+<meta name="description" content="Эвакуатор 24 часа в Обнинске и Калужской области. Звоните: +7 961 123-36-63. Приедем быстро, аккуратно погрузим, довезём.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #ffc300;
+    --yellow-dark: #e6a800;
+    --black: #141414;
+    --dark: #1c1c1c;
+    --dark2: #242424;
+    --dark3: #2e2e2e;
+    --text: #e8e8e8;
+    --text-muted: #a0a0a0;
+    --white: #ffffff;
+    --stripe-size: 28px;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Rubik', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Russo One', system-ui, sans-serif;
+    line-height: 1.15;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* ========== HEADER ========== */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(20, 20, 20, 0.97);
+    border-bottom: 3px solid var(--yellow);
+    backdrop-filter: blur(8px);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .header-logo-badge {
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Russo One', sans-serif;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .header-logo-name {
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  .header-logo-name span {
+    color: var(--yellow);
+  }
+
+  .header-phones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .header-phone-link {
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    color: var(--yellow);
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+
+  .header-phone-link:hover {
+    color: var(--white);
+  }
+
+  .header-phone-note {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-align: right;
+  }
+
+  .header-cta {
+    display: none;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Russo One', sans-serif;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+  }
+
+  .header-cta:hover {
+    background: var(--yellow-dark);
+    transform: scale(1.02);
+  }
+
+  /* ========== HAZARD STRIPE ========== */
+  .hazard-stripe {
+    height: 8px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--yellow) 0px,
+      var(--yellow) var(--stripe-size),
+      var(--black) var(--stripe-size),
+      var(--black) calc(var(--stripe-size) * 2)
+    );
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 64px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.35;
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.7) 60%, rgba(20,20,20,0.5) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Russo One', sans-serif;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--black);
+    border-radius: 50%;
+    animation: blink 1.2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .hero-title {
+    font-size: clamp(40px, 8vw, 88px);
+    color: var(--white);
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  }
+
+  .hero-title-accent {
+    color: var(--yellow);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 3vw, 26px);
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    font-weight: 400;
+    max-width: 560px;
+  }
+
+  .hero-phones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .hero-phone-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-phone-number {
+    font-family: 'Russo One', sans-serif;
+    font-size: clamp(28px, 5vw, 46px);
+    color: var(--yellow);
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .hero-phone-number:hover {
+    color: var(--white);
+  }
+
+  .hero-phone-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--yellow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hero-phone-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--black);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-primary:hover {
+    background: var(--yellow-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 195, 0, 0.35);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text);
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 15px 28px;
+    border-radius: 6px;
+    border: 2px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hero-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-stat-value {
+    font-family: 'Russo One', sans-serif;
+    font-size: 32px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ========== SECTION COMMON ========== */
+  .section {
+    padding: 80px 20px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 4vw, 44px);
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-bottom: 48px;
+  }
+
+  /* ========== SITUATIONS ========== */
+  .situations {
+    background: var(--dark);
+  }
+
+  .situations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .situation-card {
+    background: var(--dark2);
+    padding: 28px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .situation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--yellow);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s;
+  }
+
+  .situation-card:hover {
+    background: var(--dark3);
+  }
+
+  .situation-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .situation-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .situation-icon-svg {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    fill: var(--yellow);
+  }
+
+  .situation-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .situation-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ========== HOW WE WORK ========== */
+  .how-work {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how-work-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0;
+    position: relative;
+  }
+
+  .step-card {
+    padding: 40px 28px;
+    position: relative;
+    border-bottom: 2px solid var(--dark2);
+  }
+
+  .step-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -1px;
+    width: 2px;
+    height: 60%;
+    transform: translateY(-50%);
+    background: var(--dark2);
+  }
+
+  .step-num {
+    font-family: 'Russo One', sans-serif;
+    font-size: 72px;
+    color: rgba(255,195,0,0.08);
+    line-height: 1;
+    margin-bottom: -16px;
+  }
+
+  .step-icon-wrap {
+    width: 56px;
+    height: 56px;
+    background: var(--yellow);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .step-icon-wrap svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--black);
+  }
+
+  .step-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .step-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ========== WHAT WE TOW ========== */
+  .tow-types {
+    background: var(--dark);
+  }
+
+  .tow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .tow-card {
+    background: var(--dark2);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .tow-card:hover {
+    border-color: var(--yellow);
+    transform: translateY(-4px);
+  }
+
+  .tow-card-img-wrap {
+    height: 180px;
+    background: var(--dark3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .tow-card-img {
+    max-height: 140px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .tow-card-body {
+    padding: 24px;
+  }
+
+  .tow-card-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .tow-card-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .tow-card-tag {
+    display: inline-block;
+    background: rgba(255,195,0,0.12);
+    color: var(--yellow);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ========== PRICES ========== */
+  .prices {
+    background: var(--black);
+  }
+
+  .prices-note {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,195,0,0.08);
+    border: 1px solid rgba(255,195,0,0.25);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 36px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .prices-note svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--yellow);
+    flex-shrink: 0;
+  }
+
+  .prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .prices-table thead tr {
+    background: var(--yellow);
+  }
+
+  .prices-table thead th {
+    padding: 16px 20px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 14px;
+    color: var(--black);
+    text-align: left;
+    letter-spacing: 0.05em;
+  }
+
+  .prices-table tbody tr {
+    background: var(--dark2);
+    border-bottom: 1px solid var(--dark3);
+    transition: background 0.15s;
+  }
+
+  .prices-table tbody tr:hover {
+    background: var(--dark3);
+  }
+
+  .prices-table tbody td {
+    padding: 16px 20px;
+    font-size: 15px;
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  .prices-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .price-val {
+    font-family: 'Russo One', sans-serif;
+    font-size: 18px;
+    color: var(--yellow);
+    white-space: nowrap;
+  }
+
+  .price-extra {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  .prices-cta-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-top: 32px;
+  }
+
+  .prices-cta-text {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  /* ========== ZONE ========== */
+  .zone {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .zone-inner-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .zone-cities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .zone-city {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--dark2);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .zone-city-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--yellow);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .zone-img-wrap {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255,195,0,0.2);
+  }
+
+  .zone-img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    opacity: 0.8;
+  }
+
+  .zone-img-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(20,20,20,0.9);
+    border: 1px solid var(--yellow);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-family: 'Russo One', sans-serif;
+    font-size: 13px;
+    color: var(--yellow);
+  }
+
+  /* ========== CONTACTS ========== */
+  .contacts {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contacts::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--yellow) 0px,
+      var(--yellow) var(--stripe-size),
+      var(--black) var(--stripe-size),
+      var(--black) calc(var(--stripe-size) * 2)
+    );
+  }
+
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    padding-top: 16px;
+  }
+
+  .contacts-phones {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .contact-phone-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--dark2);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: border-color 0.2s;
+  }
+
+  .contact-phone-block:hover {
+    border-color: var(--yellow);
+  }
+
+  .contact-phone-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--yellow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-phone-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--black);
+  }
+
+  .contact-phone-number {
+    font-family: 'Russo One', sans-serif;
+    font-size: 26px;
+    color: var(--yellow);
+    display: block;
+    transition: color 0.2s;
+  }
+
+  .contact-phone-block:hover .contact-phone-number {
+    color: var(--white);
+  }
+
+  .contact-phone-note {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .contacts-work-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,195,0,0.1);
+    border: 1px solid rgba(255,195,0,0.3);
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: var(--yellow);
+    font-weight: 600;
+  }
+
+  .contacts-work-badge-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--yellow);
+    border-radius: 50%;
+    animation: blink 1.2s ease-in-out infinite;
+  }
+
+  /* ========== CONTACT FORM ========== */
+  .contact-form-wrap {
+    background: var(--dark2);
+    border-radius: 16px;
+    padding: 36px 32px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .form-title {
+    font-family: 'Russo One', sans-serif;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .form-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .form-input {
+    width: 100%;
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    color: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus {
+    border-color: var(--yellow);
+  }
+
+  .form-input::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .form-select {
+    width: 100%;
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    color: var(--white);
+    transition: border-color 0.2s;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  .form-select:focus {
+    border-color: var(--yellow);
+  }
+
+  .form-select option {
+    background: var(--dark2);
+    color: var(--white);
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .form-submit:hover {
+    background: var(--yellow-dark);
+    transform: translateY(-2px);
+  }
+
+  .form-agree {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ========== FLOATING CTA ========== */
+  .floating-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+
+  .floating-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Russo One', sans-serif;
+    font-size: 15px;
+    padding: 14px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 24px rgba(255,195,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+
+  .floating-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 32px rgba(255,195,0,0.55);
+  }
+
+  .floating-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--black);
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    background: var(--dark);
+    border-top: 3px solid var(--yellow);
+    padding: 32px 20px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px;
+    color: var(--white);
+  }
+
+  .footer-logo span {
+    color: var(--yellow);
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .footer-phones {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-end;
+  }
+
+  .footer-phone {
+    font-family: 'Russo One', sans-serif;
+    font-size: 16px;
+    color: var(--yellow);
+    transition: color 0.2s;
+  }
+
+  .footer-phone:hover {
+    color: var(--white);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (min-width: 768px) {
+    .header-cta {
+      display: inline-flex;
+    }
+
+    .hero-phones {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .hero-phone-item {
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .zone-inner-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .zone-img-wrap {
+      order: -1;
+    }
+
+    .contacts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      padding: 56px 16px;
+    }
+
+    .hero-content {
+      padding: 40px 16px;
+    }
+
+    .header-inner {
+      padding: 0 16px;
+    }
+
+    .header-phones {
+      display: none;
+    }
+
+    .hero-stats {
+      gap: 20px;
+    }
+
+    .how-work-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .step-card::after {
+      display: none;
+    }
+
+    .step-card {
+      border-bottom: 1px solid var(--dark3);
+    }
+
+    .prices-table thead th:nth-child(3),
+    .prices-table tbody td:nth-child(3) {
+      display: none;
+    }
+
+    .zone-cities {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-form-wrap {
+      padding: 24px 20px;
+    }
+
+    .floating-btn {
+      padding: 14px 16px;
+      font-size: 0;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      justify-content: center;
+    }
+
+    .floating-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary, .btn-outline {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <div class="header-logo-badge">24/7</div>
+      <div class="header-logo-name">АвтоПро<span>40</span></div>
+    </div>
+    <div class="header-phones">
+      <a href="tel:+79611233663" class="header-phone-link">+7 961 123-36-63</a>
+      <a href="tel:+79208785568" class="header-phone-link">+7 920 878-55-68</a>
+      <div class="header-phone-note">Звонить круглосуточно</div>
+    </div>
+    <a href="tel:+79611233663" class="header-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Вызвать
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="images/img_00.jpg" alt="Эвакуатор АвтоПро40 на вызове" class="hero-bg-img">
+    <div class="hero-bg-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Работаем прямо сейчас
+    </div>
+    <h1 class="hero-title">
+      Эвакуатор
+      <span class="hero-title-accent">24/7</span>
+    </h1>
+    <p class="hero-subtitle">Обнинск и Калужская область — приедем быстро, погрузим аккуратно, довезём куда нужно</p>
+    <div class="hero-phones">
+      <div class="hero-phone-item">
+        <div class="hero-phone-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        </div>
+        <a href="tel:+79611233663" class="hero-phone-number">+7 961 123-36-63</a>
+      </div>
+      <div class="hero-phone-item">
+        <div class="hero-phone-icon">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        </div>
+        <a href="tel:+79208785568" class="hero-phone-number">+7 920 878-55-68</a>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="tel:+79611233663" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Вызвать эвакуатор
+      </a>
+      <a href="#contacts" class="btn-outline">Оставить заявку</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-value">24/7</div>
+        <div class="hero-stat-label">Без выходных</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-value">40+</div>
+        <div class="hero-stat-label">Городов области</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-value">от 4000</div>
+        <div class="hero-stat-label">Рублей по городу</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-stripe"></div>
+
+<!-- SITUATIONS -->
+<section class="situations section" id="situations">
+  <div class="section-inner">
+    <span class="section-tag">Когда нужен эвакуатор</span>
+    <h2 class="section-title">Мы приедем в любой ситуации</h2>
+    <p class="section-desc">Дорога преподносит сюрпризы. Сохраните наш номер — он пригодится именно тогда, когда меньше всего ожидаешь.</p>
+    <div class="situations-grid">
+      <div class="situation-card">
+        <img src="images/img_02.png" alt="ДТП" class="situation-icon">
+        <div>
+          <div class="situation-title">ДТП</div>
+          <div class="situation-text">Авария, повреждения не позволяют двигаться своим ходом — заберём с места происшествия</div>
+        </div>
+      </div>
+      <div class="situation-card">
+        <img src="images/img_03.png" alt="Поломка" class="situation-icon">
+        <div>
+          <div class="situation-title">Поломка в дороге</div>
+          <div class="situation-text">Вышли из строя функциональные элементы, неполадки с электроникой или двигателем</div>
+        </div>
+      </div>
+      <div class="situation-card">
+        <img src="images/img_04.png" alt="Застряло авто" class="situation-icon">
+        <div>
+          <div class="situation-title">Застряло / улетело в кювет</div>
+          <div class="situation-text">Авто съехало с дороги, застряло на бездорожье или парковке — вытащим и доставим</div>
+        </div>
+      </div>
+      <div class="situation-card">
+        <img src="images/img_05.png" alt="Блокировка колёс" class="situation-icon">
+        <div>
+          <div class="situation-title">Заблокированные колёса</div>
+          <div class="situation-text">Блокировка колёс — применяем эвакуатор со стационарной или выдвижной платформой</div>
+        </div>
+      </div>
+      <div class="situation-card">
+        <img src="images/img_06.png" alt="Плановая транспортировка" class="situation-icon">
+        <div>
+          <div class="situation-title">Плановая перевозка</div>
+          <div class="situation-text">Транспортировка автомобиля на ремонт, разборку или в другой город — по расписанию</div>
+        </div>
+      </div>
+      <div class="situation-card">
+        <svg viewBox="0 0 24 24" class="situation-icon-svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        <div>
+          <div class="situation-title">Сел аккумулятор</div>
+          <div class="situation-text">Авто не заводится из-за проблем с аккумулятором или электрикой — поможем с эвакуацией</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="how-work section" id="how-work">
+  <div class="section-inner">
+    <span class="section-tag">Как мы работаем</span>
+    <h2 class="section-title">4 шага от звонка до доставки</h2>
+    <p class="section-desc">Всё просто и быстро — вам не нужно ничего делать, кроме одного звонка</p>
+    <div class="how-work-steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        </div>
+        <div class="step-title">Звонок</div>
+        <div class="step-text">Звоните на любой номер — диспетчер ответит круглосуточно, без ожидания</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div class="step-title">Адрес и марка авто</div>
+        <div class="step-text">Уточняем ваше местоположение и тип автомобиля — подберём нужную технику</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+        </div>
+        <div class="step-title">Подача эвакуатора</div>
+        <div class="step-text">Отправляем ближайший свободный эвакуатор — прибываем максимально оперативно</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <div class="step-title">Погрузка и доставка</div>
+        <div class="step-text">Аккуратно грузим автомобиль и доставляем в указанное место — без повреждений</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-stripe"></div>
+
+<!-- TOW TYPES -->
+<section class="tow-types section" id="tow-types">
+  <div class="section-inner">
+    <span class="section-tag">Что эвакуируем</span>
+    <h2 class="section-title">Любой тип транспорта</h2>
+    <p class="section-desc">В автопарке — техника разных модификаций. Сообщите марку авто — подберём нужный эвакуатор</p>
+    <div class="tow-grid">
+      <div class="tow-card">
+        <div class="tow-card-img-wrap">
+          <img src="images/img_01.png" alt="Эвакуация легкового автомобиля" class="tow-card-img">
+        </div>
+        <div class="tow-card-body">
+          <div class="tow-card-title">Малолитражные и легковые</div>
+          <div class="tow-card-text">Седаны, хэтчбеки, универсалы, купе — любые легковые автомобили. Погрузка со стационарной или выдвижной платформой.</div>
+          <div class="tow-card-tag">Спецтехника по городу</div>
+        </div>
+      </div>
+      <div class="tow-card">
+        <div class="tow-card-img-wrap">
+          <img src="images/img_03.png" alt="Эвакуация внедорожника" class="tow-card-img">
+        </div>
+        <div class="tow-card-body">
+          <div class="tow-card-title">Внедорожники и кроссоверы</div>
+          <div class="tow-card-text">SUV, пикапы, полноприводные авто — справимся с погрузкой любой сложности, включая заблокированные колёса.</div>
+          <div class="tow-card-tag">Кран-манипулятор при необходимости</div>
+        </div>
+      </div>
+      <div class="tow-card">
+        <div class="tow-card-img-wrap">
+          <img src="images/img_05.png" alt="Эвакуация коммерческого транспорта" class="tow-card-img">
+        </div>
+        <div class="tow-card-body">
+          <div class="tow-card-title">Коммерческий транспорт</div>
+          <div class="tow-card-text">Газели, микроавтобусы, малотоннажные грузовики — отдельные тарифы для коммерческого транспорта по городу и межгороду.</div>
+          <div class="tow-card-tag">Отдельный тариф</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section class="prices section" id="prices">
+  <div class="section-inner">
+    <span class="section-tag">Стоимость</span>
+    <h2 class="section-title">Ориентировочные цены</h2>
+    <div class="prices-note">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      <span>Точная стоимость зависит от расстояния, типа авто и сложности ситуации. Уточняйте по телефону — диспетчер назовёт цену сразу.</span>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="prices-table">
+        <thead>
+          <tr>
+            <th>Тип транспорта</th>
+            <th>По городу</th>
+            <th>Межгород</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Малолитражные / легковые</td>
+            <td><span class="price-val">от 4 000 ₽</span><span class="price-extra">фиксированная подача</span></td>
+            <td><span class="price-val">от 4 000 ₽</span><span class="price-extra">уточняется</span></td>
+          </tr>
+          <tr>
+            <td>Спецтехника (легковые)</td>
+            <td><span class="price-val">6 000 ₽</span><span class="price-extra">+ 120 ₽/км</span></td>
+            <td><span class="price-val">В компании</span><span class="price-extra">по запросу</span></td>
+          </tr>
+          <tr>
+            <td>Авто с заблокированными колёсами</td>
+            <td><span class="price-val">5 000 ₽</span><span class="price-extra">+ 100 ₽/км</span></td>
+            <td><span class="price-val">от 5 000 ₽</span><span class="price-extra">+ 100 ₽/км</span></td>
+          </tr>
+          <tr>
+            <td>Коммерческий транспорт</td>
+            <td><span class="price-val">от 4 500 ₽</span><span class="price-extra">по городу</span></td>
+            <td><span class="price-val">В компании</span><span class="price-extra">по запросу</span></td>
+          </tr>
+          <tr>
+            <td>Ложный вызов</td>
+            <td><span class="price-val">4 500 ₽</span><span class="price-extra">компенсация выезда</span></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prices-cta-wrap">
+      <p class="prices-cta-text">Не знаете, сколько будет стоить ваш случай?</p>
+      <a href="tel:+79611233663" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Узнать цену сейчас
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE -->
+<section class="zone section" id="zone">
+  <div class="section-inner">
+    <span class="section-tag">Зона работы</span>
+    <h2 class="section-title">Обнинск и вся Калужская область</h2>
+    <div class="zone-inner-wrap">
+      <div>
+        <p class="section-desc">Работаем не только по Обнинску — выезжаем в любую точку Калужской области круглосуточно, в любую погоду.</p>
+        <div class="zone-cities">
+          <div class="zone-city"><div class="zone-city-dot"></div>Обнинск</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Калуга</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Боровск</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Малоярославец</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Жуков</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Балабаново</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Таруса</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Кременки</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Ермолино</div>
+          <div class="zone-city"><div class="zone-city-dot"></div>Вся область</div>
+        </div>
+      </div>
+      <div class="zone-img-wrap">
+        <img src="images/img_00.jpg" alt="Эвакуатор в Калужской области" class="zone-img">
+        <div class="zone-img-label">Калужская область</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-stripe"></div>
+
+<!-- CONTACTS -->
+<section class="contacts section" id="contacts">
+  <div class="section-inner">
+    <div class="contacts-grid">
+      <div>
+        <span class="section-tag">Контакты</span>
+        <h2 class="section-title">Звоните в любое время</h2>
+        <p style="font-size:15px;color:var(--text-muted);margin-bottom:0;">Диспетчер ответит немедленно — ни автоответчиков, ни ожидания. Просто позвоните.</p>
+        <div class="contacts-phones">
+          <a href="tel:+79611233663" class="contact-phone-block">
+            <div class="contact-phone-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </div>
+            <div>
+              <span class="contact-phone-number">+7 961 123-36-63</span>
+              <span class="contact-phone-note">Основной номер</span>
+            </div>
+          </a>
+          <a href="tel:+79208785568" class="contact-phone-block">
+            <div class="contact-phone-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </div>
+            <div>
+              <span class="contact-phone-number">+7 920 878-55-68</span>
+              <span class="contact-phone-note">Дополнительный номер</span>
+            </div>
+          </a>
+        </div>
+        <div class="contacts-work-badge">
+          <div class="contacts-work-badge-dot"></div>
+          Работаем 24 часа, 7 дней в неделю, 365 дней в году
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <div class="form-title">Оставить заявку</div>
+        <div class="form-subtitle">Перезвоним в течение 3 минут и уточним детали</div>
+        <form action="#" id="callbackForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="fname">Ваше имя</label>
+            <input type="text" id="fname" name="name" class="form-input" placeholder="Иван">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fphone">Телефон *</label>
+            <input type="tel" id="fphone" name="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ftype">Тип транспорта</label>
+            <select id="ftype" name="car_type" class="form-select">
+              <option value="">Выберите тип</option>
+              <option value="light">Легковой автомобиль</option>
+              <option value="suv">Внедорожник / кроссовер</option>
+              <option value="commercial">Коммерческий транспорт</option>
+              <option value="other">Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fsituation">Ситуация</label>
+            <input type="text" id="fsituation" name="situation" class="form-input" placeholder="ДТП, не заводится, застряло...">
+          </div>
+          <button type="submit" class="form-submit">Жду звонка</button>
+          <div class="form-agree">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">АвтоПро<span>40</span></div>
+    <div class="footer-text">© 2025 Эвакуатор «АвтоПро40» Обнинск<br>Калужская область — круглосуточно</div>
+    <div class="footer-phones">
+      <a href="tel:+79611233663" class="footer-phone">+7 961 123-36-63</a>
+      <a href="tel:+79208785568" class="footer-phone">+7 920 878-55-68</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta">
+  <a href="tel:+79611233663" class="floating-btn">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    Вызвать эвакуатор
+  </a>
+</div>
+
+<script>
+  // Phone mask
+  const phoneInput = document.getElementById('fphone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      let val = this.value.replace(/\D/g, '');
+      if (val.startsWith('8')) val = '7' + val.slice(1);
+      if (!val.startsWith('7') && val.length > 0) val = '7' + val;
+      val = val.slice(0, 11);
+      let formatted = '';
+      if (val.length > 0) formatted = '+7';
+      if (val.length > 1) formatted += ' (' + val.slice(1, 4);
+      if (val.length >= 4) formatted += ')';
+      if (val.length > 4) formatted += ' ' + val.slice(4, 7);
+      if (val.length > 7) formatted += '-' + val.slice(7, 9);
+      if (val.length > 9) formatted += '-' + val.slice(9, 11);
+      this.value = formatted;
+    });
+
+    phoneInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Backspace' && this.value === '+7') {
+        this.value = '';
+      }
+    });
+  }
+
+  // Form submit
+  const form = document.getElementById('callbackForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const phone = document.getElementById('fphone').value.replace(/\D/g, '');
+      if (phone.length < 11) {
+        document.getElementById('fphone').style.borderColor = '#ff4444';
+        document.getElementById('fphone').focus();
+        setTimeout(() => {
+          document.getElementById('fphone').style.borderColor = '';
+        }, 2000);
+        return;
+      }
+      alert('Спасибо! Мы перезвоним в течение 3 минут.');
+      form.reset();
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const headerH = document.querySelector('.header').offsetHeight;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Header scroll effect
+  const header = document.querySelector('.header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 80) {
+      header.style.boxShadow = '0 4px 24px rgba(0,0,0,0.5)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+  });
+
+  // Floating CTA visibility
+  const floatingCta = document.querySelector('.floating-cta');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 400) {
+      floatingCta.style.opacity = '1';
+      floatingCta.style.pointerEvents = 'auto';
+    } else {
+      floatingCta.style.opacity = '0';
+      floatingCta.style.pointerEvents = 'none';
+    }
+  });
+
+  // Initial state
+  if (floatingCta) {
+    floatingCta.style.transition = 'opacity 0.3s';
+    floatingCta.style.opacity = '0';
+    floatingCta.style.pointerEvents = 'none';
+  }
+</script>
+</body>
+</html>

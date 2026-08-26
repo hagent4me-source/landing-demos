@@ -1,0 +1,56 @@
+[
+ {
+  "file": "images/img_00.jpg",
+  "size_kb": 758,
+  "alt": "Слайдер: автосервис",
+  "url": "http://autostyle40.ru/wp-content/uploads/2016/01/slide-show1.jpg"
+ },
+ {
+  "file": "images/img_01.jpg",
+  "size_kb": 187,
+  "alt": "Слайдер: СТО",
+  "url": "http://autostyle40.ru/wp-content/uploads/revslider/homepage/slide-show2.jpg"
+ },
+ {
+  "file": "images/img_02.jpg",
+  "size_kb": 615,
+  "alt": "Слайдер: ремонт",
+  "url": "http://autostyle40.ru/wp-content/uploads/revslider/homepage/slide-show3.jpg"
+ },
+ {
+  "file": "images/img_03.jpg",
+  "size_kb": 449,
+  "alt": "Слайдер: сервис",
+  "url": "http://autostyle40.ru/wp-content/uploads/revslider/homepage/slide-show4.jpg"
+ },
+ {
+  "file": "images/img_04.jpg",
+  "size_kb": 70,
+  "alt": "Кузовные работы",
+  "url": "http://autostyle40.ru/wp-content/uploads/2014/09/кузовные-работы.jpg"
+ },
+ {
+  "file": "images/img_05.jpg",
+  "size_kb": 96,
+  "alt": "Восстановление геометрии кузова",
+  "url": "http://autostyle40.ru/wp-content/uploads/2014/09/восстановление-геометрии.jpg"
+ },
+ {
+  "file": "images/img_06.jpg",
+  "size_kb": 105,
+  "alt": "Замена стёкол",
+  "url": "http://autostyle40.ru/wp-content/uploads/2014/09/замена-стекол.jpg"
+ },
+ {
+  "file": "images/img_07.jpg",
+  "size_kb": 82,
+  "alt": "Полировка кузова",
+  "url": "http://autostyle40.ru/wp-content/uploads/2014/09/полировка1.jpg"
+ },
+ {
+  "file": "images/img_08.jpg",
+  "size_kb": 96,
+  "alt": "Ремонт и замена узлов",
+  "url": "http://autostyle40.ru/wp-content/uploads/2014/09/ремонт-и-замена.jpg"
+ }
+]

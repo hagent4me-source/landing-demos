@@ -1,0 +1,38 @@
+[
+ {
+  "file": "images/img_00.jpg",
+  "size_kb": 15,
+  "alt": "Работа: ремонт",
+  "url": "https://es40.ru/wp-content/uploads/2019/03/portfolio1-400x105.jpg"
+ },
+ {
+  "file": "images/img_01.jpg",
+  "size_kb": 13,
+  "alt": "Работа: сервис",
+  "url": "https://es40.ru/wp-content/uploads/2019/03/portfolio2-400x105.jpg"
+ },
+ {
+  "file": "images/img_02.jpg",
+  "size_kb": 8,
+  "alt": "Работа: СТО",
+  "url": "https://es40.ru/wp-content/uploads/2019/03/portfolio3-400x105.jpg"
+ },
+ {
+  "file": "images/img_03.jpg",
+  "size_kb": 10,
+  "alt": "Работа: ремонт",
+  "url": "https://es40.ru/wp-content/uploads/2019/03/portfolio4-2-400x105.jpg"
+ },
+ {
+  "file": "images/img_04.jpg",
+  "size_kb": 10,
+  "alt": "Работа: сервис",
+  "url": "https://es40.ru/wp-content/uploads/2019/03/portfolio5-2-400x105.jpg"
+ },
+ {
+  "file": "images/img_05.jpg",
+  "size_kb": 8,
+  "alt": "Работа: СТО",
+  "url": "https://es40.ru/wp-content/uploads/2019/03/portfolio6-400x105.jpg"
+ }
+]

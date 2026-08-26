@@ -1,0 +1,50 @@
+[
+ {
+  "file": "images/img_00.jpg",
+  "size_kb": 61,
+  "alt": "Логистика и сервис",
+  "url": "http://union-services.ru/images/business.jpg"
+ },
+ {
+  "file": "images/img_01.jpg",
+  "size_kb": 273,
+  "alt": "Сервисный автомобиль",
+  "url": "http://union-services.ru/images/service_truck.jpg"
+ },
+ {
+  "file": "images/img_02.jpg",
+  "size_kb": 56,
+  "alt": "Транспорт компании",
+  "url": "http://union-services.ru/images/transport.jpg"
+ },
+ {
+  "file": "images/img_03.jpg",
+  "size_kb": 562,
+  "alt": "Работа компании",
+  "url": "http://union-services.ru/images/image_6.jpg"
+ },
+ {
+  "file": "images/img_04.jpg",
+  "size_kb": 1239,
+  "alt": "Карта маршрутов",
+  "url": "http://union-services.ru/images/MAP.jpg"
+ },
+ {
+  "file": "images/img_05.jpg",
+  "size_kb": 108,
+  "alt": "Складская система WMS",
+  "url": "http://union-services.ru/images/wms.jpg"
+ },
+ {
+  "file": "images/img_06.jpg",
+  "size_kb": 109,
+  "alt": "Транспортная система TMS",
+  "url": "http://union-services.ru/images/tms.jpg"
+ },
+ {
+  "file": "images/img_07.jpg",
+  "size_kb": 62,
+  "alt": "Благодарность клиента",
+  "url": "http://union-services.ru/images/blagodarnost_1.jpg"
+ }
+]
