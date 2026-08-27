@@ -1,0 +1,495 @@
+Проверено: 320/360/390/414/1024/1280/1440 — ничего не вылезает.
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автохирург — автосервис в Твери с гарантией на работу и запчасти</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0f11;--bg2:#14171a;--card:#191d21;--line:#262c31;
+  --ink:#f2f4f5;--mut:#9aa4ab;--acc:#e8442e;--acc2:#2dd4bf;
+  --grad:linear-gradient(135deg,#e8442e,#ff7a45);
+  --r:18px;--pad:clamp(16px,4vw,64px);
+  --f1:'Unbounded',sans-serif;--f2:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--f2);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--f1);font-weight:800;line-height:1.15;overflow-wrap:anywhere}
+h1{font-size:clamp(1.7rem,6.2vw,4.2rem)}
+h2{font-size:clamp(1.4rem,4.4vw,2.9rem)}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:var(--pad)}
+section{position:relative}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--f1);font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acc2);border:1px solid rgba(45,212,191,.35);border-radius:999px;padding:8px 14px;background:rgba(45,212,191,.06)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--f1);font-weight:600;font-size:.85rem;padding:16px 28px;border-radius:14px;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;min-height:52px;text-align:center;overflow-wrap:anywhere}
+.btn-a{background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(232,68,46,.35)}
+.btn-a:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(232,68,46,.5)}
+.btn-g{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-g:hover{border-color:var(--acc2);color:var(--acc2);transform:translateY(-3px)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,backdrop-filter .3s;padding:14px 0}
+header.scr{background:rgba(13,15,17,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--f1);font-weight:800;font-size:1rem;white-space:nowrap}
+.logo svg{width:34px;height:34px;flex:none}
+.hnav{display:none;gap:26px;font-weight:500;color:var(--mut)}
+.hnav a:hover{color:var(--acc2)}
+.htel{display:none;font-family:var(--f1);font-weight:600;font-size:.85rem;white-space:nowrap}
+.burger{width:46px;height:46px;flex:none;border:1px solid var(--line);border-radius:12px;background:var(--card);display:grid;place-items:center;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:'';position:absolute;left:0;width:20px;height:2px;background:var(--ink);transition:.3s}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.burger.on span{background:transparent}
+.burger.on span::before{top:0;transform:rotate(45deg)}
+.burger.on span::after{top:0;transform:rotate(-45deg)}
+.mnav{position:fixed;top:74px;left:0;right:0;z-index:49;background:rgba(13,15,17,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:18px var(--pad) 26px;display:none;flex-direction:column;gap:4px}
+.mnav.open{display:flex}
+.mnav a{padding:13px 8px;border-bottom:1px solid var(--line);font-weight:500}
+.mnav .btn{margin-top:14px}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 70px;background:
+ radial-gradient(900px 500px at 85% -10%,rgba(232,68,46,.16),transparent 60%),
+ radial-gradient(700px 500px at -10% 110%,rgba(45,212,191,.12),transparent 60%),var(--bg)}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hgrid{display:grid;gap:36px;position:relative;z-index:2}
+.hero h1 em{font-style:normal;color:transparent;background:var(--grad);-webkit-background-clip:text;background-clip:text}
+.hero p.lead{color:var(--mut);font-size:clamp(1rem,2vw,1.2rem);max-width:56ch}
+.hbtns{display:flex;flex-wrap:wrap;gap:14px}
+.hmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:12px;margin-top:10px}
+.hmeta div{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:14px 16px;backdrop-filter:blur(8px);min-width:0}
+.hmeta b{font-family:var(--f1);font-size:.95rem;display:block;overflow-wrap:anywhere}
+.hmeta small{color:var(--mut);font-size:.78rem}
+.ecg{margin-top:8px}
+.ecg path{stroke:var(--acc2);stroke-width:2;fill:none;stroke-dasharray:600;stroke-dashoffset:600;animation:ecg 4s linear infinite}
+@keyframes ecg{to{stroke-dashoffset:0}}
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:14px 0}
+.marq-in{display:flex;gap:0;width:max-content;animation:mq 26s linear infinite}
+.marquee span{font-family:var(--f1);font-weight:600;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);padding:0 22px;white-space:nowrap;display:flex;align-items:center;gap:22px}
+.marq i{width:8px;height:8px;border-radius:50%;background:var(--acc);flex:none}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* evac */
+.evac{padding:clamp(60px,9vw,120px) 0;background:var(--bg)}
+.evac-box{border:1px solid rgba(45,212,191,.3);border-radius:var(--r);background:linear-gradient(160deg,rgba(45,212,191,.09),rgba(45,212,191,.02) 55%),var(--card);padding:clamp(24px,5vw,60px);display:grid;gap:28px;position:relative;overflow:hidden}
+.evac-box::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.16),transparent 70%);top:-200px;right:-120px}
+.evac h2{color:var(--acc2)}
+.evac p{color:var(--mut);max-width:60ch;position:relative}
+.evac .btn{position:relative;justify-self:start}
+.truck{width:min(300px,70%);justify-self:end;position:absolute;bottom:-6px;right:12px;opacity:.16;pointer-events:none}
+/* services */
+.serv{padding:clamp(60px,9vw,120px) 0;background:var(--bg2)}
+.shead{display:grid;gap:14px;margin-bottom:clamp(28px,5vw,54px)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:transform .3s,border-color .3s,box-shadow .3s}
+.scard:hover{transform:translateY(-6px);border-color:rgba(232,68,46,.55);box-shadow:0 20px 44px rgba(0,0,0,.45)}
+.scard .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(232,68,46,.12);border:1px solid rgba(232,68,46,.3)}
+.scard .ic svg{width:26px;height:26px;stroke:var(--acc);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.scard h3{font-size:1.05rem;font-weight:600}
+.scard p{color:var(--mut);font-size:.9rem}
+.scard .pr{font-family:var(--f1);font-weight:600;color:var(--acc2);font-size:.85rem;margin-top:auto}
+/* price accordion */
+.price{padding:clamp(60px,9vw,120px) 0;background:var(--bg)}
+.acc{display:grid;gap:12px;margin-top:clamp(24px,4vw,44px)}
+.acc-it{border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden}
+.acc-h{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 22px;background:none;border:0;color:var(--ink);font-family:var(--f1);font-weight:600;font-size:.95rem;cursor:pointer;text-align:left;min-height:56px}
+.acc-h .pm{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--acc);font-family:var(--f2);font-size:1.2rem;transition:transform .3s}
+.acc-it.open .pm{transform:rotate(45deg);border-color:var(--acc)}
+.acc-b{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc-in{padding:2px 22px 22px;display:grid;gap:8px}
+.prow{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.prow:last-child{border-bottom:0}
+.prow span{color:var(--mut);font-size:.92rem;min-width:0;overflow-wrap:anywhere}
+.prow b{font-family:var(--f1);font-weight:600;font-size:.85rem;color:var(--acc2);white-space:nowrap;flex:none}
+/* steps */
+.steps{padding:clamp(60px,9vw,120px) 0;background:var(--bg2)}
+.stgrid{display:grid;gap:14px;margin-top:clamp(24px,4vw,44px)}
+.st{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;min-width:0;transition:transform .3s,border-color .3s}
+.st:hover{transform:translateX(6px);border-color:rgba(45,212,191,.45)}
+.st .n{font-family:var(--f1);font-weight:800;font-size:1.7rem;color:transparent;-webkit-text-stroke:1.5px var(--acc);line-height:1}
+.st h3{font-size:1rem;font-weight:600;margin-bottom:6px}
+.st p{color:var(--mut);font-size:.9rem}
+/* guarantee */
+.guar{padding:clamp(60px,9vw,120px) 0;background:
+ radial-gradient(700px 400px at 50% 0%,rgba(232,68,46,.13),transparent 65%),var(--bg);overflow:hidden}
+.gbox{border:1px solid rgba(232,68,46,.4);border-radius:var(--r);background:linear-gradient(160deg,rgba(232,68,46,.1),transparent 60%),var(--card);padding:clamp(26px,5vw,64px);display:grid;gap:22px;text-align:center;justify-items:center;position:relative}
+.gbox h2 em{font-style:normal;color:var(--acc)}
+.gbox p{color:var(--mut);max-width:58ch}
+.gseal{width:110px;height:110px}
+.gseal circle,.gseal path{fill:none;stroke:var(--acc);stroke-width:2}
+.gseal .rot{transform-origin:60px 60px;animation:spin 22s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* why */
+.why{padding:clamp(60px,9vw,120px) 0;background:var(--bg2)}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin-top:clamp(24px,4vw,44px)}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;min-width:0;transition:transform .3s,border-color .3s}
+.wcard:hover{transform:translateY(-5px);border-color:rgba(45,212,191,.5)}
+.wcard .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.3);margin-bottom:14px}
+.wcard .ic svg{width:24px;height:24px;stroke:var(--acc2);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wcard h3{font-size:.98rem;font-weight:600;margin-bottom:8px}
+.wcard p{color:var(--mut);font-size:.88rem}
+/* contact */
+.cont{padding:clamp(60px,9vw,120px) 0;background:var(--bg)}
+.cgrid{display:grid;gap:32px;margin-top:clamp(24px,4vw,48px)}
+.cinfo{display:grid;gap:14px;align-content:start}
+.crow{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.crow .ic{width:44px;height:44px;flex:none;border-radius:12px;display:grid;place-items:center;background:rgba(232,68,46,.12);border:1px solid rgba(232,68,46,.3)}
+.crow .ic svg{width:22px;height:22px;stroke:var(--acc);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.crow small{color:var(--mut);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;display:block}
+.crow b{font-family:var(--f1);font-weight:600;font-size:.95rem;overflow-wrap:anywhere}
+form{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,40px);display:grid;gap:14px}
+form h3{font-size:1.15rem}
+form p.fs{color:var(--mut);font-size:.9rem}
+.fld{display:grid;gap:6px}
+.fld label{font-size:.8rem;color:var(--mut);font-weight:500}
+.fld input,.fld select,.fld textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:12px;color:var(--ink);font-family:var(--f2);font-size:1rem;padding:14px 16px;min-height:52px;transition:border-color .25s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--acc2)}
+.fld textarea{min-height:96px;resize:vertical}
+.err{border-color:var(--acc)!important}
+/* footer */
+footer{border-top:1px solid var(--line);padding:32px 0;background:var(--bg2)}
+.frow{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;color:var(--mut);font-size:.85rem}
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(min-width:760px){
+  .hnav{display:flex}.htel{display:block}.burger{display:none}
+  .hgrid{grid-template-columns:1.15fr .85fr;align-items:center}
+  .stgrid{grid-template-columns:repeat(2,1fr)}
+  .cgrid{grid-template-columns:1fr 1fr;align-items:start}
+  .evac-box{grid-template-columns:1fr auto;align-items:center}
+}
+@media(min-width:1024px){.stgrid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap hrow">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="#e8442e" stroke-width="2"/><path d="M8 22h6l3-9 4 16 3-9h8" fill="none" stroke="#f2f4f5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      АВТОХИРУРГ
+    </a>
+    <nav class="hnav">
+      <a href="#evac">Эвакуатор</a><a href="#serv">Услуги</a><a href="#price">Цены</a><a href="#guar">Гарантия</a><a href="#cont">Контакты</a>
+    </nav>
+    <a class="htel" href="tel:+79301652942">8 (930) 165-29-42</a>
+    <button class="burger" id="brg" aria-label="Меню"><span></span></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav">
+  <a href="#evac">Эвакуатор</a><a href="#serv">Услуги</a><a href="#price">Цены</a><a href="#steps">Как проходит ремонт</a><a href="#guar">Гарантия</a><a href="#cont">Контакты</a>
+  <a class="btn btn-a" href="tel:+79301652942">Позвонить</a>
+</nav>
+
+<section class="hero" id="top">
+  <div class="wrap hgrid">
+    <div>
+      <span class="tag">Тверь · район автовокзала</span>
+      <h1 style="margin-top:20px">Автосервис, который <em>оперирует точно</em> — с гарантией на работу и запчасти</h1>
+      <p class="lead" style="margin-top:20px">«Автохирург» — диагностика, двигатель, ходовая, тормоза. Приём по записи, без очередей. Приехали на эвакуаторе — уедете на исправной машине.</p>
+      <div class="hbtns" style="margin-top:28px">
+        <a class="btn btn-a" href="tel:+79301652942">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9z"/></svg>
+          Позвонить
+        </a>
+        <a class="btn btn-g" href="#cont">Записаться на ремонт</a>
+      </div>
+    </div>
+    <div>
+      <div class="hmeta">
+        <div><b>Гарантия 1 год</b><small>на работу и запчасти</small></div>
+        <div><b>Пн–Пт 9:00–20:00</b><small>приём по записи</small></div>
+        <div><b>Свой эвакуатор</b><small>подача по городу и с трассы</small></div>
+        <div><b>Диагностика подвески</b><small>бесплатно, любая марка</small></div>
+      </div>
+      <svg class="ecg" viewBox="0 0 600 60" aria-hidden="true" style="width:100%;height:60px;margin-top:22px"><path d="M0 30h90l14-22 16 44 14-22h70l12-14 14 28 12-14h100l14-22 16 44 14-22h220"/></svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marq-in" id="mq">
+    <span>Диагностика<i></i></span><span>Двигатель<i></i></span><span>Ходовая<i></i></span><span>Тормоза<i></i></span><span>Замена ГРМ<i></i></span><span>Турбины<i></i></span><span>Сцепление<i></i></span><span>Электрика<i></i></span><span>Замена масла<i></i></span><span>Сход-развал<i></i></span>
+  </div>
+</div>
+
+<section class="evac" id="evac">
+  <div class="wrap">
+    <div class="evac-box rv">
+      <svg class="truck" viewBox="0 0 200 90" aria-hidden="true"><path d="M10 70h130V30H10zM140 70h20l18-20h12v20M10 70v-40h130M150 50h40" fill="none" stroke="#2dd4bf" stroke-width="2.5" stroke-linejoin="round"/><circle cx="42" cy="74" r="9" fill="none" stroke="#2dd4bf" stroke-width="2.5"/><circle cx="162" cy="74" r="9" fill="none" stroke="#2dd4bf" stroke-width="2.5"/></svg>
+      <div>
+        <span class="tag">Свой эвакуатор</span>
+        <h2 style="margin-top:18px">Приехали на эвакуаторе — уедете на исправной машине</h2>
+        <p style="margin-top:14px">Машина не заводится или встала на трассе? Наш эвакуатор доставит её прямо в сервис — а дальше хирурги возьмутся за дело. Не нужно ничего искать и координировать: одна заявка, и автомобиль уже на подъёмнике.</p>
+      </div>
+      <a class="btn btn-a" href="tel:+79301652942">Вызвать эвакуатор</a>
+    </div>
+  </div>
+</section>
+
+<section class="serv" id="serv">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Услуги</span>
+      <h2>Лечим весь автомобиль — от подвески до турбины</h2>
+    </div>
+    <div class="sgrid">
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Диагностика</h3><p>Компьютерная диагностика и диагностика подвески легкового авто — бесплатно, вне зависимости от марки и класса.</p><span class="pr">Подвеска — бесплатно</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 15l4-8h10l4 8M3 15h18M6 15v3M18 15v3"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg></div><h3>Ремонт подвески</h3><p>Рычаги, тяги, наконечники, ШРУСы, амортизаторы, сайлентблоки, рулевые рейки. Работа только на подъёмниках.</p><span class="pr">от 500 руб.</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v6M12 9l-5 3v5M12 9l5 3v5M7 17h10"/><circle cx="12" cy="3" r="1"/></svg></div><h3>Ремонт двигателя</h3><p>Регулировка клапанов, замена прокладок ГБЦ, замер компрессии, капитальный ремонт двигателя.</p><span class="pr">от 2 500 руб.</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/></svg></div><h3>Тормозная система</h3><p>Колодки, диски, суппорты, шланги, цилиндры, вакуумный усилитель, прокачка тормозов, ручник.</p><span class="pr">от 500 руб.</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0M4 12l-2 5h20l-2-5M8 17v3M16 17v3"/></svg></div><h3>Замена ГРМ</h3><p>Замена ремня и цепи ГРМ, приводного ремня — с соблюдением регламента и меток производителя.</p><span class="pr">от 6 000 руб.</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></div><h3>Турбины и сцепление</h3><p>Замена и ремонт турбин, замена сцепления комплектом, рабочих и главных цилиндров.</p><span class="pr">по консультации</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/><path d="M9.5 13.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></div><h3>Замена масла и ТО</h3><p>Масло ДВС, КПП, редуктора, АКПП с фильтром, охлаждающая жидкость, тормозная жидкость, все фильтры.</p><span class="pr">от 500 руб.</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 3v4M7 6l2.5 3M19 6l-2.5 3M5 13a7 7 0 0 0 14 0"/><circle cx="12" cy="13" r="2"/></svg></div><h3>Электрика</h3><p>Поиск неисправностей в проводке, замена ламп, ремонт блока управления, компьютерная диагностика.</p><span class="pr">от 100 руб.</span></div>
+      <div class="scard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 18l5-5M4 6l5 5M4 6h16M4 6v12M20 6v12M20 18H4"/><path d="M9 11l6 6"/></svg></div><h3>Сход-развал</h3><p>Регулировка развала-схождения легковых авто: передняя ось и задняя ось — по 1 500 руб.</p><span class="pr">1 500 руб. / ось</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Прайс</span>
+      <h2>Цены — открыто, до начала работ</h2>
+      <p style="color:var(--mut);max-width:60ch">Основные работы. Точную смету согласуем с вами после диагностики — без «сюрпризов» в чеке.</p>
+    </div>
+    <div class="acc" id="acc">
+      <div class="acc-it rv">
+        <button class="acc-h">Тормозная система <span class="pm">+</span></button>
+        <div class="acc-b"><div class="acc-in">
+          <div class="prow"><span>Диагностика тормозной системы</span><b>от 500 руб.</b></div>
+          <div class="prow"><span>Замена передних колодок (дисковые)</span><b>от 1000 руб.</b></div>
+          <div class="prow"><span>Замена задних колодок (дисковые)</span><b>от 1000 руб.</b></div>
+          <div class="prow"><span>Замена задних колодок (барабанные)</span><b>от 1500 руб.</b></div>
+          <div class="prow"><span>Замена тормозного диска + колодок</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Замена суппорта в сборе</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Замена тормозного шланга (1 шт)</span><b>от 700 руб.</b></div>
+          <div class="prow"><span>Замена заднего тормозного цилиндра</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Замена вакуумного усилителя</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Замена тормозного барабана (2 шт)</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Регулировка ручного тормоза</span><b>от 1500 руб.</b></div>
+          <div class="prow"><span>Прокачка тормозов</span><b>от 1200 руб.</b></div>
+        </div></div>
+      </div>
+      <div class="acc-it rv">
+        <button class="acc-h">Ходовая система <span class="pm">+</span></button>
+        <div class="acc-b"><div class="acc-in">
+          <div class="prow"><span>Диагностика ходовой</span><b>бесплатно</b></div>
+          <div class="prow"><span>Замена рычагов</span><b>от 1000 руб.</b></div>
+          <div class="prow"><span>Замена рулевой тяги / наконечника</span><b>от 1000 руб.</b></div>
+          <div class="prow"><span>Замена подшипника ступицы</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Замена ШРУСа / пыльника ШРУСа</span><b>от 2000 / 1500 руб.</b></div>
+          <div class="prow"><span>Замена переднего амортизатора + опоры + пружины</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Замена заднего амортизатора</span><b>от 1500 руб.</b></div>
+          <div class="prow"><span>Замена шаровой опоры</span><b>от 1000 руб.</b></div>
+          <div class="prow"><span>Замена стоек / втулок стабилизатора (2 шт)</span><b>от 1400 / 1000 руб.</b></div>
+          <div class="prow"><span>С/у рулевой рейки легкового</span><b>от 5000 руб.</b></div>
+          <div class="prow"><span>С/у подрамника</span><b>от 5000 руб.</b></div>
+        </div></div>
+      </div>
+      <div class="acc-it rv">
+        <button class="acc-h">Двигатель и ГРМ <span class="pm">+</span></button>
+        <div class="acc-b"><div class="acc-in">
+          <div class="prow"><span>Замер компрессии (4 цилиндра)</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Регулировка клапанов (рядный ДВС)</span><b>от 2500 руб.</b></div>
+          <div class="prow"><span>Замена прокладки ГБЦ</span><b>от 30 000 руб.</b></div>
+          <div class="prow"><span>Замена прокладки поддона картера</span><b>от 2500 руб.</b></div>
+          <div class="prow"><span>Замена прокладки клапанной крышки</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Капитальный ремонт двигателя</span><b>от 50 000 руб.</b></div>
+          <div class="prow"><span>Замена ремня ГРМ</span><b>от 6000 руб.</b></div>
+          <div class="prow"><span>Замена цепи ГРМ</span><b>от 15 000 руб.</b></div>
+          <div class="prow"><span>Замена приводного ремня</span><b>от 1500 руб.</b></div>
+        </div></div>
+      </div>
+      <div class="acc-it rv">
+        <button class="acc-h">Масла и жидкости <span class="pm">+</span></button>
+        <div class="acc-b"><div class="acc-in">
+          <div class="prow"><span>Замена масла ДВС + фильтр</span><b>от 1000 руб.</b></div>
+          <div class="prow"><span>С/у защиты двигателя</span><b>от 500 руб.</b></div>
+          <div class="prow"><span>Замена масла в МКПП / редукторе / мосту</span><b>от 800 руб.</b></div>
+          <div class="prow"><span>Замена масла в АКПП</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Масло в КПП + поддон + фильтр</span><b>от 3000 руб.</b></div>
+          <div class="prow"><span>Тормозная жидкость с прокачкой</span><b>от 1500 руб.</b></div>
+          <div class="prow"><span>Антифриз / тосол</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Жидкость ГУР / сцепления</span><b>от 2000 / 1000 руб.</b></div>
+        </div></div>
+      </div>
+      <div class="acc-it rv">
+        <button class="acc-h">Сцепление, турбины, электрика <span class="pm">+</span></button>
+        <div class="acc-b"><div class="acc-in">
+          <div class="prow"><span>Замена сцепления (комплект)</span><b>от 8000 руб.</b></div>
+          <div class="prow"><span>Замена главного / рабочего цилиндра сцепления</span><b>от 3000 / 1500 руб.</b></div>
+          <div class="prow"><span>Замена турбины</span><b>от 20 000 руб.</b></div>
+          <div class="prow"><span>Ремонт турбин</span><b>от 20 000 руб.</b></div>
+          <div class="prow"><span>Поиск неисправностей в проводке</span><b>от 2000 руб.</b></div>
+          <div class="prow"><span>Замена лампы / лампы со снятием фары</span><b>от 100 / 500 руб.</b></div>
+          <div class="prow"><span>Компьютерная диагностика</span><b>от 1000 руб.</b></div>
+          <div class="prow"><span>Фильтры: масляный / воздушный / салонный / топливный</span><b>от 500 руб.</b></div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="steps">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Как проходит ремонт</span>
+      <h2>Пять шагов — как операция в хорошей клинике</h2>
+    </div>
+    <div class="stgrid">
+      <div class="st rv"><div class="n">01</div><div><h3>Заявка</h3><p>Звонок или заявка на сайте. Подберём время — принимаем по записи, без очередей.</p></div></div>
+      <div class="st rv"><div class="n">02</div><div><h3>Диагностика</h3><p>Ставим «диагноз»: компьютерная диагностика и осмотр на подъёмнике. Подвеска — бесплатно.</p></div></div>
+      <div class="st rv"><div class="n">03</div><div><h3>Смета и согласование</h3><p>Называем точную стоимость работ и запчастей до начала ремонта. Без «сюрпризов» в чеке.</p></div></div>
+      <div class="st rv"><div class="n">04</div><div><h3>Ремонт</h3><p>Работаем только на подъёмниках. Можете наблюдать за процессом — в каждом боксе камера.</p></div></div>
+      <div class="st rv"><div class="n">05</div><div><h3>Выдача с гарантией</h3><p>Проверяем результат и выдаём автомобиль с гарантией на работу и запчасти.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="guar" id="guar">
+  <div class="wrap">
+    <div class="gbox rv">
+      <svg class="gseal" viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="rot" cx="60" cy="60" r="52" stroke-dasharray="6 8"/>
+        <circle cx="60" cy="60" r="42"/>
+        <path d="M40 62l13 13 27-30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h2>Гарантия <em>1 год</em> — на работу и запчасти</h2>
+      <p>Мы отвечаем за результат: и за качество работы механиков, и за установленные запчасти. Если что-то пошло не так — возвращаемся и исправляем за свой счёт.</p>
+      <a class="btn btn-a" href="#cont">Оставить заявку — скидка 5% на запчасти</a>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Почему к нам</span>
+      <h2>Сервис, в котором удобно ждать</h2>
+    </div>
+    <div class="wgrid">
+      <div class="wcard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.9M15.5 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3>Механики с опытом 10+ лет</h3><p>Берём только механиков с большим опытом — найдём и устраним любую поломку.</p></div>
+      <div class="wcard rv"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Ремонт в короткие сроки</h3><p>Принимаем по записи — даже в высокий сезон время ожидания не растёт.</p></div>
+      <div class="wcard rv"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Камера в каждом боксе</h3><p>Следите за процессом ремонта из клиентской комнаты — всё прозрачно.</p></div>
+      <div class="wcard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 12a11 11 0 0 1 14 0M8 15a7 7 0 0 1 8 0"/><circle cx="12" cy="18.5" r="1.2"/></svg></div><h3>Клиентская комната</h3><p>Wi-Fi и PlayStation — время ожидания пролетит незаметно.</p></div>
+      <div class="wcard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 8v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M4 8l2-4h12l2 4M10 12h4"/></svg></div><h3>Работаем на подъёмниках</h3><p>Никаких «ям» — при ремонте используем только подъёмники.</p></div>
+      <div class="wcard rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6M2 10h20M12 2v8M12 2l4 3M12 2L8 5"/></svg></div><h3>Бонусная карта</h3><p>Каждому клиенту — бонусная карта и накопительная система скидок.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cont" id="cont">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Контакты и запись</span>
+      <h2>Запишитесь на ремонт</h2>
+      <p style="color:var(--mut);max-width:60ch">Оставьте заявку — получите скидку 5% на запчасти. Наш менеджер перезвонит и согласует удобное время.</p>
+    </div>
+    <div class="cgrid">
+      <div class="cinfo">
+        <a class="crow rv" href="tel:+79301652942">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9z"/></svg></span>
+          <span><small>Телефон</small><b>8 (930) 165-29-42</b></span>
+        </a>
+        <a class="crow rv" href="tel:+7822752942">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg></span>
+          <span><small>Городской</small><b>8 (4822) 752-942</b></span>
+        </a>
+        <div class="crow rv">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span><small>Адрес</small><b>Тверь, 2-я ул. За линией Октябрьской ж/д, 10</b></span>
+        </div>
+        <div class="crow rv">
+          <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+          <span><small>Часы работы</small><b>Пн–Пт, 9:00–20:00 · по записи</b></span>
+        </div>
+      </div>
+      <form id="frm" class="rv" novalidate>
+        <h3>Оставить заявку на ремонт</h3>
+        <p class="fs">Скидка 5% на запчасти при заявке с сайта</p>
+        <div class="fld"><label for="nm">Ваше имя</label><input id="nm" name="name" type="text" placeholder="Как к вам обращаться" required></div>
+        <div class="fld"><label for="ph">Телефон</label><input id="ph" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+        <div class="fld"><label for="sv">Услуга</label>
+          <select id="sv" name="service">
+            <option>Диагностика</option><option>Ремонт подвески</option><option>Тормозная система</option><option>Двигатель / ГРМ</option><option>Замена масла / ТО</option><option>Электрика</option><option>Сход-развал</option><option>Эвакуатор</option><option>Другое / консультация</option>
+          </select>
+        </div>
+        <div class="fld"><label for="cm">Комментарий (необязательно)</label><textarea id="cm" name="comment" placeholder="Марка авто, что беспокоит"></textarea></div>
+        <button class="btn btn-a" type="submit">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap frow">
+    <span>© Автохирург — автосервис в Твери, 2014–2026</span>
+    <a href="tel:+79301652942" style="color:var(--acc2);font-weight:700">8 (930) 165-29-42</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var hdr=document.getElementById('hdr');
+  addEventListener('scroll',function(){hdr.classList.toggle('scr',scrollY>30)},{passive:true});
+
+  var brg=document.getElementById('brg'),mnav=document.getElementById('mnav');
+  brg.addEventListener('click',function(){brg.classList.toggle('on');mnav.classList.toggle('open')});
+  mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){brg.classList.remove('on');mnav.classList.remove('open')})});
+
+  var mq=document.getElementById('mq');mq.innerHTML+=mq.innerHTML;
+
+  // accordion
+  document.querySelectorAll('.acc-h').forEach(function(h){
+    h.addEventListener('click',function(){
+      var it=h.parentElement,b=it.querySelector('.acc-b'),open=it.classList.contains('open');
+      document.querySelectorAll('.acc-it.open').forEach(function(o){o.classList.remove('open');o.querySelector('.acc-b').style.maxHeight=0});
+      if(!open){it.classList.add('open');b.style.maxHeight=b.scrollHeight+'px'}
+    });
+  });
+
+  // reveal
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // phone mask
+  var ph=document.getElementById('ph');
+  ph.addEventListener('input',function(){
+    var d=ph.value.replace(/\D/g,'');
+    if(d[0]==='8')d='7'+d.slice(1);
+    if(d[0]!=='7')d='7'+d;
+    d=d.slice(0,11);
+    var r='+7';
+    if(d.length>1)r+=' ('+d.slice(1,4);
+    if(d.length>=5)r+=') '+d.slice(4,7);
+    if(d.length>=8)r+='-'+d.slice(7,9);
+    if(d.length>=10)r+='-'+d.slice(9,11);
+    ph.value=r;
+  });
+
+  // form
+  document.getElementById('frm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    var nm=document.getElementById('nm');
+    [nm,ph].forEach(function(f){f.classList.remove('err')});
+    if(nm.value.trim().length<2){nm.classList.add('err');ok=false}
+    if(ph.value.replace(/\D/g,'').length<11){ph.classList.add('err');ok=false}
+    if(!ok)return;
+    alert('Спасибо! Мы перезвоним.');
+    this.reset();
+  });
+})();
+</script>
+</body>
+</html>
