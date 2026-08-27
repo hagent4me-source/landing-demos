@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автокомплекс Правый Руль — Астрахань</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --c-bg: #0d1117;
+  --c-bg2: #131920;
+  --c-bg3: #1a2332;
+  --c-accent: #e8f000;
+  --c-accent2: #b8c000;
+  --c-white: #ffffff;
+  --c-muted: #8899aa;
+  --c-border: rgba(232,240,0,0.15);
+  --c-glass: rgba(255,255,255,0.04);
+  --r: 12px;
+  --r-lg: 20px;
+  --font-head: 'Unbounded', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+  --max: 1280px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--c-bg);
+  color: var(--c-white);
+  font-size: 16px;
+  line-height: 1.6;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─── ШАПКА ─── */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: background 0.3s, backdrop-filter 0.3s;
+  padding: 0 20px;
+}
+.header.scrolled {
+  background: rgba(13,17,23,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--c-border);
+}
+.header-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 12px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+.logo-text {
+  font-family: var(--font-head);
+  font-size: clamp(13px, 2.5vw, 18px);
+  font-weight: 700;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+.logo-text span { color: var(--c-accent); }
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-muted);
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav a:hover { color: var(--c-accent); }
+.header-phone {
+  font-family: var(--font-head);
+  font-size: clamp(11px, 2vw, 15px);
+  font-weight: 700;
+  color: var(--c-accent);
+  white-space: nowrap;
+  overflow-wrap: anywhere;
+  flex-shrink: 1;
+  min-width: 0;
+}
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--c-white);
+  transition: all 0.3s;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: rgba(13,17,23,0.97);
+  backdrop-filter: blur(20px);
+  padding: 24px 20px;
+  z-index: 99;
+  border-bottom: 1px solid var(--c-border);
+  flex-direction: column;
+  gap: 16px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--c-muted);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--c-border);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--c-accent); }
+.mobile-menu .m-phone {
+  font-family: var(--font-head);
+  font-size: 18px;
+  color: var(--c-accent);
+  font-weight: 700;
+  border-bottom: none;
+  overflow-wrap: anywhere;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 68px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(232,240,0,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 10% 80%, rgba(0,120,255,0.06) 0%, transparent 50%),
+    var(--c-bg);
+}
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+.hero-grid-line {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232,240,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,240,0,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px 20px 60px;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 420px);
+  gap: 60px;
+  align-items: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,240,0,0.1);
+  border: 1px solid var(--c-border);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--c-accent);
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 6vw, 88px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
+}
+.hero-title .accent { color: var(--c-accent); }
+.hero-title .line-outline {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.2);
+  color: transparent;
+}
+.hero-sub {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--c-muted);
+  max-width: 520px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--c-accent);
+  color: #0d1117;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: var(--r);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,240,0,0.3);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--c-white);
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 15px 28px;
+  border-radius: var(--r);
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.btn-secondary:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.hero-card {
+  background: var(--c-glass);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(232,240,0,0.08);
+}
+.hero-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.hero-card-val {
+  font-family: var(--font-head);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--c-accent);
+  line-height: 1;
+}
+.hero-card-desc {
+  font-size: 13px;
+  color: var(--c-muted);
+  margin-top: 6px;
+}
+.hero-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.hero-schedule {
+  background: var(--c-glass);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  backdrop-filter: blur(12px);
+}
+.hero-schedule-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 13px;
+  gap: 8px;
+}
+.schedule-row:last-child { border-bottom: none; }
+.schedule-day { color: var(--c-muted); }
+.schedule-time { font-weight: 700; color: var(--c-accent); }
+
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  background: var(--c-accent);
+  overflow: hidden;
+  padding: 14px 0;
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 32px;
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  color: #0d1117;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.marquee-dot {
+  width: 5px; height: 5px;
+  background: rgba(13,17,23,0.4);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─── СЕКЦИИ ОБЩЕЕ ─── */
+.section {
+  padding: 80px 0;
+}
+.section-dark { background: var(--c-bg); }
+.section-mid { background: var(--c-bg2); }
+.section-alt { background: var(--c-bg3); }
+.section-head {
+  margin-bottom: 56px;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 4vw, 54px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.section-title .accent { color: var(--c-accent); }
+.section-desc {
+  font-size: 16px;
+  color: var(--c-muted);
+  max-width: 560px;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* ─── УСЛУГИ ─── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 20px;
+}
+.service-card {
+  background: var(--c-glass);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  cursor: default;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--c-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.service-card:hover::before { transform: scaleX(1); }
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(232,240,0,0.08);
+  border-color: rgba(232,240,0,0.3);
+}
+.service-icon {
+  width: 52px; height: 52px;
+  margin-bottom: 18px;
+}
+.service-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.service-list li {
+  font-size: 13px;
+  color: var(--c-muted);
+  padding-left: 14px;
+  position: relative;
+  overflow-wrap: anywhere;
+}
+.service-list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 5px; height: 5px;
+  background: var(--c-accent);
+  border-radius: 50%;
+}
+
+/* ─── О НАС ─── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-text h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
+}
+.about-text p {
+  font-size: 15px;
+  color: var(--c-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+.stat-box {
+  background: var(--c-glass);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  padding: 20px;
+}
+.stat-num {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  color: var(--c-accent);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--c-muted);
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+.about-visual {
+  position: relative;
+}
+.about-big-num {
+  font-family: var(--font-head);
+  font-size: clamp(100px, 18vw, 220px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(232,240,0,0.12);
+  line-height: 0.9;
+  user-select: none;
+  overflow-wrap: anywhere;
+}
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: -20px;
+  position: relative;
+  z-index: 2;
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--c-glass);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  transition: border-color 0.3s;
+}
+.feature-item:hover { border-color: rgba(232,240,0,0.35); }
+.feature-num {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--c-accent);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.feature-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  overflow-wrap: anywhere;
+}
+.feature-text span {
+  font-size: 12px;
+  color: var(--c-muted);
+  overflow-wrap: anywhere;
+}
+
+/* ─── ЗАПИСЬ ─── */
+.booking-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.booking-info h2 {
+  font-family: var(--font-head);
+  font-size: clamp(26px, 3.5vw, 46px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+}
+.booking-info p {
+  font-size: 15px;
+  color: var(--c-muted);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.contact-icon {
+  width: 40px; height: 40px;
+  background: rgba(232,240,0,0.1);
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-icon svg { width: 18px; height: 18px; }
+.contact-label {
+  font-size: 11px;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.contact-val {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-white);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.contact-val a { color: var(--c-accent); }
+.booking-form {
+  background: var(--c-glass);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: 36px;
+  backdrop-filter: blur(12px);
+}
+.form-title {
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  overflow-wrap: anywhere;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group.full { grid-column: 1 / -1; }
+.form-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.form-control {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r);
+  padding: 13px 16px;
+  color: var(--c-white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--c-accent);
+}
+.form-control option { background: var(--c-bg); }
+.form-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px;
+  font-size: 14px;
+}
+.form-note {
+  font-size: 11px;
+  color: var(--c-muted);
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* ─── МАСЛА/МАГАЗИН ─── */
+.brands-section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+.brands-title {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  overflow-wrap: anywhere;
+}
+.brands-title span { color: var(--c-accent); }
+.brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.brand-pill {
+  background: var(--c-glass);
+  border: 1px solid var(--c-border);
+  border-radius: 100px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--c-muted);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.brand-pill:hover {
+  background: rgba(232,240,0,0.1);
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+/* ─── ПРОМОКОД ─── */
+.promo-section {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.promo-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(232,240,0,0.08) 0%, transparent 70%);
+}
+.promo-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+.promo-inner h2 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 5vw, 60px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+}
+.promo-inner h2 span { color: var(--c-accent); }
+.promo-inner p {
+  font-size: 16px;
+  color: var(--c-muted);
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+.promo-code-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(232,240,0,0.08);
+  border: 2px dashed rgba(232,240,0,0.4);
+  border-radius: var(--r-lg);
+  padding: 20px 36px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.promo-code-label {
+  font-size: 13px;
+  color: var(--c-muted);
+  font-weight: 600;
+}
+.promo-code-val {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  color: var(--c-accent);
+  letter-spacing: 0.1em;
+  overflow-wrap: anywhere;
+}
+.promo-inner .promo-desc {
+  font-size: 14px;
+  color: var(--c-muted);
+}
+
+/* ─── СКОШЕННЫЕ КРАЯ ─── */
+.clip-top {
+  clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+  margin-top: -40px;
+  padding-top: 100px;
+}
+.clip-both {
+  clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+  margin-top: -40px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* ─── ФУТЕР ─── */
+.footer {
+  background: #080c10;
+  padding: 56px 0 32px;
+  border-top: 1px solid var(--c-border);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand p {
+  font-size: 14px;
+  color: var(--c-muted);
+  margin-top: 16px;
+  line-height: 1.7;
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-muted);
+  margin-bottom: 16px;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-col ul li a {
+  font-size: 14px;
+  color: var(--c-muted);
+  transition: color 0.2s;
+  overflow-wrap: anywhere;
+}
+.footer-col ul li a:hover { color: var(--c-accent); }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 13px;
+  color: var(--c-muted);
+  overflow-wrap: anywhere;
+}
+.footer-copy span { color: var(--c-accent); }
+
+/* ─── АНИМАЦИИ ПОЯВЛЕНИЯ ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── АДАПТИВ ─── */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-big-num { font-size: clamp(80px, 15vw, 160px); }
+  .booking-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    padding: 60px 20px 60px;
+  }
+  .hero-right { display: none; }
+}
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .header-phone { display: none; }
+  .burger { display: flex; }
+  .section { padding: 60px 0; }
+  .section-head { margin-bottom: 36px; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .booking-form { padding: 24px 20px; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(30px, 9vw, 48px); }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .about-stats { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .promo-code-box { padding: 16px 20px; }
+  .hero-cards-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 360px) {
+  .container { padding: 0 14px; }
+  .logo-text { font-size: 12px; }
+  .header-inner { height: 60px; }
+  .mobile-menu { top: 60px; }
+  .section-title { font-size: 24px; }
+  .booking-form { padding: 18px 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <svg class="logo-icon" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="19" cy="19" r="18" stroke="#e8f000" stroke-width="1.5"/>
+        <circle cx="19" cy="19" r="10" stroke="#e8f000" stroke-width="1.5"/>
+        <circle cx="19" cy="19" r="3" fill="#e8f000"/>
+        <line x1="19" y1="1" x2="19" y2="9" stroke="#e8f000" stroke-width="1.5"/>
+        <line x1="19" y1="29" x2="19" y2="37" stroke="#e8f000" stroke-width="1.5"/>
+        <line x1="1" y1="19" x2="9" y2="19" stroke="#e8f000" stroke-width="1.5"/>
+        <line x1="29" y1="19" x2="37" y2="19" stroke="#e8f000" stroke-width="1.5"/>
+        <path d="M26 14 L30 10" stroke="#e8f000" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">ПРАВЫЙ<br><span>РУЛЬ</span></div>
+    </a>
+    <nav class="nav">
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#promo">Акции</a>
+      <a href="#booking">Запись</a>
+    </nav>
+    <a href="tel:78512669790" class="header-phone">8 (8512) 66-97-90</a>
+    <div class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- МОБИЛЬНОЕ МЕНЮ -->
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mob-link">Услуги</a>
+  <a href="#about" class="mob-link">О нас</a>
+  <a href="#promo" class="mob-link">Акции</a>
+  <a href="#booking" class="mob-link">Запись</a>
+  <a href="tel:78512669790" class="m-phone">8 (8512) 66-97-90</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-grid-line"></div>
+  <div class="hero-inner">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Астрахань · Славянская, 1Н
+      </div>
+      <h1 class="hero-title">
+        ПОЛНЫЙ<br>
+        <span class="accent">РЕМОНТ</span><br>
+        <span class="line-outline">АВТО</span>
+      </h1>
+      <p class="hero-sub">
+        Автокомплекс «Правый руль» — диагностика, ремонт ходовой, двигателей, электрооборудования и плановое ТО. Японские, европейские, китайские автомобили. Качество дилера без переплаты.
+      </p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Записаться на сервис
+        </a>
+        <a href="tel:78512669790" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Позвонить
+        </a>
+      </div>
+    </div>
+    <div class="hero-right fade-up">
+      <div class="hero-cards-row">
+        <div class="hero-card">
+          <div class="hero-card-label">Работаем с</div>
+          <div class="hero-card-val" data-count="2009">2009</div>
+          <div class="hero-card-desc">года в Астрахани</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-label">Услуг</div>
+          <div class="hero-card-val">20+</div>
+          <div class="hero-card-desc">направлений</div>
+        </div>
+      </div>
+      <div class="hero-schedule">
+        <div class="hero-schedule-title">График работы</div>
+        <div class="schedule-row">
+          <span class="schedule-day">Пн — Пт</span>
+          <span class="schedule-time">8:00 — 19:00</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-day">Суббота</span>
+          <span class="schedule-time">8:00 — 18:00</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-day">Воскресенье</span>
+          <span class="schedule-time">8:00 — 16:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Диагностика<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ремонт ходовой<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Развал-схождение<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ремонт двигателей<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Замена ГРМ<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Электрика авто<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Заправка кондиционеров<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Плановое ТО<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Топливная система<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Магазин запчастей<span class="marquee-dot"></span></span>
+    <!-- дублируем для бесшовности -->
+    <span class="marquee-item">Диагностика<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ремонт ходовой<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Развал-схождение<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ремонт двигателей<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Замена ГРМ<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Электрика авто<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Заправка кондиционеров<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Плановое ТО<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Топливная система<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Магазин запчастей<span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- УСЛУГИ -->
+<section class="section section-mid" id="services">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="section-tag">Что мы делаем</span>
+      <h2 class="section-title">Полный спектр<br><span class="accent">услуг</span> для вашего авто</h2>
+      <p class="section-desc">Японские, европейские, китайские и корейские автомобили. Все работы на современном оборудовании.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Электрика -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="12" fill="rgba(232,240,0,0.07)"/>
+          <path d="M28 10L16 28h12l-4 14L36 24H24L28 10z" stroke="#e8f000" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="service-name">Электрооборудование</div>
+        <ul class="service-list">
+          <li>Компьютерная диагностика</li>
+          <li>Ремонт стартеров и генераторов</li>
+          <li>Ремонт электропроводки</li>
+          <li>Диагностика агрегатная</li>
+        </ul>
+      </div>
+
+      <!-- Ходовая -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="12" fill="rgba(232,240,0,0.07)"/>
+          <circle cx="26" cy="26" r="12" stroke="#e8f000" stroke-width="2"/>
+          <circle cx="26" cy="26" r="4" fill="#e8f000"/>
+          <line x1="26" y1="14" x2="26" y2="10" stroke="#e8f000" stroke-width="2" stroke-linecap="round"/>
+          <line x1="26" y1="42" x2="26" y2="38" stroke="#e8f000" stroke-width="2" stroke-linecap="round"/>
+          <line x1="14" y1="26" x2="10" y2="26" stroke="#e8f000" stroke-width="2" stroke-linecap="round"/>
+          <line x1="42" y1="26" x2="38" y2="26" stroke="#e8f000" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="service-name">Ходовая и тормоза</div>
+        <ul class="service-list">
+          <li>Ремонт подвески</li>
+          <li>Замена сайлентблоков (любых)</li>
+          <li>Ремонт и замена рулевых реек</li>
+          <li>Замена колодок, обслуживание суппортов</li>
+          <li>Устранение скрипов и стуков</li>
+          <li>Восстановление эффективности тормозов</li>
+        </ul>
+      </div>
+
+      <!-- Развал-схождение -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="12" fill="rgba(232,240,0,0.07)"/>
+          <path d="M10 26h32M10 20l8 6-8 6M42 20l-8 6 8 6" stroke="#e8f000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="26" cy="26" r="3" fill="#e8f000"/>
+        </svg>
+        <div class="service-name">Развал-схождение</div>
+        <ul class="service-list">
+          <li>Регулировка на стенде КДСО-2</li>
+          <li>Диагностика тормозной системы</li>
+          <li>Замена тормозной жидкости</li>
+        </ul>
+      </div>
+
+      <!-- Двигатель -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="12" fill="rgba(232,240,0,0.07)"/>
+          <rect x="14" y="18" width="24" height="16" rx="3" stroke="#e8f000" stroke-width="2"/>
+          <path d="M20 18V14M32 18V14M14 26H10M42 26H38" stroke="#e8f000" stroke-width="2" stroke-linecap="round"/>
+          <rect x="20" y="22" width="12" height="8" rx="1.5" stroke="#e8f000" stroke-width="1.5"/>
+        </svg>
+        <div class="service-name">Ремонт двигателей</div>
+        <ul class="service-list">
+          <li>Ремонт бензиновых двигателей</li>
+          <li>Установка контрактных двигателей</li>
+          <li>Замена цепей и ремней ГРМ</li>
+          <li>Замер компрессии</li>
+        </ul>
+      </div>
+
+      <!-- ТО -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="12" fill="rgba(232,240,0,0.07)"/>
+          <path d="M26 14v4M26 34v4M14 26h4M34 26h4" stroke="#e8f000" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="26" cy="26" r="8" stroke="#e8f000" stroke-width="2"/>
+          <path d="M22 26l3 3 5-5" stroke="#e8f000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="service-name">Регламентное ТО</div>
+        <ul class="service-list">
+          <li>Плановое ТО по рекомендациям завода</li>
+          <li>Замена масел в ДВС и дифференциалах</li>
+          <li>Аппаратная замена антифриза и жидкости АКПП</li>
+          <li>Замена фильтров</li>
+        </ul>
+      </div>
+
+      <!-- Кондиционер и топливо -->
+      <div class="service-card fade-up">
+        <svg class="service-icon" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="52" height="52" rx="12" fill="rgba(232,240,0,0.07)"/>
+          <path d="M16 20h20v12a4 4 0 01-4 4H20a4 4 0 01-4-4V20z" stroke="#e8f000" stroke-width="2"/>
+          <path d="M20 20V17a2 2 0 012-2h8a2 2 0 012 2v3" stroke="#e8f000" stroke-width="2"/>
+          <path d="M20 28h12M20 32h8" stroke="#e8f000" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M26 14v-4M22 12l2 2M30 12l-2 2" stroke="#e8f000" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="service-name">Кондиционеры и топливо</div>
+        <ul class="service-list">
+          <li>Инструментальный поиск утечки</li>
+          <li>Заправка автокондиционеров</li>
+          <li>Обслуживание топливной системы</li>
+          <li>Замер давления топлива</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- О НАС -->
+<section class="section section-dark clip-top" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <span class="section-tag">О компании</span>
+        <h2>Автокомплекс<br><span style="color:var(--c-accent)">«Правый Руль»</span><br>в Астрахани</h2>
+        <p>
+          С первого дня работы наш автосервис стремится оказывать услуги высокого качества, максимально удовлетворяя запросы клиентов и постоянно повышая стандарты обслуживания.
+        </p>
+        <p>
+          Сотрудники квалифицированы и проходят постоянное обучение — качество уровня дилерских центров без переплаты «за бренд». Среди наших клиентов значительную долю составляют послегарантийные автомобили.
+        </p>
+        <p>
+          В автокомплексе работает магазин автозапчастей и смазочных материалов с широким ассортиментом для японских, корейских, китайских, европейских и американских автомобилей.
+        </p>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num counter" data-target="15">0</div>
+            <div class="stat-label">лет в Астрахани</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num counter" data-target="20">0</div>
+            <div class="stat-label">видов услуг</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">7</div>
+            <div class="stat-label">дней в неделю</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">гарантия на работы</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual fade-up">
+        <div class="about-big-num">15</div>
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-num">01</div>
+            <div class="feature-text">
+              <strong>Магазин запчастей на месте</strong>
+              <span>Castrol, Total, Shell, Mobil, Toyota, Nissan, Honda и другие бренды в наличии</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">02</div>
+            <div class="feature-text">
+              <strong>Зона ожидания с видеонаблюдением</strong>
+              <span>Вы видите, как ремонтируют ваш автомобиль — никаких сюрпризов</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">03</div>
+            <div class="feature-text">
+              <strong>Бонусные карты для постоянных клиентов</strong>
+              <span>Экономьте на каждом обслуживании с накопительной системой скидок</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-num">04</div>
+            <div class="feature-text">
+              <strong>Стенд развал-схождения КДСО-2</strong>
+              <span>Профессиональное оборудование для точной регулировки углов колёс</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- МАСЛА И БРЕНДЫ -->
+<section class="brands-section section-alt clip-both">
+  <div class="container">
+    <div class="brands-title fade-up">Масла и расходники<br><span>мировых производителей</span></div>
+    <div class="brands-grid fade-up">
+      <span class="brand-pill">Castrol</span>
+      <span class="brand-pill">Total</span>
+      <span class="brand-pill">Shell</span>
+      <span class="brand-pill">Mobil</span>
+      <span class="brand-pill">Toyota</span>
+      <span class="brand-pill">Nissan</span>
+      <span class="brand-pill">Honda</span>
+      <span class="brand-pill">Liqui Moly</span>
+      <span class="brand-pill">Motul</span>
+      <span class="brand-pill">ZIC</span>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОМОКОД -->
+<section class="promo-section section-dark" id="promo">
+  <div class="promo-bg"></div>
+  <div class="promo-inner fade-up">
+    <span class="section-tag">Бонусы и акции</span>
+    <h2>Получите <span>скидку</span><br>прямо сейчас</h2>
+    <p>Сообщите промокод оператору при записи или при визите — и получите скидку на услуги автосервиса.</p>
+    <div class="promo-code-box">
+      <span class="promo-code-label">Ваш промокод:</span>
+      <span class="promo-code-val">ПРАВЫЙ</span>
+    </div>
+    <p class="promo-desc">Назовите код по телефону <a href="tel:78512669790" style="color:var(--c-accent);font-weight:700;">8 (8512) 66-97-90</a> при записи</p>
+  </div>
+</section>
+
+<!-- ЗАПИСЬ -->
+<section class="section section-mid" id="booking">
+  <div class="container">
+    <div class="booking-wrap">
+      <div class="booking-info fade-up">
+        <span class="section-tag">Запись на сервис</span>
+        <h2>Запишитесь<br>онлайн или<br><span style="color:var(--c-accent)">позвоните нам</span></h2>
+        <p>Запись на сервис по телефону <strong>66-97-90</strong>, заказ запчастей по номеру <strong>69-14-15</strong>. Менеджеры помогут подобрать запчасти 7 дней в неделю.</p>
+        <div class="contact-block">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8f000" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Телефон</div>
+              <div class="contact-val"><a href="tel:78512669790">8 (8512) 66-97-90</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8f000" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Адрес</div>
+              <div class="contact-val">г. Астрахань, ул. Славянская, 1Н</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8f000" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Часы работы</div>
+              <div class="contact-val">Пн–Пт: 8:00–19:00<br>Сб: 8:00–18:00 · Вс: 8:00–16:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="booking-form fade-up">
+        <div class="form-title">Онлайн-запись</div>
+        <form id="bookingForm" action="#" onsubmit="submitForm(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="fname">Ваше имя</label>
+              <input class="form-control" id="fname" type="text" placeholder="Александр" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fphone">Телефон</label>
+              <input class="form-control" id="fphone" type="tel" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <div class="form-group full">
+              <label class="form-label" for="fservice">Услуга</label>
+              <select class="form-control" id="fservice" required>
+                <option value="">— Выберите услугу —</option>
+                <option>Компьютерная диагностика</option>
+                <option>Ремонт ходовой части</option>
+                <option>Развал-схождение</option>
+                <option>Ремонт двигателя</option>
+                <option>Замена ремня/цепи ГРМ</option>
+                <option>Регламентное ТО</option>
+                <option>Заправка кондиционера</option>
+                <option>Ремонт электрооборудования</option>
+                <option>Обслуживание топливной системы</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fdate">Дата</label>
+              <input class="form-control" id="fdate" type="date" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ftime">Время</label>
+              <select class="form-control" id="ftime">
+                <option>8:00</option>
+                <option>9:00</option>
+                <option>10:00</option>
+                <option>11:00</option>
+                <option>12:00</option>
+                <option>13:00</option>
+                <option>14:00</option>
+                <option>15:00</option>
+                <option>16:00</option>
+                <option>17:00</option>
+                <option>18:00</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label class="form-label" for="fcar">Марка и модель авто</label>
+              <input class="form-control" id="fcar" type="text" placeholder="Toyota Camry, 2018">
+            </div>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Записаться на сервис</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="display:inline-flex;">
+          <svg class="logo-icon" viewBox="0 0 38 38" fill="none">
+            <circle cx="19" cy="19" r="18" stroke="#e8f000" stroke-width="1.5"/>
+            <circle cx="19" cy="19" r="10" stroke="#e8f000" stroke-width="1.5"/>
+            <circle cx="19" cy="19" r="3" fill="#e8f000"/>
+            <line x1="19" y1="1" x2="19" y2="9" stroke="#e8f000" stroke-width="1.5"/>
+            <line x1="19" y1="29" x2="19" y2="37" stroke="#e8f000" stroke-width="1.5"/>
+            <line x1="1" y1="19" x2="9" y2="19" stroke="#e8f000" stroke-width="1.5"/>
+            <line x1="29" y1="19" x2="37" y2="19" stroke="#e8f000" stroke-width="1.5"/>
+          </svg>
+          <div class="logo-text">ПРАВЫЙ<br><span>РУЛЬ</span></div>
+        </a>
+        <p>Автокомплекс «Правый руль» — профессиональный ремонт и обслуживание автомобилей в Астрахани. Магазин запчастей и смазочных материалов на месте.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Услуги</h4>
+        <ul>
+          <li><a href="#services">Диагностика</a></li>
+          <li><a href="#services">Ремонт ходовой</a></li>
+          <li><a href="#services">Ремонт двигателей</a></li>
+          <li><a href="#services">Развал-схождение</a></li>
+          <li><a href="#services">Регламентное ТО</a></li>
+          <li><a href="#services">Кондиционеры</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:78512669790">8 (8512) 66-97-90</a></li>
+          <li><a href="#">ул. Славянская, 1Н</a></li>
+          <li><a href="#">г. Астрахань</a></li>
+          <li><a href="#booking">Записаться онлайн</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2009–2025 <span>Автокомплекс «Правый Руль»</span>. Астрахань.</div>
+      <div class="footer-copy" style="text-align:right;">ул. Славянская, 1Н · Пн–Пт 8:00–19:00</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Шапка при скролле
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+}, { passive: true });
+
+// Бургер
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mob-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// Плавный скролл
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const el = document.querySelector(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Fade-up IntersectionObserver
+const fadeEls = document.querySelectorAll('.fade-up');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => observer.observe(el));
+
+// Счётчики
+const counters = document.querySelectorAll('.counter');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-target'));
+      const duration = 1400;
+      const step = Math.ceil(duration / target);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += 1;
+        el.textContent = current;
+        if (current >= target) {
+          el.textContent = target;
+          clearInterval(timer);
+        }
+      }, step);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// Форма
+function submitForm(e) {
+  e.preventDefault();
+  const name = document.getElementById('fname').value.trim();
+  const service = document.getElementById('fservice').value;
+  if (!name || !service) {
+    alert('Пожалуйста, заполните все обязательные поля.');
+    return;
+  }
+  alert('Спасибо, ' + name + '! Ваша заявка принята. Мы перезвоним вам для подтверждения записи.');
+  e.target.reset();
+}
+
+// Установка минимальной даты в форме
+const dateInput = document.getElementById('fdate');
+if (dateInput) {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  dateInput.min = `${yyyy}-${mm}-${dd}`;
+  dateInput.value = `${yyyy}-${mm}-${dd}`;
+}
+</script>
+</body>
+</html>
