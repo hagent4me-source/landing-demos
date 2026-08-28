@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volvo-Калуга — специализированный автосервис Volvo · ул. Ленина, 51</title>
+<meta name="description" content="Специализированный автосервис Volvo в Калуге: техобслуживание, ремонт АКПП, автоэлектрика. Более 20 лет, диагностическое оборудование Volvo. ул. Ленина, 51.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c1520; --bg2:#101d2c; --panel:#13233a; --panel2:#182c46;
+  --ink:#eef4fb; --muted:#93a7bd; --line:rgba(109,178,224,.18);
+  --steel:#6db2e0; --steel2:#a5cff0; --deep:#1d4f77;
+  --grad:linear-gradient(120deg,#6db2e0 0%,#3f7fb8 55%,#2b5d8c 100%);
+  --r:18px; --gap:clamp(14px,2.4vw,26px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,.disp{font-family:'Playfair Display',serif;font-weight:700;line-height:1.12;hyphens:none}
+h2{font-size:clamp(26px,4.4vw,44px);text-wrap:balance}
+h3{font-weight:800}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1150px,92%);margin:0 auto}
+section{position:relative;overflow:hidden}
+.tel{overflow-wrap:anywhere}
+
+header{position:fixed;inset:0 0 auto;z-index:60;transition:.35s;background:transparent}
+header.scrolled{background:rgba(12,21,32,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:74px}
+.logo{font-family:'Playfair Display';font-weight:700;font-size:20px;letter-spacing:.01em;white-space:nowrap}
+.logo b{color:var(--steel)}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-weight:600;font-size:14.5px}
+.nav-links a{opacity:.72;transition:.2s}
+.nav-links a:hover{opacity:1;color:var(--steel2)}
+.nav-tel{font-weight:800;font-size:14.5px;white-space:nowrap;padding:9px 15px;border:1px solid var(--line);border-radius:12px;transition:.25s}
+.nav-tel:hover{border-color:var(--steel);color:var(--steel2)}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger span{width:20px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:74px 0 auto;z-index:55;background:rgba(12,21,32,.97);backdrop-filter:blur(16px);padding:22px 5% 30px;border-bottom:1px solid var(--line)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:13px 0;font-size:17px;font-weight:700;border-bottom:1px solid rgba(255,255,255,.06)}
+
+.hero{min-height:100svh;display:flex;align-items:center;padding:122px 0 76px;
+  background:radial-gradient(56% 44% at 80% 20%,rgba(109,178,224,.16),transparent 62%),
+             radial-gradient(40% 36% at 10% 80%,rgba(29,79,119,.22),transparent 60%),
+             linear-gradient(180deg,#0c1520 0%,#0f1e30 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:var(--gap);align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:100px;border:1px solid var(--line);background:rgba(109,178,224,.07);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel2)}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--steel);box-shadow:0 0 12px var(--steel)}
+h1{font-size:clamp(36px,6.4vw,74px);margin:20px 0 16px}
+h1 em{font-style:italic;color:var(--steel2)}
+.hero-sub{font-size:clamp(15px,1.55vw,17.5px);color:var(--muted);max-width:33em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:13px;font-weight:800;font-size:15.5px;cursor:pointer;border:none;transition:.25s}
+.btn-primary{background:var(--grad);color:#071622;box-shadow:0 10px 32px rgba(109,178,224,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(109,178,224,.45)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--steel);color:var(--steel2)}
+.badge20{position:relative;background:linear-gradient(160deg,rgba(19,35,58,.92),rgba(16,29,44,.78));border:1px solid var(--line);border-radius:26px;padding:30px;backdrop-filter:blur(8px)}
+.badge20 .big{font-family:'Playfair Display';font-size:clamp(56px,7vw,92px);line-height:1;color:var(--steel2)}
+.badge20 .cap{color:var(--muted);margin-top:8px}
+.badge20 .rows{margin-top:20px;border-top:1px dashed rgba(255,255,255,.12)}
+.badge20 .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.12);font-size:14.5px}
+.badge20 .row:last-child{border-bottom:none}
+.badge20 .row .k{color:var(--muted)}
+.badge20 .row .v{font-weight:700;text-align:right}
+
+.svc{padding:clamp(60px,9vw,110px) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(26px,4vw,46px);flex-wrap:wrap}
+.sec-head p{color:var(--muted);max-width:27em}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:var(--gap)}
+.svc-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px 25px;transition:.3s;min-width:0}
+.svc-card:hover{transform:translateY(-6px);border-color:rgba(109,178,224,.5);box-shadow:0 18px 44px rgba(3,10,18,.6)}
+.svc-ico{width:52px;height:52px;border-radius:14px;background:rgba(109,178,224,.1);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc-ico svg{width:26px;height:26px;stroke:var(--steel);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{font-size:16.5px;margin-bottom:10px}
+.svc-card p{color:var(--muted);font-size:14px}
+.svc-card ul{list-style:none;margin-top:12px}
+.svc-card li{padding:6px 0 6px 20px;position:relative;color:var(--muted);font-size:14px;border-bottom:1px dashed rgba(255,255,255,.06)}
+.svc-card li:last-child{border-bottom:none}
+.svc-card li::before{content:"";position:absolute;left:0;top:13px;width:8px;height:8px;border-radius:2px;background:var(--steel)}
+
+.why{padding:clamp(56px,8vw,100px) 0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:var(--gap)}
+.why-item{padding:26px 22px;border-left:2px solid var(--steel)}
+.why-item .big{font-family:'Playfair Display';font-size:clamp(24px,3vw,34px);color:var(--steel2);margin-bottom:8px}
+.why-item p{color:var(--muted);font-size:14px}
+
+.book{padding:clamp(60px,8vw,100px) 0}
+.book-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(26px,4vw,54px);align-items:center}
+.form{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,36px)}
+.form label{display:block;font-size:13px;font-weight:700;color:var(--steel2);margin:15px 0 7px;letter-spacing:.04em}
+.form input,.form select,.form textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font:500 15px 'Manrope';outline:none;transition:.2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--steel)}
+.form .btn{width:100%;margin-top:20px}
+.form .fine{color:var(--muted);font-size:12px;text-align:center;margin-top:12px}
+
+.contacts{padding:clamp(48px,7vw,88px) 0 clamp(66px,9vw,108px)}
+.ct-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:var(--gap)}
+.ct-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:25px}
+.ct-card .lbl{color:var(--steel2);font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:11px}
+.ct-card .val{font-weight:700;font-size:16.5px}
+.ct-card .sub{color:var(--muted);font-size:13.5px;margin-top:8px}
+
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13.5px}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-grid,.book-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-tel{display:none}
+  .burger{display:flex}
+  h1{font-size:clamp(27px,8vw,40px)}
+  .hero{padding-top:104px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">VOLVO-<b>КАЛУГА</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#why">О сервисе</a>
+      <a href="#book">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-tel tel" href="tel:tel:+74842578408">+7 (4842) 57-84-08</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mmenu">
+  <a href="#services">Услуги</a>
+  <a href="#why">О сервисе</a>
+  <a href="#book">Запись</a>
+  <a href="#contacts">Контакты</a>
+  <a class="tel" href="tel:tel:+74842578408">+7 (4842) 57-84-08</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span> Специализированный сервис Volvo</span>
+      <h1>Ваш Volvo знает о&nbsp;нём всё <em>уже более 20&nbsp;лет</em></h1>
+      <p class="hero-sub">Автосервис «Volvo-Калуга» обслуживает автомобили Volvo на&nbsp;профессиональном уровне: диагностическое оборудование, специальные инструменты и&nbsp;специалисты, которые разбираются именно в&nbsp;вашей марке.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:tel:+74842578408">Записаться: +7 (4842) 57-84-08</a>
+        <a class="btn btn-ghost" href="#services">Услуги</a>
+      </div>
+    </div>
+    <aside class="badge20 reveal">
+      <div class="big">20+</div>
+      <div class="cap">лет работы — доверие клиентов Калуги, Калужской, Тульской и&nbsp;Брянской областей</div>
+      <div class="rows">
+        <div class="row"><span class="k">Марка</span><span class="v">Только Volvo</span></div>
+        <div class="row"><span class="k">Режим</span><span class="v">Пн–Пт, 9:00–19:00</span></div>
+        <div class="row"><span class="k">Адрес</span><span class="v">ул. Ленина, 51</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="svc" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Направления сервиса</h2>
+      <p>Профессиональное оборудование и&nbsp;специальные инструменты — то, чего нет у&nbsp;универсальных сервисов.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M14 6l4 4-9.5 9.5a2 2 0 0 1-1 .5L4 21l1-3.5a2 2 0 0 1 .5-1z"/><path d="M12.5 7.5l4 4"/><path d="M15 4l2-2 5 5-2 2z"/></svg></div>
+        <h3>Техобслуживание</h3>
+        <p>Список операций, предусмотренный производителем, — в&nbsp;зависимости от&nbsp;пробега.</p>
+        <ul>
+          <li>Регламентные работы Volvo</li>
+          <li>Раннее выявление неисправностей</li>
+          <li>Сохранность узлов и&nbsp;агрегатов</li>
+        </ul>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8 12h8M12 8v8" transform="rotate(45 12 12)"/></svg></div>
+        <h3>Ремонт АКПП</h3>
+        <p>Полный цикл работ с&nbsp;автоматической коробкой — от&nbsp;диагностики до&nbsp;восстановления.</p>
+        <ul>
+          <li>Диагностика АКПП</li>
+          <li>Полная переборка, снятие / установка</li>
+          <li>Замена масла спец-оборудованием</li>
+          <li>Восстановление после чужого ремонта</li>
+        </ul>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M13 2 5 13h5l-1 9 8-11h-5z"/></svg></div>
+        <h3>Автоэлектрика</h3>
+        <p>Электроника Volvo требует особых знаний — даже неквалифицированная замена лампы сбивает системы.</p>
+        <ul>
+          <li>Ремонт электроники любой сложности</li>
+          <li>Профессиональная диагностика</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Почему к&nbsp;нам едут из&nbsp;трёх областей</h2></div>
+    <div class="why-grid">
+      <div class="why-item reveal"><div class="big">20+ лет</div><p>Работаем больше двух десятков лет — клиенты из&nbsp;Калуги, Тульской и&nbsp;Брянской областей.</p></div>
+      <div class="why-item reveal"><div class="big">1 марка</div><p>Специализация только на&nbsp;Volvo — знание модели на&nbsp;уровне дилера, без&nbsp;его цен.</p></div>
+      <div class="why-item reveal"><div class="big">Оборудование</div><p>Диагностическое оборудование и&nbsp;специальные инструменты именно под&nbsp;Volvo.</p></div>
+      <div class="why-item reveal"><div class="big">Честный ответ</div><p>Разберёмся в&nbsp;проблеме и&nbsp;объясним, что и&nbsp;почему — до&nbsp;начала работ.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div class="reveal">
+      <h2>Записаться на&nbsp;диагностику</h2>
+      <p class="hero-sub">Позвоните — подскажем по&nbsp;любому вопросу по&nbsp;вашему Volvo, или&nbsp;оставьте заявку, и&nbsp;мы перезвоним в&nbsp;рабочее время.</p>
+    </div>
+    <form class="form reveal" id="bookform">
+      <label for="fn">Ваше имя</label>
+      <input id="fn" required placeholder="Иван">
+      <label for="fp">Телефон</label>
+      <input id="fp" required type="tel" placeholder="+7 ___ ___-__-__">
+      <label for="fm">Модель и&nbsp;год Volvo</label>
+      <input id="fm" placeholder="Например: XC90, 2016">
+      <label for="fs">Что беспокоит</label>
+      <textarea id="fs" rows="3" placeholder="Кратко опишите проблему"></textarea>
+      <button class="btn btn-primary" type="submit">Отправить заявку</button>
+      <p class="fine">Нажимая кнопку, вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных.</p>
+    </form>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Контакты</h2><p>Въезд со&nbsp;двора — удобно даже на&nbsp;низкой посадке.</p></div>
+    <div class="ct-grid">
+      <div class="ct-card reveal"><div class="lbl">Адрес</div><div class="val">г. Калуга, ул. Ленина, 51</div><div class="sub">въезд со&nbsp;двора</div></div>
+      <div class="ct-card reveal"><div class="lbl">Телефон</div><div class="val tel">+7 (4842) 57-84-08</div><div class="sub">запись и&nbsp;консультации</div></div>
+      <div class="ct-card reveal"><div class="lbl">E-mail</div><div class="val tel">volvo-kaluga@yandex.ru</div><div class="sub">вопросы по&nbsp;вашему Volvo</div></div>
+      <div class="ct-card reveal"><div class="lbl">Режим</div><div class="val">Пн–Пт 9:00–19:00</div><div class="sub">выходные: сб, вс</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2025 Volvo-Калуга — специализированный автосервис</span>
+    <span>г. Калуга, ул. Ленина, 51</span>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30),{passive:true});
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',()=>mmenu.classList.toggle('open'));
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('bookform').addEventListener('submit',e=>{
+  e.preventDefault();alert('Спасибо! Заявка принята — перезвоним в&nbsp;рабочее время.');e.target.reset();
+});
+</script>
+</body>
+</html>

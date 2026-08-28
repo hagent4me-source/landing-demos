@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СпецАвтоТранс — грузовой автосервис в&nbsp;Калуге · Параллельная, 1</title>
+<meta name="description" content="ООО «СпецАвтоТранс» — грузовой автосервис в Калуге. Ремонт и обслуживание грузового транспорта. ул. Параллельная, 1. Тел: +7 (919) 033-78-08.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121212; --bg2:#171717; --panel:#1c1c1c; --panel2:#232323;
+  --ink:#f5f5f2; --muted:#a3a39b; --line:rgba(245,197,24,.2);
+  --amber:#f5c518; --amber2:#ffde5c; --dark:#8a6f00;
+  --grad:linear-gradient(115deg,#f5c518 0%,#e0a800 60%,#b38600 100%);
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,.disp{font-family:'Russo One',sans-serif;font-weight:400;line-height:1.12;hyphens:none}
+h2{font-size:clamp(26px,4.6vw,46px);text-wrap:balance}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,92%);margin:0 auto}
+section{position:relative;overflow:hidden}
+.tel{overflow-wrap:anywhere}
+
+header{position:fixed;inset:0 0 auto;z-index:60;transition:.35s;background:transparent}
+header.scrolled{background:rgba(18,18,18,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:72px}
+.logo{font-family:'Russo One';font-size:17.5px;white-space:nowrap}
+.logo b{color:var(--amber)}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-weight:600;font-size:14.5px}
+.nav-links a{opacity:.7;transition:.2s}
+.nav-links a:hover{opacity:1;color:var(--amber2)}
+.nav-tel{font-weight:800;font-size:14.5px;white-space:nowrap;padding:9px 15px;border:1px solid var(--line);border-radius:11px;transition:.25s}
+.nav-tel:hover{border-color:var(--amber);color:var(--amber2)}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--line);border-radius:11px;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger span{width:20px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:72px 0 auto;z-index:55;background:rgba(18,18,18,.97);backdrop-filter:blur(16px);padding:20px 5% 28px;border-bottom:1px solid var(--line)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:13px 0;font-size:17px;font-weight:700;border-bottom:1px solid rgba(255,255,255,.06)}
+
+.hero{min-height:92svh;display:flex;align-items:center;padding:116px 0 70px;
+  background:radial-gradient(55% 45% at 78% 24%,rgba(245,197,24,.1),transparent 60%),
+             linear-gradient(180deg,#121212 0%,#181610 100%)}
+.hero::before{content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(-45deg,transparent 0 26px,rgba(245,197,24,.05) 26px 27px);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,3.5vw,44px);align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:8px;background:var(--amber);color:#141205;font-family:'Russo One';font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:clamp(34px,6vw,68px);margin:22px 0 16px}
+h1 .amber{color:var(--amber);display:block}
+.hero-sub{font-size:clamp(15px,1.5vw,17.5px);color:var(--muted);max-width:32em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:12px;font-weight:800;font-size:15.5px;cursor:pointer;border:none;transition:.25s}
+.btn-primary{background:var(--grad);color:#141205;box-shadow:0 10px 30px rgba(245,197,24,.25)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(245,197,24,.4)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber2)}
+
+.fact{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:30px}
+.fact .row{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px dashed rgba(255,255,255,.1);font-size:14.5px;flex-wrap:wrap}
+.fact .row:last-child{border-bottom:none}
+.fact .k{color:var(--muted)}
+.fact .v{font-weight:700;text-align:right}
+.fact .v.org{font-family:'Russo One';color:var(--amber2);font-size:16px}
+
+.stripe{background:var(--amber);color:#141205;padding:13px 0;transform:rotate(-1deg);margin:6px -20px}
+.stripe-inner{display:flex;gap:40px;white-space:nowrap;font-family:'Russo One';font-size:15px;animation:slide 24s linear infinite;width:max-content}
+@keyframes slide{to{transform:translateX(-50%)}}
+.stripe span{display:flex;align-items:center;gap:40px}
+.stripe i{font-style:normal;font-size:11px}
+
+.lean{padding:clamp(56px,8vw,96px) 0}
+.lean-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(26px,4vw,52px);align-items:start}
+.form{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,34px)}
+.form label{display:block;font-size:13px;font-weight:700;color:var(--amber2);margin:15px 0 7px;letter-spacing:.04em}
+.form input,.form textarea{width:100%;padding:14px 16px;border-radius:11px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font:500 15px 'Inter Tight';outline:none;transition:.2s}
+.form input:focus,.form textarea:focus{border-color:var(--amber)}
+.form .btn{width:100%;margin-top:20px}
+.form .fine{color:var(--muted);font-size:12px;text-align:center;margin-top:12px}
+.lean h2{margin-bottom:16px}
+.lean p{color:var(--muted);max-width:30em}
+
+.contacts{padding:clamp(48px,7vw,86px) 0 clamp(66px,9vw,104px)}
+.ct-head{margin-bottom:24px}
+.ct-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:var(--gap)}
+.ct-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:25px}
+.ct-card .lbl{color:var(--amber2);font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:11px}
+.ct-card .val{font-weight:700;font-size:16.5px}
+.ct-card .sub{color:var(--muted);font-size:13.5px;margin-top:8px}
+
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13.5px}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-grid,.lean-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-tel{display:none}
+  .burger{display:flex}
+  h1{font-size:clamp(28px,8.4vw,40px)}
+  .hero{padding-top:100px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">СПЕЦ<b>АВТО</b>ТРАНС</a>
+    <nav class="nav-links">
+      <a href="#book">Запрос стоимости</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-tel tel" href="tel:tel:+79190337808">+7 (919) 033-78-08</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mmenu">
+  <a href="#book">Запрос стоимости</a>
+  <a href="#contacts">Контакты</a>
+  <a class="tel" href="tel:tel:+79190337808">+7 (919) 033-78-08</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">ООО «СпецАвтоТранс» · Калуга</span>
+      <h1>Грузовой автосервис <span class="amber">для тех, кто&nbsp;везёт</span></h1>
+      <p class="hero-sub">Ремонт и&nbsp;обслуживание грузового транспорта в&nbsp;Калуге. Ваша машина должна работать — наша работа, чтобы так&nbsp;и&nbsp;было.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#book">Запросить стоимость</a>
+        <a class="btn btn-ghost tel" href="tel:tel:+79190337808">+7 (919) 033-78-08</a>
+      </div>
+    </div>
+    <aside class="fact reveal">
+      <div class="row"><span class="k">Организация</span><span class="v org">ООО «СпецАвтоТранс»</span></div>
+      <div class="row"><span class="k">Специализация</span><span class="v">Грузовой автосервис</span></div>
+      <div class="row"><span class="k">Город</span><span class="v">Калуга</span></div>
+      <div class="row"><span class="k">Адрес</span><span class="v">ул. Параллельная, 1</span></div>
+      <div class="row"><span class="k">Телефон</span><span class="v tel">+7 (919) 033-78-08</span></div>
+      <div class="row"><span class="k">E-mail</span><span class="v tel">sat-40@mail.ru</span></div>
+    </aside>
+  </div>
+</section>
+
+<div class="stripe" aria-hidden="true">
+  <div class="stripe-inner">
+    <span>Грузовой автосервис <i>◆</i> Калуга <i>◆</i> Параллельная, 1 <i>◆</i> СпецАвтоТранс <i>◆</i> </span>
+    <span>Грузовой автосервис <i>◆</i> Калуга <i>◆</i> Параллельная, 1 <i>◆</i> СпецАвтоТранс <i>◆</i> </span>
+  </div>
+</div>
+
+<section class="lean" id="book">
+  <div class="wrap lean-grid">
+    <div class="reveal">
+      <h2>Запрос стоимости ремонта</h2>
+      <p>Опишите задачу — по&nbsp;телефону или&nbsp;e-mail согласуем детали и&nbsp;цены. Работаем с&nbsp;юридическими лицами и&nbsp;перевозчиками.</p>
+      <div class="hero-cta">
+        <a class="btn btn-ghost tel" href="mailto:sat-40@mail.ru">Написать: sat-40@mail.ru</a>
+      </div>
+    </div>
+    <form class="form reveal" id="bookform">
+      <label for="fn">Имя или&nbsp;организация</label>
+      <input id="fn" required placeholder="ИП Иванов / ООО «Карго»">
+      <label for="fp">Телефон</label>
+      <input id="fp" required type="tel" placeholder="+7 ___ ___-__-__">
+      <label for="ft">Транспорт</label>
+      <input id="ft" placeholder="Марка, модель, год">
+      <label for="fd">Что требуется</label>
+      <textarea id="fd" rows="4" placeholder="Опишите неисправность или нужную работу"></textarea>
+      <button class="btn btn-primary" type="submit">Отправить запрос</button>
+      <p class="fine">Нажимая кнопку, вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных.</p>
+    </form>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <h2 class="ct-head">Контакты</h2>
+    <div class="ct-grid">
+      <div class="ct-card reveal"><div class="lbl">Адрес</div><div class="val">Калуга, ул. Параллельная, 1</div><div class="sub">грузовой автосервис</div></div>
+      <div class="ct-card reveal"><div class="lbl">Телефон</div><div class="val tel">+7 (919) 033-78-08</div><div class="sub">звонок — самый быстрый путь</div></div>
+      <div class="ct-card reveal"><div class="lbl">E-mail</div><div class="val tel">sat-40@mail.ru</div><div class="sub">запросы и&nbsp;документы</div></div>
+      <div class="ct-card reveal"><div class="lbl">Организация</div><div class="val">ООО «СпецАвтоТранс»</div><div class="sub">работаем с&nbsp;юрлицами</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© ООО «СпецАвтоТранс» — грузовой автосервис, Калуга</span>
+    <span>ул. Параллельная, 1 · sat-40@mail.ru</span>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30),{passive:true});
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',()=>mmenu.classList.toggle('open'));
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('bookform').addEventListener('submit',e=>{
+  e.preventDefault();alert('Спасибо! Запрос принят — свяжемся с&nbsp;вами по&nbsp;указанному телефону.');e.target.reset();
+});
+</script>
+</body>
+</html>

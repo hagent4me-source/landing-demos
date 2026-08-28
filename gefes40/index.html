@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Гефес — грузовой автосервис в&nbsp;Калуге · ул. Светлая, 32 · без&nbsp;выходных</title>
+<meta name="description" content="Грузовое СТО «Гефес» в Калуге: ремонт коммерческого транспорта, выездная диагностика, кузовной, сварочные работы, запчасти. 9:00–21:00 без выходных. ул. Светлая, 32.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter+Tight:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#141810; --bg2:#181d13; --panel:#1c2216; --panel2:#232b1a;
+  --ink:#f3f5ec; --muted:#a8b296; --line:rgba(232,150,61,.2);
+  --amber:#e8963d; --amber2:#f5b871; --sand:#c8d89a;
+  --grad:linear-gradient(115deg,#e8963d 0%,#d97e2b 55%,#a85e18 100%);
+  --r:18px; --gap:clamp(14px,2.4vw,26px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,.disp{font-family:'Unbounded',sans-serif;font-weight:800;line-height:1.1;hyphens:none}
+h2{font-size:clamp(25px,4.4vw,44px);text-wrap:balance}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1150px,92%);margin:0 auto}
+section{position:relative;overflow:hidden}
+.tel{overflow-wrap:anywhere}
+
+header{position:fixed;inset:0 0 auto;z-index:60;transition:.35s;background:transparent}
+header.scrolled{background:rgba(20,24,16,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:74px}
+.logo{font-family:'Unbounded';font-weight:800;font-size:18px;white-space:nowrap}
+.logo b{color:var(--amber)}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:14.5px}
+.nav-links a{opacity:.72;transition:.2s}
+.nav-links a:hover{opacity:1;color:var(--amber2)}
+.nav-tel{font-weight:800;font-size:14.5px;white-space:nowrap;padding:9px 15px;border:1px solid var(--line);border-radius:12px;transition:.25s}
+.nav-tel:hover{border-color:var(--amber);color:var(--amber2)}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger span{width:20px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:74px 0 auto;z-index:55;background:rgba(20,24,16,.97);backdrop-filter:blur(16px);padding:22px 5% 30px;border-bottom:1px solid var(--line)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:13px 0;font-size:17px;font-weight:700;border-bottom:1px solid rgba(255,255,255,.06)}
+
+.hero{min-height:100svh;display:flex;align-items:center;padding:122px 0 76px;
+  background:radial-gradient(56% 44% at 80% 22%,rgba(232,150,61,.13),transparent 60%),
+             radial-gradient(40% 36% at 10% 80%,rgba(200,216,154,.07),transparent 60%),
+             linear-gradient(180deg,#141810 0%,#1a2013 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:var(--gap);align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:100px;border:1px solid var(--line);background:rgba(232,150,61,.08);font-weight:800;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber2)}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 12px var(--amber);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1{font-size:clamp(34px,6.2vw,70px);margin:20px 0 16px}
+h1 .amber{color:var(--amber)}
+.hero-sub{font-size:clamp(15px,1.55vw,17.5px);color:var(--muted);max-width:33em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:13px;font-weight:800;font-size:15.5px;cursor:pointer;border:none;transition:.25s}
+.btn-primary{background:var(--grad);color:#1d1205;box-shadow:0 10px 32px rgba(232,150,61,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(232,150,61,.45)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber2)}
+.hours{position:relative;background:linear-gradient(160deg,rgba(28,34,22,.94),rgba(24,29,19,.8));border:1px solid var(--line);border-radius:24px;padding:28px;backdrop-filter:blur(8px)}
+.hours h3{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber2);font-weight:600;margin-bottom:18px;font-family:'Inter Tight'}
+.hours .big{font-family:'Unbounded';font-size:clamp(30px,4vw,44px);line-height:1.1;color:var(--sand)}
+.hours .cap{color:var(--muted);margin-top:6px;font-size:14px}
+.hours .rows{margin-top:18px;border-top:1px dashed rgba(255,255,255,.12)}
+.hours .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.12);font-size:14px}
+.hours .row:last-child{border-bottom:none}
+.hours .k{color:var(--muted)}
+.hours .v{font-weight:700;text-align:right}
+
+.marq{background:var(--amber);color:#1d1205;padding:13px 0;transform:rotate(1deg);margin:8px -20px}
+.marq-inner{display:flex;gap:42px;white-space:nowrap;font-family:'Unbounded';font-weight:600;font-size:14px;animation:slide 26s linear infinite;width:max-content}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marq span{display:flex;align-items:center;gap:42px}
+.marq i{font-style:normal;font-size:11px}
+
+.svc{padding:clamp(60px,9vw,108px) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(26px,4vw,46px);flex-wrap:wrap}
+.sec-head p{color:var(--muted);max-width:27em}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:var(--gap)}
+.svc-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;transition:.3s;min-width:0}
+.svc-card:hover{transform:translateY(-6px);border-color:rgba(232,150,61,.5);box-shadow:0 18px 44px rgba(5,8,3,.6)}
+.svc-ico{width:50px;height:50px;border-radius:13px;background:rgba(232,150,61,.1);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.svc-ico svg{width:25px;height:25px;stroke:var(--amber);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{font-size:15.5px;margin-bottom:9px}
+.svc-card p{color:var(--muted);font-size:14px}
+
+.season{padding:clamp(50px,7vw,88px) 0}
+.season-box{border-radius:26px;padding:clamp(28px,4.5vw,54px);background:linear-gradient(115deg,#1c2216 0%,#2b3013 55%,#4a3c10 100%);border:1px solid rgba(232,150,61,.35)}
+.season-tag{display:inline-block;padding:7px 16px;border-radius:100px;background:rgba(232,150,61,.13);border:1px solid var(--line);color:var(--amber2);font-weight:800;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:15px}
+.season h2{font-size:clamp(21px,3.2vw,36px);max-width:18em}
+.season p{color:var(--muted);margin-top:12px;max-width:36em}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:22px}
+.check{padding:13px 16px;border:1px dashed var(--line);border-radius:12px;font-weight:700;font-size:14.5px;color:var(--sand);background:rgba(0,0,0,.2)}
+
+.book{padding:clamp(56px,8vw,96px) 0}
+.book-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(26px,4vw,54px);align-items:center}
+.form{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,36px)}
+.tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:6px}
+.tab{padding:12px;border-radius:11px;border:1px solid var(--line);background:none;color:var(--muted);font:700 14px 'Inter Tight';cursor:pointer;transition:.2s}
+.tab.on{background:var(--grad);color:#1d1205;border-color:transparent}
+.form label{display:block;font-size:13px;font-weight:700;color:var(--amber2);margin:15px 0 7px;letter-spacing:.04em}
+.form input,.form textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font:500 15px 'Inter Tight';outline:none;transition:.2s}
+.form input:focus,.form textarea:focus{border-color:var(--amber)}
+.form .btn{width:100%;margin-top:20px}
+.form .fine{color:var(--muted);font-size:12px;text-align:center;margin-top:12px}
+
+.contacts{padding:clamp(48px,7vw,86px) 0 clamp(66px,9vw,104px)}
+.ct-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:var(--gap)}
+.ct-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:25px}
+.ct-card .lbl{color:var(--amber2);font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:11px}
+.ct-card .val{font-weight:700;font-size:16.5px}
+.ct-card .sub{color:var(--muted);font-size:13.5px;margin-top:8px}
+
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13.5px}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-grid,.book-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-tel{display:none}
+  .burger{display:flex}
+  h1{font-size:clamp(26px,7.8vw,38px)}
+  .hero{padding-top:104px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">ГЕ<b>ФЕС</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#season">Проверка</a>
+      <a href="#book">Запрос цены</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-tel tel" href="tel:tel:+79005750305">+7 (900) 575-03-05</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mmenu">
+  <a href="#services">Услуги</a>
+  <a href="#season">Проверка</a>
+  <a href="#book">Запрос цены</a>
+  <a href="#contacts">Контакты</a>
+  <a class="tel" href="tel:tel:+79005750305">+7 (900) 575-03-05</a>
+  <a class="tel" href="tel:tel:+79533360693">+7 (953) 336-06-93</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><span class="dot"></span> Работаем с&nbsp;9 до&nbsp;21 · без&nbsp;выходных</span>
+      <h1>Грузовое СТО <span class="amber">Гефес</span> — Калуга, Светлая&nbsp;32</h1>
+      <p class="hero-sub">Ремонт и&nbsp;обслуживание коммерческого транспорта: от&nbsp;выездной диагностики и&nbsp;сварочных работ до&nbsp;кузовного ремонта и&nbsp;подбора запчастей. Пока вы&nbsp;готовите рейс — мы&nbsp;готовим машину.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#book">Запросить стоимость</a>
+        <a class="btn btn-ghost tel" href="tel:tel:+79533360693">+7 (953) 336-06-93</a>
+      </div>
+    </div>
+    <aside class="hours reveal">
+      <h3>Режим работы</h3>
+      <div class="big">9:00–21:00</div>
+      <div class="cap">каждый день, без&nbsp;выходных — удобно под&nbsp;график рейсов</div>
+      <div class="rows">
+        <div class="row"><span class="k">Ремонт и&nbsp;обслуживание</span><span class="v tel">gefes.rem@mail.ru</span></div>
+        <div class="row"><span class="k">Заказ запчастей</span><span class="v tel">gefes.zap@mail.ru</span></div>
+        <div class="row"><span class="k">Телефоны</span><span class="v tel">+7 (900) 575-03-05</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="marq-inner">
+    <span>Выездная диагностика <i>◆</i> Кузовной ремонт <i>◆</i> Сварочные работы <i>◆</i> Грузовой эвакуатор <i>◆</i> Запчасти <i>◆</i> </span>
+    <span>Выездная диагностика <i>◆</i> Кузовной ремонт <i>◆</i> Сварочные работы <i>◆</i> Грузовой эвакуатор <i>◆</i> Запчасти <i>◆</i> </span>
+  </div>
+</div>
+
+<section class="svc" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Что делаем</h2>
+      <p>Полный цикл для&nbsp;грузового транспорта и&nbsp;коммерческой техники — от&nbsp;одной детали до&nbsp;подготовки к&nbsp;рейсу.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M2 17h20M4 17V7h10v10M14 10h4l3 4v3h-2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+        <h3>Ремонт коммерческого транспорта</h3>
+        <p>Ремонт и&nbsp;обслуживание грузовиков и&nbsp;тягачей — уверенность в&nbsp;каждом узле и&nbsp;агрегате.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/><path d="M8.5 11l2 2 3.5-3.5"/></svg></div>
+        <h3>Выездная диагностика</h3>
+        <p>Машина не&nbsp;едет? Приедем к&nbsp;вам — диагностика на&nbsp;месте, чтобы не&nbsp;терять день.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 15l3-6h12l3 6"/><path d="M5 15h14v4H5z"/><path d="M7 15l1.5-3h7L17 15"/></svg></div>
+        <h3>Кузовной ремонт</h3>
+        <p>Кузовные работы для&nbsp;грузового транспорта — вернуть форму и&nbsp;защиту.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 20L20 4"/><path d="M14 4h6v6"/><path d="M10 20H4v-6"/></svg></div>
+        <h3>Сварочные работы</h3>
+        <p>Сварка любой сложности — рама, кузов, навесное оборудование.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 14h18v4H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M5 14l2-4h6l3 4"/></svg></div>
+        <h3>Грузовой эвакуатор</h3>
+        <p>Доставка техники в&nbsp;сервис — без&nbsp;лишних перегрузок и&nbsp; рисков.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Запчасти</h3>
+        <p>Подбор и&nbsp;заказ запчастей под&nbsp;вашу задачу — пишите на&nbsp;gefes.zap@mail.ru.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="season" id="season">
+  <div class="wrap">
+    <div class="season-box reveal">
+      <span class="season-tag">Сезонное предложение</span>
+      <h2>Проверка перед&nbsp;длинным рейсом</h2>
+      <p>Длительные рейсы и&nbsp;повышенные нагрузки требуют уверенности в&nbsp;каждом узле. Загляните к&nbsp;нам перед&nbsp;рейсом — мелкая неисправность в&nbsp;дороге оборачивается серьёзными затратами.</p>
+      <div class="checks">
+        <div class="check">Уровень масла</div>
+        <div class="check">Охлаждающая жидкость</div>
+        <div class="check">Аккумуляторы</div>
+        <div class="check">Тормозные колодки</div>
+        <div class="check">Световые приборы</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div class="reveal">
+      <h2>Запрос стоимости</h2>
+      <p class="hero-sub">Выберите вкладку, опишите задачу — ответим с&nbsp;ценой и&nbsp;сроками. Телефоны наверху, если нужно срочно.</p>
+    </div>
+    <form class="form reveal" id="bookform">
+      <div class="tabs">
+        <button type="button" class="tab on" data-t="rem">Стоимость ремонта</button>
+        <button type="button" class="tab" data-t="zap">Стоимость запчасти</button>
+      </div>
+      <label for="fn">Имя</label>
+      <input id="fn" required placeholder="Иван">
+      <label for="fp">Телефон</label>
+      <input id="fp" required type="tel" placeholder="+7 ___ ___-__-__">
+      <label for="ft">Транспорт</label>
+      <input id="ft" placeholder="Марка, модель, год">
+      <label for="fd">Что требуется</label>
+      <textarea id="fd" rows="4" placeholder="Опишите неисправность / нужную запчасть"></textarea>
+      <button class="btn btn-primary" type="submit">Отправить запрос</button>
+      <p class="fine">Нажимая кнопку, вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных.</p>
+    </form>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Контакты</h2><p>Два телефона и&nbsp;два ящика — ремонт и&nbsp;запчасти раздельно, быстрее отвечает нужный.</p></div>
+    <div class="ct-grid">
+      <div class="ct-card reveal"><div class="lbl">Адрес</div><div class="val">Калуга, ул. Светлая, 32</div><div class="sub">схема проезда — по&nbsp;звонку подскажем</div></div>
+      <div class="ct-card reveal"><div class="lbl">Телефоны</div><div class="val tel">+7 (900) 575-03-05</div><div class="val tel">+7 (953) 336-06-93</div></div>
+      <div class="ct-card reveal"><div class="lbl">Ремонт / обслуживание</div><div class="val tel">gefes.rem@mail.ru</div><div class="sub">заявки по&nbsp;работам</div></div>
+      <div class="ct-card reveal"><div class="lbl">Запчасти</div><div class="val tel">gefes.zap@mail.ru</div><div class="sub">подбор и&nbsp;заказ</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© Грузовое СТО «Гефес» — Калуга</span>
+    <span>ул. Светлая, 32 · 9:00–21:00 без&nbsp;выходных</span>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30),{passive:true});
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',()=>mmenu.classList.toggle('open'));
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');
+}));
+document.getElementById('bookform').addEventListener('submit',e=>{
+  e.preventDefault();alert('Спасибо! Запрос принят — ответим с&nbsp;ценой и&nbsp;сроками.');e.target.reset();
+});
+</script>
+</body>
+</html>
