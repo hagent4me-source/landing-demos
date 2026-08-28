@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUTO стиль — Ярославль · тонировка, автосервис, детейлинг</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --coal:#14121a;
+  --coal2:#1e1b28;
+  --violet:#8b5cf6;
+  --violet2:#a78bfa;
+  --lilac:#efeafe;
+  --muted:#9d95b5;
+  --line:rgba(239,234,254,.12);
+  --dark:#0d0b12;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',sans-serif;background:var(--dark);color:var(--lilac);line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo{font-family:'Russo One',sans-serif}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18;font-weight:400}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:8px;border:1px solid rgba(139,92,246,.45);background:rgba(139,92,246,.12);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--violet2)}
+header{position:sticky;top:0;z-index:50;background:rgba(13,11,18,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:18px;font-weight:400;color:#fff;text-decoration:none}
+.logo b{color:var(--violet2)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:10px;font-size:14px;font-weight:400;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;font-family:'Russo One',sans-serif}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--violet),var(--violet2));color:#fff;box-shadow:0 8px 30px rgba(139,92,246,.35)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--violet2);color:var(--violet2)}
+.hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(139,92,246,.2),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(30,27,40,.9),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,52px);line-height:1.12;font-weight:400;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--violet2)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;color:var(--lilac)}
+.chip b{color:var(--violet2)}
+.tint-visual{position:relative;display:flex;justify-content:center}
+.tint-layers{display:flex;flex-direction:column;gap:14px;width:min(300px,68vw)}
+.tint-row{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;padding:16px 20px;background:linear-gradient(90deg,var(--coal2),var(--coal))}
+.tint-swatch{width:46px;height:30px;border-radius:8px;flex-shrink:0;border:1px solid var(--line)}
+.tint-row:nth-child(1) .tint-swatch{background:linear-gradient(120deg,#dfe6f2,#b9c6dc)}
+.tint-row:nth-child(2) .tint-swatch{background:linear-gradient(120deg,#7d7f9b,#4c4e66)}
+.tint-row:nth-child(3) .tint-swatch{background:linear-gradient(120deg,#23222e,#0e0d14)}
+.tint-row b{font-size:14px;color:#fff}
+.tint-row span{font-size:12px;color:var(--muted);display:block}
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--coal2),var(--coal));border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.5)}
+.card-ico{width:48px;height:48px;border-radius:11px;background:rgba(139,92,246,.16);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--violet2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:13.5px;color:var(--muted)}
+.card .tag{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:var(--violet2)}
+.why{background:linear-gradient(180deg,transparent,rgba(139,92,246,.07),transparent)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.why-item{border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Russo One';font-size:clamp(18px,2.6vw,24px);color:var(--violet2);font-weight:400;margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted)}
+.form-sec{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(139,92,246,.16),transparent),var(--coal)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:14px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:14px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border-radius:11px;border:1px solid var(--line);background:rgba(13,11,18,.7);color:#fff;font-family:'Inter Tight';font-size:14px;outline:none;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--violet)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center}
+.hint a{color:var(--violet2)}
+.contact-card p a{color:var(--violet2);text-decoration:none}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:16px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card .card-ico{margin-bottom:14px}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--violet2);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--violet2);text-decoration:none}
+@media(max-width:860px){
+  .hero{padding:64px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .form-grid{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">AUTO<b>СТИЛЬ</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#tint">Тонировка</a>
+      <a href="#order">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" href="tel:+74852954606">8 485 295-46-06</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Ярославль · AUTO стиль</span>
+      <h1>Тонировка и&nbsp;автосервис — <em>стиль начинается здесь</em></h1>
+      <p class="hero-sub">Профессиональная тонировка стёкол, обслуживание и&nbsp;детейлинг: приводим автомобиль в&nbsp;вид, который приятно показывать.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order">Рассчитать тонировку</a>
+        <a class="btn btn-ghost" href="#services">Все услуги</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">📍 Ленинградский пр., 33А</span>
+        <span class="chip">📞 <b>8 485 295-46-06</b></span>
+      </div>
+    </div>
+    <div class="tint-visual">
+      <div class="tint-layers">
+        <div class="tint-row"><span class="tint-swatch"></span><span><b>Без тонировки</b><span>заводское стекло</span></span></div>
+        <div class="tint-row"><span class="tint-swatch"></span><span><b>Плёнка 35%</b><span>мягкое затемнение</span></span></div>
+        <div class="tint-row"><span class="tint-swatch"></span><span><b>Плёнка 15%</b><span>максимальная приватность</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tint">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Тонировка</span>
+      <h2>Затемнение по&nbsp;вашему вкусу</h2>
+      <p>Качественные плёнки, аккуратная поклейка без&nbsp;пузырей и&nbsp;мусора под&nbsp;плёнкой.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <h3>Тонировка стёкол</h3>
+        <p>Любая степень затемнения — от&nbsp;лёгкой дымки до&nbsp;максимальной приватности.</p>
+        <span class="tag">без пузырей</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
+        <h3>Атермальная плёнка</h3>
+        <p>Защита от&nbsp;жары и&nbsp;выгорания салона — комфорт летом круглый год.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 17l2-5 1.5-3h9L18 12l2 5M4 17h16"/></svg></div>
+        <h3>Обслуживание авто</h3>
+        <p>Регламентные работы и&nbsp;мелкий ремонт — в&nbsp;одном центре с&nbsp;детейлингом.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/></svg></div>
+        <h3>Защитные плёнки</h3>
+        <p>Бронирование кузова и&nbsp;фар — защита от&nbsp;сколов и&nbsp;песка на&nbsp;трассе.</p>
+        <span class="tag">детейлинг</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему AUTO стиль</span>
+      <h2>Результат, который видно</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>Чисто</b><span>поклейка в&nbsp;чистой зоне, без&nbsp;пыли под&nbsp;плёнкой</span></div>
+      <div class="why-item"><b>Точно</b><span>раскрой плёнки под&nbsp;геометрию вашего авто</span></div>
+      <div class="why-item"><b>В срок</b><span>тонировка полного цикла — за&nbsp;один день</span></div>
+      <div class="why-item"><b>Комплекс</b><span>тонировка + сервис + детейлинг в&nbsp;одном месте</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="form-sec">
+      <div class="form-grid">
+        <div>
+          <span class="kicker">Запись</span>
+          <h2>Рассчитаем тонировку</h2>
+          <p class="hero-sub">Оставьте контакты — перезвоним, подскажем плёнку и&nbsp;цену под&nbsp;вашу модель.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="service">
+            <option>Тонировка стёкол</option>
+            <option>Атермальная плёнка</option>
+            <option>Защитные плёнки / детейлинг</option>
+            <option>Обслуживание авто</option>
+          </select>
+          <textarea name="note" placeholder="Марка и&nbsp;модель авто, пожелания по&nbsp;затемнению"></textarea>
+          <button class="btn btn-primary" type="submit">Отправить заявку</button>
+          <span class="hint">или звоните: <a href="tel:+74852954606">8 485 295-46-06</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <b>Адрес</b>
+        <p>Ярославль, Ленинградский пр., 33А</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <b>Телефон</b>
+        <a href="tel:+74852954606">8 485 295-46-06</a>
+        <p><a class="l" href="mailto:bereza2016@mail.ru">bereza2016@mail.ru</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <b>Режим работы</b>
+        <p>Ежедневно · запись по&nbsp;почте</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/></svg></div>
+        <b>Гарантия на&nbsp;работы</b>
+        <p>плёнка и&nbsp;поклейка — с&nbsp;гарантией</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>AUTO стиль · Ярославль</span>
+    <span>© 2026 · <a href="#top">наверх ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.form').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const b=f.querySelector('.btn');
+    b.textContent='✓ Заявка принята — перезвоним!';
+    b.style.background='linear-gradient(135deg,#22c55e,#4ade80)';
+  });
+});
+</script>
+</body>
+</html>

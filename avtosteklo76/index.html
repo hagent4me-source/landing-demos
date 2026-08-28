@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автостекло сервис — Ярославль · лобовые, боковые и задние стёкла с установкой</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sapphire:#0a1e3a;
+  --sapphire2:#122c52;
+  --glass:#5ec8f2;
+  --glass2:#8fdcf9;
+  --ice:#eaf6fc;
+  --muted:#8fb0cc;
+  --line:rgba(234,246,252,.14);
+  --dark:#061225;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--dark);color:var(--ice);line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo{font-family:'Unbounded',sans-serif}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18;font-weight:800}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:100px;border:1px solid rgba(94,200,242,.4);background:rgba(94,200,242,.1);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--glass2)}
+header{position:sticky;top:0;z-index:50;background:rgba(6,18,37,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:17px;font-weight:800;color:#fff;text-decoration:none}
+.logo b{color:var(--glass)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:14px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--glass),var(--glass2));color:#062135;box-shadow:0 8px 30px rgba(94,200,242,.35)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--glass2);color:var(--glass2)}
+.hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(94,200,242,.18),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(18,44,82,.85),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,52px);line-height:1.1;font-weight:800;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--glass2)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;color:var(--ice)}
+.chip b{color:var(--glass2)}
+.glass-visual{position:relative;display:flex;justify-content:center}
+.glass-pane{width:min(280px,64vw);aspect-ratio:.8;border-radius:26px;border:2px solid rgba(94,200,242,.55);background:linear-gradient(155deg,rgba(94,200,242,.18),rgba(94,200,242,.03) 45%,rgba(255,255,255,.08));backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;box-shadow:0 24px 70px rgba(6,18,37,.6),inset 0 1px 0 rgba(255,255,255,.25);position:relative;overflow:hidden}
+.glass-pane::before{content:"";position:absolute;top:-60%;left:-30%;width:70%;height:220%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transform:rotate(18deg)}
+.glass-pane b{font-family:'Unbounded';font-size:clamp(26px,4.4vw,36px);color:var(--glass2);font-weight:800;position:relative}
+.glass-pane span{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;position:relative}
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--sapphire2),var(--sapphire));border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(94,200,242,.5)}
+.card-ico{width:48px;height:48px;border-radius:13px;background:rgba(94,200,242,.14);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--glass2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:13.5px;color:var(--muted)}
+.card .tag{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:var(--glass2)}
+.why{background:linear-gradient(180deg,transparent,rgba(18,44,82,.4),transparent)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.why-item{border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Unbounded';font-size:clamp(18px,2.8vw,26px);color:var(--glass2);font-weight:800;margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted)}
+.form-sec{border-radius:28px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(94,200,242,.15),transparent),var(--sapphire)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:14px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:14px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border-radius:13px;border:1px solid var(--line);background:rgba(6,18,37,.7);color:#fff;font-family:'Manrope';font-size:14px;outline:none;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--glass)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center}
+.hint a{color:var(--glass2)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card .card-ico{margin-bottom:14px}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--glass2);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--glass2);text-decoration:none}
+@media(max-width:860px){
+  .hero{padding:64px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .form-grid{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">АВТО<b>СТЕКЛО-76</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#order">Запрос</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" href="tel:+79023300110">8 902 330-01-10</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Ярославль · Мельничная, 24 · без&nbsp;выходных</span>
+      <h1>Автостёкла для иномарок — <em>без&nbsp;посредников</em></h1>
+      <p class="hero-sub">Лобовые, боковые и задние стёкла ведущих мировых производителей: минимальная наценка, три склада и&nbsp;добросовестная установка.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order">Проверить наличие стекла</a>
+        <a class="btn btn-ghost" href="#services">Смотреть услуги</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">📍 ул. Мельничная, 24</span>
+        <span class="chip">🕘 <b>пн–вс, без выходных</b></span>
+      </div>
+    </div>
+    <div class="glass-visual">
+      <div class="glass-pane">
+        <b>3 склада</b>
+        <span>ветровые · задние · боковые</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Услуги</span>
+      <h2>Стёкла и установка</h2>
+      <p>На все иномарки и&nbsp;отечественные автомобили — распространённые модели в&nbsp;наличии.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 5h16l-2 14H6z"/><path d="M12 5v14M4 5l3 6h10l3-6"/></svg></div>
+        <h3>Лобовое стекло</h3>
+        <p>Ветровые стёкла для иномарок — в&nbsp;наличии на&nbsp;складе, с&nbsp;установкой.</p>
+        <span class="tag">в наличии</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16M12 4v16"/></svg></div>
+        <h3>Боковое и&nbsp;заднее</h3>
+        <p>Боковые и&nbsp;задние стёкла на&nbsp;распространённые модели.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M14 7l3 3-8.5 8.5-4 1 1-4zM9 12l3 3M17 3l4 4-2 2-4-4z"/></svg></div>
+        <h3>Профессиональная установка</h3>
+        <p>Добросовестная установка с&nbsp;соблюдением технологии — без&nbsp;посредников.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+        <h3>Продажа без&nbsp;посредников</h3>
+        <p>Минимальная наценка: поставки напрямую от&nbsp;производителей, включая Olimpia AutoGlass.</p>
+        <span class="tag">Olimpia — с 1964 года</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему «Автостекло сервис»</span>
+      <h2>Качество по&nbsp;мировым стандартам</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>3 склада</b><span>стёкла на&nbsp;распространённые модели — в&nbsp;наличии</span></div>
+      <div class="why-item"><b>Без выходных</b><span>пн–пт 9:00–18:00, сб–вс 10:00–15:00</span></div>
+      <div class="why-item"><b>ГОСТ · ISO · DOT</b><span>стёкла соответствуют мировым стандартам</span></div>
+      <div class="why-item"><b>Напрямую</b><span>минимальная наценка — без&nbsp;посредников</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="form-sec">
+      <div class="form-grid">
+        <div>
+          <span class="kicker">Запрос</span>
+          <h2>Проверим наличие стекла</h2>
+          <p class="hero-sub">Укажите марку и&nbsp;модель — перезвоним и&nbsp;скажем цену с&nbsp;установкой.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="glass">
+            <option>Лобовое стекло</option>
+            <option>Заднее стекло</option>
+            <option>Боковое стекло</option>
+          </select>
+          <textarea name="note" placeholder="Марка, модель и&nbsp;год выпуска авто"></textarea>
+          <button class="btn btn-primary" type="submit">Отправить запрос</button>
+          <span class="hint">или звоните: <a href="tel:+79023300110">8 902 330-01-10</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <b>Адрес</b>
+        <p>Ярославль, ул. Мельничная, 24<br>(600 м от&nbsp;Московского проспекта)</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <b>Справочная служба</b>
+        <a href="tel:+79023300110">8 902 330-01-10</a>
+        <p>директор: <a href="tel:+79038251122">8 903 825-11-22</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <b>Почта</b>
+        <a href="mailto:ser-mos@yandex.ru">ser-mos@yandex.ru</a>
+        <p>ответим на&nbsp;запрос</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <b>Режим работы</b>
+        <p>Без выходных<br>пн–пт 9:00–18:00 · сб–вс 10:00–15:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>«Автостекло сервис» · Ярославль, ул. Мельничная, 24</span>
+    <span>© 2026 · <a href="#top">наверх ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.form').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const b=f.querySelector('.btn');
+    b.textContent='✓ Запрос отправлен — перезвоним!';
+    b.style.background='linear-gradient(135deg,#22c55e,#4ade80)';
+  });
+});
+</script>
+</body>
+</html>
