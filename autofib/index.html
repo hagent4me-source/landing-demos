@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис ФиБ — ремонт автомобилей любой сложности в Туле</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0b0c; --bg2:#131012; --card:#1a1517; --card2:#221b1e;
+  --accent:#ff3b30; --accent2:#ff7a5c; --accent-dim:rgba(255,59,48,.12);
+  --text:#f5f1f2; --muted:#a2989b; --line:rgba(255,255,255,.09);
+  --radius:18px; --pad:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:'Unbounded',cursive;line-height:1.1;overflow-wrap:normal;word-break:normal;hyphens:none}
+a{color:inherit;text-decoration:none}
+svg{max-width:100%;display:block}
+section{position:relative;padding:clamp(56px,9vw,110px) var(--pad)}
+.wrap{max-width:1200px;margin:0 auto;width:100%}
+.kicker{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:18px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--accent);flex-shrink:0}
+.sec-title{font-size:clamp(26px,4vw,46px);font-weight:900;margin-bottom:14px}
+.sec-sub{color:var(--muted);max-width:620px;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:14px;font-weight:800;font-size:15px;cursor:pointer;border:none;font-family:'Manrope';transition:transform .2s,box-shadow .2s}
+.btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent2));color:#1c0605;box-shadow:0 10px 34px rgba(255,59,48,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(255,59,48,.42)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(13,11,12,.82);border-bottom:1px solid var(--line);transition:background .3s}
+header.scrolled{background:rgba(13,11,12,.95)}
+.header-in{max-width:1200px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:16px}
+.logo{font-family:'Unbounded';font-weight:900;font-size:19px;flex-shrink:0}
+.logo b{color:var(--accent)}
+.logo small{display:block;font-family:'Manrope';font-weight:600;font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.header-phone{margin-left:auto;font-weight:800;font-size:15px;white-space:nowrap;overflow-wrap:anywhere;flex-shrink:0}
+.header-phone:hover{color:var(--accent)}
+.burger{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;cursor:pointer;display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0}
+.burger span{width:20px;height:2px;background:var(--text);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+nav.main-nav{display:flex;gap:24px;margin-left:6px}
+nav.main-nav a{font-size:14px;font-weight:600;color:var(--muted)}
+nav.main-nav a:hover{color:var(--accent)}
+
+.hero{overflow:hidden;padding-top:clamp(46px,7vw,84px);background:
+  radial-gradient(880px 460px at 82% -8%, rgba(255,59,48,.15), transparent 60%),
+  radial-gradient(620px 400px at -6% 106%, rgba(255,59,48,.07), transparent 58%), var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(24px,4vw,56px);align-items:center;max-width:1200px;margin:0 auto}
+.hero h1{font-size:clamp(32px,5.6vw,66px);font-weight:900}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin-top:20px;font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:520px}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.htag{font-size:12.5px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:rgba(255,255,255,.02)}
+.hero-art{position:relative;filter:drop-shadow(0 30px 60px rgba(255,59,48,.14))}
+
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;width:max-content;animation:mq 25s linear infinite}
+.marquee-track span{font-family:'Unbounded';font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+.marquee-track span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:transform .25s,border-color .25s,background .25s;min-width:0;display:flex;flex-direction:column;gap:12px}
+.svc:hover{transform:translateY(-6px);border-color:rgba(255,59,48,.5);background:var(--card2)}
+.svc.wide{grid-column:span 2}
+.svc svg{width:42px;height:42px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:16.5px;font-weight:700}
+.svc p{font-size:14px;color:var(--muted)}
+
+.det{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.det .svc{padding:22px 20px}
+.det .svc h3{font-size:14.5px}
+.det .svc p{font-size:13px}
+
+.discount{background:linear-gradient(140deg,rgba(255,59,48,.1),rgba(255,255,255,.02));border:1px solid rgba(255,59,48,.32);border-radius:24px;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,48px);align-items:center}
+.discount h3{font-size:clamp(20px,2.6vw,30px);font-weight:900;margin-bottom:12px}
+.ph-note{color:var(--muted)}
+.ff{display:flex;flex-direction:column;gap:14px}
+.field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:800}
+.field input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-family:'Manrope';font-size:15px;font-weight:600;outline:none}
+.field input:focus{border-color:var(--accent)}
+
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.big-phone{font-family:'Unbounded';font-weight:900;font-size:clamp(19px,2.8vw,32px);display:block;margin-bottom:10px;overflow-wrap:anywhere}
+.big-phone:hover{color:var(--accent)}
+.big-phone.small{font-size:clamp(14px,1.9vw,21px)}
+.c-line{display:flex;gap:12px;align-items:flex-start;margin-top:16px;color:var(--muted);font-size:15px}
+.c-line svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+a.mail{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:28px var(--pad);text-align:center;color:var(--muted);font-size:13px;background:var(--bg2)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+.h3-sm{font-size:18px;margin-bottom:4px}
+.mt18{margin-top:18px}
+.btn.wide{width:100%}
+.contact-form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:14px}
+@media (max-width:1020px){
+  nav.main-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(13,11,12,.97);border-bottom:1px solid var(--line);padding:10px var(--pad) 18px}
+  nav.main-nav.open{display:flex}
+  nav.main-nav a{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .burger{display:flex}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-art{max-width:420px;margin:0 auto}
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .svc.wide{grid-column:span 2}
+  .det{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .discount{grid-template-columns:minmax(0,1fr)}
+  .contacts-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .header-in{gap:10px;padding:12px 18px}
+  .logo{font-size:16px}.logo small{display:none}
+  .header-phone{font-size:12.5px}
+  .svc-grid,.det{grid-template-columns:minmax(0,1fr)}
+  .svc.wide{grid-column:span 1}
+  .hero-cta .btn{width:100%}
+  section{padding-left:18px;padding-right:18px}
+}
+@media (max-width:360px){
+  .header-phone{font-size:11.5px}
+  .hero h1{font-size:29px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="header-in">
+    <div class="logo">АВТОСЕРВИС <b>ФиБ</b><small>Тула · Маршала Жукова, 9</small></div>
+    <nav class="main-nav" id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#detailing">Детейлинг</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="header-phone" href="tel:+74872339999">+7 (4872) 33-99-99</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <span class="kicker">Ремонт любой сложности · Тула</span>
+      <h1>От&nbsp;диагностики до&nbsp;<em>покраски</em> — за&nbsp;один визит</h1>
+      <p class="lead">Автосервис ФиБ: компьютерная диагностика, слесарный и&nbsp;кузовной цех, покраска, детейлинг и&nbsp;химчистка. Организации работают с&nbsp;нами по&nbsp;договорам обслуживания.</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-primary">Услуги и работы</a>
+        <a href="#contacts" class="btn btn-ghost">Записаться</a>
+      </div>
+      <div class="hero-tags">
+        <span class="htag">Слесарные работы</span><span class="htag">Кузовной цех</span><span class="htag">Жестяно-сварочные</span><span class="htag">Покраска</span><span class="htag">Детейлинг-мойка</span><span class="htag">Химчистка</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 520 400" role="img" aria-label="Полировка кузова">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff3b30"/><stop offset="1" stop-color="#ff7a5c"/></linearGradient></defs>
+        <rect x="30" y="30" width="460" height="340" rx="26" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2" stroke-dasharray="8 10"/>
+        <path d="M115 245 q14-46 56-54 q20-40 70-44 q56-4 88 28 q46 6 64 38 q8 16 4 26 q-4 10-16 10 l-250 0 q-15 0-16-8z" fill="url(#g1)" opacity=".9"/>
+        <circle cx="175" cy="280" r="26" fill="#0d0b0c" stroke="#f5f1f2" stroke-width="5"/>
+        <circle cx="335" cy="280" r="26" fill="#0d0b0c" stroke="#f5f1f2" stroke-width="5"/>
+        <path d="M225 168 q34-16 72 0" stroke="#0d0b0c" stroke-width="7" fill="none" opacity=".5"/>
+        <path d="M228 148 l46-36" stroke="#ff3b30" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="282" cy="106" r="17" fill="none" stroke="#ff7a5c" stroke-width="3"/>
+        <circle cx="282" cy="106" r="7" fill="#ff7a5c" opacity=".8"/>
+        <path d="M310 92 l44-30M322 106 l56-40" stroke="#ff7a5c" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+        <circle cx="88" cy="120" r="4" fill="#ff3b30" opacity=".7"/><circle cx="440" cy="230" r="4" fill="#ff7a5c" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mq">
+    <span>Диагностика</span><span>Слесарные работы</span><span>Кузовной ремонт</span><span>Покраска</span><span>Полировка</span><span>Химчистка салона</span><span>Защитное покрытие</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kicker">Направления</span>
+    <h2 class="sec-title reveal">Четыре цеха — один сервис</h2>
+    <p class="sec-sub reveal">От&nbsp;маленького стука до&nbsp;полной перекраски: диагностика находит причину, слесари и&nbsp;кузовщики её&nbsp;устраняют, детейлинг возвращает блеск.</p>
+    <div class="svc-grid">
+      <div class="svc wide reveal">
+        <svg viewBox="0 0 24 24"><path d="M8 3h8l1 4a7 7 0 1 1-10 0z"/><path d="M12 11v4M12 7v1"/></svg>
+        <h3>Комплексная диагностика</h3>
+        <p>Проверяем подвеску, тормозную систему, кондиционер и электронику — и показываем результат до начала работ: вы платите за то, что реально нужно.</p>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><path d="M14 6l4 4-8 8H6v-4z"/><path d="M13 7l4 4"/></svg>
+        <h3>Слесарные работы</h3>
+        <p>Ремонт узлов и агрегатов любой сложности — своими руками, на своём оборудовании.</p>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><path d="M4 18l4-10 4 6 3-4 5 8z"/><path d="M4 21h16"/></svg>
+        <h3>Кузовной цех</h3>
+        <p>Жестяно-сварочные работы и покраска: от локального ремонта до полного элемента.</p>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 3v6M5 8l5 4M19 8l-5 4"/><circle cx="12" cy="17" r="4"/></svg>
+        <h3>Покраска</h3>
+        <p>Подбор цвета и качественное нанесение — от одной детали до всего кузова.</p>
+      </div>
+    </div>
+    <div class="det mt18">
+      <div class="svc reveal"><h3>Детейлинг-мойка</h3><p>Бережная мойка с тщательной сушкой.</p></div>
+      <div class="svc reveal"><h3>Химчистка салона</h3><p>Глубокая чистка обивки и потолка.</p></div>
+      <div class="svc reveal"><h3>Полировка кузова</h3><p>Убираем царапины и паутинку.</p></div>
+      <div class="svc reveal"><h3>Защитное покрытие</h3><p>Сохраняем результат надолго.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt" id="detailing">
+  <div class="wrap">
+    <span class="kicker">Постоянным клиентам</span>
+    <h2 class="sec-title reveal">Система скидок и обслуживание по договору</h2>
+    <p class="sec-sub reveal">Компании и автопарки заключают с нами договоры на обслуживание. Частным клиентам — скидки и приоритетная запись.</p>
+    <div class="discount reveal">
+      <div>
+        <h3>Запишитесь с выгодой</h3>
+        <p class="ph-note">Оставьте телефон — расскажем про актуальные скидки и подберём удобное время. Без навязанных допработ: цена обсуждается до начала ремонта.</p>
+      </div>
+      <form class="ff" id="ctaForm">
+        <div class="field"><label for="cf-name">Ваше имя</label><input id="cf-name" type="text" placeholder="Иван" required></div>
+        <div class="field"><label for="cf-phone">Телефон</label><input id="cf-phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+        <button type="submit" class="btn btn-primary wide">Узнать про скидки</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap contacts-grid">
+    <div>
+      <span class="kicker">Контакты</span>
+      <h2 class="sec-title reveal">Приезжайте на Жукова</h2>
+      <a class="big-phone reveal" href="tel:+74872339999">+7 (4872) 33-99-99</a>
+      <a class="big-phone small reveal" href="tel:+74872339998">+7 (4872) 33-99-98</a>
+      <a class="big-phone small reveal" href="tel:+74872339993">+7 (4872) 33-99-93</a>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span><b>Тула, ул. Маршала Жукова, 9</b></span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <span><a href="mailto:autofib@mail.ru" class="mail">autofib@mail.ru</a></span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 10h16M10 10v10"/></svg>
+        <span>Площади для ремонтных работ и современное оборудование</span>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <h3 class="h3-sm">Мы ремонтируем автомобили в Туле</h3>
+      <p class="ph-note">Позвоните на любой из трёх номеров или оставьте заявку — перезвоним и запишем на удобное время.</p>
+      <div class="field"><label for="cn-name">Ваше имя</label><input id="cn-name" type="text" placeholder="Иван"></div>
+      <div class="field"><label for="cn-auto">Автомобиль и что беспокоит</label><input id="cn-auto" type="text" placeholder="Например: Kia Rio, стук спереди справа"></div>
+      <button type="submit" class="btn btn-primary wide" id="cnBtn">Отправить</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Автосервис ФиБ — ремонт любой сложности · Тула, ул. Маршала Жукова, 9 · <a href="mailto:autofib@mail.ru" class="mail">autofib@mail.ru</a>
+</footer>
+
+<script>
+const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); nav.classList.toggle('open'); });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); nav.classList.remove('open'); }));
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30), {passive:true});
+const mq = document.getElementById('mq'); mq.innerHTML += mq.innerHTML;
+document.getElementById('ctaForm').addEventListener('submit', e => { e.preventDefault(); alert('Спасибо! Перезвоним с информацией о скидках.'); });
+document.getElementById('cnBtn').addEventListener('click', e => { e.preventDefault(); alert('Спасибо! Заявка принята — перезвоним в рабочее время.'); });
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

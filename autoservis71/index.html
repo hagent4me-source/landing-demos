@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис 71 — ремонт и автозапчасти в Туле</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0d0a; --bg2:#0f130f; --card:#141a14; --card2:#1a221a;
+  --accent:#b6ff2e; --accent2:#d6ff7a; --accent-dim:rgba(182,255,46,.12);
+  --text:#f1f6ee; --muted:#9aa896; --line:rgba(255,255,255,.09);
+  --radius:18px; --pad:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:'Unbounded',cursive;line-height:1.1;overflow-wrap:normal;word-break:normal;hyphens:none}
+a{color:inherit;text-decoration:none}
+svg{max-width:100%;display:block}
+section{position:relative;padding:clamp(56px,9vw,110px) var(--pad)}
+.wrap{max-width:1200px;margin:0 auto;width:100%}
+.kicker{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:18px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--accent);flex-shrink:0}
+.sec-title{font-size:clamp(26px,4vw,46px);font-weight:900;margin-bottom:14px}
+.sec-sub{color:var(--muted);max-width:620px;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:14px;font-weight:800;font-size:15px;cursor:pointer;border:none;font-family:'Manrope';transition:transform .2s,box-shadow .2s}
+.btn-primary{background:var(--accent);color:#101a02;box-shadow:0 10px 34px rgba(182,255,46,.28)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(182,255,46,.4)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(10,13,10,.82);border-bottom:1px solid var(--line);transition:background .3s}
+header.scrolled{background:rgba(10,13,10,.95)}
+.header-in{max-width:1200px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:16px}
+.logo{font-family:'Unbounded';font-weight:900;font-size:19px;flex-shrink:0}
+.logo b{color:var(--accent)}
+.logo small{display:block;font-family:'Manrope';font-weight:600;font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.header-phone{margin-left:auto;font-weight:800;font-size:15px;white-space:nowrap;overflow-wrap:anywhere;flex-shrink:0}
+.header-phone:hover{color:var(--accent)}
+.burger{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;cursor:pointer;display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0}
+.burger span{width:20px;height:2px;background:var(--text);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+nav.main-nav{display:flex;gap:24px;margin-left:6px}
+nav.main-nav a{font-size:14px;font-weight:600;color:var(--muted)}
+nav.main-nav a:hover{color:var(--accent)}
+
+.hero{overflow:hidden;padding-top:clamp(46px,7vw,84px);background:
+  radial-gradient(880px 460px at 84% -8%, rgba(182,255,46,.13), transparent 60%),
+  radial-gradient(620px 400px at -6% 106%, rgba(182,255,46,.06), transparent 58%), var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,56px);align-items:center;max-width:1200px;margin:0 auto}
+.hero h1{font-size:clamp(32px,5.6vw,66px);font-weight:900}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin-top:20px;font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:520px}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:36px}
+.hm b{font-family:'Unbounded';font-weight:700;font-size:clamp(19px,2.6vw,28px);color:var(--accent2);white-space:nowrap}
+.hm span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.hero-art{position:relative;filter:drop-shadow(0 30px 60px rgba(182,255,46,.12))}
+
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;width:max-content;animation:mq 24s linear infinite}
+.marquee-track span{font-family:'Unbounded';font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+.marquee-track span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.search-box{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3.5vw,40px)}
+.search-row{display:flex;gap:12px;flex-wrap:wrap}
+.search-row input{flex:1 1 260px;min-width:0;padding:16px 18px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-family:'Manrope';font-size:16px;font-weight:600;outline:none}
+.search-row input:focus{border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:12.5px;font-weight:700;padding:7px 13px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--muted);cursor:pointer;font-family:'Manrope';transition:.2s}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.price-groups{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+.pgroup{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg2)}
+.pgroup h3{padding:18px 22px;background:var(--card);font-size:15px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pgroup h3::after{content:"+";font-family:'Manrope';font-weight:800;font-size:20px;color:var(--accent)}
+.pgroup.open h3::after{content:"–"}
+.plist{display:none;padding:6px 22px 18px}
+.pgroup.open .plist{display:block}
+.pitem{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14.5px;min-width:0}
+.pitem:last-child{border-bottom:none}
+.pitem span{color:var(--muted);overflow-wrap:anywhere}
+.empty{padding:26px;text-align:center;color:var(--muted);font-size:15px;display:none}
+
+.about-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,52px);align-items:center}
+.about-art{filter:drop-shadow(0 26px 50px rgba(182,255,46,.1))}
+.map-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,3vw,38px)}
+.map-card h3{font-size:clamp(19px,2.4vw,26px);font-weight:900;margin-bottom:16px}
+.c-line{display:flex;gap:12px;align-items:flex-start;margin-top:16px;color:var(--muted);font-size:15px}
+.c-line svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+.c-line b{color:var(--text)}
+.contact-form{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:800}
+.field input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-family:'Manrope';font-size:15px;font-weight:600;outline:none}
+.field input:focus{border-color:var(--accent)}
+a.mail{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:28px var(--pad);text-align:center;color:var(--muted);font-size:13px;background:var(--bg2)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+.sec-sub.tight{margin-bottom:26px}
+.hm.mt26{margin-bottom:26px}
+.ac-center{align-self:center}
+.btn.wide{width:100%}
+@media (max-width:1020px){
+  nav.main-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,13,10,.97);border-bottom:1px solid var(--line);padding:10px var(--pad) 18px}
+  nav.main-nav.open{display:flex}
+  nav.main-nav a{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .burger{display:flex}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-art{max-width:420px;margin:0 auto}
+  .about-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .header-in{gap:10px;padding:12px 18px}
+  .logo{font-size:16px}.logo small{display:none}
+  .header-phone{font-size:12.5px}
+  .hero-cta .btn{width:100%}
+  section{padding-left:18px;padding-right:18px}
+}
+@media (max-width:360px){
+  .header-phone{font-size:11.5px}
+  .hero h1{font-size:29px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="header-in">
+    <div class="logo">АВТОСЕРВИС <b>71</b><small>Тула · Венёвское шоссе</small></div>
+    <nav class="main-nav" id="nav">
+      <a href="#price">Прайс</a>
+      <a href="#about">О сервисе</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="header-phone" href="tel:+79997969858">+7 (999) 796-98-58</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <span class="kicker">Ремонт и автозапчасти · Тула</span>
+      <h1>Автосервис <em>для своих</em>. По-соседски честный</h1>
+      <p class="lead">Ремонт двигателя, КПП, тормозов, ходовой и&nbsp;топливной системы — и&nbsp;подбор запчастей в&nbsp;одном месте. Работаем без выходных, как&nbsp;для&nbsp;друзей.</p>
+      <div class="hero-cta">
+        <a href="#price" class="btn btn-primary">Найти свою работу</a>
+        <a href="#contacts" class="btn btn-ghost">Как проехать</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hm"><b>9–18</b><span>без выходных</span></div>
+        <div class="hm"><b>8 групп</b><span>видов работ</span></div>
+        <div class="hm"><b>+ запчасти</b><span>подбор на месте</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 520 400" role="img" aria-label="Автосервис у шоссе">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b6ff2e"/><stop offset="1" stop-color="#d6ff7a"/></linearGradient></defs>
+        <rect x="30" y="30" width="460" height="340" rx="26" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2" stroke-dasharray="8 10"/>
+        <path d="M60 330 L230 120 q10-12 26-12 h150 q14 0 12 14 l-14 90 q-2 12-14 12 L120 224" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="3"/>
+        <path d="M110 250 q12-42 54-50 q18-38 68-42 q56-4 86 28 q46 6 62 38 q8 16 4 26 q-4 10-16 10 l-244 0 q-15 0-14-10z" fill="url(#g1)" opacity=".92"/>
+        <circle cx="172" cy="284" r="26" fill="#0a0d0a" stroke="#f1f6ee" stroke-width="5"/>
+        <circle cx="330" cy="284" r="26" fill="#0a0d0a" stroke="#f1f6ee" stroke-width="5"/>
+        <path d="M228 166 q34-14 70 2" stroke="#0a0d0a" stroke-width="7" fill="none" opacity=".5"/>
+        <path d="M80 356h360" stroke="#b6ff2e" stroke-width="4" stroke-dasharray="22 18" stroke-linecap="round" opacity=".7"/>
+        <circle cx="448" cy="96" r="5" fill="#b6ff2e" opacity=".8"/>
+        <circle cx="70" cy="110" r="4" fill="#d6ff7a" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mq">
+    <span>Двигатель</span><span>КПП и сцепление</span><span>Тормоза</span><span>Ходовая</span><span>Топливная система</span><span>Охлаждение</span><span>Запчасти</span>
+  </div>
+</div>
+
+<section id="price">
+  <div class="wrap">
+    <span class="kicker">Прайс работ</span>
+    <h2 class="sec-title reveal">Найдите свою работу за 2 секунды</h2>
+    <p class="sec-sub reveal">Введите слово — «грм», «колодки», «форсунки» — и&nbsp;фильтр покажет нужные операции. Стоимость — по&nbsp;телефону, под вашу модель.</p>
+    <div class="search-box reveal">
+      <div class="search-row">
+        <input type="text" id="q" placeholder="Например: замена ремня ГРМ…" autocomplete="off">
+      </div>
+      <div class="chips" id="chips">
+        <button class="chip" data-q="грм">ГРМ</button>
+        <button class="chip" data-q="масло">Масло</button>
+        <button class="chip" data-q="тормоз">Тормоза</button>
+        <button class="chip" data-q="сцепление">Сцепление</button>
+        <button class="chip" data-q="форсунок">Форсунки</button>
+        <button class="chip" data-q="амортиз">Подвеска</button>
+      </div>
+      <div class="price-groups" id="groups"></div>
+      <div class="empty" id="empty">По запросу ничего не нашлось — позвоните, подскажем: работа точно есть.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="kicker">О сервисе</span>
+      <h2 class="sec-title reveal">Мастерская, куда возвращаются</h2>
+      <p class="sec-sub reveal tight">Небольшая команда, которая знает вас и&nbsp;ваш автомобиль в&nbsp;лицо. Ремонтируем двигатель и&nbsp;КПП, обслуживаем тормоза и&nbsp;ходовую, промываем форсунки и&nbsp;подбираем запчасти — без&nbsp;навязанных работ.</p>
+      <div class="hm mt26"><b>с 9 до 18</b><span>ежедневно, без выходных</span></div>
+      <a href="#contacts" class="btn btn-ghost">Приехать и показать авто</a>
+    </div>
+    <div class="about-art">
+      <svg viewBox="0 0 420 340" role="img" aria-label="Мастер и автомобиль">
+        <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b6ff2e"/><stop offset="1" stop-color="#d6ff7a"/></linearGradient></defs>
+        <circle cx="210" cy="160" r="130" fill="none" stroke="rgba(182,255,46,.25)" stroke-width="2" stroke-dasharray="6 10"/>
+        <circle cx="150" cy="120" r="46" fill="none" stroke="url(#g2)" stroke-width="4"/>
+        <circle cx="150" cy="104" r="16" fill="url(#g2)"/>
+        <path d="M118 158 q32-26 64 0" fill="none" stroke="url(#g2)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M210 200 q40-30 92-10 q22 10 20 34 l-6 52" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="322" cy="230" r="26" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+        <circle cx="322" cy="230" r="10" fill="#b6ff2e" opacity=".8"/>
+        <path d="M256 96l30-24M272 110l42-34" stroke="#b6ff2e" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap contacts-grid">
+    <div>
+      <span class="kicker">Контакты</span>
+      <h2 class="sec-title reveal">Приезжайте</h2>
+      <div class="map-card reveal">
+        <h3>Автосервис 71</h3>
+        <div class="c-line">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span><b>г. Тула, Венёвское шоссе, 26а</b></span>
+        </div>
+        <div class="c-line">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <span>График работы: с 9 до 18, без выходных</span>
+        </div>
+        <div class="c-line">
+          <svg viewBox="0 0 24 24"><path d="M15 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM4 21c0-4 3-6 6-6s6 2 6 6"/></svg>
+          <span>Звоните — подскажем стоимость под вашу модель</span>
+        </div>
+        <div class="c-line">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+          <span><a href="mailto:info@autoservis71.ru" class="mail">info@autoservis71.ru</a></span>
+        </div>
+        <form class="contact-form" id="ctaForm">
+          <div class="field"><label for="cf-name">Ваше имя</label><input id="cf-name" type="text" placeholder="Иван" required></div>
+          <div class="field"><label for="cf-phone">Телефон</label><input id="cf-phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+          <button type="submit" class="btn btn-primary wide">Перезвоните мне</button>
+        </form>
+      </div>
+    </div>
+    <div class="about-art ac-center">
+      <svg viewBox="0 0 420 360" role="img" aria-label="Схема проезда">
+        <rect x="20" y="20" width="380" height="320" rx="24" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+        <path d="M40 300 C120 260 140 180 210 180 S320 120 380 60" fill="none" stroke="rgba(182,255,46,.5)" stroke-width="5" stroke-linecap="round" stroke-dasharray="16 12"/>
+        <circle cx="210" cy="180" r="12" fill="#b6ff2e"/>
+        <circle cx="210" cy="180" r="24" fill="none" stroke="rgba(182,255,46,.4)" stroke-width="2"/>
+        <text x="228" y="170" fill="#f1f6ee" font-family="Manrope" font-weight="800" font-size="17">Венёвское шоссе, 26а</text>
+        <text x="60" y="330" fill="#9aa896" font-family="Manrope" font-size="13">Тула · схема проезда</text>
+        <circle cx="380" cy="60" r="6" fill="rgba(255,255,255,.3)"/>
+        <circle cx="40" cy="300" r="6" fill="rgba(255,255,255,.3)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Автосервис 71 — ремонт и автозапчасти · Тула, Венёвское шоссе 26а · <a href="mailto:info@autoservis71.ru" class="mail">info@autoservis71.ru</a>
+</footer>
+
+<script>
+const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); nav.classList.toggle('open'); });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); nav.classList.remove('open'); }));
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30), {passive:true});
+const mq = document.getElementById('mq'); mq.innerHTML += mq.innerHTML;
+
+// прайс (реальные группы работ с сайта)
+const PRICE = {
+  "Ремонт двигателя": ["Замена воздушного фильтра","Замена масла в двигателе","Замена масляного фильтра","Замена ремня ГРМ","Замена свечей зажигания","Замена топливного фильтра","Замена маслосъёмных колпачков","Регулировка клапанов"],
+  "Ремонт КПП": ["Замена масла в АКПП","Замена сцепления автомобиля"],
+  "Ремонт топливной системы": ["Промывка инжектора","Чистка форсунок","Промывка бензобака"],
+  "Ремонт системы охлаждения": ["Замена радиатора","Замена радиатора печки","Замена антифриза"],
+  "Ремонт тормозной системы": ["Замена барабанов","Замена дисков","Замена колодок","Замена тормозной жидкости","Замена цилиндров","Замена суппортов"],
+  "Ремонт ходовой": ["Ремонт подвески","Замена амортизаторов","Замена шаровых опор","Замена сайлентблоков","Замена подшипников ступиц"],
+  "Электрика": ["Замена генератора","Замена стартера","Диагностика электрооборудования"],
+  "Прочее": ["Замена лампочек","Замена щёток стеклоочистителя","Летняя и зимняя резина — шиномонтаж"]
+};
+const groupsEl = document.getElementById('groups'), emptyEl = document.getElementById('empty'), qEl = document.getElementById('q');
+function render(q){
+  q = (q || "").trim().toLowerCase();
+  groupsEl.innerHTML = "";
+  let total = 0;
+  for (const [g, items] of Object.entries(PRICE)) {
+    const hits = q ? items.filter(i => i.toLowerCase().includes(q) || g.toLowerCase().includes(q)) : items;
+    if (q && !hits.length) continue;
+    total += hits.length;
+    const div = document.createElement('div');
+    div.className = 'pgroup open';
+    const h = document.createElement('h3'); h.textContent = g + "  ·  " + hits.length;
+    const list = document.createElement('div'); list.className = 'plist';
+    hits.forEach(it => { const d = document.createElement('div'); d.className='pitem'; d.innerHTML = '<span>'+it+'</span>'; list.appendChild(d); });
+    h.addEventListener('click', () => div.classList.toggle('open'));
+    div.appendChild(h); div.appendChild(list); groupsEl.appendChild(div);
+  }
+  emptyEl.style.display = total ? 'none' : 'block';
+}
+render("");
+qEl.addEventListener('input', () => render(qEl.value));
+document.querySelectorAll('#chips .chip').forEach(c => c.addEventListener('click', () => {
+  qEl.value = c.dataset.q; render(qEl.value); qEl.focus();
+}));
+
+document.getElementById('ctaForm').addEventListener('submit', e => { e.preventDefault(); alert('Спасибо! Перезвоним в рабочее время.'); });
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

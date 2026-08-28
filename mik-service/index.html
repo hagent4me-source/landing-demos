@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МИК-Сервис — техобслуживание и ремонт автомобилей в Туле</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0e11; --bg2:#12151a; --card:#181c23; --card2:#1f242d;
+  --accent:#ffc400; --accent2:#ffdf6b; --accent-dim:rgba(255,196,0,.12);
+  --text:#f3f5f9; --muted:#96a0b0; --line:rgba(255,255,255,.09);
+  --radius:18px; --pad:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.55}
+h1,h2,h3,.font-display{font-family:'Unbounded',cursive;line-height:1.1;overflow-wrap:normal;word-break:normal;hyphens:none}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%;display:block}
+section{position:relative;padding:clamp(56px,9vw,110px) var(--pad)}
+.wrap{max-width:1200px;margin:0 auto;width:100%}
+.kicker{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:18px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--accent);flex-shrink:0}
+.sec-title{font-size:clamp(26px,4vw,46px);font-weight:900;margin-bottom:14px}
+.sec-sub{color:var(--muted);max-width:600px;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:14px;font-weight:800;font-size:15px;cursor:pointer;border:none;font-family:'Manrope';transition:transform .2s,box-shadow .2s}
+.btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent2));color:#1a1402;box-shadow:0 10px 34px rgba(255,196,0,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(255,196,0,.42)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(12,14,17,.8);border-bottom:1px solid var(--line);transition:background .3s}
+header.scrolled{background:rgba(12,14,17,.95)}
+.header-in{max-width:1200px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:16px}
+.logo{font-family:'Unbounded';font-weight:900;font-size:19px;flex-shrink:0}
+.logo b{color:var(--accent)}
+.logo small{display:block;font-family:'Manrope';font-weight:600;font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.header-phone{margin-left:auto;font-weight:800;font-size:15px;white-space:nowrap;overflow-wrap:anywhere;flex-shrink:0}
+.header-phone:hover{color:var(--accent)}
+.burger{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;cursor:pointer;display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0}
+.burger span{width:20px;height:2px;background:var(--text);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+nav.main-nav{display:flex;gap:24px;margin-left:6px}
+nav.main-nav a{font-size:14px;font-weight:600;color:var(--muted)}
+nav.main-nav a:hover{color:var(--accent)}
+
+.hero{overflow:hidden;padding-top:clamp(46px,7vw,84px);background:
+  radial-gradient(880px 460px at 85% -8%, rgba(255,196,0,.14), transparent 60%),
+  radial-gradient(640px 400px at -6% 106%, rgba(255,196,0,.06), transparent 58%), var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,56px);align-items:center;max-width:1200px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,196,0,.4);border-radius:999px;padding:8px 16px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;background:var(--accent-dim)}
+.hero h1{font-size:clamp(32px,5.6vw,66px);font-weight:900}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin-top:20px;font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:520px}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.htag{font-size:12.5px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:rgba(255,255,255,.02)}
+.hero-art{position:relative;filter:drop-shadow(0 30px 60px rgba(255,196,0,.12))}
+
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.marquee-track span{font-family:'Unbounded';font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+.marquee-track span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .25s,border-color .25s,background .25s;min-width:0;display:flex;flex-direction:column;gap:14px}
+.svc:hover{transform:translateY(-6px);border-color:rgba(255,196,0,.5);background:var(--card2)}
+.svc.wide{grid-column:span 2}
+.svc svg{width:44px;height:44px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:17px;font-weight:700}
+.svc p{font-size:14px;color:var(--muted)}
+.svc .note{margin-top:auto;font-size:12.5px;color:var(--accent);font-weight:700;padding-top:8px}
+
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.tab{padding:12px 20px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-weight:700;font-size:14px;cursor:pointer;font-family:'Manrope';transition:.2s}
+.tab:hover{border-color:rgba(255,196,0,.5)}
+.tab.on{background:var(--accent);color:#1a1402;border-color:var(--accent)}
+.tab-panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,3vw,36px)}
+.tab-panel.on{display:block}
+.dir-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px}
+.dir-list span{font-size:15px;color:var(--text);display:flex;gap:10px;align-items:flex-start}
+.dir-list span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px}
+.brand-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.bchip{font-size:13px;font-weight:700;padding:8px 14px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+
+.reception{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:44px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center;transition:transform .25s,border-color .25s;min-width:0}
+.person:hover{transform:translateY(-5px);border-color:rgba(255,196,0,.5)}
+.avatar{width:64px;height:64px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Unbounded';font-weight:900;font-size:24px;color:#1a1402}
+.person h3{font-size:16px}
+.person .role{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:6px 0 12px}
+.person a.tel{display:block;font-weight:800;font-size:14.5px;overflow-wrap:anywhere;color:var(--text)}
+.person a.tel:hover{color:var(--accent)}
+
+.photo-form{background:linear-gradient(140deg,rgba(255,196,0,.09),rgba(255,255,255,.02));border:1px solid rgba(255,196,0,.3);border-radius:24px;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,48px);align-items:center;margin-top:20px}
+.photo-form h3{font-size:clamp(20px,2.6vw,30px);font-weight:900}
+.ff{display:flex;flex-direction:column;gap:14px}
+.field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:800}
+.field input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-family:'Manrope';font-size:15px;font-weight:600;outline:none}
+.field input:focus{border-color:var(--accent)}
+.file-label{border:1.5px dashed rgba(255,196,0,.5);border-radius:14px;padding:20px;text-align:center;font-size:14px;color:var(--muted);cursor:pointer;transition:background .2s;overflow-wrap:anywhere}
+.file-label:hover{background:var(--accent-dim)}
+.file-label input{display:none}
+.file-label .fname{color:var(--accent);font-weight:700}
+.file-label svg{width:20px;height:20px;vertical-align:-4px;margin-right:6px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:inline}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px;counter-reset:st}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;min-width:0;position:relative;transition:transform .25s,border-color .25s}
+.step:hover{transform:translateY(-5px);border-color:rgba(255,196,0,.45)}
+.step::before{counter-increment:st;content:"0" counter(st);font-family:'Unbounded';font-weight:900;font-size:clamp(30px,4vw,44px);color:transparent;-webkit-text-stroke:1.4px rgba(255,196,0,.55)}
+.step h3{font-size:15px;margin:16px 0 8px}
+.step p{font-size:13.5px;color:var(--muted)}
+
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.big-phone{font-family:'Unbounded';font-weight:900;font-size:clamp(20px,3vw,34px);display:block;margin-bottom:8px;overflow-wrap:anywhere}
+.big-phone:hover{color:var(--accent)}
+.big-phone.small{font-size:clamp(15px,2vw,22px)}
+.c-line{display:flex;gap:12px;align-items:flex-start;margin-top:18px;color:var(--muted);font-size:15px}
+.c-line svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+.contact-form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:14px}
+a.mail{color:var(--accent)}
+
+footer{border-top:1px solid var(--line);padding:28px var(--pad);text-align:center;color:var(--muted);font-size:13px;background:var(--bg2)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+.btn.mt6{margin-top:6px}
+.sec-alt{background:var(--bg2)}
+
+@media (max-width:1020px){
+  nav.main-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(12,14,17,.97);border-bottom:1px solid var(--line);padding:10px var(--pad) 18px}
+  nav.main-nav.open{display:flex}
+  nav.main-nav a{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .burger{display:flex}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-art{max-width:420px;margin:0 auto}
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .svc.wide{grid-column:span 2}
+  .reception{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dir-list{grid-template-columns:minmax(0,1fr)}
+  .photo-form{grid-template-columns:minmax(0,1fr)}
+  .contacts-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .header-in{gap:10px;padding:12px 18px}
+  .logo{font-size:16px}
+  .logo small{display:none}
+  .header-phone{font-size:12.5px}
+  .svc-grid,.reception,.steps{grid-template-columns:minmax(0,1fr)}
+  .svc.wide{grid-column:span 1}
+  .hero-cta .btn{width:100%}
+  section{padding-left:18px;padding-right:18px}
+}
+@media (max-width:360px){
+  .header-phone{font-size:11.5px}
+  .hero h1{font-size:29px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="header-in">
+    <div class="logo">МИК<b>-СЕРВИС</b><small>АвтоТехЦентр · Тула</small></div>
+    <nav class="main-nav" id="nav">
+      <a href="#services">Направления</a>
+      <a href="#reception">Приёмка</a>
+      <a href="#photo">Оценка по фото</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="header-phone" href="tel:+74872492521">+7 (4872) 49-25-21</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <span class="hero-badge">Официальный партнёр EuroRepar Car Service</span>
+      <h1>Техцентр полного цикла. <em>Без</em> сюрпризов по цене</h1>
+      <p class="lead">Профессиональное техобслуживание и&nbsp;ремонт автомобилей в&nbsp;Туле: слесарный цех, автоэлектрика, коммерческий транспорт и&nbsp;китайские автомобили. Личный менеджер приёмки — один&nbsp;на&nbsp;весь ремонт.</p>
+      <div class="hero-cta">
+        <a href="#reception" class="btn btn-primary">Связаться с приёмкой</a>
+        <a href="#photo" class="btn btn-ghost">Оценка по фото</a>
+      </div>
+      <div class="hero-tags">
+        <span class="htag">Техобслуживание</span><span class="htag">Слесарный цех</span><span class="htag">Автоэлектрика</span><span class="htag">Китайские авто</span><span class="htag">Коммерческий транспорт</span><span class="htag">Запчасти на месте</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 520 400" role="img" aria-label="Автомобиль на подъёмнике">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc400"/><stop offset="1" stop-color="#ffdf6b"/></linearGradient></defs>
+        <rect x="30" y="30" width="460" height="340" rx="26" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2" stroke-dasharray="8 10"/>
+        <path d="M150 60v290M370 60v290" stroke="rgba(255,255,255,.1)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M120 250 q14-46 58-54 q20-40 72-44 q58-4 90 30 q48 6 66 40 q8 16 4 26 q-4 10-16 10 l-258 0 q-15 0-16-8z" fill="url(#g1)" opacity=".92"/>
+        <path d="M232 168 q36-16 74 2" stroke="#0c0e11" stroke-width="7" fill="none" opacity=".5"/>
+        <path d="M188 208 q60-20 148 0" stroke="#0c0e11" stroke-width="4" fill="none" opacity=".35"/>
+        <circle cx="180" cy="286" r="27" fill="#0c0e11" stroke="#f3f5f9" stroke-width="5"/>
+        <circle cx="340" cy="286" r="27" fill="#0c0e11" stroke="#f3f5f9" stroke-width="5"/>
+        <path d="M120 330h280" stroke="rgba(255,196,0,.6)" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="90" cy="120" r="5" fill="#ffc400" opacity=".8"/>
+        <circle cx="430" cy="100" r="6" fill="#ffdf6b" opacity=".6"/>
+        <circle cx="448" cy="220" r="4" fill="#ffc400" opacity=".7"/>
+        <path d="M300 96l40-30M318 110l56-42" stroke="#ffc400" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mq">
+    <span>Техобслуживание</span><span>Слесарный цех</span><span>Автоэлектрика</span><span>Ремонт китайских авто</span><span>Коммерческий транспорт</span><span>Запчасти</span><span>Оценка по фото</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kicker">Все направления сервиса</span>
+    <h2 class="sec-title reveal">Один техцентр — все работы</h2>
+    <p class="sec-sub reveal">Работаем по&nbsp;алгоритмам производителя, соблюдаем регламенты EuroRepar. Выберите направление — внутри полный перечень операций.</p>
+    <div class="tabs" id="tabs">
+      <button class="tab on" data-t="p1">Техобслуживание</button>
+      <button class="tab" data-t="p2">Слесарный цех</button>
+      <button class="tab" data-t="p3">Автоэлектрика</button>
+      <button class="tab" data-t="p4">Спецнаправления</button>
+    </div>
+    <div class="tab-panel on" id="p1">
+      <div class="dir-list">
+        <span>Плановое ТО по регламенту</span><span>Замена технических жидкостей</span>
+        <span>Замена ремней и цепей ГРМ</span><span>Замена фильтров и свечей</span>
+        <span>Диагностика перед покупкой</span><span>Сезонная подготовка авто</span>
+      </div>
+    </div>
+    <div class="tab-panel" id="p2">
+      <div class="dir-list">
+        <span>Ремонт двигателей</span><span>Ремонт и обслуживание КПП и АКПП</span>
+        <span>Ремонт тормозной системы</span><span>Ремонт ходовой и подвески</span>
+        <span>Ремонт топливной системы</span><span>Ремонт системы охлаждения</span>
+      </div>
+    </div>
+    <div class="tab-panel" id="p3">
+      <div class="dir-list">
+        <span>Компьютерная диагностика</span><span>Ремонт электрооборудования</span>
+        <span>Стартеры и генераторы</span><span>Светотехника и датчики</span>
+      </div>
+    </div>
+    <div class="tab-panel" id="p4">
+      <div class="dir-list">
+        <span>Ремонт китайских автомобилей</span><span>Ремонт коммерческого транспорта и автобусов</span>
+        <span>Запчасти в наличии и под заказ</span><span>Оценка стоимости работ по фото</span>
+      </div>
+    </div>
+    <div class="brand-cloud reveal">
+      <span class="bchip">Citroen</span><span class="bchip">Peugeot</span><span class="bchip">Hyundai</span><span class="bchip">Volkswagen</span><span class="bchip">Mitsubishi</span><span class="bchip">Škoda</span><span class="bchip">Geely</span><span class="bchip">Suzuki</span><span class="bchip">Toyota</span><span class="bchip">Iran Khodro Samand</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt" id="reception">
+  <div class="wrap">
+    <span class="kicker">Личная приёмка</span>
+    <h2 class="sec-title reveal">Свой менеджер на каждый автомобиль</h2>
+    <p class="sec-sub reveal">Никаких «перезвоните в общий отдел»: у приёмки есть имена, прямые телефоны и зоны ответственности.</p>
+    <div class="reception">
+      <div class="person reveal"><div class="avatar">Д</div><h3>Дмитрий</h3><div class="role">Приёмка</div><a class="tel" href="tel:+79509185098">+7 950 918-50-98</a></div>
+      <div class="person reveal"><div class="avatar">С</div><h3>Сергей</h3><div class="role">Приёмка</div><a class="tel" href="tel:+79029056431">+7 902 905-64-31</a></div>
+      <div class="person reveal"><div class="avatar">В</div><h3>Виталий</h3><div class="role">Запчасти</div><a class="tel" href="tel:+79509181466">+7 950 918-14-66</a></div>
+      <div class="person reveal"><div class="avatar">А</div><h3>Алексей</h3><div class="role">Тех. поддержка</div><a class="tel" href="tel:+79509180680">+7 950 918-06-80</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="photo">
+  <div class="wrap">
+    <span class="kicker">Быстрый старт</span>
+    <h2 class="sec-title reveal">Оценка по фото и обратный звонок</h2>
+    <p class="sec-sub reveal">Пришлите фото — назовём предварительную сумму до визита.</p>
+    <div class="steps">
+      <div class="step reveal"><h3>Фотографии авто</h3><p>Достаточно снимков повреждения или узла, который беспокоит.</p></div>
+      <div class="step reveal"><h3>Расчёт по фото</h3><p>Приёмщик оценивает объём работ и озвучивает порядок суммы.</p></div>
+      <div class="step reveal"><h3>Запись на удобное время</h3><p>Бронируем пост и запчасти под вашу дату.</p></div>
+      <div class="step reveal"><h3>Ремонт и выдача</h3><p>Работаем по алгоритмам производителя, отдаём в срок.</p></div>
+    </div>
+    <div class="photo-form reveal">
+      <div>
+        <h3>Пришлите фото — посчитаем бесплатно</h3>
+        <p class="ph-note">Оставьте контакты и приложите снимки: приёмщик перезвонит с предварительной оценкой. Без обязательств.</p>
+      </div>
+      <form class="ff" id="photoForm">
+        <div class="field"><label for="pf-name">Ваше имя</label><input id="pf-name" type="text" placeholder="Иван" required></div>
+        <div class="field"><label for="pf-phone">Телефон</label><input id="pf-phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+        <label class="file-label" for="pf-file">
+          <input id="pf-file" type="file" accept="image/*" multiple>
+          <svg viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2l2-2h4l2 2h2a2 2 0 0 1 2 2v2"/><rect x="4" y="8" width="16" height="12" rx="2"/><circle cx="12" cy="14" r="3.2"/></svg>
+          Прикрепить фото<span class="fname" id="pf-fname"></span>
+        </label>
+        <button type="submit" class="btn btn-primary">Получить оценку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="sec-alt">
+  <div class="wrap contacts-grid">
+    <div>
+      <span class="kicker">Контакты</span>
+      <h2 class="sec-title reveal">Запишитесь на сервис</h2>
+      <a class="big-phone reveal" href="tel:+74872492521">+7 (4872) 49-25-21</a>
+      <a class="big-phone small reveal" href="tel:+74872730881">+7 (4872) 73-08-81</a>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <span><a href="mailto:mik-service@automik.ru" class="mail">mik-service@automik.ru</a> — для фото и вопросов</span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span>Тула, Владимирская область · официальный партнёр EuroRepar Car Service</span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span>Приём звонков и заявок — уточняйте график по телефону</span>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="ctaForm">
+      <h3>Оставить заявку</h3>
+      <div class="field"><label for="cf-name">Ваше имя</label><input id="cf-name" type="text" placeholder="Иван" required></div>
+      <div class="field"><label for="cf-phone">Телефон</label><input id="cf-phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+      <button type="submit" class="btn btn-primary">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  МИК-Сервис — АвтоТехЦентр · Тула · <a href="mailto:mik-service@automik.ru" class="mail">mik-service@automik.ru</a> · Партнёр EuroRepar Car Service
+</footer>
+
+<script>
+const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); nav.classList.toggle('open'); });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); nav.classList.remove('open'); }));
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30), {passive:true});
+const mq = document.getElementById('mq'); mq.innerHTML += mq.innerHTML;
+
+// табы направлений
+document.querySelectorAll('#tabs .tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('#tabs .tab').forEach(x => x.classList.remove('on'));
+  document.querySelectorAll('.tab-panel').forEach(x => x.classList.remove('on'));
+  t.classList.add('on'); document.getElementById(t.dataset.t).classList.add('on');
+}));
+
+document.getElementById('pf-file').addEventListener('change', function(){
+  document.getElementById('pf-fname').textContent = this.files.length ? ' — выбрано: ' + this.files.length : '';
+});
+document.getElementById('photoForm').addEventListener('submit', e => { e.preventDefault(); alert('Спасибо! Приёмщик перезвонит с предварительной оценкой.'); });
+document.getElementById('ctaForm').addEventListener('submit', e => { e.preventDefault(); alert('Спасибо! Заявка принята.'); });
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

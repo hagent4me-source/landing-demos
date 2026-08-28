@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автодиагност71 — чип-тюнинг, диагностика и ремонт в Туле</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070d; --bg2:#090d16; --card:#0d1320; --card2:#121a2b;
+  --accent:#00e5ff; --accent2:#7df3ff; --accent-dim:rgba(0,229,255,.1);
+  --text:#e9f2f7; --muted:#8395a6; --line:rgba(255,255,255,.09);
+  --radius:18px; --pad:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:'Unbounded',cursive;line-height:1.1;overflow-wrap:normal;word-break:normal;hyphens:none}
+a{color:inherit;text-decoration:none}
+svg{max-width:100%;display:block}
+section{position:relative;padding:clamp(56px,9vw,110px) var(--pad)}
+.wrap{max-width:1200px;margin:0 auto;width:100%}
+.kicker{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:18px}
+.kicker::before{content:"";width:26px;height:2px;background:var(--accent);flex-shrink:0}
+.sec-title{font-size:clamp(26px,4vw,46px);font-weight:900;margin-bottom:14px}
+.sec-sub{color:var(--muted);max-width:620px;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:14px;font-weight:800;font-size:15px;cursor:pointer;border:none;font-family:'Manrope';transition:transform .2s,box-shadow .2s}
+.btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent2));color:#02161b;box-shadow:0 10px 34px rgba(0,229,255,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(0,229,255,.42)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(5,7,13,.8);border-bottom:1px solid var(--line);transition:background .3s}
+header.scrolled{background:rgba(5,7,13,.94)}
+.header-in{max-width:1200px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:16px}
+.logo{font-family:'Unbounded';font-weight:900;font-size:18px;flex-shrink:0}
+.logo b{color:var(--accent)}
+.logo small{display:block;font-family:'Manrope';font-weight:600;font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.header-phone{margin-left:auto;font-weight:800;font-size:15px;white-space:nowrap;overflow-wrap:anywhere;flex-shrink:0}
+.header-phone:hover{color:var(--accent)}
+.burger{width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;cursor:pointer;display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0}
+.burger span{width:20px;height:2px;background:var(--text);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+nav.main-nav{display:flex;gap:24px;margin-left:6px}
+nav.main-nav a{font-size:14px;font-weight:600;color:var(--muted)}
+nav.main-nav a:hover{color:var(--accent)}
+
+.hero{overflow:hidden;padding-top:clamp(46px,7vw,84px);background:
+  radial-gradient(900px 480px at 80% -10%, rgba(0,229,255,.14), transparent 60%),
+  radial-gradient(600px 400px at -6% 108%, rgba(0,229,255,.06), transparent 58%), var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(24px,4vw,56px);align-items:center;max-width:1200px;margin:0 auto}
+.hero h1{font-size:clamp(31px,5.4vw,64px);font-weight:900}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{margin-top:20px;font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:520px}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:36px}
+.hm b{font-family:'Unbounded';font-weight:700;font-size:clamp(19px,2.6vw,28px);color:var(--accent2);white-space:nowrap}
+.hm span{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.hero-art{position:relative;filter:drop-shadow(0 30px 60px rgba(0,229,255,.13))}
+
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;width:max-content;animation:mq 26s linear infinite}
+.marquee-track span{font-family:'Unbounded';font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+.marquee-track span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.acc{display:flex;flex-direction:column;gap:12px}
+.aitem{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;transition:border-color .25s}
+.aitem:hover,.aitem.open{border-color:rgba(0,229,255,.5)}
+.ahead{width:100%;text-align:left;background:none;border:none;color:var(--text);font-family:'Manrope';font-weight:800;font-size:16px;padding:20px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;min-width:0}
+.ahead .idx{font-family:'Unbounded';font-weight:700;font-size:13px;color:var(--accent);flex-shrink:0}
+.ahead .arr{font-size:20px;color:var(--accent);transition:transform .25s;flex-shrink:0}
+.aitem.open .arr{transform:rotate(45deg)}
+.abody{display:none;padding:0 22px 20px;color:var(--muted);font-size:14.5px}
+.aitem.open .abody{display:block}
+
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.wcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;min-width:0;transition:transform .25s,border-color .25s}
+.wcard:hover{transform:translateY(-6px);border-color:rgba(0,229,255,.5)}
+.wcard svg{width:42px;height:42px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+.wcard h3{font-size:16px;margin-bottom:8px}
+.wcard p{font-size:14px;color:var(--muted)}
+
+.photo-form{background:linear-gradient(140deg,rgba(0,229,255,.08),rgba(255,255,255,.02));border:1px solid rgba(0,229,255,.3);border-radius:24px;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center}
+.photo-form h3{font-size:clamp(19px,2.4vw,28px);font-weight:900;margin-bottom:12px}
+.ff{display:flex;flex-direction:column;gap:14px}
+.field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:800}
+.field input{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-family:'Manrope';font-size:15px;font-weight:600;outline:none}
+.field input:focus{border-color:var(--accent)}
+.ph-note{color:var(--muted)}
+.btn.mt6{margin-top:6px}
+
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.big-phone{font-family:'Unbounded';font-weight:900;font-size:clamp(20px,3vw,34px);display:block;margin-bottom:8px;overflow-wrap:anywhere}
+.big-phone:hover{color:var(--accent)}
+.big-phone.small{font-size:clamp(15px,2vw,22px)}
+.h3-sm{font-size:18px}
+.c-line{display:flex;gap:12px;align-items:flex-start;margin-top:16px;color:var(--muted);font-size:15px}
+.c-line svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+.contact-form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:14px}
+a.mail{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:28px var(--pad);text-align:center;color:var(--muted);font-size:13px;background:var(--bg2)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+.btn.wide{width:100%}
+@media (max-width:1020px){
+  nav.main-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(5,7,13,.97);border-bottom:1px solid var(--line);padding:10px var(--pad) 18px}
+  nav.main-nav.open{display:flex}
+  nav.main-nav a{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .burger{display:flex}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-art{max-width:420px;margin:0 auto}
+  .why{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .photo-form,.contacts-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .header-in{gap:10px;padding:12px 18px}
+  .logo{font-size:15.5px}.logo small{display:none}
+  .header-phone{font-size:12.5px}
+  .why{grid-template-columns:minmax(0,1fr)}
+  .hero-cta .btn{width:100%}
+  section{padding-left:18px;padding-right:18px}
+}
+@media (max-width:360px){
+  .header-phone{font-size:11.5px}
+  .hero h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="header-in">
+    <div class="logo">АВТОДИАГНОСТ <b>71</b><small>Тула · чип-тюнинг и диагностика</small></div>
+    <nav class="main-nav" id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="header-phone" href="tel:+79107049388">+7 (910) 704-93-88</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <span class="kicker">Электроника · Двигатель · Тула</span>
+      <h1>Чип-тюнинг, диагностика и&nbsp;ремонт&nbsp;— <em>в&nbsp;одном месте</em></h1>
+      <p class="lead">Читаем и&nbsp;перепрограммируем блоки управления, чиним то,&nbsp;что другие меняют целиком. 10&nbsp;лет опыта и&nbsp;реальная гарантия на&nbsp;работы.</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-primary">Все услуги</a>
+        <a href="#contacts" class="btn btn-ghost">Записаться</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hm"><b>10 лет</b><span>опыта в ремонте</span></div>
+        <div class="hm"><b>Гарантия</b><span>на все работы</span></div>
+        <div class="hm"><b>Pro</b><span>заводское оборудование</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 520 400" role="img" aria-label="Диагностика электронных блоков">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00e5ff"/><stop offset="1" stop-color="#7df3ff"/></linearGradient></defs>
+        <rect x="30" y="30" width="460" height="340" rx="26" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2" stroke-dasharray="8 10"/>
+        <rect x="180" y="130" width="160" height="140" rx="18" fill="#0d1320" stroke="url(#g1)" stroke-width="2.5"/>
+        <rect x="205" y="155" width="110" height="90" rx="10" fill="#05070d" stroke="rgba(0,229,255,.35)" stroke-width="1.5"/>
+        <path d="M215 175h30M215 195h42M215 215h26M215 235h36" stroke="rgba(0,229,255,.5)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="292" cy="215" r="12" fill="none" stroke="url(#g1)" stroke-width="3"/>
+        <path d="M292 203v-14M304 215h14M292 227v14M280 215h-14" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M180 160h-60M180 200h-90M180 240h-60M340 160h60M340 200h90M340 240h60" stroke="rgba(0,229,255,.4)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="118" cy="160" r="5" fill="#00e5ff"/><circle cx="88" cy="200" r="5" fill="#7df3ff"/><circle cx="118" cy="240" r="5" fill="#00e5ff"/>
+        <circle cx="402" cy="160" r="5" fill="#00e5ff"/><circle cx="432" cy="200" r="5" fill="#7df3ff"/><circle cx="402" cy="240" r="5" fill="#00e5ff"/>
+        <circle cx="95" cy="95" r="4" fill="#7df3ff" opacity=".6"/><circle cx="440" cy="320" r="4" fill="#00e5ff" opacity=".6"/>
+        <path d="M40 330h440" stroke="rgba(0,229,255,.25)" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mq">
+    <span>Чип-тюнинг</span><span>Компьютерная диагностика</span><span>SRS · AirBag</span><span>Катализаторы и EGR</span><span>Автокондиционеры</span><span>Генераторы и стартеры</span><span>Развал-схождение</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kicker">Что делаем</span>
+    <h2 class="sec-title reveal">Электроника и механика — под одной крышей</h2>
+    <p class="sec-sub reveal">Раскройте направление — внутри описание работ. Всё выполняем сами, без&nbsp;перепродажи в&nbsp;третьи руки.</p>
+    <div class="acc reveal" id="acc">
+      <div class="aitem open">
+        <button class="ahead"><span><span class="idx">01</span> Чип-тюнинг и блоки управления</span><span class="arr">+</span></button>
+        <div class="abody">Перепрограммируем блоки управления двигателем: прошивки под топливо, отключение неисправных систем, настройка параметров. Работаем с заводскими протоколами, сохраняем копию штатной прошивки.</div>
+      </div>
+      <div class="aitem">
+        <button class="ahead"><span><span class="idx">02</span> Компьютерная диагностика</span><span class="arr">+</span></button>
+        <div class="abody">Профессиональная диагностика всех систем: считываем ошибки в реальном времени, находим причину, а не симптом. После диагностики — понятная смета без «раскрутки».</div>
+      </div>
+      <div class="aitem">
+        <button class="ahead"><span><span class="idx">03</span> SRS и системы безопасности</span><span class="arr">+</span></button>
+        <div class="abody">Полностью восстанавливаем системы безопасности автомобиля: ремонт блоков SRS, работа с подушками и преднатяжителями после срабатывания.</div>
+      </div>
+      <div class="aitem">
+        <button class="ahead"><span><span class="idx">04</span> Катализаторы, сажевые фильтры, EGR</span><span class="arr">+</span></button>
+        <div class="abody">Физическое и программное удаление катализаторов, сажевых фильтров и EGR — с корректной прошивкой, чтобы не было ошибок и «чека» на панели.</div>
+      </div>
+      <div class="aitem">
+        <button class="ahead"><span><span class="idx">05</span> Автокондиционеры</span><span class="arr">+</span></button>
+        <div class="abody">Заправка, ремонт и обслуживание автокондиционеров. Подшипники компрессоров — в наличии: меняем без долгого ожидания запчастей.</div>
+      </div>
+      <div class="aitem">
+        <button class="ahead"><span><span class="idx">06</span> Ремонт и слесарные работы</span><span class="arr">+</span></button>
+        <div class="abody">Диагностика и ремонт генераторов и стартеров, промывка форсунок, выхлопные системы, развал-схождение и все виды слесарных работ.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt" id="why">
+  <div class="wrap">
+    <span class="kicker">Почему к нам</span>
+    <h2 class="sec-title reveal">Три причины доверить авто</h2>
+    <p class="sec-sub reveal">Сформулировали сами для себя — и держим эти три пункта каждый день.</p>
+    <div class="why">
+      <div class="wcard reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <h3>10 лет практики</h3>
+        <p>Большой и разноплановый опыт ремонта: от отечественных авто до современных электронно-насыщенных иномарок.</p>
+      </div>
+      <div class="wcard reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        <h3>Реальная гарантия</h3>
+        <p>Даём гарантию на проделанные работы — не отписку, а обязательство, которое подтверждаем делом.</p>
+      </div>
+      <div class="wcard reveal">
+        <svg viewBox="0 0 24 24"><path d="M14 6l4 4-8 8H6v-4z"/><path d="M12 8l4 4"/></svg>
+        <h3>Серьёзное оборудование</h3>
+        <p>Используем качественное оборудование и инструмент: диагностика по заводским протоколам, а не «на глаз».</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap contacts-grid">
+    <div>
+      <span class="kicker">Контакты</span>
+      <h2 class="sec-title reveal">Запишитесь на диагностику</h2>
+      <a class="big-phone reveal" href="tel:+79107049388">+7 (910) 704-93-88</a>
+      <a class="big-phone small reveal" href="tel:+79202779998">+7 (920) 277-99-98</a>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M15 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM4 21c0-4 3-6 6-6s6 2 6 6"/></svg>
+        <span>Опишите симптомы — подскажем, с какого узла начать проверку</span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <span><a href="mailto:autodiagnost.tula@mail.ru" class="mail">autodiagnost.tula@mail.ru</a> — сюда можно прислать фото панели ошибок</span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span>Тула, Владимирская область</span>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="ctaForm">
+      <h3 class="h3-sm">Оставить заявку</h3>
+      <div class="field"><label for="cf-name">Ваше имя</label><input id="cf-name" type="text" placeholder="Иван" required></div>
+      <div class="field"><label for="cf-phone">Телефон</label><input id="cf-phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+      <div class="field"><label for="cf-sym">Что беспокоит</label><input id="cf-sym" type="text" placeholder="Например: чек, потеря тяги, кондиционер"></div>
+      <button type="submit" class="btn btn-primary wide">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Автодиагност71 — чип-тюнинг, диагностика и ремонт · Тула · <a href="mailto:autodiagnost.tula@mail.ru" class="mail">autodiagnost.tula@mail.ru</a>
+</footer>
+
+<script>
+const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); nav.classList.toggle('open'); });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); nav.classList.remove('open'); }));
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30), {passive:true});
+const mq = document.getElementById('mq'); mq.innerHTML += mq.innerHTML;
+document.querySelectorAll('#acc .ahead').forEach(b => b.addEventListener('click', () => b.parentElement.classList.toggle('open')));
+document.getElementById('ctaForm').addEventListener('submit', e => { e.preventDefault(); alert('Спасибо! Перезвоним и запишем на диагностику.'); });
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
