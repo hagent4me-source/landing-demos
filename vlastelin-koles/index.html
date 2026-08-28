@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Властелин колес — шиномонтаж 24/7 и&nbsp;автомойка в&nbsp;Екатеринбурге · Шефская, 96</title>
+<meta name="description" content="Автокомплекс «Властелин колес» в Екатеринбурге: круглосуточный шиномонтаж, балансировка, ремонт шин, автомойка и химчистка. Работаем с 2000 года. ул. Шефская, 96.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d0c; --bg2:#111512; --panel:#161b17; --panel2:#1c231d;
+  --ink:#f2f7f0; --muted:#9aa89b; --line:rgba(163,230,53,.18);
+  --lime:#a3e635; --lime2:#d3f777; --dark:#65a30d;
+  --grad:linear-gradient(120deg,#a3e635 0%,#84cc16 60%,#3f6212 100%);
+  --r:16px; --gap:clamp(14px,2.4vw,26px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.disp{font-family:'Russo One',sans-serif;font-weight:400;line-height:1.1;letter-spacing:.005em;hyphens:none}
+h2{font-size:clamp(25px,4.4vw,44px);text-wrap:balance}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92%);margin:0 auto}
+section{position:relative;overflow:hidden}
+.tel{overflow-wrap:anywhere}
+
+/* шапка */
+header{position:fixed;inset:0 0 auto;z-index:60;transition:.35s;background:transparent}
+header.scrolled{background:rgba(11,13,12,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:18px;height:72px}
+.logo{font-family:'Russo One';font-size:18px;white-space:nowrap}
+.logo b{color:var(--lime)}
+.nav-links{display:flex;gap:24px;margin-left:auto;font-weight:600;font-size:14.5px}
+.nav-links a{opacity:.72;transition:.2s}
+.nav-links a:hover{opacity:1;color:var(--lime2)}
+.nav-tel{font-weight:800;font-size:15px;white-space:nowrap;padding:9px 16px;border:1px solid var(--line);border-radius:11px;transition:.25s}
+.nav-tel:hover{border-color:var(--lime);color:var(--lime2)}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border:1px solid var(--line);border-radius:11px;background:none;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger span{width:20px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-menu{display:none;position:fixed;inset:72px 0 auto;z-index:55;background:rgba(11,13,12,.97);backdrop-filter:blur(16px);padding:20px 5% 28px;border-bottom:1px solid var(--line)}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:13px 0;font-size:17px;font-weight:700;border-bottom:1px solid rgba(255,255,255,.06)}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:118px 0 70px;
+  background:radial-gradient(52% 44% at 82% 18%,rgba(163,230,53,.14),transparent 60%),
+             radial-gradient(40% 36% at 8% 82%,rgba(101,163,13,.12),transparent 60%),
+             linear-gradient(180deg,#0b0d0c 0%,#111a10 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='130' height='130'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='130' height='130' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:var(--gap);align-items:center}
+.since{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:100px;border:1px solid var(--line);background:rgba(163,230,53,.07);font-weight:800;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--lime2)}
+.since .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-size:clamp(38px,7vw,84px);margin:22px 0 16px}
+h1 .lime{color:var(--lime);display:block}
+h1 .stroke{color:transparent;-webkit-text-stroke:1.4px var(--lime);display:block}
+.hero-sub{font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:33em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:13px;font-weight:800;font-size:15.5px;cursor:pointer;border:none;transition:.25s}
+.btn-primary{background:var(--grad);color:#101503;box-shadow:0 10px 32px rgba(163,230,53,.28)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(163,230,53,.42)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime2)}
+
+/* статус-виджет */
+.status-card{position:relative;background:linear-gradient(160deg,rgba(22,27,23,.94),rgba(17,21,18,.8));border:1px solid var(--line);border-radius:24px;padding:28px;backdrop-filter:blur(8px)}
+.status-card h3{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime2);font-weight:400;margin-bottom:18px}
+.st-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px dashed rgba(255,255,255,.1)}
+.st-row:last-of-type{border-bottom:none}
+.st-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.st-open{background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.st-closed{background:#5b6b52}
+.st-row .k{font-weight:700}
+.st-row .s{color:var(--muted);font-size:13px;margin-left:auto;text-align:right}
+.st-note{margin-top:14px;color:var(--muted);font-size:13px}
+
+/* marquee */
+.marquee{background:var(--lime);color:#101503;padding:14px 0;transform:rotate(1.1deg);margin:8px -20px}
+.marquee-inner{display:flex;gap:42px;white-space:nowrap;font-family:'Russo One';font-size:15px;animation:slide 25s linear infinite;width:max-content}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marquee span{display:flex;align-items:center;gap:42px}
+.marquee i{font-style:normal;font-size:11px}
+
+/* услуги */
+.svc{padding:clamp(60px,9vw,110px) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(26px,4vw,46px);flex-wrap:wrap}
+.sec-head p{color:var(--muted);max-width:26em}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,248px),1fr));gap:var(--gap)}
+.svc-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:25px 23px;transition:.3s;min-width:0}
+.svc-card:hover{transform:translateY(-6px);border-color:rgba(163,230,53,.45);box-shadow:0 18px 40px rgba(0,0,0,.55)}
+.svc-ico{width:50px;height:50px;border-radius:13px;background:rgba(163,230,53,.09);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.svc-ico svg{width:25px;height:25px;stroke:var(--lime);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{font-size:15.5px;font-weight:400;margin-bottom:9px}
+.svc-card p{color:var(--muted);font-size:14px}
+
+/* мойка — светлая вставка */
+.wash{padding:clamp(56px,8vw,100px) 0;background:var(--lime);color:#141a06;clip-path:polygon(0 3.5%,100% 0,100% 96.5%,0 100%)}
+.wash .sec-head p{color:#3c4d1c}
+.wash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:var(--gap)}
+.wash-card{background:rgba(20,26,6,.92);color:var(--ink);border-radius:var(--r);padding:24px;border:1px solid rgba(255,255,255,.08)}
+.wash-card h3{font-size:15.5px;margin-bottom:8px;color:var(--lime2)}
+.wash-card p{color:var(--muted);font-size:14px}
+.wash-big{font-family:'Russo One';font-size:clamp(22px,3vw,32px);color:var(--lime)}
+.wash h2 .wl{color:#141a06;-webkit-text-stroke:1.2px #141a06}
+
+/* юрлицам */
+.b2b{padding:clamp(56px,8vw,96px) 0}
+.b2b-box{border-radius:26px;padding:clamp(28px,5vw,56px);background:linear-gradient(115deg,#161b17 0%,#1c2a14 55%,#2a4210 100%);border:1px solid rgba(163,230,53,.35);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:26px;align-items:center}
+.b2b-tag{display:inline-block;padding:7px 16px;border-radius:100px;background:rgba(163,230,53,.12);border:1px solid var(--line);color:var(--lime2);font-weight:800;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:15px}
+.b2b h2{font-size:clamp(21px,3.2vw,36px);max-width:17em}
+.b2b p{color:var(--muted);margin-top:10px;max-width:30em}
+.b2b-price{font-family:'Russo One';font-size:clamp(22px,3vw,34px);color:var(--lime2);white-space:nowrap;text-align:right}
+.b2b-note{color:var(--muted);font-size:13px;margin-top:6px;text-align:right}
+
+/* почему мы */
+.why{padding:clamp(56px,8vw,96px) 0;background:linear-gradient(180deg,var(--bg) 0%,#0e130c 100%)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,215px),1fr));gap:var(--gap)}
+.why-item{padding:24px 20px;border-left:2px solid var(--lime)}
+.why-item .big{font-family:'Russo One';font-size:clamp(22px,2.8vw,30px);color:var(--lime2);margin-bottom:7px}
+.why-item p{color:var(--muted);font-size:14px}
+
+/* форма */
+.book{padding:clamp(56px,8vw,96px) 0}
+.book-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(26px,4vw,52px);align-items:center}
+.form{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,36px)}
+.f-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.form label{display:block;font-size:13px;font-weight:700;color:var(--lime2);margin:15px 0 7px;letter-spacing:.04em}
+.form input,.form select{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);font:500 15px 'Inter Tight';outline:none;transition:.2s}
+.form input:focus,.form select:focus{border-color:var(--lime)}
+.form .btn{width:100%;margin-top:20px}
+.form .fine{color:var(--muted);font-size:12px;text-align:center;margin-top:12px}
+
+/* контакты */
+.contacts{padding:clamp(48px,7vw,86px) 0 clamp(64px,9vw,104px)}
+.ct-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:var(--gap)}
+.ct-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:25px}
+.ct-card .lbl{color:var(--lime2);font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:11px}
+.ct-card .val{font-weight:700;font-size:16.5px}
+.ct-card .sub{color:var(--muted);font-size:13.5px;margin-top:8px}
+
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13.5px}
+.foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-grid,.book-grid{grid-template-columns:minmax(0,1fr)}
+  .b2b-box{grid-template-columns:1fr}
+  .b2b-price,.b2b-note{text-align:left}
+  .wash{clip-path:polygon(0 2%,100% 0,100% 98%,0 100%)}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .nav-tel{display:none}
+  .burger{display:flex}
+  .f-row{grid-template-columns:1fr}
+  h1{font-size:clamp(23px,7.2vw,38px)}
+  .hero{padding-top:102px}
+  .status-card{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">ВЛАСТЕЛИН <b>КОЛЕС</b></a>
+    <nav class="nav-links">
+      <a href="#services">Шиномонтаж</a>
+      <a href="#wash">Мойка</a>
+      <a href="#b2b">Юрлицам</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-tel tel" href="tel:tel:+73439291040">+7 (343) 929-10-40</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mmenu">
+  <a href="#services">Шиномонтаж</a>
+  <a href="#wash">Мойка</a>
+  <a href="#b2b">Юрлицам</a>
+  <a href="#contacts">Контакты</a>
+  <a class="tel" href="tel:tel:+73439291040">+7 (343) 929-10-40</a>
+  <a class="tel" href="tel:tel:+73433721040">+7 (343) 372-10-40</a>
+</div>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="since"><span class="dot"></span> Работаем с&nbsp;2000 года</span>
+      <h1>Шиномонтаж<span class="lime">круглосуточно</span><span class="stroke">7 дней&nbsp;в&nbsp;неделю</span></h1>
+      <p class="hero-sub">Автокомплекс «Властелин колес» в&nbsp;Орджоникидзевском районе Екатеринбурга — сертифицированные шиномонтажные и&nbsp;шиноремонтные работы ночью и&nbsp;днём, автомойка и&nbsp;химчистка рядом.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#book">Записаться</a>
+        <a class="btn btn-ghost" href="#services">Услуги</a>
+      </div>
+    </div>
+    <aside class="status-card reveal">
+      <h3>Сейчас открыто?</h3>
+      <div class="st-row"><span class="st-dot st-open" id="d1"></span><span class="k">Шиномонтаж</span><span class="s">круглосуточно</span></div>
+      <div class="st-row"><span class="st-dot st-closed" id="d2"></span><span class="k">Автомойка</span><span class="s">9:00–22:00, ежедневно</span></div>
+      <div class="st-note" id="stnote">Статус обновляется по&nbsp;вашим часам автоматически.</div>
+      <div class="hero-cta">
+        <a class="btn btn-primary tel" href="tel:tel:+73439291040">+7 (343) 929-10-40</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>Балансировка <i>◆</i> Ремонт порезов <i>◆</i> Накачка азотом <i>◆</i> Чернение шин <i>◆</i> Вулканизация <i>◆</i> Химчистка салона <i>◆</i> Отсрочка юрлицам <i>◆</i> </span>
+    <span>Балансировка <i>◆</i> Ремонт порезов <i>◆</i> Накачка азотом <i>◆</i> Чернение шин <i>◆</i> Вулканизация <i>◆</i> Химчистка салона <i>◆</i> Отсрочка юрлицам <i>◆</i> </span>
+  </div>
+</div>
+
+<section class="svc" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Шиномонтажные работы</h2>
+      <p>Новейшее высокотехнологичное оборудование, квалифицированные специалисты и&nbsp;фирменные расходные материалы из&nbsp;Италии и&nbsp;США. Все услуги сертифицированы.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v5M12 15v5M4 12h5M15 12h5"/></svg></div>
+        <h3>Снятие и&nbsp;установка колёс</h3><p>Аккуратное снятие, разбортовка и&nbsp;забортовка шины без&nbsp;повреждений диска.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M6 6l12 12M18 6 6 18"/></svg></div>
+        <h3>Балансировка колёс</h3><p>Точная балансировка на&nbsp;современном стенде — ровный руль и&nbsp;меньше износ.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M7 4h10l2 5-7 12L5 9z"/><path d="M5 9h14M9.5 9 12 21l2.5-12"/></svg></div>
+        <h3>Накачка шин азотом</h3><p>Стабильное давление в&nbsp;любую погоду и&nbsp;медленнее утечки.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M14.5 3.5 20 9l-9 9H5v-6z"/><path d="M13 5l6 6"/><path d="M3 21h7"/></svg></div>
+        <h3>Ремонт шин</h3><p>Боковые порезы, жгут, грибок и&nbsp;горячая вулканизация — от&nbsp;прокола до&nbsp;сложных случаев.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+        <h3>Чернение и&nbsp;подкачка</h3><p>Чернение шин для&nbsp;свежего вида и&nbsp;быстрая подкачка колёс в&nbsp;любое время.</p>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="9" rx="4.5"/><path d="M7.5 12.5h.01M10.5 12.5h.01M13.5 12.5h.01M16.5 12.5h.01"/></svg></div>
+        <h3>Юрлицам — отсрочка</h3><p>Шины, диски, шиномонтаж и&nbsp;мойка с&nbsp;отсрочкой платежа для&nbsp;организаций района.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="wash" id="wash">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Автомойка и&nbsp;химчистка</h2>
+      <p>Ежедневно с&nbsp;9:00 до&nbsp;22:00 — качественная мойка, уборка и&nbsp;более 70&nbsp;услуг по&nbsp;уходу за&nbsp;автомобилем.</p>
+    </div>
+    <div class="wash-grid">
+      <div class="wash-card reveal"><div class="wash-big">9:00–22:00</div><p>Режим работы мойки — ежедневно, без&nbsp;выходных.</p></div>
+      <div class="wash-card reveal"><div class="wash-big">70+</div><p>Услуг по&nbsp;уборке авто: от&nbsp;быстрой мойки до&nbsp;полной химчистки салона.</p></div>
+      <div class="wash-card reveal"><h3>Химчистка</h3><p>Глубокая химчистка салона качественными составами.</p></div>
+      <div class="wash-card reveal"><h3>Для юрлиц</h3><p>Мойка корпоративного транспорта с&nbsp;отсрочкой платежа.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="b2b" id="b2b">
+  <div class="wrap">
+    <div class="b2b-box reveal">
+      <div>
+        <span class="b2b-tag">Специальное предложение · Орджоникидзевский район</span>
+        <h2>Юрлицам — шины, диски, шиномонтаж и&nbsp;мойка с&nbsp;отсрочкой платежа</h2>
+        <p>Обслуживание корпоративного автопарка: ремонт шин, перебортовка, автомойка — оплата позже, по&nbsp;договору.</p>
+      </div>
+      <div>
+        <div class="b2b-price">Отсрочка платежа</div>
+        <div class="b2b-note">для состоятельных юридических лиц</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Почему нам доверяют район и&nbsp;транзит</h2></div>
+    <div class="why-grid">
+      <div class="why-item reveal"><div class="big">с 2000</div><p>Более четверти века на&nbsp;рынке — тысячи автовладельцев Орджоникидзевского района.</p></div>
+      <div class="why-item reveal"><div class="big">24/7</div><p>Шиномонтаж круглосуточно — переобуем ночью, утром машина на&nbsp;ходу.</p></div>
+      <div class="why-item reveal"><div class="big">Сертификаты</div><p>Специалисты обучены и&nbsp;сертифицированы, расходники — Италия и&nbsp;США.</p></div>
+      <div class="why-item reveal"><div class="big">Wi-Fi</div><p>Бесплатный Wi-Fi в&nbsp;зоне ожидания — удобно переждать.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div class="reveal">
+      <h2>Записаться на&nbsp;работы</h2>
+      <p class="hero-sub">Оставьте заявку — перезвоним и&nbsp;подберём удобное время. Ночью шиномонтаж работает без&nbsp;очередей. Или звоните: <span class="tel">+7 (343) 929-10-40</span>.</p>
+    </div>
+    <form class="form reveal" id="bookform">
+      <div class="f-row">
+        <div><label for="fn">Ваше имя</label><input id="fn" required placeholder="Иван"></div>
+        <div><label for="fp">Телефон</label><input id="fp" required type="tel" placeholder="+7 ___ ___-__-__"></div>
+      </div>
+      <label for="fs">Услуга</label>
+      <select id="fs">
+        <option>Шиномонтаж (снятие/установка, балансировка)</option>
+        <option>Ремонт шины (прокол, порез, вулканизация)</option>
+        <option>Накачка азотом / чернение шин</option>
+        <option>Автомойка</option>
+        <option>Химчистка салона</option>
+        <option>Обслуживание юрлица — отсрочка платежа</option>
+      </select>
+      <label for="ft">Удобное время</label>
+      <select id="ft">
+        <option>Ночь (22:00–09:00) — шиномонтаж</option>
+        <option>Утро (09:00–12:00)</option>
+        <option>День (12:00–18:00)</option>
+        <option>Вечер (18:00–22:00)</option>
+      </select>
+      <button class="btn btn-primary" type="submit">Отправить заявку</button>
+      <p class="fine">Нажимая кнопку, вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных.</p>
+    </form>
+  </div>
+</section>
+
+<section class="contacts" id="contacts">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Контакты</h2><p>Перекрёсток улиц Шефская — Фрезеровщиков, Орджоникидзевский район.</p></div>
+    <div class="ct-grid">
+      <div class="ct-card reveal"><div class="lbl">Адрес</div><div class="val">620135, ул. Шефская, 96</div><div class="sub">Екатеринбург · перекрёсток Шефская&nbsp;— Фрезеровщиков</div></div>
+      <div class="ct-card reveal"><div class="lbl">Телефоны</div><div class="val tel">+7 (343) 929-10-40</div><div class="val tel">+7 (343) 372-10-40</div></div>
+      <div class="ct-card reveal"><div class="lbl">E-mail</div><div class="val tel">info@kolesa66.ru</div><div class="sub">расчёты и&nbsp;счета для&nbsp;юрлиц</div></div>
+      <div class="ct-card reveal"><div class="lbl">Режим</div><div class="val">Шиномонтаж — 24/7</div><div class="sub">Мойка — 9:00–22:00 ежедневно</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© Автокомплекс «Властелин колес» — Екатеринбург, с&nbsp;2000 года</span>
+    <span>ул. Шефская, 96 · info@kolesa66.ru</span>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>30),{passive:true});
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',()=>mmenu.classList.toggle('open'));
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function st(){
+  const h=new Date().getHours();
+  const washOpen=h>=9&&h<22;
+  document.getElementById('d1').className='st-dot st-open';
+  document.getElementById('d2').className='st-dot '+(washOpen?'st-open':'st-closed');
+  document.getElementById('stnote').textContent=washOpen
+    ?'Сейчас мойка открыта, шиномонтаж — всегда. Заезжайте!'
+    :'Сейчас мойка закрыта, но шиномонтаж работает прямо сейчас.';
+}
+st();setInterval(st,60000);
+document.getElementById('bookform').addEventListener('submit',e=>{
+  e.preventDefault();alert('Спасибо! Заявка принята — перезвоним для&nbsp;подтверждения времени.');e.target.reset();
+});
+</script>
+</body>
+</html>
