@@ -36,6 +36,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(6,18,37,.88);backdrop-fi
 .btn:hover{transform:translateY(-2px)}
 .btn-primary{background:linear-gradient(135deg,var(--glass),var(--glass2));color:#062135;box-shadow:0 8px 30px rgba(94,200,242,.35)}
 .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.nav-phone{color:var(--glass2);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;white-space:nowrap;transition:opacity .2s}
+.nav-phone:hover{opacity:.75}
 .btn-ghost:hover{border-color:var(--glass2);color:var(--glass2)}
 .hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(94,200,242,.18),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(18,44,82,.85),transparent 60%)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
@@ -57,7 +59,7 @@ section{padding:80px 0}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 .card{background:linear-gradient(160deg,var(--sapphire2),var(--sapphire));border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .2s,border-color .2s}
 .card:hover{transform:translateY(-4px);border-color:rgba(94,200,242,.5)}
-.card-ico{width:48px;height:48px;border-radius:13px;background:rgba(94,200,242,.14);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico{width:44px;height:44px;border-radius:13px;background:rgba(94,200,242,.14);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .card-ico svg{width:24px;height:24px;stroke:var(--glass2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
 .card p{font-size:13.5px;color:var(--muted)}
@@ -80,7 +82,7 @@ section{padding:80px 0}
 .hint a{color:var(--glass2)}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 .contact-card{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.03)}
-.contact-card .card-ico{margin-bottom:14px}
+.contact-card .card-ico{margin-bottom:18px}
 .contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
 .contact-card a{color:var(--glass2);text-decoration:none;font-size:15px;font-weight:700}
 .contact-card p{color:var(--muted);font-size:13.5px}
@@ -107,7 +109,7 @@ footer a{color:var(--glass2);text-decoration:none}
       <a href="#order">Запрос</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="btn btn-primary" href="tel:+79023300110">8 902 330-01-10</a>
+    <a class="nav-phone" href="tel:+79023300110">8 902 330-01-10</a>
   </div>
 </header>
 

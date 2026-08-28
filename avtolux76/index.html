@@ -36,6 +36,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(16,18,20,.88);backdrop-f
 .btn:hover{transform:translateY(-2px)}
 .btn-primary{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 8px 30px rgba(224,58,48,.35)}
 .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.nav-phone{color:var(--red2);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;white-space:nowrap;transition:opacity .2s}
+.nav-phone:hover{opacity:.75}
 .btn-ghost:hover{border-color:var(--red2);color:var(--red2)}
 .hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(224,58,48,.17),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(37,41,47,.9),transparent 60%)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
@@ -81,7 +83,7 @@ section{padding:80px 0}
 .hint a{color:var(--red2)}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 .contact-card{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.03)}
-.contact-card .card-ico{margin-bottom:14px}
+.contact-card .card-ico{margin-bottom:18px}
 .contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
 .contact-card a{color:var(--red2);text-decoration:none;font-size:15px;font-weight:700}
 .contact-card p{color:var(--muted);font-size:13.5px}
@@ -108,7 +110,7 @@ footer a{color:var(--red2);text-decoration:none}
       <a href="#order">Запись</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="btn btn-primary" href="tel:+74852490490">+7 4852 49-04-90</a>
+    <a class="nav-phone" href="tel:+74852490490">+7 4852 49-04-90</a>
   </div>
 </header>
 
