@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бюро переводов «ПереводРФ» — Москва, нотариальное заверение, апостиль</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1220; --bg2:#0e1728; --card:#122036; --card2:#17283f;
+  --accent:#d4af37; --accent2:#f0d78c; --accent-dim:rgba(212,175,55,.12);
+  --text:#f2f5fa; --muted:#93a3ba; --line:rgba(255,255,255,.1);
+  --radius:18px; --pad:clamp(20px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6}
+h1,h2,h3,.font-display{font-family:'Playfair Display',serif;line-height:1.12;overflow-wrap:normal;word-break:normal;hyphens:none;font-weight:800}
+a{color:inherit;text-decoration:none}
+svg{max-width:100%;display:block}
+section{position:relative;padding:clamp(56px,9vw,110px) var(--pad)}
+.wrap{max-width:1200px;margin:0 auto;width:100%}
+.kicker{display:inline-flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:18px}
+.kicker::before,.kicker::after{content:"";width:22px;height:1px;background:var(--accent);flex-shrink:0}
+.sec-title{font-size:clamp(27px,4.2vw,48px);margin-bottom:14px}
+.sec-sub{color:var(--muted);max-width:640px;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;border-radius:2px;font-weight:800;font-size:15px;cursor:pointer;border:none;font-family:'Manrope';transition:transform .2s,box-shadow .2s;letter-spacing:.02em}
+.btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent2));color:#1c1503;box-shadow:0 10px 34px rgba(212,175,55,.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(212,175,55,.42)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(10,18,32,.85);border-bottom:1px solid var(--line);transition:background .3s}
+header.scrolled{background:rgba(10,18,32,.96)}
+.header-in{max-width:1200px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:16px}
+.logo{font-family:'Playfair Display',serif;font-weight:800;font-size:20px;flex-shrink:0}
+.logo b{color:var(--accent)}
+.logo small{display:block;font-family:'Manrope';font-weight:600;font-size:8.5px;color:var(--muted);letter-spacing:.24em;text-transform:uppercase}
+.header-phone{margin-left:auto;font-weight:800;font-size:15px;white-space:nowrap;overflow-wrap:anywhere;flex-shrink:0}
+.header-phone:hover{color:var(--accent)}
+.burger{width:44px;height:44px;border:1px solid var(--line);border-radius:2px;background:transparent;cursor:pointer;display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0}
+.burger span{width:20px;height:2px;background:var(--text);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+nav.main-nav{display:flex;gap:24px;margin-left:6px}
+nav.main-nav a{font-size:14px;font-weight:600;color:var(--muted)}
+nav.main-nav a:hover{color:var(--accent)}
+
+.hero{overflow:hidden;padding-top:clamp(50px,7vw,90px);background:
+  radial-gradient(900px 500px at 78% -12%, rgba(212,175,55,.14), transparent 62%),
+  radial-gradient(640px 420px at -8% 108%, rgba(212,175,55,.07), transparent 58%), var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(24px,4vw,56px);align-items:center;max-width:1200px;margin:0 auto}
+.hero h1{font-size:clamp(31px,5.2vw,64px)}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p.lead{margin-top:20px;font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:540px}
+.hero-cta{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:36px}
+.hm b{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(20px,2.8vw,30px);color:var(--accent2);white-space:nowrap}
+.hm span{display:block;font-family:'Manrope';font-size:12px;color:var(--muted);margin-top:4px}
+.hero-art{position:relative;filter:drop-shadow(0 30px 60px rgba(212,175,55,.14))}
+
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:15px 0}
+.strip-track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.strip-track span{font-family:'Manrope';font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:0 26px;white-space:nowrap;display:flex;align-items:center;gap:26px}
+.strip-track span::after{content:"✦";color:var(--accent);flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:30px 26px;transition:transform .25s,border-color .25s,background .25s;min-width:0;display:flex;flex-direction:column;gap:12px;position:relative}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .25s}
+.svc:hover{transform:translateY(-6px);border-color:rgba(212,175,55,.55);background:var(--card2)}
+.svc:hover::before{opacity:1}
+.svc svg{width:42px;height:42px;stroke:var(--accent);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:19px}
+.svc p{font-size:14px;color:var(--muted)}
+.svc .more{margin-top:auto;font-size:12.5px;color:var(--accent);font-weight:700;padding-top:10px;letter-spacing:.04em}
+
+.langs{display:flex;flex-wrap:wrap;gap:9px;margin-top:8px}
+.lchip{font-size:13px;font-weight:600;padding:8px 15px;border:1px solid var(--line);border-radius:2px;background:var(--bg2);color:var(--muted);transition:.2s}
+.lchip:hover{border-color:var(--accent);color:var(--accent)}
+.langs-note{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+.calc{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.calc-box{background:rgba(255,255,255,.03);border:1px solid var(--line);padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,40px)}
+.calc-form{display:flex;flex-direction:column;gap:18px}
+.field label{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:800}
+.field select,.field input{width:100%;padding:15px 16px;border-radius:2px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-family:'Manrope';font-size:15px;font-weight:600;outline:none}
+.field select:focus,.field input:focus{border-color:var(--accent)}
+.calc-res{display:flex;flex-direction:column;justify-content:center;gap:12px;border-left:1px dashed var(--line);padding-left:clamp(20px,3vw,40px);min-width:0}
+.calc-res .tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.calc-res .sum{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(22px,3vw,34px);overflow-wrap:anywhere}
+.calc-res .note{font-size:13px;color:var(--muted)}
+
+.offices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.office{background:var(--card);border:1px solid var(--line);border-radius:2px;padding:22px;min-width:0;transition:transform .25s,border-color .25s}
+.office:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.5)}
+.office .metro{font-family:'Playfair Display',serif;font-weight:800;font-size:16px;margin-bottom:8px}
+.office .addr{font-size:13.5px;color:var(--muted)}
+.office .time{font-size:12px;color:var(--accent);margin-top:10px;font-weight:700;letter-spacing:.04em}
+
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.step{background:var(--card);border:1px solid var(--line);padding:26px 22px;min-width:0;position:relative;transition:transform .25s,border-color .25s}
+.step:hover{transform:translateY(-5px);border-color:rgba(212,175,55,.45)}
+.step .num{font-family:'Playfair Display',serif;font-weight:800;font-size:34px;color:transparent;-webkit-text-stroke:1.2px rgba(212,175,55,.6)}
+.step h3{font-size:16px;margin:14px 0 8px}
+.step p{font-size:13.5px;color:var(--muted)}
+
+.order{background:linear-gradient(140deg,rgba(212,175,55,.1),rgba(255,255,255,.02));border:1px solid rgba(212,175,55,.35);padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center}
+.order h3{font-size:clamp(21px,2.8vw,32px);margin-bottom:12px}
+.ff{display:flex;flex-direction:column;gap:14px}
+.ph-note{color:var(--muted)}
+.btn.wide{width:100%}
+a.mail{color:var(--accent)}
+
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.big-phone{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(20px,3vw,34px);display:block;margin-bottom:8px;overflow-wrap:anywhere}
+.big-phone:hover{color:var(--accent)}
+.big-phone.small{font-size:clamp(16px,2.2vw,24px)}
+.c-line{display:flex;gap:12px;align-items:flex-start;margin-top:16px;color:var(--muted);font-size:15px}
+.c-line svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
+.contact-form{background:var(--card);border:1px solid var(--line);padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;gap:14px}
+footer{border-top:1px solid var(--line);padding:28px var(--pad);text-align:center;color:var(--muted);font-size:13px;background:var(--bg2)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+.sec-alt2{background:var(--bg2)}
+.mt40{margin-top:40px}
+.mt44{margin-top:44px}
+.h3-sm{font-size:19px;margin-bottom:4px}
+@media (max-width:1020px){
+  nav.main-nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,18,32,.97);border-bottom:1px solid var(--line);padding:10px var(--pad) 18px}
+  nav.main-nav.open{display:flex}
+  nav.main-nav a{padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .burger{display:flex}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-art{max-width:420px;margin:0 auto}
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .offices{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calc-box,.order,.contacts-grid{grid-template-columns:minmax(0,1fr)}
+  .calc-res{border-left:none;border-top:1px dashed var(--line);padding-left:0;padding-top:22px}
+}
+@media (max-width:640px){
+  .header-in{gap:10px;padding:12px 18px}
+  .logo{font-size:17px}.logo small{display:none}
+  .header-phone{font-size:12.5px}
+  .svc-grid,.offices,.steps{grid-template-columns:minmax(0,1fr)}
+  .hero-cta .btn{width:100%}
+  section{padding-left:18px;padding-right:18px}
+}
+@media (max-width:360px){
+  .header-phone{font-size:11.5px}
+  .hero h1{font-size:28px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="header-in">
+    <div class="logo">Перевод<b>РФ</b><small>бюро переводов · Москва и МО</small></div>
+    <nav class="main-nav" id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#langs">Языки</a>
+      <a href="#offices">Офисы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="header-phone" href="tel:+749****8128">+7 (495) 784-81-28</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <span class="kicker">Нотариальное заверение · Апостиль</span>
+      <h1>Перевод, который примут <em>с&nbsp;первого раза</em></h1>
+      <p class="lead">Бюро переводов в&nbsp;Москве и&nbsp;Подмосковье: письменный и&nbsp;устный перевод, нотариальное заверение, легализация и&nbsp;апостиль. 10&nbsp;офисов у&nbsp;метро — ежедневно с&nbsp;9:00 до&nbsp;21:00.</p>
+      <div class="hero-cta">
+        <a href="#order" class="btn btn-primary">Заказать перевод</a>
+        <a href="#offices" class="btn btn-ghost">Выбрать офис</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hm"><b>40+</b><span>языков перевода</span></div>
+        <div class="hm"><b>10</b><span>офисов у метро</span></div>
+        <div class="hm"><b>9–21</b><span>ежедневно</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 520 400" role="img" aria-label="Документы и печать бюро переводов">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#f0d78c"/></linearGradient></defs>
+        <rect x="30" y="30" width="460" height="340" fill="none" stroke="rgba(212,175,55,.35)" stroke-width="1.5"/>
+        <rect x="30" y="30" width="460" height="340" fill="none" stroke="rgba(212,175,55,.15)" stroke-width="1.5" transform="translate(8,8)"/>
+        <rect x="120" y="80" width="210" height="260" fill="#122036" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+        <path d="M140 115h130M140 140h150M140 165h110M140 190h140M140 215h90M140 240h130" stroke="rgba(255,255,255,.28)" stroke-width="5" stroke-linecap="round"/>
+        <rect x="150" y="270" width="150" height="44" fill="none" stroke="url(#g1)" stroke-width="2"/>
+        <text x="163" y="298" fill="#d4af37" font-family="Playfair Display" font-size="17" font-weight="800">Apostille</text>
+        <circle cx="360" cy="150" r="62" fill="none" stroke="url(#g1)" stroke-width="2.5" stroke-dasharray="5 4"/>
+        <circle cx="360" cy="150" r="44" fill="none" stroke="rgba(212,175,55,.5)" stroke-width="1.5"/>
+        <path d="M340 150l14 14 26-30" fill="none" stroke="url(#g1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="322" y="196" fill="#f0d78c" font-family="Manrope" font-size="11" font-weight="800" letter-spacing="2">NOTARIAL</text>
+        <path d="M355 250l10 60 20-18 20 18 10-60" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="100" cy="90" r="4" fill="#d4af37" opacity=".7"/><circle cx="450" cy="320" r="4" fill="#f0d78c" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-track" id="mq">
+    <span>Письменный перевод</span><span>Устный перевод</span><span>Нотариальное заверение</span><span>Апостиль</span><span>Легализация документов</span><span>Перевод документов для ЗАГС</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <span class="kicker">Услуги бюро</span>
+    <h2 class="sec-title reveal">Документы — под ключ</h2>
+    <p class="sec-sub reveal">От&nbsp;простого перевода страницы до&nbsp;полного пакета для&nbsp;госорганов: переводим, заверяем у&nbsp;нотариуса, ставим апостиль и&nbsp;легализуем.</p>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4"/><path d="M10 12h6M10 16h6"/></svg>
+        <h3>Письменный перевод</h3>
+        <p>Документы и тексты любой тематики: личные документы, справки, договоры, сайты, техническая и медицинская литература.</p>
+        <span class="more">с нотариальным заверением</span>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+        <h3>Устный перевод</h3>
+        <p>Последовательный и синхронный перевод: переговоры, сделки, сопровождение, нотариальные действия.</p>
+        <span class="more">по предварительной записи</span>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5 6 21l6-3 6 3-3-7.5"/></svg>
+        <h3>Нотариальное заверение</h3>
+        <p>Заверение переводов документов у нотариуса — для ЗАГС, посольств, банков, судов и госорганов.</p>
+        <span class="more">в офисе бюро</span>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 21V9"/><path d="M13 13h4M13 17h4"/></svg>
+        <h3>Апостиль и легализация</h3>
+        <p>Проставление апостиля и консульская легализация документов для использования за границей.</p>
+        <span class="more">полный цикл</span>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><path d="M21 6l-9 9-4-4-5 5"/><path d="M21 6h-5M21 6v5"/></svg>
+        <h3>Перевод для бизнеса</h3>
+        <p>Учредительные документы, контракты, тендерная документация, нотариальный перевод интернет-страниц.</p>
+        <span class="more">для организаций по договору</span>
+      </div>
+      <div class="svc reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <h3>10 офисов у метро</h3>
+        <p>Москва: Курская, Щёлковская, Охотный ряд, Братиславская. МО: Ногинск, Подольск, Железнодорожный, Электросталь, Орехово-Зуево, Павловский Посад, Электрогорск.</p>
+        <span class="more">ежедневно 9:00–21:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="calc" id="langs">
+  <div class="wrap">
+    <span class="kicker">Языки</span>
+    <h2 class="sec-title reveal">Более 40 языков перевода</h2>
+    <p class="sec-sub reveal">От&nbsp;английского и&nbsp;немецкого до&nbsp;дари и&nbsp;суахили. Выберите язык — увидите доступные виды работ.</p>
+    <div class="langs reveal">
+      <span class="lchip">Английский</span><span class="lchip">Немецкий</span><span class="lchip">Французский</span><span class="lchip">Испанский</span><span class="lchip">Итальянский</span><span class="lchip">Китайский</span><span class="lchip">Японский</span><span class="lchip">Корейский</span><span class="lchip">Арабский</span><span class="lchip">Турецкий</span><span class="lchip">Иврит</span><span class="lchip">Польский</span><span class="lchip">Чешский</span><span class="lchip">Греческий</span><span class="lchip">Португальский</span><span class="lchip">Грузинский</span><span class="lchip">Армянский</span><span class="lchip">Азербайджанский</span><span class="lchip">Казахский</span><span class="lchip">Узбекский</span><span class="lchip">Таджикский</span><span class="lchip">Украинский</span><span class="lchip">Белорусский</span><span class="lchip">Венгерский</span><span class="lchip">Болгарский</span><span class="lchip">Румынский</span><span class="lchip">Сербский</span><span class="lchip">Словацкий</span><span class="lchip">Норвежский</span><span class="lchip">Датский</span><span class="lchip">Финский</span><span class="lchip">Шведский</span><span class="lchip">Голландский</span><span class="lchip">Латышский</span><span class="lchip">Литовский</span><span class="lchip">Эстонский</span><span class="lchip">Вьетнамский</span><span class="lchip">Дари</span>
+    </div>
+    <p class="langs-note reveal">И другие языки — уточняйте у менеджера. Полный перечень направлений перевода — на сайте бюро.</p>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <span class="kicker">Как заказать</span>
+    <h2 class="sec-title reveal">Четыре шага до готового пакета</h2>
+    <div class="steps mt40">
+      <div class="step reveal"><div class="num">01</div><h3>Заявка или визит</h3><p>Онлайн-заявка на сайте или приходите в ближайший офис у метро.</p></div>
+      <div class="step reveal"><div class="num">02</div><h3>Оценка и сроки</h3><p>Менеджер называет стоимость и срок: от стандартных документов до сложных пакетов.</p></div>
+      <div class="step reveal"><div class="num">03</div><h3>Перевод и заверение</h3><p>Переводим, заверяем у нотариуса, при необходимости ставим апостиль.</p></div>
+      <div class="step reveal"><div class="num">04</div><h3>Выдача</h3><p>Забираете готовые документы в офисе — ежедневно с 9:00 до 21:00.</p></div>
+    </div>
+    <div class="order reveal mt44">
+      <div>
+        <h3>Онлайн-заявка на перевод</h3>
+        <p class="ph-note">Пришлите скан документа и контакты — менеджер оценит стоимость и срок и перезвонит. Без визита, без обязательств.</p>
+      </div>
+      <form class="ff" id="orderForm">
+        <div class="field"><label for="of-name">Ваше имя</label><input id="of-name" type="text" placeholder="Иван" required></div>
+        <div class="field"><label for="of-phone">Телефон</label><input id="of-phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+        <div class="field"><label for="of-type">Что переводим</label>
+          <select id="of-type">
+            <option>Паспорт / личные документы</option>
+            <option>Документы ЗАГС (свидетельства)</option>
+            <option>Диплом и приложение</option>
+            <option>Справки и выписки</option>
+            <option>Договоры и учредительные документы</option>
+            <option>Технический / медицинский перевод</option>
+            <option>Сайт / интернет-страница</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary wide">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt2" id="offices">
+  <div class="wrap">
+    <span class="kicker">Офисы</span>
+    <h2 class="sec-title reveal">Ближайший офис — у метро</h2>
+    <p class="sec-sub reveal">Все офисы работают ежедневно с 9:00 до 21:00, без перерыва на обед.</p>
+    <div class="offices">
+      <div class="office reveal"><div class="metro">м. Щёлковская</div><div class="addr">г. Москва, ул. 9-я Парковая, д. 61а</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">м. Курская</div><div class="addr">г. Москва — центральный офис</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">м. Охотный ряд</div><div class="addr">г. Москва, центр</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">м. Братиславская</div><div class="addr">ул. Братиславская, д. 16, корп. 1</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">Ногинск</div><div class="addr">ул. 3-го Интернационала, д. 62, БТЦ, 3 этаж, офис 10</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">Подольск</div><div class="addr">Революционный проспект, дом 23</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">Железнодорожный</div><div class="addr">ул. Советская, д. 5, ТЦ ЮНИОН, 3 этаж</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">Электросталь</div><div class="addr">городская сеть бюро</div><div class="time">ежедневно 9:00–21:00</div></div>
+      <div class="office reveal"><div class="metro">Орехово-Зуево · Павловский Посад · Электрогорск</div><div class="addr">адреса офисов — по телефону</div><div class="time">ежедневно 9:00–21:00</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap contacts-grid">
+    <div>
+      <span class="kicker">Контакты</span>
+      <h2 class="sec-title reveal">Свяжитесь с бюро</h2>
+      <a class="big-phone reveal" href="tel:+749****8128">+7 (495) 784-81-28</a>
+      <a class="big-phone small reveal" href="tel:+791****2330">+7 (917) 557-23-30</a>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <span><a href="mailto:5012952@mail.ru" class="mail">5012952@mail.ru</a> — почта для связи и документов</span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <span>Ежедневно с 9:00 до 21:00, без перерыва на обед</span>
+      </div>
+      <div class="c-line reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span>Москва и Московская область — 10 офисов у метро</span>
+      </div>
+    </div>
+    <form class="contact-form reveal" id="ctaForm">
+      <h3 class="h3-sm">Обратный звонок</h3>
+      <p class="ph-note">Оставьте телефон — перезвоним в рабочее время и рассчитаем перевод.</p>
+      <div class="field"><label for="cf-name">Ваше имя</label><input id="cf-name" type="text" placeholder="Иван" required></div>
+      <div class="field"><label for="cf-phone">Телефон</label><input id="cf-phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+      <button type="submit" class="btn btn-primary wide">Перезвоните мне</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Бюро переводов «ПереводРФ» — Москва и Московская область · <a href="mailto:5012952@mail.ru" class="mail">5012952@mail.ru</a> · Нотариальное заверение · Апостиль
+</footer>
+
+<script>
+const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); nav.classList.toggle('open'); });
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); nav.classList.remove('open'); }));
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 30), {passive:true});
+const mq = document.getElementById('mq'); mq.innerHTML += mq.innerHTML;
+document.getElementById('orderForm').addEventListener('submit', e => { e.preventDefault(); alert('Спасибо! Менеджер оценит документ и перезвонит.'); });
+document.getElementById('ctaForm').addEventListener('submit', e => { e.preventDefault(); alert('Спасибо! Перезвоним в рабочее время.'); });
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } }), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
