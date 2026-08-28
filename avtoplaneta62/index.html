@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис «Автопланета» — Рязань · покраска дисков, ходовая, диагностика</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1830;
+  --navy2:#10224a;
+  --orange:#ff7a1a;
+  --orange2:#ff9c4d;
+  --steel:#e8eef7;
+  --muted:#9db0cc;
+  --line:rgba(232,238,247,.14);
+  --dark:#070f1e;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--dark);color:var(--steel);line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo{font-family:'Unbounded',sans-serif}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18;font-weight:800;letter-spacing:.01em}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:100px;border:1px solid var(--line);background:rgba(255,122,26,.08);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--orange2)}
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(7,15,30,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:17px;font-weight:800;letter-spacing:.02em;color:#fff;text-decoration:none}
+.logo b{color:var(--orange)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:14px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange2));color:#081020;box-shadow:0 8px 30px rgba(255,122,26,.35)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--orange2);color:var(--orange2)}
+/* HERO */
+.hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(255,122,26,.16),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(16,34,74,.7),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(30px,5.4vw,56px);line-height:1.08;font-weight:800;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--orange2)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;color:var(--steel)}
+.chip b{color:var(--orange2)}
+/* WHEEL */
+.wheel{position:relative;display:flex;justify-content:center}
+.wheel-ring{width:min(300px,70vw);aspect-ratio:1;border-radius:50%;border:2px dashed rgba(255,122,26,.5);display:flex;align-items:center;justify-content:center;animation:spin 26s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wheel-core{position:absolute;width:min(190px,44vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1c3568,#0c1a36);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.wheel-core b{font-family:'Unbounded';font-size:clamp(24px,4vw,34px);color:var(--orange);font-weight:800}
+.wheel-core span{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+/* SECTIONS */
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--navy2),var(--navy));border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,122,26,.5)}
+.card-ico{width:48px;height:48px;border-radius:13px;background:rgba(255,122,26,.14);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--orange2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:13.5px;color:var(--muted)}
+.card .tag{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:var(--orange2)}
+/* WHY */
+.why{background:linear-gradient(180deg,transparent,rgba(16,34,74,.35),transparent)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.why-item{border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Unbounded';font-size:clamp(20px,3vw,28px);color:var(--orange);font-weight:800;margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted)}
+/* FORM */
+.form-sec{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(255,122,26,.14),transparent),var(--navy)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:14px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:14px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border-radius:13px;border:1px solid var(--line);background:rgba(7,15,30,.7);color:#fff;font-family:'Manrope';font-size:14px;outline:none;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--orange)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center}
+/* CONTACTS */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card .card-ico{margin-bottom:14px}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--orange2);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:860px){
+  .hero{padding:64px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .form-grid{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">АВТО<b>ПЛАНЕТА</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#order">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" href="tel:+79038355959">+7 903 835-59-59</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Автосервис в Рязани · с 8:00 до 20:00</span>
+      <h1>Современные технологии ремонта по&nbsp;доступным ценам</h1>
+      <p class="hero-sub">Порошковая покраска дисков с&nbsp;гарантией 2&nbsp;года, пескоструй, беспылевая окраска и&nbsp;профессиональный ремонт ходовой части любых марок.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order">Записаться на&nbsp;сервис</a>
+        <a class="btn btn-ghost" href="#services">Смотреть услуги</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">📍 ул. Семинарская, 53</span>
+        <span class="chip">🕗 <b>8:00 – 20:00</b></span>
+      </div>
+    </div>
+    <div class="wheel">
+      <div class="wheel-ring"></div>
+      <div class="wheel-core">
+        <b>2 года</b>
+        <span>гарантия на&nbsp;покраску</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Услуги</span>
+      <h2>Что мы делаем</h2>
+      <p>Четыре направления — от&nbsp;восстановления дисков до&nbsp;ремонта подвески.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <h3>Порошковая покраска дисков</h3>
+        <p>Любых радиусов и&nbsp;любых цветов. Стойкое покрытие с&nbsp;гарантией 2&nbsp;года.</p>
+        <span class="tag">гарантия 2 года</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V8l6-4 6 4v12M10 20v-6h4v6"/></svg></div>
+        <h3>Пескоструйная обработка</h3>
+        <p>Очистка дисков и&nbsp;деталей от&nbsp;коррозии, краски и&nbsp;загрязнений перед покрытием.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4-3.4 7.4-8 9-4.6-1.6-8-5-8-9V7z"/></svg></div>
+        <h3>Беспылевая окраска</h3>
+        <p>Аккуратное нанесение покрытия в&nbsp;чистых условиях — без&nbsp;пыли и&nbsp;разводов.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="14" r="3"/><circle cx="18" cy="14" r="3"/><path d="M9 14h6M3 14H1.5M21 14h1.5M6 11V8h2M18 11V8h-2"/></svg></div>
+        <h3>Ремонт ходовой части</h3>
+        <p>Передняя и&nbsp;задняя подвеска автомобилей всех марок, сервисная диагностика.</p>
+        <span class="tag">все марки</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему «Автопланета»</span>
+      <h2>Нас выбирают за результат</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>2 года</b><span>гарантия на&nbsp;порошковую покраску дисков</span></div>
+      <div class="why-item"><b>8:00–20:00</b><span>удобный график — успеете и&nbsp;до&nbsp;работы, и&nbsp;после</span></div>
+      <div class="why-item"><b>Все марки</b><span>ремонт подвески любых автомобилей</span></div>
+      <div class="why-item"><b>Любые цвета</b><span>диски любых радиусов в&nbsp;любой цвет</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="form-sec">
+      <div class="form-grid">
+        <div>
+          <span class="kicker">Запись</span>
+          <h2>Запишитесь на&nbsp;сервис</h2>
+          <p class="hero-sub">Оставьте контакты — перезвоним, подберём удобное время и&nbsp;ответим на&nbsp;вопросы.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="service">
+            <option>Порошковая покраска дисков</option>
+            <option>Пескоструйная обработка</option>
+            <option>Ремонт ходовой части</option>
+            <option>Диагностика</option>
+          </select>
+          <textarea name="note" placeholder="Комментарий (марка авто, желаемая дата)"></textarea>
+          <button class="btn btn-primary" type="submit">Отправить заявку</button>
+          <span class="hint">или звоните: <a class="l" href="tel:+79038355959">+7 903 835-59-59</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <b>Адрес</b>
+        <p>Рязань, ул. Семинарская, 53</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <b>Телефон</b>
+        <a href="tel:+79038355959">+7 903 835-59-59</a>
+        <p>тел. 46-00-75</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <b>Почта</b>
+        <a href="mailto:avtonatisk@mail.ru">avtonatisk@mail.ru</a>
+        <p>напишите — ответим</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <b>Режим работы</b>
+        <p>Ежедневно с&nbsp;8:00 до&nbsp;20:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Автосервис «Автопланета» · Рязань, ул. Семинарская, 53</span>
+    <span>© 2026 · <a class="l" href="#top">наверх ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.form').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const b=f.querySelector('.btn');
+    b.textContent='✓ Заявка принята — перезвоним!';
+    b.style.background='linear-gradient(135deg,#22c55e,#4ade80)';
+  });
+});
+</script>
+</body>
+</html>
