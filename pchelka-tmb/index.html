@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис «Пчёлка» — Тамбов · ремонт и обслуживание, автоэлектрика ECU/SRS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#1c1208;
+  --dark2:#2a1d0e;
+  --amber:#f5a623;
+  --amber2:#ffc75c;
+  --honey:#fff4e0;
+  --muted:#c9b499;
+  --line:rgba(255,244,224,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--dark);color:var(--honey);line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo{font-family:'Unbounded',sans-serif}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18;font-weight:800}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:100px;border:1px solid rgba(245,166,35,.4);background:rgba(245,166,35,.1);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber2)}
+header{position:sticky;top:0;z-index:50;background:rgba(28,18,8,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:17px;font-weight:800;color:#fff;text-decoration:none}
+.logo b{color:var(--amber)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-phone{color:var(--amber2);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;white-space:nowrap;transition:opacity .2s}
+.nav-phone:hover{opacity:.75}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:14px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--amber),var(--amber2));color:#2a1d0e;box-shadow:0 8px 30px rgba(245,166,35,.3)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--amber2);color:var(--amber2)}
+.hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(245,166,35,.16),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(42,29,14,.9),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,52px);line-height:1.1;font-weight:800;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--amber2)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;color:var(--honey)}
+.chip b{color:var(--amber2)}
+.honeycomb{position:relative;display:flex;justify-content:center}
+.comb{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:min(280px,64vw)}
+.hex{aspect-ratio:1;border-radius:18px;background:linear-gradient(155deg,rgba(245,166,35,.2),rgba(245,166,35,.04));border:1px solid rgba(245,166,35,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}
+.hex b{font-family:'Unbounded';font-size:clamp(15px,2.4vw,19px);color:var(--amber2);font-weight:800}
+.hex span{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head .kicker{display:flex;width:fit-content;margin-bottom:16px}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--dark2),var(--dark));border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(245,166,35,.5)}
+.card-ico{width:48px;height:48px;border-radius:13px;background:rgba(245,166,35,.14);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--amber2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:13.5px;color:var(--muted)}
+.card .tag{display:inline-block;margin-top:16px;font-size:12px;font-weight:700;color:var(--amber2)}
+.why{background:linear-gradient(180deg,transparent,rgba(245,166,35,.06),transparent)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.why-item{border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Unbounded';font-size:clamp(18px,2.8vw,26px);color:var(--amber2);font-weight:800;margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted)}
+.form-sec{border-radius:28px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(245,166,35,.14),transparent),var(--dark2)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid .kicker{display:flex;width:fit-content;margin-bottom:18px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:16px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:16px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border-radius:13px;border:1px solid var(--line);background:rgba(28,18,8,.7);color:#fff;font-family:'Manrope';font-size:14px;outline:none;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--amber)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+.hint a{color:var(--amber2)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card .card-ico{margin-bottom:14px}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--amber2);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--amber2);text-decoration:none}
+@media(max-width:860px){
+  .hero{padding:64px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .form-grid{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">ПЧЁЛКА · <b>ТАМБОВ</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#order">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-phone" href="tel:+79051202107">8 905 120-21-07</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Тамбов · Рылеева, 63Б · с 2011 года</span>
+      <h1>Ремонт и&nbsp;автоэлектрика — <em>работаем, как пчёлы</em></h1>
+      <p class="hero-sub">Обслуживание автомобилей любой марки: диагностика и&nbsp;ремонт электронных блоков (ECU), систем SRS, электрики и&nbsp;механики.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order">Записаться на&nbsp;диагностику</a>
+        <a class="btn btn-ghost" href="#services">Услуги сервиса</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">📍 ул. Рылеева, 63Б</span>
+        <span class="chip">🕘 <b>пн–сб, с 9:00</b></span>
+      </div>
+    </div>
+    <div class="honeycomb">
+      <div class="comb">
+        <div class="hex"><b>ECU</b><span>блоки управления</span></div>
+        <div class="hex"><b>SRS</b><span>системы безопасности</span></div>
+        <div class="hex"><b>36</b><span>отзывов на&nbsp;картах</span></div>
+        <div class="hex"><b>2011</b><span>год основания</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Услуги</span>
+      <h2>Что мы делаем</h2>
+      <p>От&nbsp;регламентного обслуживания до&nbsp;сложной автоэлектрики — всё в&nbsp;одном месте.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM12 2v2M12 20v2M2 12h2M20 12h2"/></svg></div>
+        <h3>Диагностика ECU</h3>
+        <p>Компьютерная диагностика электронных блоков управления, чтение и&nbsp;расшифровка ошибок.</p>
+        <span class="tag">профиль</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/></svg></div>
+        <h3>Ремонт SRS</h3>
+        <p>Системы безопасности: подушки, ремни, датчики удара — восстановление после аварий.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 12.5H11L9.5 22 19 10h-6.5z"/></svg></div>
+        <h3>Автоэлектрика</h3>
+        <p>Проводка, генераторы, стартеры, светотехника — поиск и&nbsp;устранение любых неисправностей.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3>Ремонт и&nbsp;обслуживание</h3>
+        <p>ТО, ходовая, тормоза, двигатель — для любого авто, включая редкие марки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему «Пчёлка»</span>
+      <h2>Опыт с&nbsp;2011 года</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>13+ лет</b><span>работаем с&nbsp;2011 года</span></div>
+      <div class="why-item"><b>Все марки</b><span>от&nbsp;ВАЗ до&nbsp;ACURA, BMW, AUDI</span></div>
+      <div class="why-item"><b>Электроника</b><span>ECU и&nbsp;SRS — редкая специализация</span></div>
+      <div class="why-item"><b>3 телефона</b><span>связаться — просто</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="form-sec">
+      <div class="form-grid">
+        <div>
+          <span class="kicker">Запись</span>
+          <h2>Запишитесь на&nbsp;диагностику</h2>
+          <p class="hero-sub">Опишите проблему — перезвоним и&nbsp;подскажем по&nbsp;срокам и&nbsp;цене.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="work">
+            <option>Диагностика ECU</option>
+            <option>Ремонт SRS</option>
+            <option>Автоэлектрика</option>
+            <option>Ремонт и обслуживание</option>
+          </select>
+          <textarea name="note" placeholder="Марка и&nbsp;модель авто, что случилось"></textarea>
+          <button class="btn btn-primary" type="submit">Отправить заявку</button>
+          <span class="hint">или звоните: <a href="tel:+79051202107">8 905 120-21-07</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <b>Адрес</b>
+        <p>Тамбов, ул. Рылеева, 63Б</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <b>Телефоны</b>
+        <a href="tel:+79051202107">8 905 120-21-07</a>
+        <p><a href="tel:+79004981554">8 900 498-15-54</a> · <a href="tel:+79606712321">8 960 671-23-21</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <b>Почта</b>
+        <a href="mailto:tsa13@mail.ru">tsa13@mail.ru</a>
+        <p>запись и&nbsp;вопросы</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <b>Режим работы</b>
+        <p>Пн–Сб · с 9:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Автосервис «Пчёлка» · Тамбов, ул. Рылеева, 63Б</span>
+    <span>© 2026 · <a href="#top">наверх ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.form').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const b=f.querySelector('.btn');
+    b.textContent='✓ Заявка принята — перезвоним!';
+    b.style.background='linear-gradient(135deg,#22c55e,#4ade80)';
+  });
+});
+</script>
+</body>
+</html>

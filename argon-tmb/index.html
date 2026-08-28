@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шиномонтаж + Аргон+ — Тамбов · шиномонтаж, правка дисков, аргонная сварка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --steel:#141a22;
+  --steel2:#1d2632;
+  --spark:#ff7a1a;
+  --spark2:#ffa04d;
+  --ice:#eef3f8;
+  --muted:#93a3b5;
+  --line:rgba(238,243,248,.12);
+  --dark:#0d1117;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',sans-serif;background:var(--dark);color:var(--ice);line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo{font-family:'Russo One',sans-serif}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18;font-weight:400}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:8px;border:1px solid rgba(255,122,26,.45);background:rgba(255,122,26,.12);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--spark2)}
+header{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:18px;font-weight:400;color:#fff;text-decoration:none}
+.logo b{color:var(--spark2)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-phone{color:var(--spark2);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;white-space:nowrap;transition:opacity .2s}
+.nav-phone:hover{opacity:.75}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:10px;font-size:14px;font-weight:400;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;font-family:'Russo One',sans-serif}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--spark),var(--spark2));color:#1d0e00;box-shadow:0 8px 30px rgba(255,122,26,.3)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--spark2);color:var(--spark2)}
+.hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(255,122,26,.18),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(29,38,50,.9),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,52px);line-height:1.12;font-weight:400;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--spark2)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;color:var(--ice)}
+.chip b{color:var(--spark2)}
+.spark-visual{position:relative;display:flex;justify-content:center}
+.disc{width:min(290px,66vw);aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,122,26,.4);background:radial-gradient(circle at 50% 45%,var(--steel2),var(--steel) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.5),inset 0 0 60px rgba(255,122,26,.08)}
+.disc::before{content:"";position:absolute;inset:14%;border-radius:50%;border:1px dashed rgba(255,122,26,.35)}
+.disc::after{content:"";position:absolute;inset:30%;border-radius:50%;border:1px solid rgba(238,243,248,.12)}
+.disc b{font-family:'Russo One';font-size:clamp(24px,4.2vw,34px);color:var(--spark2);position:relative}
+.disc span{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;position:relative}
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head .kicker{display:flex;width:fit-content;margin-bottom:16px}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--steel2),var(--steel));border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,122,26,.5)}
+.card-ico{width:48px;height:48px;border-radius:11px;background:rgba(255,122,26,.15);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--spark2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:13.5px;color:var(--muted)}
+.card .tag{display:inline-block;margin-top:16px;font-size:12px;font-weight:700;color:var(--spark2)}
+.why{background:linear-gradient(180deg,transparent,rgba(255,122,26,.07),transparent)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.why-item{border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Russo One';font-size:clamp(18px,2.6vw,24px);color:var(--spark2);font-weight:400;margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted)}
+.form-sec{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(255,122,26,.15),transparent),var(--steel)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid .kicker{display:flex;width:fit-content;margin-bottom:18px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:16px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:16px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border-radius:11px;border:1px solid var(--line);background:rgba(13,17,23,.7);color:#fff;font-family:'Inter Tight';font-size:14px;outline:none;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--spark)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+.hint a{color:var(--spark2)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:16px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card .card-ico{margin-bottom:14px}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--spark2);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--spark2);text-decoration:none}
+@media(max-width:860px){
+  .hero{padding:64px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .form-grid{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">А<span style="color:var(--spark2)">Р</span>ГОН+</a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#order">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-phone" href="tel:+79092328231">8 909 232-82-31</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Тамбов · Комиссара Московского, 52</span>
+      <h1>Шиномонтаж, правка дисков и&nbsp;<em>аргонная сварка</em></h1>
+      <p class="hero-sub">Рейтинг 4,6 и&nbsp;68 отзывов: аккуратный шиномонтаж, правка литых дисков любой сложности и&nbsp;сварочные работы аргоном.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order">Записаться</a>
+        <a class="btn btn-ghost" href="#services">Услуги</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">⭐ <b>4,6</b> · 68 отзывов</span>
+        <span class="chip">🕘 с 8:00</span>
+      </div>
+    </div>
+    <div class="spark-visual">
+      <div class="disc">
+        <b>4,6 ★</b>
+        <span>68 отзывов клиентов</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Услуги</span>
+      <h2>Диски, шины, сварка</h2>
+      <p>Три специализации в&nbsp;одном месте — экономия времени и&nbsp;гарантия на&nbsp;работы.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></div>
+        <h3>Шиномонтаж</h3>
+        <p>Переобувка легковых и&nbsp;кроссоверов: аккуратно, без&nbsp;повреждений диска и&nbsp;покрышки.</p>
+        <span class="tag">сезон и внепланово</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Правка дисков</h3>
+        <p>Литые и&nbsp;штампованные: восстановление геометрии после ям и&nbsp;бордюров.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 2v4M4.9 4.9l2.8 2.8M2 12h4M4.9 19.1l2.8-2.8M12 22v-4M19.1 19.1l-2.8-2.8M22 12h-4M19.1 4.9l-2.8 2.8"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Аргонная сварка</h3>
+        <p>Сварка алюминия и&nbsp;стали аргоном: трещины дисков, кузовные элементы, детали.</p>
+        <span class="tag">алюминий · сталь</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 4-3 7-7 9-4-2-7-5-7-9V7z"/></svg></div>
+        <h3>Балансировка</h3>
+        <p>Точная балансировка колёс — ровный руль и&nbsp;комфорт на&nbsp;любой скорости.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему «Аргон+»</span>
+      <h2>68 отзывов — это результат</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>4,6 ★</b><span>рейтинг на&nbsp;картах — 68 отзывов</span></div>
+      <div class="why-item"><b>3 в 1</b><span>шины + диски + сварка</span></div>
+      <div class="why-item"><b>С 8:00</b><span>работаем рано — успеешь до&nbsp;работы</span></div>
+      <div class="why-item"><b>Опыт</b><span>правим то,&nbsp;что другие меняют</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="form-sec">
+      <div class="form-grid">
+        <div>
+          <span class="kicker">Запись</span>
+          <h2>Запишитесь на&nbsp;работу</h2>
+          <p class="hero-sub">Укажите услугу — перезвоним, назовём цену и&nbsp;подберём время.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="service">
+            <option>Шиномонтаж</option>
+            <option>Правка дисков</option>
+            <option>Аргонная сварка</option>
+            <option>Балансировка</option>
+          </select>
+          <textarea name="note" placeholder="Марка авто, размер дисков, что нужно сделать"></textarea>
+          <button class="btn btn-primary" type="submit">Отправить заявку</button>
+          <span class="hint">или звоните: <a href="tel:+79092328231">8 909 232-82-31</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <b>Адрес</b>
+        <p>Тамбов, ул. Комиссара Московского, 52</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <b>Телефон</b>
+        <a href="tel:+79092328231">8 909 232-82-31</a>
+        <p>запись и&nbsp;вопросы</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <b>Почта</b>
+        <a href="mailto:info@argon-remdisk.com">info@argon-remdisk.com</a>
+        <p>фото дисков — сюда</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <b>Режим работы</b>
+        <p>Ежедневно · с 8:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Шиномонтаж + Аргон+ · Тамбов, ул. Комиссара Московского, 52</span>
+    <span>© 2026 · <a href="#top">наверх ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.form').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const b=f.querySelector('.btn');
+    b.textContent='✓ Заявка принята — перезвоним!';
+    b.style.background='linear-gradient(135deg,#22c55e,#4ade80)';
+  });
+});
+</script>
+</body>
+</html>
