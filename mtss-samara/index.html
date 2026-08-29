@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МТ-Сервис-Самара — ремонт грузовиков, спецтехники и агрегатов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#191c1f;
+  --asphalt2:#24282d;
+  --warn:#fbbf24;
+  --warn2:#fcd34d;
+  --ice:#f0f2f5;
+  --muted:#9aa3ad;
+  --line:rgba(240,245,255,.12);
+  --dark:#0e1013;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',sans-serif;background:var(--dark);color:var(--ice);line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo{font-family:'Russo One',sans-serif}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18;font-weight:400}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:8px;border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.1);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--warn2)}
+header{position:sticky;top:0;z-index:50;background:rgba(14,16,19,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:17px;font-weight:400;color:#fff;text-decoration:none}
+.logo b{color:var(--warn)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-phone{color:var(--warn2);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;white-space:nowrap;transition:opacity .2s}
+.nav-phone:hover{opacity:.75}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:10px;font-size:14px;font-weight:400;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;font-family:'Russo One',sans-serif}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--warn),var(--warn2));color:#231a00;box-shadow:0 8px 30px rgba(251,191,36,.25)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--warn2);color:var(--warn2)}
+.hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(251,191,36,.12),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(36,40,45,.9),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,50px);line-height:1.12;font-weight:400;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--warn2)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;color:var(--ice)}
+.chip b{color:var(--warn2)}
+.brand-visual{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:320px;margin:0 auto}
+.brand{border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-family:'Russo One';font-size:14px;color:var(--warn2);background:linear-gradient(160deg,var(--asphalt2),var(--asphalt));text-align:center;flex:1 1 calc(50% - 10px)}
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head .kicker{display:flex;width:fit-content;margin-bottom:16px}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--asphalt2),var(--asphalt));border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(251,191,36,.5)}
+.card-ico{width:48px;height:48px;border-radius:11px;background:rgba(251,191,36,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--warn2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:13.5px;color:var(--muted)}
+.card .tag{display:inline-block;margin-top:16px;font-size:12px;font-weight:700;color:var(--warn2)}
+.why{background:linear-gradient(180deg,transparent,rgba(251,191,36,.06),transparent)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.why-item{border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Russo One';font-size:clamp(18px,2.6vw,24px);color:var(--warn);font-weight:400;margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted)}
+.form-sec{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(251,191,36,.12),transparent),var(--asphalt)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid .kicker{display:flex;width:fit-content;margin-bottom:18px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:16px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:16px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border-radius:11px;border:1px solid var(--line);background:rgba(14,16,19,.7);color:#fff;font-family:'Inter Tight';font-size:14px;outline:none;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--warn)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+.hint a{color:var(--warn2)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:16px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card .card-ico{margin-bottom:14px}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--warn2);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--warn2);text-decoration:none}
+@media(max-width:860px){
+  .hero{padding:64px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .form-grid{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">МТ<b>-СЕРВИС</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#order">Заявка</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-phone" href="tel:+78462545570">8 846 254-55-70</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Самара · Заводское шоссе, 5</span>
+      <h1>Ремонт грузовиков и&nbsp;<em>спецтехники</em></h1>
+      <p class="hero-sub">КАМАЗ, МАЗ, УРАЛ, ГАЗ — а&nbsp;также тракторы, погрузчики и&nbsp;амкодоры. Ремонт агрегатов: двигатели, КПП, мосты.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order">Рассчитать ремонт</a>
+        <a class="btn btn-ghost" href="#services">Услуги</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">📞 <b>8 (846) 254-55-70</b></span>
+        <span class="chip">🕘 пн–сб, с 8:00</span>
+      </div>
+    </div>
+    <div class="brand-visual">
+      <div class="brand">КАМАЗ</div>
+      <div class="brand">МАЗ</div>
+      <div class="brand">УРАЛ</div>
+      <div class="brand">МТЗ</div>
+      <div class="brand">YUCHAI</div>
+      <div class="brand">XCMG</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Услуги</span>
+      <h2>Грузовики, спецтехника, агрегаты</h2>
+      <p>Ремонтируем то,&nbsp;что другие не&nbsp;берут — включая китайские двигатели.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M1 6h11v9H3zM13 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg></div>
+        <h3>Ремонт грузовиков</h3>
+        <p>КАМАЗ, МАЗ, УРАЛ, ЗИЛ, ГАЗ — текущий и&nbsp;капитальный ремонт.</p>
+        <span class="tag">профиль</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M3 17h18M6 17V9l3-4h9l3 4v8"/><circle cx="9" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></div>
+        <h3>Спецтехника</h3>
+        <p>Тракторы МТЗ, погрузчики, АМКОДОР, ВОЛЖАНИН, ЧСДМ, XCMG.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2L19 19M19 5l-2.8 2.8M7.8 16.2L5 19"/></svg></div>
+        <h3>Ремонт двигателей</h3>
+        <p>КАМАЗ, ЯМЗ, ММЗ, YUCHAI — от&nbsp;российских до&nbsp;китайских.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2.5"/><path d="M12 4a8 8 0 0 1 8 8"/></svg></div>
+        <h3>Ремонт КПП</h3>
+        <p>Трансмиссия и&nbsp;КПП — от&nbsp;диагностики до&nbsp;капитального ремонта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему МТ-Сервис</span>
+      <h2>Спецтехника — наша стихия</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>Все марки</b><span>от&nbsp;КАМАЗа до&nbsp;XCMG</span></div>
+      <div class="why-item"><b>2 площадки</b><span>два телефона — на&nbsp;связи</span></div>
+      <div class="why-item"><b>Агрегаты</b><span>двигатели и&nbsp;КПП — профиль</span></div>
+      <div class="why-item"><b>Самара</b><span>Заводское шоссе, 5</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="form-sec">
+      <div class="form-grid">
+        <div>
+          <span class="kicker">Запрос</span>
+          <h2>Опишите неисправность</h2>
+          <p class="hero-sub">Оценим объём работ и&nbsp;перезвоним с&nbsp;ценой и&nbsp;сроками.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <input type="text" name="name" placeholder="Ваше имя / организация" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="work">
+            <option>Ремонт грузовика</option>
+            <option>Ремонт спецтехники</option>
+            <option>Ремонт двигателя</option>
+            <option>Ремонт КПП</option>
+          </select>
+          <textarea name="note" placeholder="Техника (КАМАЗ, МТЗ...), что сломалось"></textarea>
+          <button class="btn btn-primary" type="submit">Отправить запрос</button>
+          <span class="hint">или пишите: <a href="mailto:info@mt-ss.ru">info@mt-ss.ru</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <b>Адрес</b>
+        <p>Самара, Заводское шоссе, 5</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <b>Телефоны</b>
+        <a href="tel:+78462545570">8 (846) 254-55-70</a>
+        <p><a href="tel:+79379922137">8 (937) 992-21-37</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <b>Почта</b>
+        <a href="mailto:info@mt-ss.ru">info@mt-ss.ru</a>
+        <p>запросы на&nbsp;ремонт</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <b>Режим работы</b>
+        <p>Пн–Сб · с 8:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>ООО «МТ-Сервис-Самара» · Заводское ш., 5</span>
+    <span>© 2026 · <a href="#top">наверх ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.form').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const b=f.querySelector('.btn');
+    b.textContent='✓ Запрос принят — перезвоним!';
+    b.style.background='linear-gradient(135deg,#22c55e,#4ade80)';
+  });
+});
+</script>
+</body>
+</html>

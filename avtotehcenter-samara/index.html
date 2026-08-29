@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АвтоТехЦентр Самара — ремонт легковых авто · скидка 10% новым клиентам</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --charcoal:#16181d;
+  --charcoal2:#21242b;
+  --red:#ef4444;
+  --red2:#f87171;
+  --ice:#f2f3f5;
+  --muted:#9aa1ab;
+  --line:rgba(242,243,245,.12);
+  --dark:#0c0d10;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--dark);color:var(--ice);line-height:1.55;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo{font-family:'Unbounded',sans-serif}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18;font-weight:800}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:100px;border:1px solid rgba(239,68,68,.4);background:rgba(239,68,68,.1);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--red2)}
+header{position:sticky;top:0;z-index:50;background:rgba(12,13,16,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:16px;font-weight:800;color:#fff;text-decoration:none}
+.logo b{color:var(--red)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-phone{color:var(--red2);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.02em;white-space:nowrap;transition:opacity .2s}
+.nav-phone:hover{opacity:.75}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:14px;font-size:14px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--red2));color:#2b0505;box-shadow:0 8px 30px rgba(239,68,68,.3)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--red2);color:var(--red2)}
+.hero{position:relative;padding:96px 0 88px;background:radial-gradient(1000px 500px at 80% -10%,rgba(239,68,68,.13),transparent 60%),radial-gradient(800px 400px at 10% 110%,rgba(33,36,41,.9),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,50px);line-height:1.1;font-weight:800;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--red2)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;color:var(--ice)}
+.chip b{color:var(--red2)}
+.offer-visual{position:relative;display:flex;justify-content:center}
+.offer-card{width:min(290px,66vw);border-radius:22px;padding:38px 28px;text-align:center;background:linear-gradient(160deg,var(--charcoal2),var(--charcoal));border:1px solid rgba(239,68,68,.35);box-shadow:0 24px 70px rgba(0,0,0,.45)}
+.offer-card b{display:block;font-family:'Unbounded';font-size:clamp(30px,6vw,46px);color:var(--red);line-height:1.1}
+.offer-card span{display:block;font-size:13.5px;color:var(--muted);margin-top:12px}
+section{padding:80px 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head .kicker{display:flex;width:fit-content;margin-bottom:16px}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--charcoal2),var(--charcoal));border:1px solid var(--line);border-radius:20px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(239,68,68,.5)}
+.card-ico{width:48px;height:48px;border-radius:13px;background:rgba(239,68,68,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--red2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15px;font-weight:600;color:#fff;margin-bottom:10px;line-height:1.3}
+.card p{font-size:13.5px;color:var(--muted)}
+.why{background:linear-gradient(180deg,transparent,rgba(239,68,68,.06),transparent)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.why-item{border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Unbounded';font-size:clamp(18px,2.8vw,26px);color:var(--red);font-weight:800;margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted)}
+.form-sec{border-radius:28px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(239,68,68,.12),transparent),var(--charcoal)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid .kicker{display:flex;width:fit-content;margin-bottom:18px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:16px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:16px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border-radius:13px;border:1px solid var(--line);background:rgba(12,13,16,.7);color:#fff;font-family:'Manrope';font-size:14px;outline:none;transition:border-color .2s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--red)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+.hint a{color:var(--red2)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:18px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card .card-ico{margin-bottom:14px}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--red2);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--red2);text-decoration:none}
+@media(max-width:860px){
+  .hero{padding:64px 0 56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .form-grid{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top">АВТО<b>ТЕХЦЕНТР</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#order">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav-phone" href="tel:+79871654959">8 987 165-49-59</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Самара · Алма-Атинская, 183г</span>
+      <h1>Ремонт легковых авто — <em>полный цикл</em></h1>
+      <p class="hero-sub">От&nbsp;диагностики до&nbsp;кузова: ремонт двигателя, шиномонт, детейлинг, развал-сходимость, замена автостёкол.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#order">Записаться</a>
+        <a class="btn btn-ghost" href="#services">Услуги</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">🎁 <b>−10%</b> на работы новым клиентам</span>
+        <span class="chip">🕘 с 10:00</span>
+      </div>
+    </div>
+    <div class="offer-visual">
+      <div class="offer-card">
+        <b>−10% + −5%</b>
+        <span>скидка новым клиентам на&nbsp;работы + на&nbsp;запчасти и&nbsp;масла, купленные у&nbsp;нас</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Услуги</span>
+      <h2>Всё для авто в&nbsp;одном месте</h2>
+      <p>Не&nbsp;нужно искать семь разных мастеров — заезжайте к&nbsp;нам.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M14 7l3 3-8.5 8.5-4 1 1-4zM9 12l3 3"/></svg></div>
+        <h3>Ремонт двигателя</h3>
+        <p>От&nbsp;текущего до&nbsp;капитального — с&nbsp;гарантией на&nbsp;работы.</p>
+        <span class="tag">профиль</span>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M2 12h19M14 8l4 4-4 4"/><path d="M4 12h9"/></svg></div>
+        <h3>Развал-сходимость</h3>
+        <p>Точная геометрия колёс — ровный руль и&nbsp;меньше износ резины.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Кузовной ремонт</h3>
+        <p>Вмятины, замена элементов, покраска — вернём вид и&nbsp;геометрию.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M8 16h8"/></svg></div>
+        <h3>Диагностика</h3>
+        <p>Компьютерная диагностика всех систем — найдём первопричину.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h3>Шиномонтаж</h3>
+        <p>Аккуратный монтаж, балансировка, сезонная переобувка.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M12 12l8-5M12 12L4 7M12 12v9"/></svg></div>
+        <h3>Замена автостёкол</h3>
+        <p>Лобовые и&nbsp;боковые — с&nbsp;подбором и&nbsp;герметизацией по&nbsp;регламенту.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему Автотехцентр</span>
+      <h2>Выгода и&nbsp;прозрачность</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>−10%</b><span>новым клиентам на&nbsp;работы</span></div>
+      <div class="why-item"><b>−5%</b><span>на&nbsp;запчасти и&nbsp;масла у&nbsp;нас</span></div>
+      <div class="why-item"><b>7 услуг</b><span>от&nbsp;детейлинга до&nbsp;стёкол</span></div>
+      <div class="why-item"><b>С 2010</b><span>работаем в&nbsp;Самаре</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="form-sec">
+      <div class="form-grid">
+        <div>
+          <span class="kicker">Запись</span>
+          <h2>Запишитесь на&nbsp;работы</h2>
+          <p class="hero-sub">Перезвоним, назовём цену и&nbsp;подберём время. Скидка новым клиентам!</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+          <select name="work">
+            <option>Ремонт двигателя</option>
+            <option>Кузовной ремонт</option>
+            <option>Шиномонтаж</option>
+            <option>Развал-сходимость</option>
+            <option>Замена автостекла</option>
+            <option>Детейлинг</option>
+          </select>
+          <textarea name="note" placeholder="Марка авто, что нужно сделать"></textarea>
+          <button class="btn btn-primary" type="submit">Записаться</button>
+          <span class="hint">или звоните: <a href="tel:+79871654959">8 987 165-49-59</a></span>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2>Как нас найти</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <b>Адрес</b>
+        <p>Самара, ул. Алма-Атинская, 183г</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <b>Телефон</b>
+        <a href="tel:+79871654959">8 987 165-49-59</a>
+        <p>запись на&nbsp;сервис</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <b>Почта</b>
+        <a href="mailto:tehcentr2020@yandex.ru">tehcentr2020@yandex.ru</a>
+        <p>запись и&nbsp;вопросы</p>
+      </div>
+      <div class="contact-card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <b>Режим работы</b>
+        <p>Ежедневно · с 10:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>АвтоТехЦентр · Самара, ул. Алма-Атинская, 183г</span>
+    <span>© 2026 · <a href="#top">наверх ↑</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.form').forEach(f=>{
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const b=f.querySelector('.btn');
+    b.textContent='✓ Запись принята — перезвоним!';
+    b.style.background='linear-gradient(135deg,#22c55e,#4ade80)';
+  });
+});
+</script>
+</body>
+</html>
