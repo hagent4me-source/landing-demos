@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис АБВ — Иваново. Все виды ремонта авто</title>
+<meta name="description" content="Автосервис АБВ в Иваново: слесарный ремонт, сход-развал, ходовая, двигатель, кузовной ремонт, шиномонтаж. Ул. Минская, 118. Тел: 8 (915) 820-08-05">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--acc:#e63946;--dark:#14213d;--bg:#f8f9fa}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--dark);background:var(--bg);line-height:1.6}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 1px 8px rgba(0,0,0,.06)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;flex-wrap:wrap;gap:8px}
+.logo{font-weight:800;font-size:1.3rem}
+.logo span{color:var(--acc)}
+nav a{color:var(--dark);text-decoration:none;margin-left:18px;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--acc)}
+.hero{background:linear-gradient(120deg,var(--dark) 0%,#23395b 100%);color:#fff;padding:72px 0}
+.hero h1{font-size:clamp(1.7rem,4.5vw,3rem);font-weight:800;line-height:1.2;max-width:700px}
+.hero p{margin:18px 0 28px;font-size:1.1rem;opacity:.9;max-width:560px}
+.btn{display:inline-block;background:var(--acc);color:#fff;padding:14px 34px;border-radius:8px;text-decoration:none;font-weight:800;font-size:1.05rem;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.ghost{background:transparent;border:2px solid #fff;margin-left:12px}
+.hero-meta{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:.92rem;opacity:.85}
+section{padding:64px 0}
+h2{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:800;margin-bottom:34px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(0,0,0,.09)}
+.card h3{font-size:1.05rem;margin-bottom:8px}
+.card .ico{font-size:1.6rem;display:block;margin-bottom:10px}
+.why{background:#fff}
+.why .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.cta{background:linear-gradient(120deg,var(--acc) 0%,#c1121f 100%);color:#fff;text-align:center;border-radius:16px;padding:48px 24px;margin:0 20px}
+.cta h2{color:#fff}
+.cta .btn{background:#fff;color:var(--acc);margin-top:20px}
+footer{background:var(--dark);color:#cfd8e3;padding:44px 0;margin-top:64px}
+footer .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+footer a{color:#fff;text-decoration:none;font-weight:700;font-size:1.15rem}
+footer h4{color:#fff;margin-bottom:10px;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:640px){nav{display:none}.btn.ghost{margin-left:0;margin-top:10px;display:inline-block}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="logo">АБВ <span>Автосервис</span></div>
+<nav><a href="#uslugi">Услуги</a><a href="#pochemu">Почему мы</a><a href="#kontakty">Контакты</a></nav>
+<a class="btn" style="padding:10px 22px;font-size:.95rem" href="tel:+79158200805">Записаться</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+<h1>Все виды ремонта вашего авто в одном сервисе</h1>
+<p>От замены масла до кузовного ремонта — АБВ в Иваново берёт машину на любом этапе. Честная диагностика, работа по договору, гарантия на работы.</p>
+<a class="btn" href="tel:+79158200805">Записаться на сервис</a>
+<a class="btn ghost" href="#uslugi">Наши услуги</a>
+<div class="hero-meta"><span>📍 ул. Минская, 118</span><span>🕘 Пн–Сб: 9:00–19:00</span><span>🔧 Все виды ремонта</span></div>
+</div></section>
+
+<section id="uslugi"><div class="wrap">
+<h2>Услуги</h2>
+<div class="grid">
+<div class="card"><span class="ico">🔧</span><h3>Слесарный ремонт</h3><p>Ходовая, двигатель, трансмиссия, рулевое управление — любой сложности.</p></div>
+<div class="card"><span class="ico">⚙️</span><h3>Сход-развал</h3><p>Стендовая регулировка углов колёс — ровный руль и меньше износ шин.</p></div>
+<div class="card"><span class="ico">🛞</span><h3>Шиномонтаж</h3><p>Быстрая замена и балансировка колёс, сезонное хранение.</p></div>
+<div class="card"><span class="ico">🚗</span><h3>Кузовной ремонт</h3><p>Удаление вмятин, покраска элементов, восстановление после ДТП.</p></div>
+<div class="card"><span class="ico">🛠️</span><h3>Техобслуживание</h3><p>Замена масла ДВС и АКПП, фильтров, обслуживание системы охлаждения.</p></div>
+<div class="card"><span class="ico">💨</span><h3>Выхлопная система</h3><p>Ремонт и замена глушителей, катализаторов, гофр.</p></div>
+</div>
+</div></section>
+
+<section class="why"><div class="wrap">
+<h2>Почему выбирают АБВ</h2>
+<div class="grid">
+<div class="card"><span class="ico">✅</span><h3>Всё в одном месте</h3><p>Не нужно искать три разных сервиса — у нас полный цикл.</p></div>
+<div class="card"><span class="ico">🔍</span><h3>Честная диагностика</h3><p>Показываем, что именно изношено, и не навязываем лишнего.</p></div>
+<div class="card"><span class="ico">📋</span><h3>Прозрачная смета</h3><p>Цена согласуется до начала работ — без сюрпризов.</p></div>
+<div class="card"><span class="ico">🛡️</span><h3>Гарантия на работы</h3><p>Отвечаем за результат после выезда с сервиса.</p></div>
+</div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+<h2>Запишитесь на удобное время</h2>
+<p>Позвоните — подскажем стоимость и подберём время под ваш график.</p>
+<a class="btn" href="tel:+79158200805">8 (915) 820-08-05</a>
+</div></section>
+
+<footer id="kontakty"><div class="wrap">
+<div class="grid">
+<div><h4>Автосервис АБВ</h4><p>г. Иваново, ул. Минская, д. 118</p></div>
+<div><h4>Телефоны</h4><a href="tel:+79158200805">8 (915) 820-08-05</a><br><a href="tel:+74932500805">8 (4932) 50-08-05</a></div>
+<div><h4>Почта</h4><a href="mailto:autoplus37@bk.ru">autoplus37@bk.ru</a></div>
+</div>
+<p style="margin-top:26px;opacity:.5;font-size:.85rem">© 2026 Автосервис АБВ, Иваново</p>
+</div></footer>
+</body>
+</html>
