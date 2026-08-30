@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сплиткар - Ремонт стартеров, генераторов, электромоторов в Кирове</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #f8fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+            --accent: #10b981;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-phone {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn-phone:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 32px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .btn-service {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-service:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Why Us */
+        .why-us {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 32px;
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+            background: var(--bg-white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text strong {
+            display: block;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .contact-item-text span {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .map-placeholder {
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 48px;
+            text-align: center;
+            border: 2px dashed var(--border);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .map-placeholder p {
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .map-address {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 48px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 16px 0;
+                gap: 16px;
+            }
+
+            .nav {
+                gap: 16px;
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                padding-bottom: 8px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .services,
+            .why-us,
+            .contact {
+                padding: 60px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                font-size: 0.85rem;
+                gap: 12px;
+            }
+
+            .btn-phone {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .service-card,
+            .feature-card {
+                padding: 24px;
+            }
+
+            .map-placeholder {
+                padding: 32px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">Сплиткар</a>
+            <nav class="nav">
+                <a href="#services">Услуги</a>
+                <a href="#why">Преимущества</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <a href="tel:88002500170" class="btn-phone">8 800 250-01-70</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Ремонт стартеров, генераторов и электромоторов</h1>
+                    <p>Профессиональный ремонт электрооборудования в Кирове. Быстро, надёжно и с гарантией 1 год.</p>
+                    
+                    <div class="hero-badges">
+                        <span class="badge">Гарантия 1 год</span>
+                        <span class="badge">Бесплатная диагностика</span>
+                        <span class="badge">Запчасти в наличии</span>
+                    </div>
+                    
+                    <a href="tel:88002500170" class="btn-cta">
+                        Записаться
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-subtitle">Полный спектр работ по ремонту и обслуживанию электрооборудования</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Ремонт стартера</h3>
+                        <p>Дешевле и надёжнее покупки нового. Быстрее, чем искать и ждать новый агрегат.</p>
+                        
+                        <ul class="service-features">
+                            <li>Бесплатная диагностика</li>
+                            <li>Все запчасти в наличии</li>
+                            <li>Гарантия 1 год</li>
+                        </ul>
+                        
+                        <a href="tel:88002500170" class="btn-service">
+                            Записаться на ремонт
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🔋</div>
+                        <h3>Ремонт генератора</h3>
+                        <p>Профессиональный ремонт с гарантией. Восстановим работоспособность вашего генератора.</p>
+                        
+                        <ul class="service-features">
+                            <li>Бесплатная диагностика</li>
+                            <li>Все запчасти в наличии</li>
+                            <li>Гарантия 1 год</li>
+                        </ul>
+                        
+                        <a href="tel:88002500170" class="btn-service">
+                            Записаться на ремонт
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">🔌</div>
+                        <h3>Ремонт электромотора</h3>
+                        <p>Ремонт электромоторов всех видов. Используем качественные комплектующие.</p>
+                        
+                        <ul class="service-features">
+                            <li>Бесплатная диагностика</li>
+                            <li>Все запчасти в наличии</li>
+                            <li>Гарантия 1 год</li>
+                        </ul>
+                        
+                        <a href="tel:88002500170" class="btn-service">
+                            Записаться на ремонт
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-us" id="why">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <p class="section-subtitle">Мы гарантируем качество, скорость и надёжность</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Гарантия 1 год</h3>
+                        <p>На работу и запчасти с нашего склада даём гарантию 1 год. В гарантийных случаях исполняем обязательства в день обращения.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Бесплатная диагностика</h3>
+                        <p>Диагностика и подбор запчастей занимает до 30 минут в большинстве случаев. Ремонт — до 1 часа с момента согласия.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📦</div>
+                        <h3>Запчасти в наличии</h3>
+                        <p>Собственный склад запчастей более 5000 наименований. Уникальные возможности поставки редких запчастей из любой части мира.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Выгодная цена</h3>
+                        <p>Ремонт дешевле и надёжнее покупки нового. Объявленная цена является окончательной и не увеличивается после согласования.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🚛</div>
+                        <h3>Удобный сервис</h3>
+                        <p>Самостоятельно забираем неисправный агрегат и доставляем отремонтированный обратно. Работаем ежедневно с 8:00 до 20:00.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Надёжная репутация</h3>
+                        <p>Обслуживаем крупнейшие предприятия региона. Работаем с официальными представителями автопроизводителей.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contacts">
+            <div class="container">
+                <h2 class="section-title">Контакты</h2>
+                <p class="section-subtitle">Мы работаем ежедневно с 8:00 до 20:00 без обеда и выходных</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Свяжитесь с нами</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📞</div>
+                            <div class="contact-item-text">
+                                <strong>Телефон</strong>
+                                <span><a href="tel:88002500170" style="color: inherit; text-decoration: none;">8 800 250-01-70</a></span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">📍</div>
+                            <div class="contact-item-text">
+                                <strong>Адрес</strong>
+                                <span>г. Киров, ул. Производственная, 29/3</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">✉️</div>
+                            <div class="contact-item-text">
+                                <strong>Email</strong>
+                                <span><a href="mailto:splitcar43@gmail.com" style="color: inherit; text-decoration: none;">splitcar43@gmail.com</a></span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-item-icon">⏰</div>
+                            <div class="contact-item-text">
+                                <strong>Режим работы</strong>
+                                <span>Ежедневно с 8:00 до 20:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-placeholder">
+                        <div class="map-placeholder-icon">🗺️</div>
+                        <p>Мы находимся по адресу:</p>
+                        <p class="map-address">г. Киров, ул. Производственная, 29/3</p>
+                        <p style="margin-top: 16px; color: var(--text-light);">2 этаж — ООО "Сплиткар Киров"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">Главная</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#why">Преимущества</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                
+                <div class="footer-copy">
+                    <p>© 2019-2023 Сплиткар. Все права защищены.</p>
+                    <p style="margin-top: 8px; font-size: 0.8rem;">При копировании материалов ссылка на SPLITCAR.RU обязательна</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

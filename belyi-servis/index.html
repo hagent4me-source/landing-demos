@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ТСК Мотор / Белый Сервис — Автосервис Киров</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: #fafafa; color: #222; line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+h1, h2 { margin-bottom: 1rem; font-weight: 700; }
+p { margin-bottom: 1.5rem; }
+.hero { background: #2c3e50; color: #fff; padding: 40px 20px; text-align: center; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.cta { display: inline-block; padding: 12px 24px; background: #e74c3c; color: #fff; font-weight: 600; border-radius: 4px; text-transform: uppercase; font-size: 1rem; }
+.services { padding: 40px 20px; }
+.services h2 { text-align: center; margin-bottom: 30px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.card { background: #fff; border: 1px solid #e0e0e0; padding: 20px; text-align: center; border-radius: 6px; }
+.trumps { padding: 40px 20px; }
+.trumps h2 { text-align: center; margin-bottom: 30px; }
+.trump-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+.trump { background: #fff; border: 1px solid #e0e0e0; padding: 20px; border-radius: 6px; }
+.contacts { padding: 40px 20px; background: #fff; }
+.contacts h2 { text-align: center; margin-bottom: 20px; }
+.contact-item { margin-bottom: 15px; }
+.contact-item a { font-weight: 600; display: inline-block; }
+.contact-item a[href^="mailto:"] { color: #d53a3a; }
+@media (max-width: 480px) { .hero h1 { font-size: 2rem; } .cta { width: 100%; padding: 15px; } }
+</style>
+</head>
+<body>
+<header class="hero">
+<h1>ТСК Мотор / Белый Сервис</h1>
+<p>Технический центр: продажа автомобилей, сервисное обслуживание и ремонт легковых авто всех марок.</p>
+<a href="tel:+78332516777" class="cta">Записаться</a>
+</header>
+
+<section class="services">
+<div class="container">
+<h2>Услуги</h2>
+<div class="cards">
+<div class="card">Продажа автомобилей</div>
+<div class="card">Сервисное обслуживание</div>
+<div class="card">Ремонт легковых авто</div>
+<div class="card">Диагностика</div>
+<div class="card">Оригинальные запчасти</div>
+</div>
+</div>
+</section>
+
+<section class="trumps">
+<div class="container">
+<h2>Почему мы</h2>
+<div class="trump-list">
+<div class="trump">Полный цикл: продажа + сервис</div>
+<div class="trump">Обслуживание всех марок</div>
+<div class="trump">Обратный звонок, запись онлайн</div>
+</div>
+</div>
+</section>
+
+<section class="contacts">
+<div class="container">
+<h2>Контакты</h2>
+<address>г. Киров</address>
+<div class="contact-item">
+<a href="mailto:reception@motor.ru">reception@motor.ru</a>
+</div>
+<div class="contact-item">
+<a href="tel:+78332516777">+7 (8332) 516-777</a>
+</div>
+</div>
+</section>
+</body>
+</html>

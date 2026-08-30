@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Атлика Сервис — Ремонт грузовиков в Липецке</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a365d;
+        }
+        .header-contacts {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .header-contacts a {
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .header-contacts a:hover {
+            color: #2b6cb0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #f6ad55;
+            color: #1a202c;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #ed8936;
+            transform: translateY(-2px);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #f6ad55;
+            border-radius: 2px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background-color: #f7fafc;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        /* Why Us Section */
+        .why-us {
+            padding: 80px 0;
+            background-color: #edf2f7;
+        }
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .advantage-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .advantage-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .advantage-item h3 {
+            color: #1a365d;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        .advantage-item p {
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: #1a365d;
+            margin-bottom: 25px;
+        }
+        .contact-item {
+            margin-bottom: 20px;
+        }
+        .contact-item strong {
+            display: block;
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+        .contact-item p {
+            color: #4a5568;
+        }
+        .working-hours {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f7fafc;
+            border-radius: 8px;
+        }
+        .working-hours h4 {
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+        .map-placeholder {
+            background-color: #e2e8f0;
+            border-radius: 12px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #4a5568;
+            font-style: italic;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a365d;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .header-contacts {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Атлика Сервис</div>
+            <div class="header-contacts">
+                <a href="tel:+74742251228">8 (4742) 25-12-28</a>
+                <a href="mailto:info@atlika-service.ru">info@atlika-service.ru</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Ремонт грузовиков European марок в Липецке</h1>
+                <p>Профессиональный сервис для DAF, MAN, VOLVO, RENAULT. Гарантия на все виды работ, компьютерная диагностика и собственный магазин запчастей.</p>
+                <a href="tel:+74742251228" class="btn">Записаться на сервис</a>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Наши услуги</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <span class="service-icon">🔧</span>
+                        <h3>Ремонт грузовиков</h3>
+                        <p>Диагностика и обслуживание грузовиков DAF, MAN, VOLVO, RENAULT. Ремонт двигателей, кузовов, ходовой части.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">💻</span>
+                        <h3>Компьютерная диагностика</h3>
+                        <p>Диагностика всех электронных систем автомобиля: ABS, ESP, ASR. Проверка блоков управления и датчиков.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🛡️</span>
+                        <h3>Гарантийный ремонт</h3>
+                        <p>Предоставляем гарантию на все виды выполненных работ в нашем сервисе.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🔩</span>
+                        <h3>Ремонт узлов и агрегатов</h3>
+                        <p>Ремонт КПП, раздаточных коробок, редукторов мостов, мостов.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🛞</span>
+                        <h3>Грузовой шиномонтаж</h3>
+                        <p>Профессиональный шиномонтаж для грузового транспорта.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🚿</span>
+                        <h3>Мойка автомобилей</h3>
+                        <p>Мойка грузовиков и любого большегрузного транспорта.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🚗</span>
+                        <h3>Ремонт тентов и стёкол</h3>
+                        <p>Ремонт тентов грузовых прицепов и полуприцепов, замена лобовых стёкол.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🛒</span>
+                        <h3>Магазин запчастей</h3>
+                        <p>Собственный магазин запчастей для грузовых автомобилей.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-us">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-item">
+                        <span class="advantage-icon">🇪🇺</span>
+                        <h3>Европейские марки</h3>
+                        <p>Специализируемся на ремонте грузовых автомобилей европейского производства.</p>
+                    </div>
+                    <div class="advantage-item">
+                        <span class="advantage-icon">✅</span>
+                        <h3>Гарантия на работы</h3>
+                        <p>Предоставляем гарантию на все виды услуг и выполненные работы.</p>
+                    </div>
+                    <div class="advantage-item">
+                        <span class="advantage-icon">🔍</span>
+                        <h3>Компьютерная диагностика</h3>
+                        <p>Используем специализированное диагностическое оборудование.</p>
+                    </div>
+                    <div class="advantage-item">
+                        <span class="advantage-icon">📦</span>
+                        <h3>Свой магазин запчастей</h3>
+                        <p>Имеем собственный склад запчастей для быстрого ремонта.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title">Контакты</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Свяжитесь с нами</h3>
+                        <div class="contact-item">
+                            <strong>Телефон:</strong>
+                            <p><a href="tel:+74742251228">8 (4742) 25-12-28</a></p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Адрес:</strong>
+                            <p>г. Липецк, ул. Ферросплавная, 26</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <p><a href="mailto:info@atlika-service.ru">info@atlika-service.ru</a></p>
+                        </div>
+                        
+                        <div class="working-hours">
+                            <h4>Часы работы</h4>
+                            <p>Понедельник - Суббота: 8:00 - 20:00</p>
+                            <p>Воскресенье: по запросу</p>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <div>
+                            <p>г. Липецк, ул. Ферросплавная, 26</p>
+                            <p>Интерактивная карта будет здесь</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Атлика Сервис. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
