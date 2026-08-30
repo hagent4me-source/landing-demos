@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СпецАвтоТранс — грузовой автосервис в Калуге: ремонт грузовиков и спецтехники</title>
+<meta name="description" content="Грузовой автосервис «СпецАвтоТранс» в Калуге: ремонт и обслуживание грузовиков, спецтехники и коммерческого транспорта. Корпоративное обслуживание автопарков.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --warn:#ffd21f; --warn2:#ffe27a; --coal:#111214; --coal2:#191a1d; --panel:#1d1e22;
+  --cream:#f2f0eb; --muted:#a2a09a; --line:rgba(255,210,31,.16); --dark:#0b0c0d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'PT Sans',sans-serif;background:var(--dark);color:var(--cream);line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo,.num{font-family:'Oswald',sans-serif;text-transform:uppercase}
+h2{font-size:clamp(23px,3.6vw,37px);line-height:1.16;letter-spacing:.01em}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid rgba(255,210,31,.45);background:rgba(255,210,31,.09);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--warn);font-family:'PT Sans'}
+header{position:sticky;top:0;z-index:50;background:rgba(11,12,13,.9);backdrop-filter:blur(14px);border-bottom:2px solid rgba(255,210,31,.3)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:15px 22px;gap:14px}
+.logo{font-size:18px;color:#fff;text-decoration:none;letter-spacing:.03em}
+.logo b{color:var(--warn)}
+.nav-links{display:flex;gap:25px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:700;font-family:'PT Sans'}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;font-size:15px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s;font-weight:600;font-family:'Oswald';letter-spacing:.04em}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,#f4c400,var(--warn));color:#171301;box-shadow:0 8px 26px rgba(255,210,31,.28)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line);font-family:'PT Sans'}
+.btn-ghost:hover{border-color:var(--warn);color:var(--warn)}
+.hero{position:relative;padding:94px 0 84px;background:radial-gradient(1000px 500px at 80% -10%,rgba(255,210,31,.13),transparent 60%),radial-gradient(800px 420px at 6% 112%,rgba(25,26,29,.96),transparent 62%)}
+.hero h1{font-size:clamp(29px,5.2vw,52px);line-height:1.1;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--warn)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:540px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;font-size:13px;font-weight:700;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+.chip b{color:var(--warn)}
+section{padding:80px 0}
+.sec-head{max-width:680px;margin-bottom:44px}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:15px}
+.aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.a{border:1px solid var(--line);border-radius:0;padding:28px 24px;background:linear-gradient(160deg,var(--coal2),var(--coal));transition:transform .2s,border-color .2s}
+.a:hover{transform:translateY(-4px);border-color:rgba(255,210,31,.55)}
+.a svg{width:38px;height:38px;stroke:var(--warn);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px}
+.a h3{font-size:16.5px;color:#fff;margin-bottom:8px}
+.a p{font-size:13.5px;color:var(--muted)}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.w{display:flex;align-items:center;gap:14px;border:1px solid var(--line);padding:18px;background:rgba(255,255,255,.03)}
+.w svg{width:26px;height:26px;stroke:var(--warn);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.w b{font-size:14px;color:#fff;font-family:'PT Sans'}
+.corp{border:2px solid rgba(255,210,31,.4);background:radial-gradient(520px 260px at 90% 0%,rgba(255,210,31,.12),transparent),var(--coal2);padding:46px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:38px;align-items:center;position:relative}
+.corp::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:repeating-linear-gradient(45deg,var(--warn),var(--warn) 12px,#151505 12px,#151505 24px)}
+.corp h2{color:#fff}
+.corp p{color:var(--muted);margin-top:13px;font-size:15px}
+.corp ul{list-style:none;margin-top:18px}
+.corp li{padding:10px 0 10px 32px;position:relative;color:var(--cream);font-size:14.5px;border-bottom:1px solid var(--line)}
+.corp li::before{content:'▸';position:absolute;left:2px;top:9px;color:var(--warn);font-size:18px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;counter-reset:st}
+.step{border:1px solid var(--line);padding:24px;background:rgba(255,255,255,.03);position:relative}
+.step::before{counter-increment:st;content:'0' counter(st);font-family:'Oswald';font-size:27px;color:var(--warn)}
+.step b{display:block;margin:10px 0 6px;font-size:15px;color:#fff;font-family:'Oswald';text-transform:none}
+.step span{font-size:13px;color:var(--muted)}
+.form-sec{border:2px solid rgba(255,210,31,.35);background:radial-gradient(620px 300px at 90% 0%,rgba(255,210,31,.1),transparent),var(--panel)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid h2{color:#fff}
+.form{display:flex;flex-direction:column;gap:14px}
+.form input,.form select,.form textarea{width:100%;padding:15px 18px;border:1px solid var(--line);background:rgba(11,12,13,.7);color:#fff;font-family:'PT Sans';font-size:14px;outline:none;border-radius:0}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--warn)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);padding:24px;background:rgba(255,255,255,.03)}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.contact-card a{color:var(--warn);text-decoration:none;font-size:15px;font-weight:700}
+.contact-card p{color:var(--muted);font-size:13.5px}
+footer{border-top:2px solid rgba(255,210,31,.3);padding:34px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--warn);text-decoration:none}
+@media(max-width:880px){
+  .hero{padding:64px 0 56px}
+  .form-grid,.corp{grid-template-columns:1fr}
+  .nav-links{display:none}
+  section{padding:56px 0}
+  .corp{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Спец<b>Авто</b>Транс</a>
+    <nav class="nav-links">
+      <a href="#aud">Кому нужны</a>
+      <a href="#works">Работы</a>
+      <a href="#corp">Автопаркам</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" style="padding:12px 26px" href="#form">Записаться</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Грузовой автосервис · Калуга</span>
+    <h1>Ремонт грузовиков <em>и спецтехники</em></h1>
+    <p class="hero-sub">Обслуживаем коммерческий транспорт Калуги и области: плановое ТО, ремонт узлов, сварочные работы. Для парков — договорное обслуживание с приоритетом.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#form">Записать технику на ремонт</a>
+      <a class="btn btn-ghost" href="#corp">Автопаркам</a>
+    </div>
+    <div class="hero-meta">
+      <span class="chip">🚛 <b>Грузовики</b> и коммерческий транспорт</span>
+      <span class="chip">🏗 <b>Спецтехника</b></span>
+      <span class="chip">📋 <b>Договор</b> для парков</span>
+    </div>
+  </div>
+</section>
+
+<section id="aud" style="background:var(--coal)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Кому мы нужны</span>
+      <h2 style="margin-top:16px">Чиним технику, которая зарабатывает</h2>
+    </div>
+    <div class="aud">
+      <div class="a">
+        <svg viewBox="0 0 24 24"><path d="M2 16V8h12v8M14 11h4l4 3v2h-2"/><circle cx="6.5" cy="17" r="1.8"/><circle cx="17.5" cy="17" r="1.8"/></svg>
+        <h3>Транспортные компании</h3>
+        <p>Бортовые и тентованные грузовики — ТО и ремонт по графику.</p>
+      </div>
+      <div class="a">
+        <svg viewBox="0 0 24 24"><path d="M3 17V7h8v10M11 10h5l5 5v2h-2"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>
+        <h3>Строительная спецтехника</h3>
+        <p>Самосвалы, манипуляторы, техника для стройплощадок.</p>
+      </div>
+      <div class="a">
+        <svg viewBox="0 0 24 24"><path d="M2 16V9h11v7M13 9h5l4 4v3h-2"/><circle cx="6.5" cy="17" r="1.7"/><circle cx="17.5" cy="17" r="1.7"/></svg>
+        <h3>Торговые фургоны</h3>
+        <p>Развозной транспорт магазинов и служб доставки.</p>
+      </div>
+      <div class="a">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+        <h3>Частные грузовики</h3>
+        <p>Личный транспорт для бизнеса и подсобного хозяйства.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Работы</span>
+      <h2 style="margin-top:16px">Что делаем в цехе</h2>
+    </div>
+    <div class="works">
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M4 21h16"/></svg><b>Плановое ТО</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><b>Ходовая и тормоза</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M7 8h10l2 5v3h-2M7 8L5 13v3h2"/><circle cx="8" cy="17" r="1.5"/><circle cx="16" cy="17" r="1.5"/></svg><b>Двигатель</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg><b>Электрооборудование</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-8 8H6v-6z"/><path d="M4 20h16"/></svg><b>Сварочные работы</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M9 4h6l1 3h3v11H5V7h3z"/><path d="M12 10v6M9 13h6"/></svg><b>Ремонт узлов и агрегатов</b></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--coal)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Наш подход</span>
+      <h2 style="margin-top:16px">Дефектовка до начала работ</h2>
+    </div>
+    <div class="works">
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M9 4h6l1 3h3v11H5V7h3z"/><path d="M12 10v6M9 13h6"/></svg><b>Осмотр и дефектовка — бесплатно при ремонте у нас</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg><b>Согласование сметы — вы решаете, что чинить</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><b>Сроки фиксируем до начала работ</b></div>
+      <div class="w"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg><b>Гарантия на выполненные работы</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="corp" style="background:var(--coal)">
+  <div class="wrap">
+    <div class="corp">
+      <div>
+        <span class="kicker">Корпоративным клиентам</span>
+        <h2 style="margin-top:14px">Автопарк под договором</h2>
+        <p>Планируем обслуживание вашего парка заранее — техника выходит из строя реже и простаивает меньше.</p>
+      </div>
+      <ul>
+        <li>Обслуживание по договору, без срывов сроков</li>
+        <li>Приоритетная запись для машин парка</li>
+        <li>Дефектовка до начала работ — вы платите за согласованное</li>
+        <li>Контроль состояния каждой единицы техники</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Как работаем</span>
+      <h2 style="margin-top:16px">4 шага</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>Заявка</b><span>Тип техники и характер проблемы.</span></div>
+      <div class="step"><b>Осмотр и дефектовка</b><span>Определяем объём и стоимость работ до начала.</span></div>
+      <div class="step"><b>Согласование</b><span>Вы решаете, что чиним сейчас, что — позже.</span></div>
+      <div class="step"><b>Ремонт и выдача</b><span>Работа, проверка, выдача техники.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="form-sec" id="form">
+  <div class="wrap form-grid">
+    <div>
+      <h2>Записать технику на ремонт</h2>
+      <p class="hero-sub" style="margin-top:14px">Опишите технику и проблему — согласуем время осмотра и дефектовки.</p>
+    </div>
+    <form class="form" onsubmit="return false">
+      <input type="text" placeholder="Имя или организация" required>
+      <input type="tel" placeholder="Телефон" required>
+      <select>
+        <option>Бортовой грузовик</option><option>Фургон</option><option>Самосвал</option>
+        <option>Манипулятор</option><option>Спецтехника</option><option>Другое</option>
+      </select>
+      <textarea placeholder="Описание проблемы"></textarea>
+      <button class="btn btn-primary" type="submit">Отправить заявку</button>
+      <div class="hint">Согласуем осмотр в рабочее время</div>
+    </form>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2 style="margin-top:16px">Свяжитесь с нами</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card"><b>Заявки</b><p>Форма на сайте — быстрый ответ</p></div>
+      <div class="contact-card"><b>Почта</b><a href="mailto:sat-40@mail.ru">sat-40@mail.ru</a><p>Для вопросов и документов</p></div>
+      <div class="contact-card"><b>Адрес</b><p>г. Калуга</p><p>Работаем в будние дни</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 ООО «СпецАвтоТранс», Калуга — грузовой автосервис</span>
+    <a href="mailto:sat-40@mail.ru">sat-40@mail.ru</a>
+  </div>
+</footer>
+
+</body>
+</html>
