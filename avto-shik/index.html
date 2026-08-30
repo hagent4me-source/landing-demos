@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кузовной центр Авто-Шик — Владимир. Кузовной ремонт любой сложности, покраска, полировка</title>
+<meta name="description" content="Кузовной ремонт во Владимире: покраска с подбором автоэмали, замена автостёкол, полировка фар и кузова, шумоизоляция. Ул. 8-Линия, 9. Тел +7 (901) 444-60-43">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --amber:#ffb02e; --amber2:#ffcd6b; --graphite:#141416; --graphite2:#1c1c20; --panel:#191a1e;
+  --cream:#f4f1ea; --muted:#a3a09a; --line:rgba(255,176,46,.16); --dark:#0e0e10;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',sans-serif;background:var(--dark);color:var(--cream);line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.btn,.logo,.num{font-family:'Russo One',sans-serif;font-weight:400}
+h2{font-size:clamp(22px,3.6vw,36px);line-height:1.18}
+.kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:6px;border:1px solid rgba(255,176,46,.4);background:rgba(255,176,46,.1);font-weight:700;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--amber2);font-family:'Inter Tight'}
+header{position:sticky;top:0;z-index:50;background:rgba(14,14,16,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px}
+.logo{font-size:18px;color:#fff;text-decoration:none}
+.logo b{color:var(--amber)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;font-family:'Inter Tight'}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:8px;font-size:14px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--amber),var(--amber2));color:#1a1206;box-shadow:0 8px 30px rgba(255,176,46,.3);font-weight:700;font-family:'Inter Tight'}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line);font-family:'Inter Tight'}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber2)}
+.hero{position:relative;padding:94px 0 86px;background:radial-gradient(1000px 500px at 80% -10%,rgba(255,176,46,.14),transparent 60%),radial-gradient(800px 400px at 8% 110%,rgba(28,28,32,.95),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:54px;align-items:center}
+.hero h1{font-size:clamp(28px,5vw,50px);line-height:1.12;color:#fff;margin:24px 0 20px}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero-sub{font-size:clamp(15px,1.9vw,18px);color:var(--muted);max-width:520px;margin-bottom:34px;font-family:'Inter Tight'}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;font-weight:600;font-family:'Inter Tight'}
+.chip b{color:var(--amber2)}
+.spark{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border:2px solid rgba(255,176,46,.5);border-radius:14px;width:min(280px,66vw);aspect-ratio:1;margin:0 auto;box-shadow:0 0 60px rgba(255,176,46,.15);background:radial-gradient(circle at 30% 25%,rgba(255,176,46,.12),transparent 70%)}
+.spark b{font-family:'Russo One';font-size:clamp(40px,7vw,60px);color:var(--amber);line-height:1}
+.spark span{font-size:13.5px;color:var(--muted);max-width:190px;margin-top:10px;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter Tight'}
+section{padding:80px 0}
+.sec-head{max-width:660px;margin-bottom:44px}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:15px;font-family:'Inter Tight'}
+/* promo */
+.promo{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(255,176,46,.4);background:linear-gradient(115deg,#241a06,#2e1f08 55%,#1a1408);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);gap:30px;align-items:center;padding:44px 48px}
+.promo h2{color:#fff}
+.promo p{color:var(--muted);margin-top:12px;font-size:15px;max-width:480px;font-family:'Inter Tight'}
+.promo .big{font-family:'Russo One';font-size:clamp(60px,10vw,110px);color:var(--amber);line-height:1;text-shadow:0 0 44px rgba(255,176,46,.35)}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.card{background:linear-gradient(160deg,var(--graphite2),var(--graphite));border:1px solid var(--line);border-radius:14px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:rgba(255,176,46,.5)}
+.card-ico{width:48px;height:48px;border-radius:10px;background:rgba(255,176,46,.13);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-ico svg{width:24px;height:24px;stroke:var(--amber);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:15.5px;color:#fff;margin-bottom:10px;font-family:'Inter Tight';font-weight:700}
+.card p{font-size:13.5px;color:var(--muted);font-family:'Inter Tight'}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;counter-reset:st}
+.step{border:1px solid var(--line);border-radius:14px;padding:24px;background:rgba(255,255,255,.03);position:relative}
+.step::before{counter-increment:st;content:'0' counter(st);font-family:'Russo One';font-size:26px;color:var(--amber)}
+.step b{display:block;margin:10px 0 6px;font-size:15px;color:#fff;font-family:'Inter Tight'}
+.step span{font-size:13px;color:var(--muted);font-family:'Inter Tight'}
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.case{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel)}
+.case h4{font-family:'Russo One';font-weight:400;font-size:15px;color:#fff;margin-bottom:8px}
+.case p{font-size:13.5px;color:var(--muted);font-family:'Inter Tight'}
+.case .tag{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:var(--amber);font-family:'Inter Tight'}
+/* why */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.why-item{border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;background:rgba(255,255,255,.03)}
+.why-item b{display:block;font-family:'Russo One';font-size:clamp(18px,2.6vw,24px);color:var(--amber);margin-bottom:8px}
+.why-item span{font-size:13.5px;color:var(--muted);font-family:'Inter Tight'}
+/* form */
+.form-sec{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(600px 300px at 90% 0%,rgba(255,176,46,.12),transparent),var(--graphite)}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;padding:52px}
+.form-grid h2{color:#fff}
+.form-grid .hero-sub{margin:14px 0 0;max-width:400px}
+.form{display:flex;flex-direction:column;gap:14px}
+.form input,.form textarea{width:100%;padding:15px 18px;border-radius:10px;border:1px solid var(--line);background:rgba(14,14,16,.7);color:#fff;font-family:'Inter Tight';font-size:14px;outline:none}
+.form input:focus,.form textarea:focus{border-color:var(--amber)}
+.form textarea{resize:vertical;min-height:90px}
+.form .btn{width:100%}
+.hint{font-size:12px;color:var(--muted);text-align:center;font-family:'Inter Tight'}
+/* contacts */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.contact-card{border:1px solid var(--line);border-radius:14px;padding:24px;background:rgba(255,255,255,.03)}
+.contact-card b{display:block;color:#fff;font-size:15px;margin-bottom:6px;font-family:'Inter Tight'}
+.contact-card a{color:var(--amber2);text-decoration:none;font-size:15px;font-weight:700;font-family:'Inter Tight'}
+.contact-card p{color:var(--muted);font-size:13.5px;font-family:'Inter Tight'}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px;font-family:'Inter Tight'}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--amber2);text-decoration:none}
+@media(max-width:880px){
+  .hero{padding:64px 0 56px}
+  .hero-grid,.form-grid{grid-template-columns:1fr}
+  .promo{grid-template-columns:1fr;padding:34px 26px}
+  .nav-links{display:none}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Авто<b>Шик</b></a>
+    <nav class="nav-links">
+      <a href="#services">Услуги</a>
+      <a href="#how">Как работаем</a>
+      <a href="#works">Работы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" style="padding:12px 22px" href="tel:+79014446043">Записаться</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Кузовной центр · Владимир</span>
+      <h1>Кузовной ремонт <em>любой сложности</em></h1>
+      <p class="hero-sub">От царапины до восстановления после серьёзного ДТП. Подбор автоэмали по коду, свой покрасочный цех, аккуратность как на заводе.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+79014446043">+7 (901) 444-60-43</a>
+        <a class="btn btn-ghost" href="#form">Оставить заявку</a>
+      </div>
+      <div class="hero-meta">
+        <span class="chip">🎯 <b>Подбор эмали</b> по коду</span>
+        <span class="chip">🏭 <b>Свой</b> покрасочный цех</span>
+        <span class="chip">📅 <b>С 2017</b> года</span>
+      </div>
+    </div>
+    <div class="spark">
+      <b>−25%</b>
+      <span>на покраску третьего элемента при покраске двух</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="promo">
+      <div>
+        <span class="kicker">Акция</span>
+        <h2 style="margin-top:14px">Красим 2 элемента — третий со скидкой 25%</h2>
+        <p>Например, красим капот и крыло — бампер обойдётся на четверть дешевле. Предложение действует на покрасочные работы.</p>
+      </div>
+      <div class="big">−25%</div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:var(--graphite)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Услуги</span>
+      <h2 style="margin-top:16px">Кузовной цех полного цикла</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M5 19h14M7 15l10-8 2 2-8 10z"/><path d="M15 5l2 2"/></svg></div>
+        <h3>Кузовной ремонт</h3>
+        <p>Любой сложности: вмятины, вытяжка, сварные работы, восстановление геометрии.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Подбор эмали и покраска</h3>
+        <p>Компьютерный подбор цвета по коду — красим элемент в цвет, а не «примерно».</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 8V6M17 8V6M8 12.5h2.5M13.5 12.5H16"/></svg></div>
+        <h3>Замена автостёкол</h3>
+        <p>Лобовые, боковые, задние — с герметизацией и датчиками.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg></div>
+        <h3>Полировка кузова и фар</h3>
+        <p>Убираем царапины и помутнения, возвращаем блеск лакокрасочному слою.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M4 14c2-6 6-9 8-9s6 3 8 9"/><path d="M4 14c0 2 2 3 4 3s3-1 4-1 2 1 4 1 4-1 4-3"/></svg></div>
+        <h3>Шумоизоляция</h3>
+        <p>Комплексная и точечная: двери, пол, арки, багажник.</p>
+      </div>
+      <div class="card">
+        <div class="card-ico"><svg viewBox="0 0 24 24"><path d="M9 4h6l1 3h3v11H5V7h3z"/><path d="M12 10v6M9 13h6"/></svg></div>
+        <h3>Пластик и запчасти</h3>
+        <p>Ремонт бамперов и пластиковых деталей, подбор запчастей.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Как работаем</span>
+      <h2 style="margin-top:16px">4 шага до выдачи</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><b>Осмотр и оценка</b><span>Смотрим объём работ, честно говорим сроки.</span></div>
+      <div class="step"><b>Подбор автоэмали</b><span>По коду краски, с выкрасом — цвет попадаем точно.</span></div>
+      <div class="step"><b>Работы в цехе</b><span>Подготовка, покраска в камере, сушка.</span></div>
+      <div class="step"><b>Выдача</b><span>Показываем результат, даём гарантию.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="works" style="background:var(--graphite)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Типовые работы</span>
+      <h2 style="margin-top:16px">С чем к нам приезжают</h2>
+    </div>
+    <div class="cases">
+      <div class="case"><h4>Царапины и сколы</h4><p>Локальный ремонт и полировка — без перекраса всего элемента, когда это возможно.</p><span class="tag">1 день</span></div>
+      <div class="case"><h4>Вмятины на панелях</h4><p>Вытяжка, шпатлевка, покраска элемента с подбором эмали в цвет.</p><span class="tag">2–3 дня</span></div>
+      <div class="case"><h4>Повреждённый бампер</h4><p>Ремонт пластика, восстановление креплений, покраска в цвет кузова.</p><span class="tag">1–2 дня</span></div>
+      <div class="case"><h4>После ДТП</h4><p>Комплексное восстановление: кузовные работы, замена элементов, покраска.</p><span class="tag">по графику</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Почему мы</span>
+      <h2 style="margin-top:16px">Кузовной центр, а не «гаражный сервис»</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><b>2017</b><span>работаем с 2017 года</span></div>
+      <div class="why-item"><b>100%</b><span>подбор эмали по коду краски</span></div>
+      <div class="why-item"><b>−25%</b><span>на третий элемент при покраске двух</span></div>
+      <div class="why-item"><b>1 место</b><span>кузов, стёкла, полировка — всё на одной площадке</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="form-sec" id="form">
+  <div class="wrap form-grid">
+    <div>
+      <h2>Оставить заявку</h2>
+      <p class="hero-sub">Опишите повреждение — перезвоним, назовём ориентировочный срок и стоимость осмотра.</p>
+    </div>
+    <form class="form" onsubmit="return false">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="tel" placeholder="Ваш телефон" required>
+      <textarea placeholder="Сообщение: марка авто, характер повреждения"></textarea>
+      <button class="btn btn-primary" type="submit">Отправить заявку</button>
+      <div class="hint">Работаем: ПН–ПТ 9:00–20:00, СБ 10:00–16:00</div>
+    </form>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Контакты</span>
+      <h2 style="margin-top:16px">Приезжайте на осмотр</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card"><b>Телефон</b><a href="tel:+79014446043">+7 (901) 444-60-43</a><p>ПН–ПТ 9:00–20:00, СБ 10:00–16:00</p></div>
+      <div class="contact-card"><b>Почта</b><a href="mailto:anton-shikin@yandex.ru">anton-shikin@yandex.ru</a><p>Ответим в рабочее время</p></div>
+      <div class="contact-card"><b>Адрес</b><p>600028, г. Владимир,<br>ул. 8-Линия, д. 9</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2017–2026 Кузовной центр Авто-Шик, Владимир</span>
+    <a href="tel:+79014446043">+7 (901) 444-60-43</a>
+  </div>
+</footer>
+
+</body>
+</html>
