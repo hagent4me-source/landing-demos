@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Трансфер Кострома — Москва: пассажирские перевозки, микроавтобусы</title>
+<meta name="description" content="Комфортные пассажирские перевозки Кострома—Москва. Регулярные рейсы, заказ микроавтобуса, бронирование онлайн.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1220;--panel:#111c30;--panel2:#182640;--txt:#eaf1fb;--mut:#8da2c0;--acc:#ffb020;--acc2:#4d9fff;--ok:#2fbf71;--line:#22334f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:rgba(10,18,32,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.logo{font-weight:800;font-size:19px}.logo b{color:var(--acc)}
+nav{display:flex;gap:20px}nav a{color:var(--mut);text-decoration:none;font-size:14px;font-weight:600}nav a:hover{color:var(--txt)}
+.btn{display:inline-block;background:var(--acc);color:#101418;padding:12px 26px;border-radius:10px;text-decoration:none;font-weight:800;font-size:15px;border:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;border:1px solid var(--acc);color:var(--acc)}
+section{padding:64px 0}
+h2{font-size:30px;font-weight:800;margin-bottom:10px}
+.sub{color:var(--mut);margin-bottom:34px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:17px;margin:10px 0 6px}
+.card p{color:var(--mut);font-size:14px}
+.ico{width:40px;height:40px}
+.hero{padding:80px 0;background:linear-gradient(165deg,#0e1a30 0%,#0a1220 55%);border-bottom:1px solid var(--line)}
+.hero h1{font-size:42px;font-weight:800;line-height:1.15;max-width:760px}
+.hero h1 em{color:var(--acc);font-style:normal}
+.hero p{color:var(--mut);font-size:18px;max-width:620px;margin:18px 0 30px}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.tag{border:1px solid var(--line);background:var(--panel);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--mut)}
+.num{font-size:34px;font-weight:800;color:var(--acc2)}
+.route{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+.route .dir{font-weight:800;font-size:17px}
+.route .meta{color:var(--mut);font-size:14px}
+.price{color:var(--acc);font-weight:800;font-size:18px}
+form{max-width:560px;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:13px 15px;margin-bottom:12px;font-family:inherit;font-size:15px}
+.ok{display:none;color:var(--ok);font-weight:700;text-align:center;padding:12px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mut);font-size:14px}
+.f2{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+@media(max-width:760px){nav{display:none}.hero h1{font-size:30px}h2{font-size:24px}}
+</style>
+</head>
+<body>
+<header><div class="hd">
+<div class="logo">Трансфер <b>Кострома—Москва</b></div>
+<nav><a href="#reisy">Рейсы</a><a href="#avto">Автобус</a><a href="#why">Почему мы</a><a href="#contacts">Контакты</a></nav>
+<a href="#bron" class="btn">Забронировать</a>
+</div></header>
+
+<div class="hero"><div class="wrap">
+<h1>Кострома — Москва <em>без пересадок и стресса</em></h1>
+<p>Регулярные пассажирские рейсы и заказ микроавтобуса. Комфортные кресла, кондиционер, водитель со стажем на трассе.</p>
+<a href="#bron" class="btn">Забронировать место</a>
+<div class="tags"><span class="tag">Регулярные рейсы</span><span class="tag">Заказ автобуса целиком</span><span class="tag">Дверь-в-дверь по Москве</span></div>
+</div></div>
+
+<section id="reisy"><div class="wrap">
+<h2>Расписание и направления</h2>
+<p class="sub">Ходим регулярно — есть и ночные рейсы</p>
+<div class="route"><div><div class="dir">Кострома → Москва</div><div class="meta">Отправление утром, прибытие днём</div></div><a href="#bron" class="btn">Забронировать</a></div>
+<div class="route"><div><div class="dir">Москва → Кострома</div><div class="meta">Вечерний рейс, приезд ночью</div></div><a href="#bron" class="btn">Забронировать</a></div>
+<div class="route"><div><div class="dir">Заказ микроавтобуса</div><div class="meta">Ваш маршрут, ваше время — от 8 пассажиров</div></div><a href="#bron" class="btn">Заказать</a></div>
+</div></div></section>
+
+<section id="avto" style="background:var(--panel)"><div class="wrap">
+<h2>Автобус и условия</h2>
+<div class="grid g3">
+<div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><rect x="3" y="5" width="18" height="12" rx="2"/><circle cx="8" cy="19" r="1.5"/><circle cx="16" cy="19" r="1.5"/><path d="M3 11h18"/></svg><h3>Комфортные микроавтобусы</h3><p>Мягкие кресла с ремнями, кондиционер, багажное отделение.</p></div>
+<div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#4d9fff" stroke-width="1.8"><path d="M12 3l9 5v8l-9 5-9-5V8l9-5z"/><path d="M12 12l9-5M12 12L3 7M12 12v9"/></svg><h3>Безопасность</h3><p>Водители со стажем междугородних перевозок, исправная техника, регулярное ТО.</p></div>
+<div class="card"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#2fbf71" stroke-width="1.8"><path d="M20 7L9 18l-5-5"/></svg><h3>Без пересадок</h3><p>От точки отправления в Костроме до нужной точки в Москве — на одном автобусе.</p></div>
+</div></div></section>
+
+<section id="why"><div class="wrap">
+<h2>Почему пассажиры возвращаются</h2>
+<div class="grid g4">
+<div class="card"><div class="num">Рейс</div><p>в день — можно уехать сегодня</p></div>
+<div class="card"><div class="num">Дверь</div><p>в-дверь: подберём и высадим в удобной точке</p></div>
+<div class="card"><div class="num">Багаж</div><p>включён — чемоданы и сумки без доплат</p></div>
+<div class="card"><div class="num">Бронь</div><p>по телефону или онлайн за минуту</p></div>
+</div></div></section>
+
+<section style="background:var(--panel)"><div class="wrap">
+<h2>Кому удобно с нами</h2>
+<div class="grid g3">
+<div class="card"><h3>Студенты и командировочные</h3><p>Регулярные рейсы под расписание — без такси до вокзала и без пересадок.</p></div>
+<div class="card"><h3>Те, кто летит из Москвы</h3><p>Довезём к аэропорту с запасом, подберём время под рейс.</p></div>
+<div class="card"><h3>Группы и коллективы</h3><p>Микроавтобус целиком: свадьбы, экскурсии, корпоративные поездки.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2>Как забронировать</h2>
+<div class="grid g4">
+<div class="card"><div class="num">01</div><h3>Заявка</h3><p>Онлайн или по телефону.</p></div>
+<div class="card"><div class="num">02</div><h3>Подтверждение</h3><p>Перезвоним, уточним место и время.</p></div>
+<div class="card"><div class="num">03</div><h3>Посадка</h3><p>Уведомим водителя и точку посадки.</p></div>
+<div class="card"><div class="num">04</div><h3>Поездка</h3><p>Комфортно и без пересадок.</p></div>
+</div></div></section>
+
+<section style="background:var(--panel)"><div class="wrap">
+<h2>Частые вопросы</h2>
+<div class="grid g3">
+<div class="card"><h3>Сколько идти по времени?</h3><p>В пути 5–6 часов с комфортными остановками — зависит от трафика на выезде из Москвы.</p></div>
+<div class="card"><h3>Можно с багажом?</h3><p>Да, багаж включён в стоимость: чемоданы, сумки, коробки.</p></div>
+<div class="card"><h3>Заберёте от дома?</h3><p>По Костроме — подберём в удобной точке, по Москве — высадим где скажете (в пределах рейса).</p></div>
+</div></div></section>
+
+<section id="bron"><div class="wrap">
+<h2 style="text-align:center">Забронировать место</h2>
+<p class="sub" style="text-align:center">Оставьте заявку — перезвоним и подтвердим бронь</p>
+<form onsubmit="event.preventDefault();this.style.display='none';document.getElementById('ok').style.display='block'">
+<input required placeholder="Ваше имя">
+<input required type="tel" placeholder="Телефон">
+<select required><option value="">Направление</option><option>Кострома → Москва</option><option>Москва → Кострома</option><option>Заказ микроавтобуса</option></select>
+<input required placeholder="Дата поездки">
+<button class="btn" style="width:100%">Забронировать</button>
+</form>
+<div class="ok" id="ok">✔ Заявка отправлена! Перезвоним для подтверждения.</div>
+</div></section>
+
+
+<section><div class="wrap">
+<h2>Что входит в поездку</h2>
+<div class="grid g3">
+<div class="card"><h3>Место и ремень каждому</h3><p>Никаких «стоим в проходе»: индивидуальное кресло с ремнём безопасности.</p></div>
+<div class="card"><h3>Остановки по пути</h3><p>Комфортные санитарные остановки на трассе — без гонки и без часовых простоев.</p></div>
+<div class="card"><h3>Связь с водителем</h3><p>Номер водителя приходит при брони — всегда на связи до и во время поездки.</p></div>
+</div></div></section>
+
+<section style="background:var(--panel);border-top:1px solid var(--line)"><div class="wrap">
+<h2>Отзывы пассажиров — о чём говорят</h2>
+<div class="grid g3">
+<div class="card"><h3>«Водитель позвонил сам»</h3><p>Пассажиры отмечают: бронь подтвердили, место посадки уточнили, машину подали вовремя.</p></div>
+<div class="card"><h3>«Спала всю дорогу»</h3><p>Кресла раскладываются, салон тихий — ночные рейсы проходят незаметно.</p></div>
+<div class="card"><h3>«Взяли все чемоданы»</h3><p>Багаж без доплат и без «а влезет ли» — места в отсеке хватает на всех.</p></div>
+</div></div></section>
+
+
+<section><div class="wrap">
+<h2>Ещё вопросы</h2>
+<div class="grid g3">
+<div class="card"><h3>Оплата — как?</h3><p>Наличными водителю или переводом при брони — как удобно.</p></div>
+<div class="card"><h3>Можно отменить бронь?</h3><p>Да, сообщите заранее — без штрафов.</p></div>
+<div class="card"><h3>Возите ли детей?</h3><p>Да, детские удерживающие устройства — уточните при брони.</p></div>
+<div class="card"><h3>Делаете остановки «по нужде»?</h3><p>Да, на трассе есть плановые санитарные остановки, плюс по запросу пассажиров.</p></div>
+</div></div></section>
+
+<section id="contacts" style="background:var(--panel)"><div class="wrap">
+<h2>Контакты</h2>
+<div class="grid g3">
+<div class="card"><h3>Отправление</h3><p>Кострома, центр города — точку сообщим при брони</p></div>
+<div class="card"><h3>Телефон</h3><p>+7 (915) 900-58-48</p></div>
+<div class="card"><h3>Email</h3><p>89159005848@mail.ru</p></div>
+</div></div></section>
+
+<footer><div class="wrap f2"><div>© 2026 «Трансфер Кострома — Москва»</div><div>Пассажирские перевозки</div></div></footer>
+</body></html>
