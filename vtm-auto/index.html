@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VTM-Auto — Автосервис и запчасти для иномарок в Казани</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0f14;
+  --bg2: #111318;
+  --bg3: #161a22;
+  --surface: #1c2130;
+  --surface2: #232b3a;
+  --orange: #ff6b1a;
+  --orange2: #ff8c42;
+  --orange-glow: rgba(255,107,26,0.18);
+  --text: #f0f2f7;
+  --text2: #8b94a8;
+  --text3: #5a6378;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,107,26,0.25);
+  --radius: 14px;
+  --radius2: 8px;
+  --font-head: 'Unbounded', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,backdrop-filter .3s,box-shadow .3s}
+.header.scrolled{background:rgba(13,15,20,0.92);backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 20px;height:64px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:36px;height:36px;flex-shrink:0}
+.logo-text{font-family:var(--font-head);font-size:15px;font-weight:700;letter-spacing:.04em;line-height:1.1}
+.logo-text span{color:var(--orange)}
+.header-phone{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--orange);white-space:nowrap;overflow-wrap:anywhere}
+.header-phone:hover{color:var(--orange2)}
+.header-actions{display:flex;align-items:center;gap:8px}
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:var(--orange);color:#fff;font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:.06em;border-radius:var(--radius2);border:none;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;white-space:nowrap;text-transform:uppercase}
+.btn-primary:hover{background:var(--orange2);transform:translateY(-1px);box-shadow:0 8px 24px var(--orange-glow)}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:transparent;color:var(--text);font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:.06em;border-radius:var(--radius2);border:1px solid var(--border);cursor:pointer;transition:border-color .2s,color .2s,transform .15s;white-space:nowrap;text-transform:uppercase}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;flex-shrink:0}
+.burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(13,15,20,0.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:24px 20px;z-index:99;flex-direction:column;gap:4px}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--text2);padding:12px 0;border-bottom:1px solid var(--border);transition:color .2s}
+.nav-mobile a:hover{color:var(--orange)}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile .nav-phone{font-family:var(--font-head);font-size:16px;color:var(--orange);margin-top:8px}
+.nav-desktop{display:flex;align-items:center;gap:24px}
+.nav-desktop a{font-size:13px;font-weight:600;color:var(--text2);transition:color .2s;white-space:nowrap}
+.nav-desktop a:hover{color:var(--text)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;padding-top:64px}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 70% 30%, rgba(255,107,26,0.12) 0%, transparent 60%),
+  radial-gradient(ellipse 60% 80% at 10% 80%, rgba(30,50,100,0.4) 0%, transparent 60%),
+  var(--bg)}
+.hero-noise{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:1280px;margin:0 auto;padding:60px 20px 80px;display:grid;grid-template-columns:1fr;gap:40px}
+.hero-content{}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:var(--orange-glow);border:1px solid var(--border2);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:24px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--orange-glow)}50%{box-shadow:0 0 0 6px transparent}}
+.hero-title{font-family:var(--font-head);font-size:clamp(36px,8vw,88px);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:24px}
+.hero-title .accent{color:var(--orange);display:block}
+.hero-title .light{color:var(--text2);font-weight:400}
+.hero-desc{font-size:clamp(14px,2vw,17px);color:var(--text2);line-height:1.7;max-width:520px;margin-bottom:32px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+.hero-cta .btn-primary{font-size:12px;padding:14px 28px}
+.hero-cta .btn-outline{font-size:12px;padding:14px 28px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:20px}
+.hero-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2)}
+.hero-meta-item svg{flex-shrink:0;color:var(--orange)}
+.hero-visual{position:relative}
+.hero-img-wrap{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(13,15,20,.6) 0%, transparent 50%)}
+.hero-img-wrap img{width:100%;height:280px;object-fit:cover;object-position:center}
+.hero-stat-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--radius2);overflow:hidden;margin-top:16px;border:1px solid var(--border)}
+.hero-stat{background:var(--surface);padding:14px 12px;text-align:center}
+.hero-stat-num{font-family:var(--font-head);font-size:clamp(18px,4vw,26px);font-weight:900;color:var(--orange);line-height:1}
+.hero-stat-label{font-size:11px;color:var(--text3);margin-top:4px;line-height:1.3}
+
+/* MARQUEE */
+.marquee-section{padding:16px 0;background:var(--orange);overflow:hidden;position:relative}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 30s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{display:inline-flex;align-items:center;gap:12px;padding:0 24px;font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTION COMMONS */
+.section{padding:80px 20px}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-label{display:inline-block;font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.section-title{font-family:var(--font-head);font-size:clamp(26px,5vw,54px);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px}
+.section-sub{font-size:15px;color:var(--text2);line-height:1.7;max-width:560px}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.services-header{margin-bottom:48px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:2px;background:var(--border)}
+.service-card{background:var(--bg2);padding:28px 24px;transition:background .25s;position:relative;overflow:hidden;cursor:default;min-width:0}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--orange);transition:height .3s}
+.service-card:hover{background:var(--surface)}
+.service-card:hover::before{height:100%}
+.service-icon{width:44px;height:44px;background:var(--surface2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:background .25s}
+.service-card:hover .service-icon{background:var(--orange-glow)}
+.service-icon svg{color:var(--orange)}
+.service-name{font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:.02em;margin-bottom:8px;line-height:1.3}
+.service-list{list-style:none}
+.service-list li{font-size:12px;color:var(--text2);padding:3px 0;padding-left:12px;position:relative;line-height:1.4}
+.service-list li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:1px;background:var(--orange);opacity:.5}
+
+/* DIAGNOSTICS */
+.diagnostics{background:var(--bg)}
+.diag-inner{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+.diag-visual{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.diag-visual img{width:100%;height:260px;object-fit:cover;object-position:center}
+.diag-visual-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,26,.15) 0%,transparent 50%)}
+.diag-pills{position:absolute;bottom:16px;left:16px;right:16px;display:flex;flex-wrap:wrap;gap:8px}
+.diag-pill{background:rgba(13,15,20,.85);backdrop-filter:blur(10px);border:1px solid var(--border2);border-radius:100px;padding:6px 14px;font-size:11px;font-weight:700;color:var(--orange)}
+.diag-features{display:flex;flex-direction:column;gap:16px}
+.diag-feature{display:flex;gap:16px;align-items:flex-start;padding:20px;background:var(--surface);border-radius:var(--radius2);border:1px solid var(--border);transition:border-color .25s,transform .25s}
+.diag-feature:hover{border-color:var(--border2);transform:translateX(4px)}
+.diag-feature-icon{width:40px;height:40px;background:var(--orange-glow);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.diag-feature-icon svg{color:var(--orange)}
+.diag-feature-text h4{font-family:var(--font-head);font-size:12px;font-weight:700;margin-bottom:4px}
+.diag-feature-text p{font-size:13px;color:var(--text2);line-height:1.5}
+
+/* WHY */
+.why{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:48px}
+.why-card{background:var(--surface);border-radius:var(--radius);padding:28px 24px;border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+.why-card::after{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at 100% 0%, var(--orange-glow) 0%, transparent 70%)}
+.why-card:hover{transform:translateY(-4px);border-color:var(--border2)}
+.why-num{font-family:var(--font-head);font-size:48px;font-weight:900;color:var(--border);line-height:1;margin-bottom:12px}
+.why-card h3{font-family:var(--font-head);font-size:14px;font-weight:700;margin-bottom:8px;letter-spacing:.02em}
+.why-card p{font-size:13px;color:var(--text2);line-height:1.6}
+.why-icon-row{display:flex;gap:10px;margin-bottom:14px}
+.why-icon-box{width:40px;height:40px;background:var(--orange-glow);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.why-icon-box svg{color:var(--orange)}
+
+/* BOOKING */
+.booking{background:var(--bg);position:relative;overflow:hidden}
+.booking::before{content:'';position:absolute;top:-200px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,26,.08) 0%,transparent 70%);pointer-events:none}
+.booking-inner{display:grid;grid-template-columns:1fr;gap:48px}
+.booking-info{}
+.booking-info .section-title{margin-bottom:24px}
+.contact-block{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.contact-row{display:flex;align-items:flex-start;gap:14px;padding:18px;background:var(--surface);border-radius:var(--radius2);border:1px solid var(--border)}
+.contact-icon{width:40px;height:40px;background:var(--orange-glow);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{color:var(--orange)}
+.contact-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:3px}
+.contact-value{font-size:14px;font-weight:700;overflow-wrap:anywhere}
+.contact-value a{color:var(--text);transition:color .2s}
+.contact-value a:hover{color:var(--orange)}
+.booking-form-wrap{background:var(--surface);border-radius:var(--radius);padding:32px 24px;border:1px solid var(--border)}
+.form-title{font-family:var(--font-head);font-size:16px;font-weight:700;margin-bottom:6px}
+.form-sub{font-size:13px;color:var(--text2);margin-bottom:24px}
+.form-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+.form-group input,.form-group select,.form-group textarea{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius2);padding:12px 16px;font-family:var(--font-body);font-size:14px;color:var(--text);outline:none;transition:border-color .2s;width:100%}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--orange)}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238b94a8' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-note{font-size:11px;color:var(--text3);margin-top:4px}
+.form-submit{width:100%;margin-top:8px}
+
+/* CONTACTS FOOTER SECTION */
+.contacts-section{background:var(--bg3);border-top:1px solid var(--border)}
+.contacts-grid{display:grid;grid-template-columns:1fr;gap:32px;padding-top:24px}
+.contacts-map-placeholder{background:var(--surface);border-radius:var(--radius);height:220px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);flex-direction:column;gap:12px}
+.contacts-map-placeholder svg{color:var(--orange);opacity:.5}
+.contacts-map-placeholder span{font-size:13px;color:var(--text3)}
+
+/* FOOTER */
+.footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 20px}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:20px;align-items:center;text-align:center}
+.footer-logo{font-family:var(--font-head);font-size:14px;font-weight:900;letter-spacing:.05em}
+.footer-logo span{color:var(--orange)}
+.footer-links{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+.footer-links a{font-size:12px;color:var(--text3);transition:color .2s}
+.footer-links a:hover{color:var(--orange)}
+.footer-copy{font-size:12px;color:var(--text3)}
+
+/* ANIMATE */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* MEDIA */
+@media(min-width:640px){
+  .hero-img-wrap img{height:360px}
+  .diag-visual img{height:340px}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .contacts-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:900px){
+  .header-inner{height:72px}
+  .nav-mobile{top:72px}
+  .burger{display:none!important}
+  .header-phone-hide{display:block!important}
+  .nav-desktop{display:flex}
+  .hero-inner{grid-template-columns:1fr 1fr;align-items:center;gap:60px}
+  .hero-img-wrap img{height:420px}
+  .diag-inner{grid-template-columns:1fr 1fr;gap:60px}
+  .booking-inner{grid-template-columns:1fr 1fr;gap:60px}
+  .why-grid{grid-template-columns:repeat(3,1fr)}
+  .contacts-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:899px){
+  .burger{display:flex}
+  .nav-desktop{display:none}
+  .header-phone-desktop{display:none}
+}
+@media(max-width:500px){
+  .hero-stat-label{font-size:10px}
+  .section{padding:56px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="VTM-Auto">
+      <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="8" fill="#1c2130"/>
+        <path d="M7 24L13 12H15.5L18 20L20.5 12H23L29 24H26.5L21.5 14.5L18.5 23H17.5L14.5 14.5L9.5 24H7Z" fill="#ff6b1a"/>
+      </svg>
+      <span class="logo-text">VTM<span>-Auto</span></span>
+    </a>
+    <nav class="nav-desktop" role="navigation">
+      <a href="#services">Услуги</a>
+      <a href="#diagnostics">Диагностика</a>
+      <a href="#why">О нас</a>
+      <a href="#booking">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+78435581156" class="header-phone header-phone-desktop">+7 (843) 558-11-56</a>
+      <a href="#booking" class="btn-primary" style="font-size:10px;padding:9px 16px">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-mobile" id="navMobile" role="navigation">
+  <a href="#services">Услуги</a>
+  <a href="#diagnostics">Диагностика</a>
+  <a href="#why">О&nbsp;нас</a>
+  <a href="#booking">Запись</a>
+  <a href="#contacts">Контакты</a>
+  <a href="tel:+78435581156" class="nav-phone">+7 (843) 558-11-56</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-inner">
+    <div class="hero-content fade-up">
+      <div class="hero-badge">Казань · Иномарки</div>
+      <h1 class="hero-title">
+        Сложный ремонт —
+        <span class="accent">наш профиль</span>
+        <span class="light" style="font-size:.55em;display:block;margin-top:8px;letter-spacing:0">автосервис&nbsp;&amp; запчасти</span>
+      </h1>
+      <p class="hero-desc">Профессиональный ремонт иномарок в&nbsp;Казани: спецоборудование, квалифицированные механики, запчасти в&nbsp;наличии.</p>
+      <div class="hero-cta">
+        <a href="tel:+78435581156" class="btn-primary">Позвонить</a>
+        <a href="#booking" class="btn-outline">Записаться онлайн</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          ул.&nbsp;Скрябина, 678а
+        </div>
+        <div class="hero-meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Пн–Пт 09:00–19:00
+        </div>
+        <div class="hero-meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Сб 09:00–16:00
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual fade-up">
+      <div class="hero-img-wrap">
+        <img src="images/img_01.png" alt="Автосервис VTM-Auto — рабочая зона" loading="eager">
+      </div>
+      <div class="hero-stat-bar">
+        <div class="hero-stat">
+          <div class="hero-stat-num" data-count="10">10+</div>
+          <div class="hero-stat-label">лет опыта</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">услуг в одном месте</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1 год</div>
+          <div class="hero-stat-label">гарантия на работы</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Ремонт двигателя<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ремонт КПП<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ходовая и рулевое<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Тормозная система<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Плановое ТО<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Автоэлектрика<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Чип-тюнинг<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Выхлопная система<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Шиномонтаж<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Диагностика<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Запчасти в наличии<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ремонт двигателя<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ремонт КПП<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ходовая и рулевое<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Тормозная система<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Плановое ТО<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Автоэлектрика<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Чип-тюнинг<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Выхлопная система<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Шиномонтаж<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Диагностика<span class="marquee-dot"></span></span>
+    <span class="marquee-item">Запчасти в наличии<span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="services-header fade-up">
+      <span class="section-label">Все услуги</span>
+      <h2 class="section-title">Что мы делаем</h2>
+      <p class="section-sub">Полный цикл обслуживания иномарок — от планового ТО&nbsp;до&nbsp;капитального ремонта двигателя.</p>
+    </div>
+    <div class="services-grid fade-up">
+
+      <!-- Двигатель -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="service-name">Ремонт двигателя</div>
+        <ul class="service-list">
+          <li>Замена цепи и ремня ГРМ</li>
+          <li>Замена прокладок теплообменника</li>
+          <li>Замена ремня навесного оборудования</li>
+          <li>Текущий и капитальный ремонт</li>
+        </ul>
+      </div>
+
+      <!-- КПП -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <div class="service-name">Ремонт КПП</div>
+        <ul class="service-list">
+          <li>Замена сцепления</li>
+          <li>Замена сальников КПП</li>
+          <li>Замена ШРУСа и привода</li>
+          <li>Замена масла МКПП и АКПП</li>
+        </ul>
+      </div>
+
+      <!-- Ходовая -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <div class="service-name">Ходовая и рулевое</div>
+        <ul class="service-list">
+          <li>Замена амортизаторов</li>
+          <li>Замена ступичного подшипника</li>
+          <li>Замена сайлентблоков и рычагов</li>
+          <li>Замена шаровой опоры</li>
+        </ul>
+      </div>
+
+      <!-- Тормоза -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+        </div>
+        <div class="service-name">Тормозная система</div>
+        <ul class="service-list">
+          <li>Замена тормозных колодок</li>
+          <li>Замена дисков и барабанов</li>
+          <li>Диагностика и прокачка тормозов</li>
+        </ul>
+      </div>
+
+      <!-- ТО -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="service-name">Плановое ТО</div>
+        <ul class="service-list">
+          <li>Замена масла в двигателе</li>
+          <li>Замена технических жидкостей</li>
+          <li>Замена антифриза</li>
+          <li>По регламенту производителя</li>
+        </ul>
+      </div>
+
+      <!-- Электрика -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="service-name">Автоэлектрика и диагностика</div>
+        <ul class="service-list">
+          <li>Компьютерная диагностика</li>
+          <li>Диагностика и ремонт зажигания</li>
+          <li>Ремонт генераторов и стартеров</li>
+          <li>Чистка форсунок</li>
+        </ul>
+      </div>
+
+      <!-- Чип -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+        </div>
+        <div class="service-name">Чип-тюнинг</div>
+        <ul class="service-list">
+          <li>Перепрошивка блока управления</li>
+          <li>Оптимизация характеристик</li>
+          <li>Профессиональное оборудование</li>
+        </ul>
+      </div>
+
+      <!-- Выхлоп -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h18M3 12h18M3 16h11"/><circle cx="18" cy="16" r="3"/><line x1="21" y1="21" x2="18" y2="19"/></svg>
+        </div>
+        <div class="service-name">Выхлопная система</div>
+        <ul class="service-list">
+          <li>Удаление катализатора</li>
+          <li>KIA, Hyundai, Opel, Chevrolet</li>
+          <li>Toyota, Mitsubishi и другие</li>
+        </ul>
+      </div>
+
+      <!-- Кондиционер -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
+        </div>
+        <div class="service-name">Заправка кондиционера</div>
+        <ul class="service-list">
+          <li>Заправка автокондиционера</li>
+          <li>Проверка герметичности</li>
+          <li>Дозаправка фреоном</li>
+        </ul>
+      </div>
+
+      <!-- Шиномонтаж -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <div class="service-name">Шиномонтаж</div>
+        <ul class="service-list">
+          <li>Монтаж / демонтаж шин</li>
+          <li>Балансировка колёс</li>
+          <li>Сезонное хранение</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTICS -->
+<section class="section diagnostics" id="diagnostics">
+  <div class="section-inner">
+    <div class="diag-inner">
+      <div class="diag-visual fade-up">
+        <img src="images/img_01.png" alt="Диагностика автомобиля в VTM-Auto">
+        <div class="diag-visual-overlay"></div>
+        <div class="diag-pills">
+          <span class="diag-pill">Компьютерная диагностика</span>
+          <span class="diag-pill">Замер компрессии</span>
+          <span class="diag-pill">Чистка форсунок</span>
+        </div>
+      </div>
+      <div class="fade-up">
+        <span class="section-label">Диагностика</span>
+        <h2 class="section-title">Находим причину —<br>не&nbsp;симптом</h2>
+        <p class="section-sub" style="margin-bottom:32px">Современное оборудование для точной диагностики: не&nbsp;гадаем, а&nbsp;измеряем.</p>
+        <div class="diag-features">
+          <div class="diag-feature">
+            <div class="diag-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+            </div>
+            <div class="diag-feature-text">
+              <h4>Компьютерная диагностика</h4>
+              <p>Считываем коды ошибок со&nbsp;всех блоков управления. Поддержка протоколов CAN, K-Line, OBD-II.</p>
+            </div>
+          </div>
+          <div class="diag-feature">
+            <div class="diag-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="diag-feature-text">
+              <h4>Замер компрессии и давления</h4>
+              <p>Замер компрессии в&nbsp;цилиндрах, давления масла и&nbsp;давления топлива — определяем реальный износ двигателя.</p>
+            </div>
+          </div>
+          <div class="diag-feature">
+            <div class="diag-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="diag-feature-text">
+              <h4>Чистка форсунок</h4>
+              <p>Промывка топливной системы и&nbsp;ультразвуковая чистка форсунок двигателя. Восстанавливаем распыл и&nbsp;тягу.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section why" id="why">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-label">Почему VTM-Auto</span>
+      <h2 class="section-title">Доверяйте только<br>профессионалам</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-num">01</div>
+        <div class="why-icon-row">
+          <div class="why-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+        </div>
+        <h3>Специальный инструмент</h3>
+        <p>Большой выбор специнструмента для сложных задач. Справляемся с&nbsp;теми работами, от&nbsp;которых отказываются другие сервисы.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">02</div>
+        <div class="why-icon-row">
+          <div class="why-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+        </div>
+        <h3>Квалификация механиков</h3>
+        <p>Механики регулярно проходят курсы повышения квалификации. Опыт работы с&nbsp;иномарками больше 10&nbsp;лет.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">03</div>
+        <div class="why-icon-row">
+          <div class="why-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+        </div>
+        <h3>Запчасти в наличии</h3>
+        <p>Склад оригинальных и&nbsp;качественных аналогов для популярных марок иномарок. Не&nbsp;тратите время на&nbsp;ожидание.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">04</div>
+        <div class="why-icon-row">
+          <div class="why-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+        </div>
+        <h3>Гарантия до&nbsp;1&nbsp;года</h3>
+        <p>Даём гарантию на&nbsp;все выполненные работы и&nbsp;запчасти. Уверены в&nbsp;качестве — подтверждаем это документально.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">05</div>
+        <div class="why-icon-row">
+          <div class="why-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+        </div>
+        <h3>Прозрачность</h3>
+        <p>Всегда можете проверить, как идёт ремонт. Объясняем каждый шаг — никаких скрытых работ и&nbsp;неожиданных счетов.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-num">06</div>
+        <div class="why-icon-row">
+          <div class="why-icon-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+        </div>
+        <h3>Цены ниже средних</h3>
+        <p>Профессиональный ремонт с&nbsp;минимальными затратами. Цены ниже средних по&nbsp;Казани без потери качества.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section booking" id="booking">
+  <div class="section-inner">
+    <div class="booking-inner">
+      <div class="booking-info fade-up">
+        <span class="section-label">Запись</span>
+        <h2 class="section-title">Запишитесь<br>онлайн</h2>
+        <p class="section-sub">Оставьте заявку — перезвоним и&nbsp;согласуем удобное время.</p>
+        <div class="contact-block">
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38a2 2 0 0 1 1.87-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Телефон</div>
+              <div class="contact-value"><a href="tel:+78435581156">+7&nbsp;(843)&nbsp;558-11-56</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:info@avtoservis-vtm.ru">info@avtoservis-vtm.ru</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Режим работы</div>
+              <div class="contact-value">Пн–Пт 09:00–19:00<br>Сб 09:00–16:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="booking-form-wrap fade-up">
+        <div class="form-title">Онлайн-запись</div>
+        <div class="form-sub">Заполните форму — мы&nbsp;перезвоним в&nbsp;течение 15&nbsp;минут.</div>
+        <form id="bookingForm" action="#" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fname">Ваше имя</label>
+              <input type="text" id="fname" name="name" placeholder="Как вас зовут?" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="fphone">Телефон</label>
+              <input type="tel" id="fphone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="fservice">Услуга</label>
+              <select id="fservice" name="service">
+                <option value="">Выберите услугу</option>
+                <option>Ремонт двигателя</option>
+                <option>Ремонт КПП</option>
+                <option>Ходовая и рулевое</option>
+                <option>Тормозная система</option>
+                <option>Плановое ТО</option>
+                <option>Автоэлектрика и диагностика</option>
+                <option>Чип-тюнинг</option>
+                <option>Выхлопная система</option>
+                <option>Заправка кондиционера</option>
+                <option>Шиномонтаж</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fcomment">Комментарий</label>
+              <textarea id="fcomment" name="comment" placeholder="Опишите проблему вкратце..."></textarea>
+            </div>
+          </div>
+          <p class="form-note">Нажимая «Записаться», вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных.</p>
+          <button type="submit" class="btn-primary form-submit">Записаться на ремонт</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section contacts-section" id="contacts">
+  <div class="section-inner">
+    <div class="fade-up" style="margin-bottom:32px">
+      <span class="section-label">Контакты</span>
+      <h2 class="section-title">Как нас найти</h2>
+    </div>
+    <div class="contacts-grid fade-up">
+      <div>
+        <div class="contact-block">
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Адрес</div>
+              <div class="contact-value">г.&nbsp;Казань, ул.&nbsp;Скрябина, 678а</div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38a2 2 0 0 1 1.87-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Телефон</div>
+              <div class="contact-value"><a href="tel:+78435581156">+7&nbsp;(843)&nbsp;558-11-56</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:info@avtoservis-vtm.ru">info@avtoservis-vtm.ru</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Режим работы</div>
+              <div class="contact-value">Понедельник – пятница: 09:00–19:00<br>Суббота: 09:00–16:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contacts-map-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>г.&nbsp;Казань, ул.&nbsp;Скрябина, 678а</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">VTM<span>-Auto</span></div>
+    <div class="footer-links">
+      <a href="#services">Услуги</a>
+      <a href="#diagnostics">Диагностика</a>
+      <a href="#why">О нас</a>
+      <a href="#booking">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+    <div class="footer-copy">© 2024 VTM-Auto · г.&nbsp;Казань, ул.&nbsp;Скрябина, 678а</div>
+  </div>
+</footer>
+
+<script>
+// HEADER SCROLL
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// BURGER
+const burger = document.getElementById('burger');
+const navMobile = document.getElementById('navMobile');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('open');
+  navMobile.classList.toggle('open');
+});
+navMobile.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    burger.classList.remove('open');
+    navMobile.classList.remove('open');
+  });
+});
+
+// FADE-UP OBSERVER
+const faders = document.querySelectorAll('.fade-up');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+faders.forEach(el => io.observe(el));
+
+// PHONE MASK
+const phoneInput = document.getElementById('fphone');
+if (phoneInput) {
+  phoneInput.addEventListener('input', function () {
+    let val = this.value.replace(/\D/g, '');
+    if (val.startsWith('8')) val = '7' + val.slice(1);
+    if (!val.startsWith('7') && val.length > 0) val = '7' + val;
+    let res = '';
+    if (val.length > 0) res = '+7';
+    if (val.length > 1) res += ' (' + val.slice(1, 4);
+    if (val.length >= 4) res += ')';
+    if (val.length > 4) res += ' ' + val.slice(4, 7);
+    if (val.length > 7) res += '-' + val.slice(7, 9);
+    if (val.length > 9) res += '-' + val.slice(9, 11);
+    this.value = res;
+  });
+}
+
+// FORM SUBMIT
+const form = document.getElementById('bookingForm');
+if (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    if (!name) { alert('Пожалуйста, введите ваше имя.'); return; }
+    if (phone.replace(/\D/g,'').length < 11) { alert('Пожалуйста, введите корректный номер телефона.'); return; }
+    alert('Спасибо! Мы перезвоним.');
+    form.reset();
+  });
+}
+
+// MARQUEE CLONE (make seamless)
+const track = document.getElementById('marqueeTrack');
+if (track) {
+  const clone = track.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  track.parentNode.appendChild(clone);
+}
+</script>
+</body>
+</html>
