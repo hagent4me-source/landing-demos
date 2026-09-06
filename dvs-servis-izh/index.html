@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДВС Сервис — ремонт иномарок в Ижевске | Mitsubishi, Toyota, Nissan</title>
+<meta name="description" content="ДВС Сервис в Ижевске: ремонт и обслуживание легковых иномарок, специализация Mitsubishi, Toyota, Nissan. Опыт мастеров 10+ лет. 3 филиала: Коммунаров 244, Маяковского 11, Весенний проезд 5.">
+<style>
+:root{--bg:#0b0e14;--bg2:#10141d;--surface:#161c29;--accent:#ff6b1a;--accent2:#ff8c42;--text:#f0f2f7;--text2:#9aa3b5;--border:rgba(255,255,255,.08);--radius:14px;--font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;max-width:1200px;margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;font-weight:800;font-size:17px;color:var(--text)}
+.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px}
+nav.main{display:flex;gap:22px;font-size:14px;color:var(--text2)}
+nav.main a{text-decoration:none;color:inherit}
+nav.main a:hover{color:var(--text)}
+.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.phone{font-weight:700;text-decoration:none;white-space:nowrap;color:var(--text);font-size:14px}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.hero{padding:72px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,107,26,.14),transparent),var(--bg)}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.12;font-weight:800;max-width:840px}
+.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:640px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 26px;color:var(--text2);font-size:14px}
+.hero-meta b{color:var(--text)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.trust span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
+.marquee-wrap{overflow:hidden;background:var(--accent);padding:11px 0}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
+.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.section{padding:64px 0}
+.section-alt{background:var(--bg2)}
+.section h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:8px}
+.section .lead{color:var(--text2);margin-bottom:30px;max-width:700px}
+.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,107,26,.4)}
+.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,26,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{color:var(--text2);font-size:14px}
+.form-section .form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
+.form-card h2{margin-bottom:8px}
+.form-card p{color:var(--text2);margin-bottom:22px;font-size:15px}
+.form-card input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:12px}
+.form-card .btn{width:100%;font-size:16px}
+.contacts-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent2)}
+.contact-card p{font-size:15px}
+.contact-card a{color:var(--text);text-decoration:none;font-weight:600}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--text2);font-size:13px}
+.footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+.demo-badge{font-size:12px;border:1px dashed var(--border);border-radius:8px;padding:4px 12px}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}.contacts-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){nav.main{display:none}.phone{display:none}}
+@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-section .form-card{padding:24px 18px}}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="header-inner">
+    <a class="logo" href="#hero"><span class="logo-mark">🔧</span>ДВС Сервис</a>
+    <nav class="main"><a href="#services">Услуги</a><a href="#about">О нас</a><a href="#contacts">Контакты</a></nav>
+    <div class="header-cta"><a class="phone" href="tel:+73412906200">906-200</a><a class="btn" href="#contact">Записаться</a></div>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="wrap">
+    <h1>Ремонт иномарок <span class="hl">в Ижевске</span></h1>
+    <p class="hero-sub">«ДВС Сервис»: обслуживание и ремонт легковых автомобилей любых марок. Специализация — Mitsubishi, Toyota, Nissan. Уютный компактный сервис без конвейера: индивидуальный подход к каждому.</p>
+    <div class="hero-meta"><span>📍 3 филиала в Ижевске</span><span>📞 <b>(3412) 906-200</b></span></div>
+    <div class="hero-btns"><a class="btn" href="#contact">Записаться на СТО</a><a class="btn btn-ghost" href="tel:+73412906200">Позвонить</a></div>
+    <div class="trust"><span>Опыт мастеров 10+ лет</span><span>Mitsubishi · Toyota · Nissan</span><span>Вопрос мастеру</span></div>
+  </div>
+</section>
+
+<div class="marquee-wrap"><div class="marquee-track"><span>Диагностика двигателя</span><span>•</span><span>Ремонт двигателя</span><span>•</span><span>Ходовая</span><span>•</span><span>Сход-развал</span><span>•</span><span>Масляный сервис</span><span>•</span><span>Диагностика двигателя</span><span>•</span><span>Ремонт двигателя</span><span>•</span><span>Ходовая</span><span>•</span><span>Сход-развал</span><span>•</span><span>Масляный сервис</span><span>•</span></div></div>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <h2>Услуги</h2>
+    <p class="lead">Качественная работа с разумными затратами.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🔍</div><h3>Диагностика двигателя</h3><p>Электронная диагностика, поиск неисправностей.</p></div>
+      <div class="card"><div class="ico">⚙️</div><h3>Ремонт двигателя</h3><p>Капремонт и текущий ремонт, система ГРМ.</p></div>
+      <div class="card"><div class="ico">🛞</div><h3>Ходовая и сход-развал</h3><p>Диагностика и ремонт ходовой, регулировка углов.</p></div>
+      <div class="card"><div class="ico">🛢️</div><h3>Масляный сервис и ТО</h3><p>Плановое техобслуживание, замена масел и фильтров.</p></div>
+      <div class="card"><div class="ico">💨</div><h3>Промывка форсунок</h3><p>Промывка топливных форсунок, восстановление распыла.</p></div>
+      <div class="card"><div class="ico">💬</div><h3>Вопрос мастеру</h3><p>Расскажем и покажем: консультация перед ремонтом.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="about">
+  <div class="wrap">
+    <h2>О нас</h2>
+    <p class="lead">Не конвейер, а дружба с клиентом: работа, выполненная качественно и с разумными затратами, — залог долгосрочных отношений. Это и есть наша цель.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">👨‍🔧</div><h3>Опыт 10+ лет</h3><p>Средний опыт специалистов — более 10 лет.</p></div>
+      <div class="card"><div class="ico">🇯🇵</div><h3>Японские бренды</h3><p>Специализация: Mitsubishi, Toyota, Nissan.</p></div>
+      <div class="card"><div class="ico">🏠</div><h3>3 филиала</h3><p>Коммунаров 244, Маяковского 11, Весенний проезд 5.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section form-section" id="contact">
+  <div class="wrap">
+    <div class="form-card">
+      <h2>Записаться на СТО</h2>
+      <p>Оставьте номер — подберём удобное время и филиал.</p>
+      <form onsubmit="alert('Спасибо! Мы перезвоним.');return false"><input type="text" placeholder="Ваше имя" required><input type="tel" placeholder="Телефон" required><button class="btn" type="submit">Жду звонка</button></form>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contacts">
+  <div class="wrap">
+    <h2>Контакты</h2>
+    <p class="lead">Три филиала — выбирайте ближайший.</p>
+    <div class="contacts-grid">
+      <div class="contact-card"><h3>📍 Филиалы</h3><p>г. Ижевск, ул. Коммунаров, 244<br>г. Ижевск, ул. Маяковского, 11<br>г. Ижевск, Весенний проезд, 5</p></div>
+      <div class="contact-card"><h3>📞 Связь</h3><p><a href="tel:+73412906200">(3412) 906-200</a><br><a href="mailto:cto906200@yandex.ru">cto906200@yandex.ru</a><br>сто18.рф</p></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap footer-inner"><span>© ДВС Сервис, Ижевск · ИП Шмыков А.В.</span><span class="demo-badge">Демо-версия · 2026.09.06</span></div></footer>
+</body>
+</html>
