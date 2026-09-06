@@ -3,130 +3,224 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShinnikOne — шины, диски и шиномонтаж в Ставрополе</title>
+<title>ShinnikOne — шины, диски и&nbsp;шиномонтаж в&nbsp;Ставрополе</title>
 <meta name="description" content="ShinnikOne в Ставрополе: магазин шин и дисков, шиномонтаж, скидка 10% на комплект зимней резины, кредит, доставка по всей России. Ул. Южный Обход, 10.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e14;--bg2:#10141d;--surface:#161c29;--accent:#ff6b1a;--accent2:#ff8c42;--text:#f0f2f7;--text2:#9aa3b5;--border:rgba(255,255,255,.08);--radius:14px;--font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--bg:#0b0d13;--bg2:#11141c;--surface:#161a26;--surface2:#1c2232;--accent:#ffb020;--accent2:#ff7a1a;--text:#f2f4f9;--text2:#a2a9bc;--border:rgba(255,255,255,.09);--radius:14px;--display:'Unbounded',sans-serif;--font:'Manrope',system-ui,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;max-width:1200px;margin:0 auto;padding:0 20px}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;font-weight:800;font-size:17px;color:var(--text)}
-.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px}
+h1,h2{font-family:var(--display);line-height:1.18}
+header.site{position:sticky;top:0;z-index:50;background:rgba(11,13,19,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px;max-width:1200px;margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:16px;color:var(--text);white-space:nowrap}
+.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:22px;height:22px}
 nav.main{display:flex;gap:22px;font-size:14px;color:var(--text2)}
 nav.main a{text-decoration:none;color:inherit}
 nav.main a:hover{color:var(--text)}
-.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.phone{font-weight:700;text-decoration:none;white-space:nowrap;color:var(--text);font-size:14px}
-.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#1a1206;font-weight:800;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,176,32,.35)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.hero{padding:72px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,107,26,.14),transparent),var(--bg)}
-.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.12;font-weight:800;max-width:840px}
+.hero{padding:76px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,176,32,.13),transparent),radial-gradient(600px 300px at 10% 100%,rgba(255,122,26,.08),transparent),var(--bg)}
+.kicker{display:flex;width:fit-content;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(255,176,32,.1);border:1px solid rgba(255,176,32,.3);border-radius:100px;padding:7px 16px;margin-bottom:16px}
+.hero h1{font-size:clamp(26px,4.6vw,48px);font-weight:800;max-width:860px}
 .hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:640px}
+.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:660px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 26px;color:var(--text2);font-size:14px}
 .hero-meta b{color:var(--text)}
+.hero-meta a{color:var(--text);text-decoration:none;font-weight:700}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 .trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.trust span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
-.marquee-wrap{overflow:hidden;background:var(--accent);padding:11px 0}
-.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
-.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
+.trust span{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
+.trust svg{width:16px;height:16px;flex-shrink:0}
+.marquee-wrap{overflow:hidden;background:linear-gradient(90deg,var(--accent),var(--accent2));padding:11px 0}
+.marquee-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#1a1206;white-space:nowrap;padding:0 30px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:64px 0}
 .section-alt{background:var(--bg2)}
-.section h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:8px}
-.section .lead{color:var(--text2);margin-bottom:30px;max-width:700px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-size:clamp(22px,3.2vw,34px);font-weight:700}
+.section .lead{color:var(--text2);margin-top:10px;max-width:720px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:rgba(255,107,26,.4)}
-.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,26,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,176,32,.4)}
+.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,176,32,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ico svg{width:24px;height:24px}
 .card h3{font-size:17px;margin-bottom:8px}
 .card p{color:var(--text2);font-size:14px}
-.promo{background:linear-gradient(135deg,rgba(255,107,26,.16),rgba(255,140,66,.06));border:1px solid rgba(255,107,26,.35);border-radius:18px;padding:34px;text-align:center}
-.promo h2{margin-bottom:10px}
+.card .price{font-family:var(--display);font-size:15px;color:var(--accent);margin-top:10px}
+.promo{background:linear-gradient(135deg,rgba(255,176,32,.16),rgba(255,122,26,.06));border:1px solid rgba(255,176,32,.35);border-radius:18px;padding:34px;text-align:center;margin-top:26px}
+.promo h2{margin-bottom:10px;font-size:clamp(20px,3vw,30px)}
 .promo p{color:var(--text2);margin-bottom:22px}
 .promo .btn{font-size:16px;padding:14px 36px}
-.form-section .form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
-.form-card h2{margin-bottom:8px}
+.widget{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px}
+.widget-row{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:20px 0}
+.widget label{font-size:13px;color:var(--text2);font-weight:600;display:block;margin-bottom:6px}
+.widget select{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:13px 14px;font-size:15px;font-family:inherit}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--accent);flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{padding:0 22px 18px;color:var(--text2);font-size:14px}
+.steps{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;counter-reset:step}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;position:relative}
+.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:var(--display);font-size:14px;color:var(--accent);display:block;margin-bottom:10px}
+.step h3{font-size:16px;margin-bottom:8px}
+.step p{color:var(--text2);font-size:14px}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
+.form-card h2{margin-bottom:8px;font-size:clamp(20px,3vw,28px)}
 .form-card p{color:var(--text2);margin-bottom:22px;font-size:15px}
 .form-card input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:12px}
 .form-card .btn{width:100%;font-size:16px}
-.contacts-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.form-note{font-size:12px;color:var(--text2);margin-top:6px}.form-tel{color:var(--text);font-weight:700;text-decoration:none}
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
-.contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent2)}
-.contact-card p{font-size:15px}
+.contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent)}
+.contact-card p{font-size:15px;overflow-wrap:anywhere}
 .contact-card a{color:var(--text);text-decoration:none;font-weight:600}
 footer{border-top:1px solid var(--border);padding:28px 0;color:var(--text2);font-size:13px}
 .footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
 .demo-badge{font-size:12px;border:1px dashed var(--border);border-radius:8px;padding:4px 12px}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}.contacts-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){nav.main{display:none}.phone{display:none}}
-@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-section .form-card{padding:24px 18px}.promo{padding:26px 18px}}
+.tabs-bar{margin-bottom:20px}.widget h3{font-size:18px;margin-bottom:8px}.widget .lead{margin-bottom:0}@media(min-width:640px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.widget-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.contacts-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:760px){nav.main{display:none}}
+@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-card{padding:24px 18px}.promo{padding:26px 18px}.widget{padding:22px 16px}.hero h1{font-size:7.5vw}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="header-inner">
-    <a class="logo" href="#hero"><span class="logo-mark">🛞</span>ShinnikOne</a>
-    <nav class="main"><a href="#services">Каталог</a><a href="#promo">Акции</a><a href="#contacts">Контакты</a></nav>
-    <div class="header-cta"><a class="phone" href="tel:+79064735856">8 (906) 473-58-56</a><a class="btn" href="#contact">Записаться</a></div>
+    <a class="logo" href="#hero"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#1a1206" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/></svg></span>ShinnikOne</a>
+    <nav class="main"><a href="#catalog">Каталог</a><a href="#podbor">Подбор</a><a href="#promo">Акции</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn" href="#contact">Записаться</a>
   </div>
 </header>
 
 <section class="hero" id="hero">
   <div class="wrap">
-    <h1>Шины и диски <span class="hl">в Ставрополе</span></h1>
-    <p class="hero-sub">ShinnikOne: магазин шин и дисков, шиномонтаж, оплата картой и в сплит, покупка в кредит, доставка транспортными компаниями по всей России.</p>
-    <div class="hero-meta"><span>📍 Южный Обход, 10</span><span>📞 <b>8 (906) 473-58-56</b></span></div>
-    <div class="hero-btns"><a class="btn" href="#contact">Подобрать шины</a><a class="btn btn-ghost" href="tel:+79064735856">Позвонить</a></div>
-    <div class="trust"><span>Скидка 10% на зимний комплект</span><span>Кредит и сплит</span><span>Доставка по России</span></div>
+    <span class="kicker">Шины · Диски · Шиномонтаж</span>
+    <h1>Колёса для&nbsp;вашего авто <span class="hl">в Ставрополе</span></h1>
+    <p class="hero-sub">ShinnikOne: магазин шин и&nbsp;дисков с&nbsp;шиномонтажом при&nbsp;магазине. Помогаем с&nbsp;выбором и&nbsp;наличием, оплата картой и&nbsp;в сплит, покупка в&nbsp;кредит, доставка транспортными компаниями по&nbsp;всей России.</p>
+    <div class="hero-meta"><span>Ставрополь, ул. Южный Обход, 10</span><span><a href="tel:+79064735856">8 (906) 473-58-56</a></span></div>
+    <div class="hero-btns"><a class="btn" href="#podbor">Подобрать шины</a><a class="btn btn-ghost" href="tel:+79064735856">Позвонить</a></div>
+    <div class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Скидка 10% на&nbsp;зимний комплект</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Кредит и&nbsp;сплит</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Доставка по&nbsp;России</span></div>
   </div>
 </section>
 
-<div class="marquee-wrap"><div class="marquee-track"><span>Шины</span><span>•</span><span>Диски</span><span>•</span><span>Шиномонтаж</span><span>•</span><span>−10% на зиму</span><span>•</span><span>Доставка ТК</span><span>•</span><span>Шины</span><span>•</span><span>Диски</span><span>•</span><span>Шиномонтаж</span><span>•</span><span>−10% на зиму</span><span>•</span><span>Доставка ТК</span><span>•</span></div></div>
+<div class="marquee-wrap"><div class="marquee-track"><span>Шины</span><span>•</span><span>Диски</span><span>•</span><span>Шиномонтаж</span><span>•</span><span>−10% на&nbsp;зиму</span><span>•</span><span>Доставка ТК</span><span>•</span><span>Шины</span><span>•</span><span>Диски</span><span>•</span><span>Шиномонтаж</span><span>•</span><span>−10% на&nbsp;зиму</span><span>•</span><span>Доставка ТК</span><span>•</span></div></div>
 
-<section class="section" id="services">
+<section class="section" id="catalog">
   <div class="wrap">
-    <h2>Каталог</h2>
-    <p class="lead">Спецпредложения по шинам и дискам — в каталоге на сайте.</p>
+    <div class="sec-head"><span class="kicker">Каталог</span><h2>Что продаём и&nbsp;делаем</h2><p class="lead">Спецпредложения по&nbsp;шинам и&nbsp;дискам — в&nbsp;каталоге на&nbsp;сайте. Ниже — основное.</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">🛞</div><h3>Шины</h3><p>Зимние и летние, спецпредложения. Скидка 10% на комплект зимней резины.</p></div>
-      <div class="card"><div class="ico">⭕</div><h3>Диски</h3><p>Литые и штампованные, подбор по авто.</p></div>
-      <div class="card"><div class="ico">🔧</div><h3>Шиномонтаж</h3><p>Монтаж и балансировка при магазине.</p></div>
-      <div class="card"><div class="ico">💳</div><h3>Кредит и сплит</h3><p>Покупка в кредит, оплата картой и в сплит прямо на сайте.</p></div>
-      <div class="card"><div class="ico">🚚</div><h3>Доставка по России</h3><p>Отправляем транспортными компаниями в любой город.</p></div>
-      <div class="card"><div class="ico">📰</div><h3>Блог</h3><p>Разбираемся в шинах и дисках: статьи на сайте.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Шины</h3><p>Зимние и&nbsp;летние под&nbsp;легковые автомобили. Большой выбор типоразмеров в&nbsp;наличии.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg></div><h3>Диски</h3><p>Литые и&nbsp;штампованные. Подберём по&nbsp;марке и&nbsp;модели авто.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg></div><h3>Шиномонтаж</h3><p>Монтаж и&nbsp;балансировка прямо при&nbsp;магазине — купили и&nbsp;сразу переобулись.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><h3>Кредит и&nbsp;сплит</h3><p>Покупка в&nbsp;кредит, оплата картой и&nbsp;частями — прямо на&nbsp;сайте.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><path d="M1 8h14v9H1zM15 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18" cy="19" r="1.8"/></svg></div><h3>Доставка по&nbsp;России</h3><p>Отправляем транспортными компаниями в&nbsp;любой город.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div><h3>Блог</h3><p>Разбираемся в&nbsp;шинах и&nbsp;дисках: статьи и&nbsp;советы на&nbsp;сайте.</p></div>
     </div>
-    <div class="promo" id="promo" style="margin-top:26px"><h2>−10% на комплект зимней резины</h2><p>Добавьте комплект в корзину — скидка применится. Плюс кредит и доставка.</p><a class="btn" href="#contact">Получить скидку</a></div>
+    <div class="promo" id="promo"><h2>−10% на&nbsp;комплект зимней резины</h2><p>Соберите комплект из&nbsp;четырёх шин — скидка применится автоматически. Плюс кредит и&nbsp;доставка в&nbsp;любой город.</p><a class="btn" href="#contact">Получить скидку</a></div>
   </div>
 </section>
 
-<section class="section section-alt form-section" id="contact">
+<section class="section section-alt" id="podbor">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Подбор</span><h2>Подберите шины за&nbsp;минуту</h2><p class="lead">Отметьте параметры — менеджер подтвердит наличие и&nbsp;цену по&nbsp;телефону.</p></div>
+    <div class="widget">
+      <div class="widget-row">
+        <div><label>Сезон</label><select id="w-season"><option>Зима</option><option>Лето</option><option>Всесезонные</option></select></div>
+        <div><label>Диаметр</label><select id="w-diam"><option>R13–R15</option><option>R16–R17</option><option>R18 и&nbsp;больше</option></select></div>
+        <div><label>Что нужно</label><select id="w-what"><option>Только шины</option><option>Шины + диски</option><option>Шины + шиномонтаж</option></select></div>
+      </div>
+      <button class="btn" onclick="alert('Принято: '+document.getElementById('w-season').value+', '+document.getElementById('w-diam').value+', '+document.getElementById('w-what').value+'. Оставьте номер в форме ниже — подтвердим наличие!')">Показать варианты</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="season">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">По сезону</span><h2>Когда переобуваться</h2><p class="lead">Короткий гид: что важно в&nbsp;каждый сезон.</p></div>
+    <div class="steps">
+      <div class="step"><h3>Зима</h3><p>Шипованные или&nbsp;фрикционные — под&nbsp;ваши маршруты. Комплект из&nbsp;четырёх шин идёт со&nbsp;скидкой 10%.</p></div>
+      <div class="step"><h3>Лето</h3><p>Тихие и&nbsp;цепкие для&nbsp;трассы и&nbsp;города. Проверяем остаток протектора бесплатно при&nbsp;покупке.</p></div>
+      <div class="step"><h3>Межсезонье</h3><p>Балансировка и&nbsp;осмотр дисков. Хранение комплекта обсудим на&nbsp;месте.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="delivery">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Оплата и&nbsp;доставка</span><h2>Удобно купить из&nbsp;любого города</h2></div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><h3>Карта и&nbsp;сплит</h3><p>Оплата картой онлайн и&nbsp;частями — без&nbsp;переплат в&nbsp;день покупки.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><path d="M6 2v6M12 2v6M4 8h8v4H4zM4 12v9h12v-9"/></svg></div><h3>Кредит</h3><p>Оформление в&nbsp;магазине и&nbsp;на сайте — решение за&nbsp;несколько минут.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#ffb020" stroke-width="1.8"><path d="M1 8h14v9H1zM15 11h4l3 3v3h-7z"/><circle cx="6" cy="19" r="1.8"/><circle cx="18" cy="19" r="1.8"/></svg></div><h3>Доставка ТК</h3><p>Упакуем и&nbsp;отправим транспортной компанией в&nbsp;любой регион России.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="guide">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Гид</span><h2>Шипы, липучка или&nbsp;лето?</h2><p class="lead">Три лагеря водителей — выберите свой. Точную модель под&nbsp;ваш автомобиль подскажем по&nbsp;телефону.</p></div>
+    <div class="widget">
+      <div class="hero-btns" class="tabs-bar">
+        <button class="btn" data-g="spike">Шипованные</button>
+        <button class="btn btn-ghost" data-g="friction">Фрикционные</button>
+        <button class="btn btn-ghost" data-g="summer">Летние</button>
+      </div>
+      <div data-gpane="spike"><h3>Шипованные шины</h3><p class="lead">Лёд и&nbsp;укатанный снег: шип вгрызается там, где фрикцион скользит. Шумнее на&nbsp;асфальте, зато уверенно на&nbsp;трассе зимой и&nbsp;за городом.</p></div>
+      <div data-gpane="friction" hidden><h3>Фрикционные («липучка»)</h3><p class="lead">Город и&nbsp;мягкая зима: тише шипов, держат мокрый асфальт и&nbsp;кашу. Для Ставрополя с&nbsp;его оттепелями — самый частый выбор.</p></div>
+      <div data-gpane="summer" hidden><h3>Летние шины</h3><p class="lead">Тепло и&nbsp;дождь: короткий тормозной путь на&nbsp;сухом и&nbsp;мокром асфальте. Зимой дубеют — переобувайтесь вовремя.</p></div>
+    </div>
+  </div>
+</section>
+<script>
+document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('[data-g]').forEach(function(x){x.classList.add('btn-ghost')});b.classList.remove('btn-ghost');
+document.querySelectorAll('[data-gpane]').forEach(function(p){p.hidden=p.getAttribute('data-gpane')!==b.getAttribute('data-g')});});});
+</script>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details class="faq-item" open><summary>Есть ли шиномонтаж на&nbsp;месте?</summary><p>Да, монтаж и&nbsp;балансировка — при&nbsp;магазине. Купили шины и&nbsp;сразу переобулись, никуда ехать не&nbsp;нужно.</p></details>
+    <details class="faq-item"><summary>Как получить скидку 10% на&nbsp;зиму?</summary><p>Соберите комплект из&nbsp;четырёх зимних шин — скидка применится автоматически при&nbsp;оформлении.</p></details>
+    <details class="faq-item"><summary>Можно ли купить в&nbsp;кредит?</summary><p>Да, оформляем кредит в&nbsp;магазине и&nbsp;на сайте. Также доступна оплата частями.</p></details>
+    <details class="faq-item"><summary>Отправляете в&nbsp;другие города?</summary><p>Да, доставляем транспортными компаниями по&nbsp;всей России. Упаковку берём на&nbsp;себя.</p></details>
+    <details class="faq-item"><summary>Подберёте диски по&nbsp;авто?</summary><p>Да, назовите марку и&nbsp;модель — подберём диски по&nbsp;посадочным параметрам. Можно оставить заявку в&nbsp;форме ниже.</p></details>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
   <div class="wrap">
     <div class="form-card">
+      <span class="kicker">Заявка</span>
       <h2>Подобрать шины</h2>
-      <p>Оставьте номер — поможем с выбором и наличием.</p>
+      <p>Оставьте номер — поможем с&nbsp;выбором, наличием и&nbsp;ценой.</p>
       <form onsubmit="alert('Спасибо! Мы перезвоним.');return false"><input type="text" placeholder="Ваше имя" required><input type="tel" placeholder="Телефон" required><button class="btn" type="submit">Жду звонка</button></form>
+      <p class="form-note">Или позвоните: <a href="tel:+79064735856" class="form-tel">8 (906) 473-58-56</a></p>
     </div>
   </div>
 </section>
 
 <section class="section" id="contacts">
   <div class="wrap">
-    <h2>Контакты</h2>
-    <p class="lead">Магазин на Южном Обходе.</p>
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Где нас найти</h2><p class="lead">Магазин на&nbsp;Южном Обходе в&nbsp;Ставрополе.</p></div>
     <div class="contacts-grid">
-      <div class="contact-card"><h3>📍 Адрес</h3><p>г. Ставрополь, ул. Южный Обход, 10</p></div>
-      <div class="contact-card"><h3>📞 Связь</h3><p><a href="tel:+79064735856">8 (906) 473-58-56</a><br><a href="mailto:Shinnikone@yandex.ru">Shinnikone@yandex.ru</a><br>shinnikone.ru</p></div>
+      <div class="contact-card"><h3>Адрес</h3><p>г. Ставрополь, ул. Южный Обход, 10</p></div>
+      <div class="contact-card"><h3>Связь</h3><p><a href="tel:+79064735856">8 (906) 473-58-56</a><br><a href="mailto:Shinnikone@yandex.ru">Shinnikone@yandex.ru</a><br>shinnikone.ru</p></div>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap footer-inner"><span>© ShinnikOne, Ставрополь</span><span class="demo-badge">Демо-версия · 2026.09.06</span></div></footer>
+<footer><div class="wrap footer-inner"><span>© ShinnikOne, Ставрополь</span><span class="demo-badge">Демо-версия</span></div></footer>
 </body>
 </html>
