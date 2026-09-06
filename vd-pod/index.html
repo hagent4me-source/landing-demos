@@ -3,137 +3,199 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>В&Д — центр тюнинга и детейлинга в Подольске</title>
-<meta name="description" content="В&Д в Подольске: тонировка, антигравийные и виниловые плёнки, полировка, химчистка, шумоизоляция, автозвук, сигнализации. Парковая, 48. Опыт 15+ лет.">
+<title>В&Д — тюнинг и&nbsp;детейлинг в&nbsp;Подольске | 15+ лет опыта</title>
+<meta name="description" content="Центр В&Д в Подольске: тонировка, антигравийные и виниловые плёнки, полировка, химчистка, шумоизоляция, автозвук. Сертифицированный центр, опыт 15+ лет. Ул. Парковая, 48.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e14;--bg2:#10141d;--surface:#161c29;--accent:#ff6b1a;--accent2:#ff8c42;--text:#f0f2f7;--text2:#9aa3b5;--border:rgba(255,255,255,.08);--radius:14px;--font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--bg:#0d0a1a;--bg2:#140f26;--surface:#1a1332;--accent:#8b5cf6;--accent2:#c4b5fd;--text:#f4f1ff;--text2:#a89cc9;--border:rgba(255,255,255,.09);--radius:14px;--display:'Unbounded',sans-serif;--font:'Manrope',system-ui,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;max-width:1200px;margin:0 auto;padding:0 20px}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;font-weight:800;font-size:17px;color:var(--text)}
-.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px}
+h1,h2{font-family:var(--display);line-height:1.2}
+header.site{position:sticky;top:0;z-index:50;background:rgba(13,10,26,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px;max-width:1200px;margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:16px;color:var(--text);white-space:nowrap}
+.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6d28d9);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-size:15px}
 nav.main{display:flex;gap:22px;font-size:14px;color:var(--text2)}
 nav.main a{text-decoration:none;color:inherit}
 nav.main a:hover{color:var(--text)}
-.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.phone{font-weight:700;text-decoration:none;white-space:nowrap;color:var(--text);font-size:14px}
-.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),#6d28d9);color:#fff;font-weight:800;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(139,92,246,.4)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.hero{padding:72px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,107,26,.14),transparent),var(--bg)}
-.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.12;font-weight:800;max-width:840px}
+.hero{padding:76px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(139,92,246,.15),transparent),radial-gradient(600px 300px at 10% 100%,rgba(196,181,253,.07),transparent),var(--bg)}
+.kicker{display:flex;width:fit-content;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.35);border-radius:100px;padding:7px 16px;margin-bottom:16px}
+.hero h1{font-size:clamp(25px,4.4vw,46px);font-weight:800;max-width:880px}
 .hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:640px}
+.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:680px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 26px;color:var(--text2);font-size:14px}
 .hero-meta b{color:var(--text)}
+.hero-meta a{color:var(--text);text-decoration:none;font-weight:700}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 .trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.trust span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
-.marquee-wrap{overflow:hidden;background:var(--accent);padding:11px 0}
-.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
-.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
+.trust span{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
+.trust svg{width:16px;height:16px;flex-shrink:0}
+.stripe{overflow:hidden;background:linear-gradient(90deg,var(--accent),#6d28d9);padding:11px 0}
+.stripe-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.stripe-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:64px 0}
 .section-alt{background:var(--bg2)}
-.section h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:8px}
-.section .lead{color:var(--text2);margin-bottom:30px;max-width:700px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-size:clamp(22px,3.2vw,34px);font-weight:700}
+.section .lead{color:var(--text2);margin-top:10px;max-width:720px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:rgba(255,107,26,.4)}
-.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,26,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.45)}
+.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(139,92,246,.13);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ico svg{width:24px;height:24px}
 .card h3{font-size:17px;margin-bottom:8px}
 .card p{color:var(--text2);font-size:14px}
-.form-section .form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
-.form-card h2{margin-bottom:8px}
+.widget{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px}
+.widget h3{font-size:18px;margin-bottom:8px}
+.widget .lead{margin-bottom:0}
+.tabs-bar{margin-bottom:20px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--accent2);flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{padding:0 22px 18px;color:var(--text2);font-size:14px}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
+.form-card h2{margin-bottom:8px;font-size:clamp(20px,3vw,28px)}
 .form-card p{color:var(--text2);margin-bottom:22px;font-size:15px}
 .form-card input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:12px}
 .form-card .btn{width:100%;font-size:16px}
-.contacts-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.form-note{font-size:12px;color:var(--text2);margin-top:6px}
+.form-tel{color:var(--text);font-weight:700;text-decoration:none}
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent2)}
-.contact-card p{font-size:15px}
+.contact-card p{font-size:15px;overflow-wrap:anywhere}
 .contact-card a{color:var(--text);text-decoration:none;font-weight:600}
 footer{border-top:1px solid var(--border);padding:28px 0;color:var(--text2);font-size:13px}
 .footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
 .demo-badge{font-size:12px;border:1px dashed var(--border);border-radius:8px;padding:4px 12px}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}.contacts-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){nav.main{display:none}.phone{display:none}}
-@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-section .form-card{padding:24px 18px}}
+@media(min-width:640px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.contacts-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:760px){nav.main{display:none}}
+@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-card{padding:24px 18px}.widget{padding:22px 16px}.hero h1{font-size:7.5vw}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="header-inner">
-    <a class="logo" href="#hero"><span class="logo-mark">✨</span>В&Д</a>
-    <nav class="main"><a href="#services">Услуги</a><a href="#about">О нас</a><a href="#contacts">Контакты</a></nav>
-    <div class="header-cta"><a class="phone" href="tel:+79258906220">+7 (925) 890-62-20</a><a class="btn" href="#contact">Записаться</a></div>
+    <a class="logo" href="#hero"><span class="logo-mark">В&Д</span>В&Д</a>
+    <nav class="main"><a href="#services">Услуги</a><a href="#guide">Гид</a><a href="#why">Почему мы</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn" href="#contact">Записаться</a>
   </div>
 </header>
 
 <section class="hero" id="hero">
   <div class="wrap">
-    <h1>Тюнинг и детейлинг <span class="hl">в Подольске</span></h1>
-    <p class="hero-sub">Центр В&Д: тонировка, антигравийные и виниловые плёнки, полировка, химчистка, шумоизоляция, автозвук, ремонт фар, сигнализации. Сертифицированный центр, опыт 15+ лет.</p>
-    <div class="hero-meta"><span>📍 Парковая, 48</span><span>📞 <b>+7 (925) 890-62-20</b></span></div>
+    <span class="kicker">Тюнинг · Детейлинг · 15+ лет</span>
+    <h1>Автомобиль как из&nbsp;салона — <span class="hl">и лучше</span></h1>
+    <p class="hero-sub">Центр В&Д в&nbsp;Подольске: тонировка, антигравийные и&nbsp;виниловые плёнки, полировка, химчистка, шумоизоляция, автозвук, ремонт фар, сигнализации. Сертифицированный центр, цены — сразу на&nbsp;сайте.</p>
+    <div class="hero-meta"><span>Подольск, ул. Парковая, 48</span><span><a href="tel:+79258906220">+7 (925) 890-62-20</a></span></div>
     <div class="hero-btns"><a class="btn" href="#contact">Узнать цены</a><a class="btn btn-ghost" href="tel:+79258906220">Позвонить</a></div>
-    <div class="trust"><span>Опыт 15+ лет</span><span>Сертифицированный центр</span><span>Цены сразу на сайте</span></div>
+    <div class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Опыт 15+ лет</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Сертифицированный центр</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Цены сразу на&nbsp;сайте</span></div>
   </div>
 </section>
 
-<div class="marquee-wrap"><div class="marquee-track"><span>Тонировка</span><span>•</span><span>Антигравийная плёнка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span><span>Тонировка</span><span>•</span><span>Антигравийная плёнка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span></div></div>
+<div class="stripe"><div class="stripe-track"><span>Тонировка</span><span>•</span><span>Антигравийная плёнка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span><span>Автозвук</span><span>•</span><span>Тонировка</span><span>•</span><span>Антигравийная плёнка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span><span>Автозвук</span><span>•</span></div></div>
 
 <section class="section" id="services">
   <div class="wrap">
-    <h2>Услуги</h2>
-    <p class="lead">Выберите услугу — цены прямо сейчас на сайте.</p>
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Внешность и&nbsp;комфорт</h2><p class="lead">От тонировки до&nbsp;автозвука — всё в&nbsp;одном центре на&nbsp;Парковой.</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">🕶️</div><h3>Тонировка</h3><p>Тонирование автостёкол.</p></div>
-      <div class="card"><div class="ico">🛡️</div><h3>Антигравийная плёнка</h3><p>Оклейка защитной плёнкой.</p></div>
-      <div class="card"><div class="ico">🎨</div><h3>Винил</h3><p>Оклейка виниловыми плёнками.</p></div>
-      <div class="card"><div class="ico">💎</div><h3>Полировка</h3><p>Полировка кузова и фар, ремонт фар.</p></div>
-      <div class="card"><div class="ico">🧼</div><h3>Химчистка</h3><p>Химчистка салона, перетяжка салона, покраска кожи.</p></div>
-      <div class="card"><div class="ico">🔇</div><h3>Шумка и звук</h3><p>Шумоизоляция, автозвук, установка сигнализаций.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M3 17l9-9 4 4-9 9H3v-4z"/><path d="M13 7l3-3 4 4-3 3"/></svg></div><h3>Тонировка</h3><p>Тонирование автостёкол плёнками с&nbsp;гарантией. Затемнение — в&nbsp;рамках требований.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 11V2M4 6.5l8 4.5 8-4.5"/></svg></div><h3>Антигравийная плёнка</h3><p>Защита кузова от&nbsp;сколов и&nbsp;царапин. Капот, бампер, фары, зоны риска.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M4 20c2-1 3-3 3-5l8-8 3 3-8 8c-2 0-4 1-6 2z"/><circle cx="17" cy="5" r="2"/></svg></div><h3>Винил</h3><p>Оклейка виниловыми плёнками: смена цвета и&nbsp;стиля без&nbsp;перекраса.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M6 18a4 4 0 0 1 0-8 5.5 5.5 0 0 1 10.7 1.5A3.5 3.5 0 0 1 17.5 18H6z"/></svg></div><h3>Полировка и&nbsp;фары</h3><p>Полировка кузова и&nbsp;фар, ремонт оптики. Возвращаем прозрачность и&nbsp;блеск.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M4 12h16v2H4zM6 14v5M18 14v5M8 12V6a2 2 0 0 1 4 0"/></svg></div><h3>Химчистка</h3><p>Химчистка салона, перетяжка, покраска кожи. Салон — как новый.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M11 5L6 9H2v6h4l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M19 5a9.5 9.5 0 0 1 0 14"/></svg></div><h3>Шумка, звук, охрана</h3><p>Шумоизоляция, автозвук и&nbsp;установка сигнализаций.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" id="about">
+<section class="section section-alt" id="guide">
   <div class="wrap">
-    <h2>О нас</h2>
-    <p class="lead">Детейлинг-центр на Парковой: сертификация, портфолио работ и цены — на сайте.</p>
+    <div class="sec-head"><span class="kicker">Гид</span><h2>Что выбрать под&nbsp;вашу задачу</h2><p class="lead">Три типовых запроса — нажмите свой.</p></div>
+    <div class="widget">
+      <div class="hero-btns tabs-bar">
+        <button class="btn" data-g="tint">Скрыться от&nbsp;глаз</button>
+        <button class="btn btn-ghost" data-g="protect">Защитить кузов</button>
+        <button class="btn btn-ghost" data-g="comfort">Тишина и&nbsp;звук</button>
+      </div>
+      <div data-gpane="tint"><h3>Тонировка</h3><p class="lead">Приватность, прохлада летом и&nbsp;защита салона от&nbsp;выгорания. Подберём светопропускание под&nbsp;ваши стёкла и&nbsp;требования.</p></div>
+      <div data-gpane="protect" hidden><h3>Антигравий и&nbsp;винил</h3><p class="lead">Трасса и&nbsp;гравий — полиуретановая защита зон риска. Хотите сменить образ — виниловая оклейка без&nbsp;перекраса.</p></div>
+      <div data-gpane="comfort" hidden><h3>Шумоизоляция и&nbsp;автозвук</h3><p class="lead">Тихий салон на&nbsp;скорости плюс музыка, которую слышно. Делаем комплексно: шумка, динамики, сигнализация.</p></div>
+    </div>
+  </div>
+</section>
+<script>
+document.querySelectorAll('[data-g]').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('[data-g]').forEach(function(x){x.classList.add('btn-ghost')});b.classList.remove('btn-ghost');
+document.querySelectorAll('[data-gpane]').forEach(function(p){p.hidden=p.getAttribute('data-gpane')!==b.getAttribute('data-g')});});});
+</script>
+
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Почему мы</span><h2>15+ лет и&nbsp;сертификация</h2><p class="lead">Центр, а не&nbsp;гараж: отвечаем за&nbsp;результат.</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">📍</div><h3>Парковая, 48</h3><p>Подольск. Заказ звонка с сайта.</p></div>
-      <div class="card"><div class="ico">🏆</div><h3>Опыт 15+ лет</h3><p>Сертифицированный центр, тысячи довольных клиентов.</p></div>
-      <div class="card"><div class="ico">💬</div><h3>На связи</h3><p>Почта vddetailing@ya.ru, WhatsApp и звонок.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg></div><h3>Опыт 15+ лет</h3><p>Делаем тюнинг и&nbsp;детейлинг дольше, чем живут многие сервисы. Рука набита на&nbsp;всех кузовах.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Сертифицированный центр</h3><p>Работаем как сертифицированный центр: порядок, документы и&nbsp;ответственность за&nbsp;результат.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><h3>Цены на&nbsp;сайте</h3><p>Не гадаем по&nbsp;телефону: актуальные цены — в&nbsp;разделах сайта. Приезжаете уже сориентированным.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section form-section" id="contact">
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Как проходит</span><h2>Три шага до&nbsp;результата</h2><p class="lead">От заявки до&nbsp;готового автомобиля.</p></div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Заявка</h3><p>Звонок или&nbsp;заказ звонка с&nbsp;сайта. Опишите задачу — сориентируем по&nbsp;цене и&nbsp;времени.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Осмотр</h3><p>Смотрим автомобиль, показываем состояние и&nbsp;фиксируем объём работ до&nbsp;начала.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#c4b5fd" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Работа</h3><p>Выполняем и&nbsp;показываем результат. Сертифицированный центр отвечает за&nbsp;качество.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details class="faq-item" open><summary>Сколько держится тонировка и&nbsp;плёнка?</summary><p>Качественные плёнки служат годами, а не&nbsp;сезон. Точный срок зависит от&nbsp;материала — назовём при&nbsp;осмотре авто.</p></details>
+    <details class="faq-item"><summary>Можно ли посмотреть цены заранее?</summary><p>Да, цены — сразу на&nbsp;сайте. Оставьте номер — сориентируем по&nbsp;вашей задаче точнее.</p></details>
+    <details class="faq-item"><summary>Делаете ли вы шумоизоляцию и&nbsp;звук вместе?</summary><p>Да, комплексно: шумка салона, автозвук и&nbsp;сигнализация — за&nbsp;один визит или&nbsp;поэтапно.</p></details>
+    <details class="faq-item"><summary>Где вы находитесь?</summary><p>Подольск, ул. Парковая, 48. Заказ звонка — с&nbsp;сайта, ответим и&nbsp;запишем.</p></details>
+    <details class="faq-item"><summary>Что с&nbsp;гарантией?</summary><p>Мы сертифицированный центр — даём гарантию на&nbsp;работы и&nbsp;материалы. Детали — при&nbsp;приёмке авто.</p></details>
+  </div>
+</section>
+
+<section class="section" id="contact">
   <div class="wrap">
     <div class="form-card">
+      <span class="kicker">Заявка</span>
       <h2>Узнать цены</h2>
-      <p>Оставьте номер — перезвоним и сориентируем по цене.</p>
+      <p>Оставьте номер — перезвоним и&nbsp;сориентируем по&nbsp;цене вашей задачи.</p>
       <form onsubmit="alert('Спасибо! Мы перезвоним.');return false"><input type="text" placeholder="Ваше имя" required><input type="tel" placeholder="Телефон" required><button class="btn" type="submit">Жду звонка</button></form>
+      <p class="form-note">Или позвоните: <a class="form-tel" href="tel:+79258906220">+7 (925) 890-62-20</a></p>
     </div>
   </div>
 </section>
 
 <section class="section section-alt" id="contacts">
   <div class="wrap">
-    <h2>Контакты</h2>
-    <p class="lead">Центр на Парковой.</p>
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Центр на&nbsp;Парковой</h2><p class="lead">Тюнинг и&nbsp;детейлинг в&nbsp;Подольске.</p></div>
     <div class="contacts-grid">
-      <div class="contact-card"><h3>📍 Адрес</h3><p>г. Подольск, ул. Парковая, 48</p></div>
-      <div class="contact-card"><h3>📞 Связь</h3><p><a href="tel:+79258906220">+7 (925) 890-62-20</a><br><a href="mailto:vddetailing@ya.ru">vddetailing@ya.ru</a><br>vd-detailing.ru</p></div>
+      <div class="contact-card"><h3>Адрес</h3><p>г. Подольск, ул. Парковая, 48</p></div>
+      <div class="contact-card"><h3>Связь</h3><p><a href="tel:+79258906220">+7 (925) 890-62-20</a><br><a href="mailto:vddetailing@ya.ru">vddetailing@ya.ru</a><br>vd-detailing.ru</p></div>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap footer-inner"><span>© В&Д, Подольск</span><span class="demo-badge">Демо-версия · 2026.09.06</span></div></footer>
+<footer><div class="wrap footer-inner"><span>© В&Д, Подольск</span><span class="demo-badge">Демо-версия</span></div></footer>
 </body>
 </html>
