@@ -3,137 +3,197 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chistoff — детейлинг-студия и автомойка в Железнодорожном</title>
-<meta name="description" content="Chistoff в Железнодорожном (Балашиха): детейлинг-студия и автомоечный комплекс. Оклейка плёнкой, шумоизоляция, химчистка, полировка. Автозаводская, 52А.">
+<title>Chistoff — детейлинг и&nbsp;автомойка в&nbsp;Железнодорожном | Студия + мойка</title>
+<meta name="description" content="Chistoff в Балашихе (мкр. Железнодорожный): детейлинг-студия по записи и автомоечный комплекс в живой очереди. Оклейка, полировка, химчистка, шумоизоляция. Автозаводская, 52А, ежедневно 9:00–21:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e14;--bg2:#10141d;--surface:#161c29;--accent:#ff6b1a;--accent2:#ff8c42;--text:#f0f2f7;--text2:#9aa3b5;--border:rgba(255,255,255,.08);--radius:14px;--font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--bg:#071820;--bg2:#0a2029;--surface:#0e2833;--accent:#22d3ee;--accent2:#a5f3fc;--text:#effcff;--text2:#8fb3c1;--border:rgba(255,255,255,.09);--radius:14px;--display:'Unbounded',sans-serif;--font:'Manrope',system-ui,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;max-width:1200px;margin:0 auto;padding:0 20px}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;font-weight:800;font-size:17px;color:var(--text)}
-.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px}
+h1,h2{font-family:var(--display);line-height:1.2}
+header.site{position:sticky;top:0;z-index:50;background:rgba(7,24,32,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px;max-width:1200px;margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:16px;color:var(--text);white-space:nowrap}
+.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0e7490);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-size:14px}
 nav.main{display:flex;gap:22px;font-size:14px;color:var(--text2)}
 nav.main a{text-decoration:none;color:inherit}
 nav.main a:hover{color:var(--text)}
-.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.phone{font-weight:700;text-decoration:none;white-space:nowrap;color:var(--text);font-size:14px}
-.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),#0891b2);color:#03252c;font-weight:800;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,211,238,.35)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.hero{padding:72px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,107,26,.14),transparent),var(--bg)}
-.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.12;font-weight:800;max-width:840px}
-.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:640px}
+.hero{padding:76px 0 60px;background:radial-gradient(800px 400px at 15% 0%,rgba(34,211,238,.13),transparent),radial-gradient(600px 300px at 90% 100%,rgba(165,243,252,.06),transparent),var(--bg)}
+.kicker{display:flex;width:fit-content;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);border-radius:100px;padding:7px 16px;margin-bottom:16px}
+.hero h1{font-size:clamp(25px,4.4vw,46px);font-weight:800;max-width:880px}
+.hero h1 .hl{color:var(--accent)}
+.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:680px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 26px;color:var(--text2);font-size:14px}
 .hero-meta b{color:var(--text)}
+.hero-meta a{color:var(--text);text-decoration:none;font-weight:700}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 .trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.trust span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
-.marquee-wrap{overflow:hidden;background:var(--accent);padding:11px 0}
-.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
-.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
+.trust span{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
+.trust svg{width:16px;height:16px;flex-shrink:0}
+.stripe{overflow:hidden;background:linear-gradient(90deg,var(--accent),#0891b2);padding:11px 0}
+.stripe-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.stripe-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#03252c;white-space:nowrap;padding:0 30px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:64px 0}
 .section-alt{background:var(--bg2)}
-.section h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:8px}
-.section .lead{color:var(--text2);margin-bottom:30px;max-width:700px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-size:clamp(22px,3.2vw,34px);font-weight:700}
+.section .lead{color:var(--text2);margin-top:10px;max-width:720px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:rgba(255,107,26,.4)}
-.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,26,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.4)}
+.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ico svg{width:24px;height:24px}
 .card h3{font-size:17px;margin-bottom:8px}
 .card p{color:var(--text2);font-size:14px}
-.form-section .form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
-.form-card h2{margin-bottom:8px}
+.widget{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px}
+.widget h3{font-size:18px;margin-bottom:8px}
+.widget .lead{margin-bottom:0}
+.tabs-bar{margin-bottom:20px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--accent2);flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{padding:0 22px 18px;color:var(--text2);font-size:14px}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
+.form-card h2{margin-bottom:8px;font-size:clamp(20px,3vw,28px)}
 .form-card p{color:var(--text2);margin-bottom:22px;font-size:15px}
 .form-card input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:12px}
 .form-card .btn{width:100%;font-size:16px}
-.contacts-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.form-note{font-size:12px;color:var(--text2);margin-top:6px}
+.form-tel{color:var(--text);font-weight:700;text-decoration:none}
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent2)}
-.contact-card p{font-size:15px}
+.contact-card p{font-size:15px;overflow-wrap:anywhere}
 .contact-card a{color:var(--text);text-decoration:none;font-weight:600}
 footer{border-top:1px solid var(--border);padding:28px 0;color:var(--text2);font-size:13px}
 .footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
 .demo-badge{font-size:12px;border:1px dashed var(--border);border-radius:8px;padding:4px 12px}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}.contacts-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){nav.main{display:none}.phone{display:none}}
-@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-section .form-card{padding:24px 18px}}
+@media(min-width:640px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.contacts-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:760px){nav.main{display:none}}
+@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-card{padding:24px 18px}.widget{padding:22px 16px}.hero h1{font-size:7.5vw}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="header-inner">
-    <a class="logo" href="#hero"><span class="logo-mark">✨</span>Chistoff</a>
-    <nav class="main"><a href="#services">Услуги</a><a href="#about">О нас</a><a href="#contacts">Контакты</a></nav>
-    <div class="header-cta"><a class="phone" href="tel:+79955093399">+7 (995) 509-33-99</a><a class="btn" href="#contact">Записаться</a></div>
+    <a class="logo" href="#hero"><span class="logo-mark">Ch</span>Chistoff</a>
+    <nav class="main"><a href="#services">Услуги</a><a href="#visit">Как попасть</a><a href="#why">Почему мы</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn" href="#contact">Записаться</a>
   </div>
 </header>
 
 <section class="hero" id="hero">
   <div class="wrap">
-    <h1>Детейлинг и автомойка <span class="hl">в Железнодорожном</span></h1>
-    <p class="hero-sub">Chistoff: детейлинг-студия и автомоечный комплекс в одном месте. Запись в студию — по заявке, на мойку — живая очередь без записи.</p>
-    <div class="hero-meta"><span>📍 Автозаводская, 52А</span><span>📞 <b>+7 (995) 509-33-99</b></span></div>
-    <div class="hero-btns"><a class="btn" href="#contact">Записаться в студию</a><a class="btn btn-ghost" href="tel:+79955093399">Позвонить</a></div>
-    <div class="trust"><span>Студия + мойка</span><span>Оклейка и полировка</span><span>Мойка без записи</span></div>
+    <span class="kicker">Студия + мойка · Ежедневно 9:00–21:00</span>
+    <h1>Детейлинг и&nbsp;мойка — <span class="hl">в одном месте</span></h1>
+    <p class="hero-sub">Chistoff в&nbsp;Железнодорожном: детейлинг-студия и&nbsp;автомоечный комплекс. В студию — по&nbsp;заявке с&nbsp;сайта, на&nbsp;мойку — просто приезжайте в&nbsp;живую очередь, запись не&nbsp;нужна.</p>
+    <div class="hero-meta"><span>Железнодорожный, Автозаводская, 52А</span><span>Студия: <a href="tel:+79955093399">+7 (995) 509-33-99</a></span></div>
+    <div class="hero-btns"><a class="btn" href="#contact">Записаться в&nbsp;студию</a><a class="btn btn-ghost" href="tel:+79055703311">Мойка: позвонить</a></div>
+    <div class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Студия + мойка</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Оклейка и&nbsp;полировка</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Мойка без&nbsp;записи</span></div>
   </div>
 </section>
 
-<div class="marquee-wrap"><div class="marquee-track"><span>Оклейка плёнкой</span><span>•</span><span>Химчистка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span><span>Оклейка плёнкой</span><span>•</span><span>Химчистка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span></div></div>
+<div class="stripe"><div class="stripe-track"><span>Оклейка плёнкой</span><span>•</span><span>Химчистка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span><span>Автомойка</span><span>•</span><span>Оклейка плёнкой</span><span>•</span><span>Химчистка</span><span>•</span><span>Полировка</span><span>•</span><span>Шумоизоляция</span><span>•</span><span>Автомойка</span><span>•</span></div></div>
 
 <section class="section" id="services">
   <div class="wrap">
-    <h2>Услуги</h2>
-    <p class="lead">Комплексная защита авто в одном месте.</p>
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Комплексная защита авто</h2><p class="lead">Студия делает красоту надолго, мойка поддерживает каждый день.</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">🛡️</div><h3>Оклейка плёнкой</h3><p>Защита кузова плёнкой в детейлинг-студии.</p></div>
-      <div class="card"><div class="ico">🔇</div><h3>Шумоизоляция салона</h3><p>Тише в салоне — комфортнее в дороге.</p></div>
-      <div class="card"><div class="ico">🧼</div><h3>Комплексная химчистка</h3><p>Глубокая чистка салона.</p></div>
-      <div class="card"><div class="ico">💎</div><h3>Полировка и защита ЛКП</h3><p>Возвращаем блеск и защищаем покрытие.</p></div>
-      <div class="card"><div class="ico">🚿</div><h3>Автомоечный комплекс</h3><p>Мойка в живой очереди, запись не нужна.</p></div>
-      <div class="card"><div class="ico">📸</div><h3>Наши работы</h3><p>Примеры работ студии — на сайте.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/><path d="M12 11V2M4 6.5l8 4.5 8-4.5"/></svg></div><h3>Оклейка плёнкой</h3><p>Защита кузова плёнкой в&nbsp;детейлинг-студии: капот, бампер, фары, зоны риска.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M11 5L6 9H2v6h4l5 4V5zM15.5 8.5a5 5 0 0 1 0 7"/></svg></div><h3>Шумоизоляция салона</h3><p>Тише в&nbsp;салоне — комфортнее в&nbsp;дороге. Делаем комплексно, с&nbsp;разбором салона.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M4 16c0-4 3-7 8-7s8 3 8 7v3H4v-3z"/><path d="M9 16v-2M15 16v-2"/></svg></div><h3>Комплексная химчистка</h3><p>Глубокая чистка салона: сиденья, потолок, пол, багажник.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M6 18a4 4 0 0 1 0-8 5.5 5.5 0 0 1 10.7 1.5A3.5 3.5 0 0 1 17.5 18H6z"/></svg></div><h3>Полировка и&nbsp;защита ЛКП</h3><p>Убираем паутинку и&nbsp;царапины, возвращаем глубину цвета, закрываем защитой.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M4 12h16v2H4zM6 14v5M18 14v5M8 12V6a2 2 0 0 1 4 0"/></svg></div><h3>Автомоечный комплекс</h3><p>Мойка кузова и&nbsp;салона в&nbsp;живой очереди — запись не&nbsp;нужна, приезжайте.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div><h3>Наши работы</h3><p>Примеры работ студии — смотрите на&nbsp;сайте перед&nbsp;визитом.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" id="about">
+<section class="section section-alt" id="visit">
   <div class="wrap">
-    <h2>О нас</h2>
-    <p class="lead">Студия и мойка Chistoff на Автозаводской: в студию — по записи через заявку, на мойку — приезжайте в живую очередь.</p>
+    <div class="sec-head"><span class="kicker">Как попасть</span><h2>Студия или&nbsp;мойка?</h2><p class="lead">Два разных входа — выберите свой.</p></div>
+    <div class="widget">
+      <div class="hero-btns tabs-bar">
+        <button class="btn" data-v="studio">В студию — по&nbsp;записи</button>
+        <button class="btn btn-ghost" data-v="wash">На мойку — без&nbsp;записи</button>
+      </div>
+      <div data-vpane="studio"><h3>Детейлинг-студия: <a class="form-tel" href="tel:+79955093399">+7 (995) 509-33-99</a></h3><p class="lead">Оклейка, полировка, химчистка, шумоизоляция. Оставьте заявку в&nbsp;форме ниже — перезвоним, проконсультируем и&nbsp;назначим время.</p></div>
+      <div data-vpane="wash" hidden><h3>Автомойка: <a class="form-tel" href="tel:+79055703311">+7 (905) 570-33-11</a></h3><p class="lead">Только живая очередь: приезжаете на&nbsp;Автозаводскую, 52А — моем по&nbsp;факту. Ежедневно 9:00–21:00.</p></div>
+    </div>
+  </div>
+</section>
+<script>
+document.querySelectorAll('[data-v]').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('[data-v]').forEach(function(x){x.classList.add('btn-ghost')});b.classList.remove('btn-ghost');
+document.querySelectorAll('[data-vpane]').forEach(function(p){p.hidden=p.getAttribute('data-vpane')!==b.getAttribute('data-v')});});});
+</script>
+
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Почему мы</span><h2>Два сервиса — один адрес</h2><p class="lead">Приехали помыться — увидели студию. Приехали в&nbsp;студию — уехали на&nbsp;чистом авто.</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">✨</div><h3>Детейлинг-студия</h3><p>Тел. +7 (995) 509-33-99. Заявка с сайта — перезвоним и проконсультируем.</p></div>
-      <div class="card"><div class="ico">🚿</div><h3>Автомойка</h3><p>Тел. +7 (905) 570-33-11. Только живая очередь.</p></div>
-      <div class="card"><div class="ico">🕘</div><h3>Ежедневно 9:00–21:00</h3><p>Открыты каждый день.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Всё в&nbsp;одном месте</h3><p>Не нужно катать авто между мойкой и&nbsp;детейлингом по&nbsp;разным концам города.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Каждый день 9–21</h3><p>Открыты ежедневно с&nbsp;9:00 до&nbsp;21:00 — заедете и&nbsp;в будни, и&nbsp;в выходные.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Консультация</h3><p>Оставьте заявку — перезвоним, уточним детали и&nbsp;честно скажем, что нужно авто.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section form-section" id="contact">
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Визит</span><h2>Как проходит визит в&nbsp;студию</h2><p class="lead">От заявки до&nbsp;выдачи — три шага.</p></div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Заявка</h3><p>Оставьте контакты в&nbsp;форме — перезвоним, уточним детали и&nbsp;проконсультируем.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Осмотр</h3><p>Смотрим авто при&nbsp;приёмке, фиксируем объём работ и&nbsp;сроки до&nbsp;начала.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#a5f3fc" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Выдача</h3><p>Показываем результат при&nbsp;выдаче. Уезжаете на&nbsp;чистом и&nbsp;блестящем авто.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details class="faq-item" open><summary>На мойку правда без&nbsp;записи?</summary><p>Да, мойка работает в&nbsp;живой очереди — приезжайте на&nbsp;Автозаводскую, 52А в&nbsp;часы работы.</p></details>
+    <details class="faq-item"><summary>А в&nbsp;студию как попасть?</summary><p>Только по&nbsp;записи: оставьте заявку в&nbsp;форме ниже или&nbsp;позвоните — проконсультируем и&nbsp;назначим время.</p></details>
+    <details class="faq-item"><summary>Что входит в&nbsp;комплексную химчистку?</summary><p>Глубокая чистка всего салона: сиденья, потолок, пол, багажник. Детали — при&nbsp;консультации.</p></details>
+    <details class="faq-item"><summary>Делаете ли шумоизоляцию?</summary><p>Да, шумоизоляция салона — одно из&nbsp;направлений студии.</p></details>
+    <details class="faq-item"><summary>Какой у&nbsp;вас график?</summary><p>Ежедневно 9:00–21:00, без&nbsp;выходных.</p></details>
+  </div>
+</section>
+
+<section class="section" id="contact">
   <div class="wrap">
     <div class="form-card">
-      <h2>Записаться в студию</h2>
-      <p>Оставьте контакты — свяжемся, уточним детали и проконсультируем.</p>
+      <span class="kicker">Заявка</span>
+      <h2>Записаться в&nbsp;студию</h2>
+      <p>Оставьте контакты — свяжемся, уточним детали и&nbsp;проконсультируем.</p>
       <form onsubmit="alert('Спасибо! Мы перезвоним.');return false"><input type="text" placeholder="Ваше имя" required><input type="tel" placeholder="Телефон" required><button class="btn" type="submit">Жду звонка</button></form>
+      <p class="form-note">Студия: <a class="form-tel" href="tel:+79955093399">+7 (995) 509-33-99</a> · Мойка: <a class="form-tel" href="tel:+79055703311">+7 (905) 570-33-11</a></p>
     </div>
   </div>
 </section>
 
 <section class="section section-alt" id="contacts">
   <div class="wrap">
-    <h2>Контакты</h2>
-    <p class="lead">Железнодорожный, Автозаводская.</p>
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Железнодорожный, Автозаводская</h2><p class="lead">Студия и&nbsp;мойка по&nbsp;одному адресу.</p></div>
     <div class="contacts-grid">
-      <div class="contact-card"><h3>📍 Адрес</h3><p>г. Балашиха, мкр. Железнодорожный,<br>ул. Автозаводская, 52А<br>Ежедневно 9:00–21:00</p></div>
-      <div class="contact-card"><h3>📞 Связь</h3><p>Студия: <a href="tel:+79955093399">+7 (995) 509-33-99</a><br>Мойка: <a href="tel:+79055703311">+7 (905) 570-33-11</a><br>chistoff-detailing.ru</p></div>
+      <div class="contact-card"><h3>Адрес</h3><p>г. Балашиха, мкр. Железнодорожный,<br>ул. Автозаводская, 52А<br>Ежедневно 9:00–21:00</p></div>
+      <div class="contact-card"><h3>Связь</h3><p>Студия: <a href="tel:+79955093399">+7 (995) 509-33-99</a><br>Мойка: <a href="tel:+79055703311">+7 (905) 570-33-11</a><br>chistoff-detailing.ru</p></div>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap footer-inner"><span>© Chistoff, Железнодорожный</span><span class="demo-badge">Демо-версия · 2026.09.06</span></div></footer>
+<footer><div class="wrap footer-inner"><span>© Chistoff, Железнодорожный</span><span class="demo-badge">Демо-версия</span></div></footer>
 </body>
 </html>

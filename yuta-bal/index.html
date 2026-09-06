@@ -3,137 +3,201 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ЮТА — автотехцентр в Балашихе | Сервис, мойка, электрика</title>
-<meta name="description" content="ЮТА в Балашихе: автотехцентр — сервис, автомойка, автоэлектрика. Советская, 54 ст2. Бесплатно по России: 8-800-250-44-04.">
+<title>ЮТА — автотехцентр в&nbsp;Балашихе | Звонок по&nbsp;России бесплатный</title>
+<meta name="description" content="Компания ЮТА в Балашихе: автосервис, автомойка, автоэлектрика. Каталог услуг и прайс на сайте, обратный звонок, оплата картами и наличными. Советская, 54 ст2. 8-800-250-44-04.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e14;--bg2:#10141d;--surface:#161c29;--accent:#ff6b1a;--accent2:#ff8c42;--text:#f0f2f7;--text2:#9aa3b5;--border:rgba(255,255,255,.08);--radius:14px;--font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--bg:#081511;--bg2:#0b1d17;--surface:#0f271e;--accent:#10b981;--accent2:#6ee7b7;--text:#eefaf4;--text2:#8fb5a6;--border:rgba(255,255,255,.09);--radius:14px;--display:'Inter Tight',sans-serif;--font:'Manrope',system-ui,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;max-width:1200px;margin:0 auto;padding:0 20px}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;font-weight:800;font-size:17px;color:var(--text)}
-.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px}
+h1,h2{font-family:var(--display);font-weight:800;line-height:1.15;letter-spacing:-.01em}
+header.site{position:sticky;top:0;z-index:50;background:rgba(8,21,17,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px;max-width:1200px;margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:900;font-size:17px;letter-spacing:.05em;color:var(--text);white-space:nowrap}
+.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),#065f46);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:900;font-size:14px}
 nav.main{display:flex;gap:22px;font-size:14px;color:var(--text2)}
 nav.main a{text-decoration:none;color:inherit}
 nav.main a:hover{color:var(--text)}
-.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.phone{font-weight:700;text-decoration:none;white-space:nowrap;color:var(--text);font-size:14px}
-.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),#059669);color:#03211a;font-weight:800;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(16,185,129,.35)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.hero{padding:72px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,107,26,.14),transparent),var(--bg)}
-.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.12;font-weight:800;max-width:840px}
-.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:640px}
+.hero{padding:76px 0 60px;background:radial-gradient(800px 400px at 85% 0%,rgba(16,185,129,.13),transparent),radial-gradient(600px 300px at 5% 100%,rgba(110,231,183,.06),transparent),var(--bg)}
+.kicker{display:flex;width:fit-content;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:100px;padding:7px 16px;margin-bottom:16px}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;max-width:900px}
+.hero h1 .hl{color:var(--accent)}
+.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:680px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 26px;color:var(--text2);font-size:14px}
 .hero-meta b{color:var(--text)}
+.hero-meta a{color:var(--text);text-decoration:none;font-weight:700}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 .trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.trust span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
-.marquee-wrap{overflow:hidden;background:var(--accent);padding:11px 0}
-.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
-.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
+.trust span{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
+.trust svg{width:16px;height:16px;flex-shrink:0}
+.stripe{overflow:hidden;background:linear-gradient(90deg,var(--accent),#059669);padding:11px 0}
+.stripe-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.stripe-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#03211a;white-space:nowrap;padding:0 30px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:64px 0}
 .section-alt{background:var(--bg2)}
-.section h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:8px}
-.section .lead{color:var(--text2);margin-bottom:30px;max-width:700px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-size:clamp(24px,3.4vw,38px)}
+.section .lead{color:var(--text2);margin-top:10px;max-width:720px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:rgba(255,107,26,.4)}
-.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,26,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card:hover{transform:translateY(-3px);border-color:rgba(16,185,129,.45)}
+.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(16,185,129,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ico svg{width:24px;height:24px}
 .card h3{font-size:17px;margin-bottom:8px}
 .card p{color:var(--text2);font-size:14px}
-.form-section .form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
-.form-card h2{margin-bottom:8px}
+.widget{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px}
+.widget h3{font-size:18px;margin-bottom:8px}
+.widget .lead{margin-bottom:0}
+.tabs-bar{margin-bottom:20px}
+.pay{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.pay div h3{font-size:16px;margin-bottom:6px}
+.pay div p{color:var(--text2);font-size:14px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--accent2);flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{padding:0 22px 18px;color:var(--text2);font-size:14px}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
+.form-card h2{margin-bottom:8px;font-size:clamp(20px,3vw,28px)}
 .form-card p{color:var(--text2);margin-bottom:22px;font-size:15px}
 .form-card input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:12px}
 .form-card .btn{width:100%;font-size:16px}
-.contacts-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.form-note{font-size:12px;color:var(--text2);margin-top:6px}
+.form-tel{color:var(--text);font-weight:700;text-decoration:none}
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent2)}
-.contact-card p{font-size:15px}
+.contact-card p{font-size:15px;overflow-wrap:anywhere}
 .contact-card a{color:var(--text);text-decoration:none;font-weight:600}
 footer{border-top:1px solid var(--border);padding:28px 0;color:var(--text2);font-size:13px}
 .footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
 .demo-badge{font-size:12px;border:1px dashed var(--border);border-radius:8px;padding:4px 12px}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}.contacts-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){nav.main{display:none}.phone{display:none}}
-@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-section .form-card{padding:24px 18px}}
+@media(min-width:640px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.pay{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.contacts-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:760px){nav.main{display:none}}
+@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-card{padding:24px 18px}.widget{padding:22px 16px}.pay{padding:22px 16px}.hero h1{font-size:8.5vw}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="header-inner">
-    <a class="logo" href="#hero"><span class="logo-mark">🚗</span>ЮТА</a>
-    <nav class="main"><a href="#services">Услуги</a><a href="#about">О нас</a><a href="#contacts">Контакты</a></nav>
-    <div class="header-cta"><a class="phone" href="tel:+78002504404">8-800-250-44-04</a><a class="btn" href="#contact">Записаться</a></div>
+    <a class="logo" href="#hero"><span class="logo-mark">ЮТА</span>ЮТА</a>
+    <nav class="main"><a href="#services">Услуги</a><a href="#directions">Направления</a><a href="#pay">Оплата</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn" href="#contact">Записаться</a>
   </div>
 </header>
 
 <section class="hero" id="hero">
   <div class="wrap">
-    <h1>Автотехцентр <span class="hl">в Балашихе</span></h1>
-    <p class="hero-sub">Компания «ЮТА»: сервис по ремонту и техобслуживанию авто, автомойка, автоэлектрика. Звонок по России бесплатный, есть обратный звонок с сайта.</p>
-    <div class="hero-meta"><span>📍 Советская, 54 ст2</span><span>📞 <b>8-800-250-44-04</b></span></div>
-    <div class="hero-btns"><a class="btn" href="#contact">Заказать звонок</a><a class="btn btn-ghost" href="tel:+78002504404">Позвонить</a></div>
-    <div class="trust"><span>Сервис + мойка</span><span>Автоэлектрика</span><span>Звонок бесплатный</span></div>
+    <span class="kicker">Звонок по&nbsp;России бесплатный</span>
+    <h1>Сервис, мойка и&nbsp;электрика — <span class="hl">в одних руках</span></h1>
+    <p class="hero-sub">Компания «ЮТА» в&nbsp;Балашихе: автотехцентр — ремонт и&nbsp;техобслуживание авто, автомойка, автоэлектрика. Каталог услуг и&nbsp;прайс — на&nbsp;сайте, обратный звонок — здесь.</p>
+    <div class="hero-meta"><span>Советская, 54 ст2</span><span><a href="tel:+78002504404">8-800-250-44-04</a></span><span>бесплатно по&nbsp;России</span></div>
+    <div class="hero-btns"><a class="btn" href="#contact">Заказать звонок</a><a class="btn btn-ghost" href="tel:+78002504404">Позвонить бесплатно</a></div>
+    <div class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Сервис + мойка</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Автоэлектрика</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Оплата картой</span></div>
   </div>
 </section>
 
-<div class="marquee-wrap"><div class="marquee-track"><span>Автосервис</span><span>•</span><span>Автомойка</span><span>•</span><span>Автоэлектрика</span><span>•</span><span>Обратный звонок</span><span>•</span><span>Автосервис</span><span>•</span><span>Автомойка</span><span>•</span><span>Автоэлектрика</span><span>•</span><span>Обратный звонок</span><span>•</span></div></div>
+<div class="stripe"><div class="stripe-track"><span>Автосервис</span><span>•</span><span>Автомойка</span><span>•</span><span>Автоэлектрика</span><span>•</span><span>Обратный звонок</span><span>•</span><span>Автосервис</span><span>•</span><span>Автомойка</span><span>•</span><span>Автоэлектрика</span><span>•</span><span>Обратный звонок</span><span>•</span></div></div>
 
 <section class="section" id="services">
   <div class="wrap">
-    <h2>Услуги</h2>
-    <p class="lead">Ремонт и обслуживание — с каталогом и прайсом на сайте.</p>
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Ремонт и&nbsp;обслуживание</h2><p class="lead">Полный список услуг и&nbsp;цены — в&nbsp;каталоге на&nbsp;сайте. Основное:</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">🔧</div><h3>Автосервис</h3><p>Ремонт и техническое обслуживание автомобилей.</p></div>
-      <div class="card"><div class="ico">🚿</div><h3>Автомойка</h3><p>Мойка автомобилей при техцентре.</p></div>
-      <div class="card"><div class="ico">⚡</div><h3>Автоэлектрика</h3><p>Электрика и диагностика автомобиля.</p></div>
-      <div class="card"><div class="ico">📞</div><h3>Обратный звонок</h3><p>Оставьте номер на сайте — перезвоним.</p></div>
-      <div class="card"><div class="ico">📋</div><h3>Каталог и прайс</h3><p>Услуги и цены — в каталоге на сайте.</p></div>
-      <div class="card"><div class="ico">💳</div><h3>Удобная оплата</h3><p>Карты Visa, MasterCard, Мир и наличные.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg></div><h3>Автосервис</h3><p>Ремонт и&nbsp;техническое обслуживание автомобилей любой сложности.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><path d="M4 12h16v2H4zM6 14v5M18 14v5M8 12V6a2 2 0 0 1 4 0"/></svg></div><h3>Автомойка</h3><p>Мойка автомобилей при&nbsp;техцентре: заехали на&nbsp;сервис — уехали чистыми.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><h3>Автоэлектрика</h3><p>Электрика и&nbsp;диагностика: проводка, стартеры, генераторы, блоки.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><path d="M22 16.9v3H2v-3M2 7h20v6H2zM6 7V4h12v3"/></svg></div><h3>Обратный звонок</h3><p>Оставьте номер в&nbsp;форме ниже — перезвоним сами. Или звоните: 8-800 бесплатно.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg></div><h3>Каталог и&nbsp;прайс</h3><p>Услуги с&nbsp;ценами собраны в&nbsp;каталоге на&nbsp;сайте — смотрите заранее.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div><h3>Удобная оплата</h3><p>Карты Visa, MasterCard, Мир и&nbsp;наличные — как удобно вам.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" id="about">
+<section class="section section-alt" id="directions">
   <div class="wrap">
-    <h2>О нас</h2>
-    <p class="lead">«ЮТА» — один из лидеров малого бизнеса Балашихи: автотехцентр на Советской плюс отзывы на сайте.</p>
-    <div class="grid">
-      <div class="card"><div class="ico">📍</div><h3>Советская, 54 ст2</h3><p>Балашиха, 1 этаж.</p></div>
-      <div class="card"><div class="ico">📞</div><h3>8-800-250-44-04</h3><p>Звонок бесплатный. Городские: (495) 748-28-28.</p></div>
-      <div class="card"><div class="ico">💬</div><h3>На связи</h3><p>Почта info@uta50.ru, форма обратной связи.</p></div>
+    <div class="sec-head"><span class="kicker">Направления</span><h2>Три цеха — один техцентр</h2><p class="lead">Куда едете вы? Нажмите своё направление.</p></div>
+    <div class="widget">
+      <div class="hero-btns tabs-bar">
+        <button class="btn" data-d="service">Сервис</button>
+        <button class="btn btn-ghost" data-d="wash">Мойка</button>
+        <button class="btn btn-ghost" data-d="electro">Электрика</button>
+      </div>
+      <div data-dpane="service"><h3>Слесарный цех</h3><p class="lead">ТО, ходовая, тормоза, двигатель. Каталог с&nbsp;прайсом — на&nbsp;сайте, запись — по&nbsp;звонку или&nbsp;через форму ниже.</p></div>
+      <div data-dpane="wash" hidden><h3>Автомойка при&nbsp;техцентре</h3><p class="lead">Кузов и&nbsp;салон. Удобно совместить: авто на&nbsp;ремонте — забираете чистым.</p></div>
+      <div data-dpane="electro" hidden><h3>Электрика и&nbsp;диагностика</h3><p class="lead">Ищем короткие замыкания, чиним проводку, стартеры и&nbsp;генераторы. Опишите симптомы при&nbsp;звонке — подготовимся.</p></div>
+    </div>
+  </div>
+</section>
+<script>
+document.querySelectorAll('[data-d]').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('[data-d]').forEach(function(x){x.classList.add('btn-ghost')});b.classList.remove('btn-ghost');
+document.querySelectorAll('[data-dpane]').forEach(function(p){p.hidden=p.getAttribute('data-dpane')!==b.getAttribute('data-d')});});});
+</script>
+
+<section class="section" id="pay">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Оплата</span><h2>Платите как удобно</h2><p class="lead">Никаких «только наличные».</p></div>
+    <div class="pay">
+      <div><h3>Картой</h3><p>Visa, MasterCard, Мир — терминал в&nbsp;техцентре.</p></div>
+      <div><h3>Наличными</h3><p>Классика тоже принимается. Чек выдаём всегда.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section form-section" id="contact">
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Визит</span><h2>Как проходит визит</h2><p class="lead">От звонка до&nbsp;готового авто — три шага.</p></div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><path d="M22 16.9v3H2v-3M2 7h20v6H2zM6 7V4h12v3"/></svg></div><h3>Звонок</h3><p>Бесплатный 8-800 или&nbsp;обратный звонок с&nbsp;сайта. Опишите задачу — сориентируем по&nbsp;цене.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Диагностика</h3><p>Осматриваем авто, показываем изношенные узлы, фиксируем объём работ.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#6ee7b7" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Работы и&nbsp;мойка</h3><p>Ремонтируем и&nbsp;моем. Оплата картой или&nbsp;наличными, чек выдаём.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details class="faq-item" open><summary>Звонок правда бесплатный?</summary><p>Да: 8-800-250-44-04 — бесплатно для&nbsp;звонков по&nbsp;России. Городской номер тоже есть.</p></details>
+    <details class="faq-item"><summary>Где посмотреть цены?</summary><p>Каталог услуг с&nbsp;прайсом — на&nbsp;сайте. При звонке тоже сориентируем.</p></details>
+    <details class="faq-item"><summary>Можно ли помыть авто во&nbsp;время ремонта?</summary><p>Да, мойка при&nbsp;техцентре: забираете отремонтированный и&nbsp;чистый автомобиль.</p></details>
+    <details class="faq-item"><summary>Как оплатить?</summary><p>Картами Visa, MasterCard, Мир или&nbsp;наличными.</p></details>
+    <details class="faq-item"><summary>Где вы находитесь?</summary><p>Балашиха, ул. Советская, 54, ст2. Звоните — подскажем, как проехать.</p></details>
+  </div>
+</section>
+
+<section class="section" id="contact">
   <div class="wrap">
     <div class="form-card">
+      <span class="kicker">Заявка</span>
       <h2>Заказать звонок</h2>
-      <p>Оставьте номер — перезвоним и запишем.</p>
+      <p>Оставьте номер — перезвоним и&nbsp;запишем на&nbsp;удобное время.</p>
       <form onsubmit="alert('Спасибо! Мы перезвоним.');return false"><input type="text" placeholder="Ваше имя" required><input type="tel" placeholder="Телефон" required><button class="btn" type="submit">Жду звонка</button></form>
+      <p class="form-note">Бесплатно по&nbsp;России: <a class="form-tel" href="tel:+78002504404">8-800-250-44-04</a></p>
     </div>
   </div>
 </section>
 
 <section class="section section-alt" id="contacts">
   <div class="wrap">
-    <h2>Контакты</h2>
-    <p class="lead">Техцентр на Советской.</p>
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Техцентр на&nbsp;Советской</h2><p class="lead">Автотехцентр «ЮТА» в&nbsp;Балашихе.</p></div>
     <div class="contacts-grid">
-      <div class="contact-card"><h3>📍 Адрес</h3><p>Московская обл., г. Балашиха,<br>ул. Советская, 54, ст2</p></div>
-      <div class="contact-card"><h3>📞 Связь</h3><p><a href="tel:+78002504404">8-800-250-44-04</a><br>+7 (495) 748-28-28<br><a href="mailto:info@uta50.ru">info@uta50.ru</a><br>uta50.ru</p></div>
+      <div class="contact-card"><h3>Адрес</h3><p>Московская обл., г. Балашиха,<br>ул. Советская, 54, ст2</p></div>
+      <div class="contact-card"><h3>Связь</h3><p><a href="tel:+78002504404">8-800-250-44-04</a> — бесплатно<br><a href="tel:+74957482828">+7 (495) 748-28-28</a><br><a href="mailto:info@uta50.ru">info@uta50.ru</a><br>uta50.ru</p></div>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap footer-inner"><span>© ЮТА, Балашиха</span><span class="demo-badge">Демо-версия · 2026.09.06</span></div></footer>
+<footer><div class="wrap footer-inner"><span>© ЮТА, Балашиха</span><span class="demo-badge">Демо-версия</span></div></footer>
 </body>
 </html>
