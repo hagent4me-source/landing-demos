@@ -1,146 +1,193 @@
 <!DOCTYPE html>
-<!-- Источник фактуры: сайт prokantara.ru режет всех ботов (403), кэш собран вручную:
-     OSM-теги (адрес отсутствует, часы Mo-Su 09:30-19:00, тел. +7 961 3492521),
-     поисковые сниппеты (ул. Маршала Жукова, 14/1, Уфа; proalkantara@yandex.ru;
-     чехлы Автопилот, автоаксессуары, установка чехлов). Своих фото нет — только иконки. -->
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Автопилот — чехлы и автоаксессуары в Уфе</title>
-<meta name="description" content="Автопилот в Уфе: чехлы на авто, автоаксессуары, установка чехлов. Ул. Маршала Жукова, 14/1, ежедневно 09:30–19:00.">
+<title>Автопилот — чехлы на&nbsp;авто в&nbsp;Уфе | Подбор и&nbsp;установка</title>
+<meta name="description" content="Чехлы Автопилот в Уфе: подбор комплекта под ваш автомобиль и установка на месте. Ул. Маршала Жукова, 14/1. Ежедневно 09:30–19:00. 8 (961) 349-25-21.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e14;--bg2:#10141d;--surface:#161c29;--accent:#ff6b1a;--accent2:#ff8c42;--text:#f0f2f7;--text2:#9aa3b5;--border:rgba(255,255,255,.08);--radius:14px;--font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--bg:#14090c;--bg2:#1c0d11;--surface:#241016;--accent:#e11d48;--accent2:#fda4af;--gold:#f59e0b;--text:#fdf2f5;--text2:#b79aa2;--border:rgba(255,255,255,.09);--radius:14px;--display:'Inter Tight',sans-serif;--font:'Manrope',system-ui,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;max-width:1200px;margin:0 auto;padding:0 20px}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;font-weight:800;font-size:17px;color:var(--text)}
-.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px}
+h1,h2{font-family:var(--display);font-weight:800;line-height:1.15;letter-spacing:-.01em}
+header.site{position:sticky;top:0;z-index:50;background:rgba(20,9,12,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px;max-width:1200px;margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:900;font-size:16px;color:var(--text);white-space:nowrap}
+.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),#881337);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--display);font-weight:900;font-size:13px}
 nav.main{display:flex;gap:22px;font-size:14px;color:var(--text2)}
 nav.main a{text-decoration:none;color:inherit}
 nav.main a:hover{color:var(--text)}
-.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.phone{font-weight:700;text-decoration:none;white-space:nowrap;color:var(--text);font-size:14px}
-.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),#be123c);color:#fff;font-weight:800;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(225,29,72,.4)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.hero{padding:72px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,107,26,.14),transparent),var(--bg)}
-.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.12;font-weight:800;max-width:840px}
-.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:640px}
+.hero{padding:76px 0 60px;background:radial-gradient(800px 400px at 85% 0%,rgba(225,29,72,.15),transparent),radial-gradient(600px 300px at 5% 100%,rgba(245,158,11,.07),transparent),var(--bg)}
+.kicker{display:flex;width:fit-content;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);background:rgba(225,29,72,.1);border:1px solid rgba(225,29,72,.32);border-radius:100px;padding:7px 16px;margin-bottom:16px}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;max-width:880px}
+.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:680px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 26px;color:var(--text2);font-size:14px}
 .hero-meta b{color:var(--text)}
+.hero-meta a{color:var(--text);text-decoration:none;font-weight:700}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 .trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.trust span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
-.marquee-wrap{overflow:hidden;background:var(--accent);padding:11px 0}
-.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
-.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
+.trust span{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
+.trust svg{width:16px;height:16px;flex-shrink:0}
+.stripe{overflow:hidden;background:linear-gradient(90deg,var(--accent),#881337);padding:11px 0}
+.stripe-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.stripe-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:64px 0}
 .section-alt{background:var(--bg2)}
-.section h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:8px}
-.section .lead{color:var(--text2);margin-bottom:30px;max-width:700px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-size:clamp(24px,3.4vw,38px)}
+.section .lead{color:var(--text2);margin-top:10px;max-width:720px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:rgba(255,107,26,.4)}
-.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,26,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card:hover{transform:translateY(-3px);border-color:rgba(225,29,72,.45)}
+.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(225,29,72,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ico svg{width:24px;height:24px}
 .card h3{font-size:17px;margin-bottom:8px}
 .card p{color:var(--text2);font-size:14px}
-.steps{display:grid;grid-template-columns:1fr;gap:14px;counter-reset:step}
-.step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 22px 22px 76px;position:relative}
-.step::before{counter-increment:step;content:counter(step);position:absolute;left:22px;top:20px;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px}
-.step h3{font-size:16px;margin-bottom:6px}
-.step p{color:var(--text2);font-size:14px}
-.form-section .form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
-.form-card h2{margin-bottom:8px}
+.widget{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px}
+.widget h3{font-size:18px;margin-bottom:8px}
+.widget .lead{margin-bottom:0}
+.widget-row{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin:20px 0}
+.widget label{font-size:13px;color:var(--text2);font-weight:600;display:block;margin-bottom:6px}
+.widget input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:13px 14px;font-size:15px;font-family:inherit}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--accent2);flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{padding:0 22px 18px;color:var(--text2);font-size:14px}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
+.form-card h2{margin-bottom:8px;font-size:clamp(20px,3vw,28px)}
 .form-card p{color:var(--text2);margin-bottom:22px;font-size:15px}
 .form-card input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:12px}
 .form-card .btn{width:100%;font-size:16px}
-.contacts-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.form-note{font-size:12px;color:var(--text2);margin-top:6px}
+.form-tel{color:var(--text);font-weight:700;text-decoration:none}
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent2)}
-.contact-card p{font-size:15px}
+.contact-card p{font-size:15px;overflow-wrap:anywhere}
 .contact-card a{color:var(--text);text-decoration:none;font-weight:600}
 footer{border-top:1px solid var(--border);padding:28px 0;color:var(--text2);font-size:13px}
 .footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
 .demo-badge{font-size:12px;border:1px dashed var(--border);border-radius:8px;padding:4px 12px}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}.contacts-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){nav.main{display:none}.phone{display:none}}
-@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-section .form-card{padding:24px 18px}}
+@media(min-width:640px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.contacts-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:760px){nav.main{display:none}}
+@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-card{padding:24px 18px}.widget{padding:22px 16px}.hero h1{font-size:8.5vw}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="header-inner">
-    <a class="logo" href="#hero"><span class="logo-mark">💺</span>Автопилот</a>
-    <nav class="main"><a href="#catalog">Чехлы и товары</a><a href="#steps">Как купить</a><a href="#contacts">Контакты</a></nav>
-    <div class="header-cta"><a class="phone" href="tel:+79613492521">349-25-21</a><a class="btn" href="#contact">Записаться</a></div>
+    <a class="logo" href="#hero"><span class="logo-mark">АП</span>Автопилот</a>
+    <nav class="main"><a href="#services">Чехлы и&nbsp;товары</a><a href="#fit">Подбор</a><a href="#steps">Как купить</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn" href="#contact">Подобрать чехлы</a>
   </div>
 </header>
 
 <section class="hero" id="hero">
   <div class="wrap">
-    <h1>Чехлы Автопилот <span class="hl">в Уфе</span> — с установкой</h1>
-    <p class="hero-sub">Магазин автоаксессуаров: чехлы на авто, установка чехлов. Открыто ежедневно — приезжайте, подберём комплект под ваш автомобиль.</p>
-    <div class="hero-meta"><span>📍 Ул. Маршала Жукова, 14/1</span><span>🕘 Ежедневно 09:30–19:00</span><span>📞 <b>8 (961) 349-25-21</b></span></div>
+    <span class="kicker">Чехлы · Установка · Ежедневно</span>
+    <h1>Салон как из&nbsp;салона — <span class="hl">за один визит</span></h1>
+    <p class="hero-sub">Магазин «Автопилот» в&nbsp;Уфе: чехлы на&nbsp;авто и&nbsp;автоаксессуары. Подберём комплект под&nbsp;вашу модель и&nbsp;установим на&nbsp;месте — сиденья сядут как влитые.</p>
+    <div class="hero-meta"><span>Маршала Жукова, 14/1</span><span>Ежедневно 09:30–19:00</span><span><a href="tel:+79613492521">8 (961) 349-25-21</a></span></div>
     <div class="hero-btns"><a class="btn" href="#contact">Подобрать чехлы</a><a class="btn btn-ghost" href="tel:+79613492521">Позвонить</a></div>
-    <div class="trust"><span>Ежедневно до 20:00</span><span>Установка чехлов</span><span>Официальный сайт</span></div>
+    <div class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Без выходных</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Установка на&nbsp;месте</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Подбор по&nbsp;модели</span></div>
   </div>
 </section>
 
-<div class="marquee-wrap"><div class="marquee-track"><span>Чехлы на авто</span><span>•</span><span>Установка чехлов</span><span>•</span><span>Автоаксессуары</span><span>•</span><span>Ежедневно</span><span>•</span><span>Чехлы на авто</span><span>•</span><span>Установка чехлов</span><span>•</span><span>Автоаксессуары</span><span>•</span><span>Ежедневно</span><span>•</span></div></div>
+<div class="stripe"><div class="stripe-track"><span>Чехлы на&nbsp;авто</span><span>•</span><span>Установка чехлов</span><span>•</span><span>Автоаксессуары</span><span>•</span><span>Ежедневно 09:30–19:00</span><span>•</span><span>Чехлы на&nbsp;авто</span><span>•</span><span>Установка чехлов</span><span>•</span><span>Автоаксессуары</span><span>•</span><span>Ежедневно 09:30–19:00</span><span>•</span></div></div>
 
-<section class="section" id="catalog">
+<section class="section" id="services">
   <div class="wrap">
-    <h2>Что у нас есть</h2>
-    <p class="lead">Чехлы и аксессуары для вашего автомобиля.</p>
+    <div class="sec-head"><span class="kicker">Чехлы и&nbsp;товары</span><h2>Что у&nbsp;нас есть</h2><p class="lead">Чехлы и&nbsp;аксессуары для&nbsp;вашего автомобиля.</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">💺</div><h3>Чехлы Автопилот</h3><p>Чехлы на авто — подберём комплект под вашу модель.</p></div>
-      <div class="card"><div class="ico">🔧</div><h3>Установка чехлов</h3><p>Установим чехлы аккуратно — сиденья сядут как влитые.</p></div>
-      <div class="card"><div class="ico">🚗</div><h3>Автоаксессуары</h3><p>Аксессуары для авто — уточняйте наличие по телефону.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><path d="M7 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H7z"/><path d="M7 9h10M7 13h10"/></svg></div><h3>Чехлы Автопилот</h3><p>Чехлы на&nbsp;авто — подберём комплект точно под&nbsp;вашу марку, модель и&nbsp;год.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg></div><h3>Установка чехлов</h3><p>Установим чехлы аккуратно на&nbsp;месте — без&nbsp;складок и&nbsp;перекосов.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><path d="M5 17h14M7 17l1.5-5h7L17 17M9 12V8h6v4M4 17v2M20 17v2"/></svg></div><h3>Автоаксессуары</h3><p>Аксессуары для&nbsp;авто в&nbsp;дорогу и&nbsp;в салон — наличие уточняйте по&nbsp;телефону.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" id="steps">
+<section class="section section-alt" id="fit">
   <div class="wrap">
-    <h2>Как купить — 3 шага</h2>
-    <p class="lead">Позвоните или оставьте заявку — подберём чехлы под ваш авто.</p>
-    <div class="steps">
-      <div class="step"><h3>Заявка</h3><p>Позвоните или оставьте номер — уточним марку, модель и год авто.</p></div>
-      <div class="step"><h3>Подбор</h3><p>Подберём комплект чехлов под ваш салон.</p></div>
-      <div class="step"><h3>Установка</h3><p>Приезжайте на Жукова, 14/1 — установим чехлы на месте.</p></div>
-      <div class="step"><h3>Ежедневно</h3><p>Работаем без выходных с 09:30 до 19:00.</p></div>
+    <div class="sec-head"><span class="kicker">Подбор</span><h2>Чехлы под&nbsp;ваш авто — за&nbsp;минуту</h2><p class="lead">Впишите данные — скажем, есть ли комплект, и&nbsp;назовём время установки.</p></div>
+    <div class="widget">
+      <div class="widget-row">
+        <div><label>Марка и&nbsp;модель</label><input type="text" id="a-model" placeholder="Например, Kia Rio"></div>
+        <div><label>Год выпуска</label><input type="text" id="a-year" placeholder="Например, 2020"></div>
+        <div><label>Тип салона</label><input type="text" id="a-trim" placeholder="Например, седан, ткань"></div>
+      </div>
+      <button class="btn" onclick="alert('Принято: '+document.getElementById('a-model').value+', '+document.getElementById('a-year').value+', '+document.getElementById('a-trim').value+'. Оставьте номер в форме ниже — подтвердим наличие и время!')">Проверить наличие</button>
     </div>
   </div>
 </section>
 
-<section class="section form-section" id="contact">
+<section class="section" id="steps">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Как купить</span><h2>Три шага до&nbsp;нового салона</h2><p class="lead">Позвоните или&nbsp;оставьте заявку — подберём чехлы под&nbsp;ваш авто.</p></div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Заявка</h3><p>Позвоните или&nbsp;оставьте номер — уточним марку, модель и&nbsp;год авто.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Подбор</h3><p>Подберём комплект чехлов под&nbsp;ваш салон.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Установка</h3><p>Приезжайте на&nbsp;Жукова, 14/1 — установим чехлы на&nbsp;месте.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="why">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Почему мы</span><h2>Приехали — уехали в&nbsp;новом салоне</h2><p class="lead">Три причины заехать на&nbsp;Жукова, 14/1.</p></div>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Ежедневно</h3><p>Открыто без&nbsp;выходных с&nbsp;09:30 до&nbsp;19:00 — заезжайте в&nbsp;удобный день.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg></div><h3>Установка на&nbsp;месте</h3><p>Не отдаём комплект в&nbsp;руки и&nbsp;не гадаем — ставим сами, сразу проверяете.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fda4af" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Подбор по&nbsp;авто</h3><p>Комплект подбираем под&nbsp;конкретную модель — сядет как влитой.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details class="faq-item" open><summary>Подойдут ли чехлы на&nbsp;мой авто?</summary><p>Подбираем комплект под&nbsp;марку, модель и&nbsp;год — впишите данные в&nbsp;форму подбора выше или&nbsp;позвоните.</p></details>
+    <details class="faq-item"><summary>Устанавливаете ли вы чехлы?</summary><p>Да, установка на&nbsp;месте — на&nbsp;Жукова, 14/1. Приезжайте, поставим при&nbsp;вас.</p></details>
+    <details class="faq-item"><summary>Когда вы открыты?</summary><p>Ежедневно с&nbsp;09:30 до&nbsp;19:00, без&nbsp;выходных.</p></details>
+    <details class="faq-item"><summary>Что ещё у&nbsp;вас есть?</summary><p>Автоаксессуары — наличие уточняйте по&nbsp;телефону 8 (961) 349-25-21.</p></details>
+    <details class="faq-item"><summary>Где вы находитесь?</summary><p>Уфа, ул. Маршала Жукова, 14/1.</p></details>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
   <div class="wrap">
     <div class="form-card">
+      <span class="kicker">Заявка</span>
       <h2>Подобрать чехлы</h2>
-      <p>Оставьте номер — перезвоним и подберём комплект.</p>
+      <p>Оставьте номер — перезвоним и&nbsp;подберём комплект.</p>
       <form onsubmit="alert('Спасибо! Мы перезвоним.');return false"><input type="text" placeholder="Ваше имя" required><input type="tel" placeholder="Телефон" required><button class="btn" type="submit">Жду звонка</button></form>
+      <p class="form-note">Или позвоните: <a class="form-tel" href="tel:+79613492521">8 (961) 349-25-21</a></p>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" id="contacts">
+<section class="section" id="contacts">
   <div class="wrap">
-    <h2>Контакты</h2>
-    <p class="lead">Ул. Маршала Жукова — ежедневно.</p>
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Жукова, 14/1 — ежедневно</h2><p class="lead">Чехлы Автопилот в&nbsp;Уфе.</p></div>
     <div class="contacts-grid">
-      <div class="contact-card"><h3>📍 Адрес</h3><p>г. Уфа, ул. Маршала Жукова, 14/1<br>Ежедневно 09:30–19:00</p></div>
-      <div class="contact-card"><h3>📞 Связь</h3><p><a href="tel:+79613492521">8 (961) 349-25-21</a><br><a href="mailto:proalkantara@yandex.ru">proalkantara@yandex.ru</a><br>prokantara.ru</p></div>
+      <div class="contact-card"><h3>Адрес</h3><p>г. Уфа, ул. Маршала Жукова, 14/1<br>Ежедневно 09:30–19:00</p></div>
+      <div class="contact-card"><h3>Связь</h3><p><a href="tel:+79613492521">8 (961) 349-25-21</a><br>avtopilot-ufa.ru</p></div>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap footer-inner"><span>© Автопилот, Уфа</span><span class="demo-badge">Демо-версия · 2026.09.06</span></div></footer>
+<footer><div class="wrap footer-inner"><span>© Автопилот, Уфа</span><span class="demo-badge">Демо-версия</span></div></footer>
 </body>
 </html>
