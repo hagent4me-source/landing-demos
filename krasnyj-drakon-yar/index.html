@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Красный Дракон — запчасти для китайских автомобилей в Ярославле</title>
+<meta name="description" content="Спецмагазин запчастей для китайских авто: Chery, Geely, Haval, Lifan, Great Wall, FAW, BYD. Оригинал, аналог и б/у. Доставка по всей России. Ярославль, пр. Октября, 93.">
+<style>
+:root{--red:#c8102e;--dark:#141014;--gold:#e8b64c;--bg:#faf7f2;--card:#fff;--txt:#241d1d;--mut:#7a6f6a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+.demo{background:#141014;color:#ffd76a;text-align:center;font-size:13px;padding:8px 12px;letter-spacing:.3px}
+header{background:linear-gradient(135deg,#1c0e12,#3d0f18 60%,#1c0e12);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+.logo .mark{width:44px;height:44px;border-radius:12px;background:radial-gradient(circle at 30% 30%,#ff5b5b,var(--red) 65%);display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 14px rgba(200,16,46,.5)}
+.logo small{display:block;font-size:12px;font-weight:400;color:#f3c9c9}
+.hdr-contacts{text-align:right;font-size:14px}
+.hdr-contacts a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.btn{display:inline-block;background:var(--red);color:#fff;padding:13px 28px;border-radius:12px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:16px;transition:.2s}
+.btn:hover{background:#a50d26;transform:translateY(-1px)}
+.btn.gold{background:var(--gold);color:#221503}
+.btn.ghost{background:transparent;border:2px solid #fff}
+.hero{background:radial-gradient(1000px 400px at 80% -10%,rgba(200,16,46,.25),transparent),linear-gradient(135deg,#1c0e12,#3d0f18);color:#fff;padding:56px 20px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"龍";position:absolute;right:-30px;top:-60px;font-size:340px;opacity:.07;line-height:1}
+.hero h1{font-size:clamp(28px,5vw,52px);margin-bottom:12px;line-height:1.15}
+.hero h1 span{color:var(--gold)}
+.hero p.sub{font-size:clamp(15px,2.4vw,20px);color:#f0d7d7;max-width:720px;margin:0 auto 26px}
+.hero .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 22px;min-width:140px}
+.stat b{display:block;font-size:26px;color:var(--gold)}
+.stat span{font-size:13px;color:#e8caca}
+.brands{background:#fff;border-bottom:1px solid #eee;overflow:hidden;padding:14px 0;white-space:nowrap}
+.brands .track{display:inline-block;animation:marquee 26s linear infinite;font-weight:800;font-size:18px;color:#3d0f18;letter-spacing:1px}
+.brands .track i{font-style:normal;color:var(--red);margin:0 14px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:52px 20px;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(24px,4vw,34px);margin-bottom:8px;text-align:center}
+p.lead{text-align:center;color:var(--mut);max-width:680px;margin:0 auto 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.brand-card{background:var(--card);border-radius:16px;padding:22px 12px;text-align:center;box-shadow:0 4px 18px rgba(20,10,10,.07);border-top:4px solid var(--red);transition:.2s}
+.brand-card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(200,16,46,.18)}
+.brand-card b{font-size:18px}
+.brand-card span{display:block;font-size:13px;color:var(--mut);margin-top:4px}
+.conds{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.cond{background:linear-gradient(160deg,#fff,#fdf3ec);border-radius:18px;padding:28px;box-shadow:0 4px 18px rgba(20,10,10,.07);border:1px solid #f0e2d4}
+.cond .tag{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.tag.orig{background:#e7f6e9;color:#1c7a2e}.tag.analog{background:#fff3d6;color:#9a6b00}.tag.bu{background:#fde4e4;color:#a50d26}
+.cond h3{margin-bottom:8px;font-size:20px}
+.cond p{font-size:15px;color:#4a423f}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:step}
+.step{background:var(--dark);color:#fff;border-radius:18px;padding:26px;position:relative;overflow:hidden}
+.step::before{counter-increment:step;content:counter(step);position:absolute;right:10px;top:-14px;font-size:96px;font-weight:800;color:rgba(232,182,76,.18)}
+.step b{color:var(--gold);display:block;margin-bottom:8px;font-size:18px}
+.delivery{background:linear-gradient(135deg,#3d0f18,#1c0e12);color:#fff;border-radius:22px;padding:36px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.delivery ul{list-style:none;margin-top:14px}
+.delivery li{padding:8px 0 8px 30px;position:relative;font-size:15px}
+.delivery li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:800}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(20,10,10,.07);font-size:15px}
+.rev .stars{color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+.rev b{display:block;margin-top:10px;font-size:14px;color:var(--mut)}
+.contacts{background:#fff;border-radius:22px;padding:36px 28px;box-shadow:0 6px 30px rgba(20,10,10,.1);display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.contacts h3{margin-bottom:14px}
+.c-row{padding:9px 0;border-bottom:1px dashed #e6d9cd;font-size:16px}
+.c-row:last-child{border:0}
+.c-row b{display:inline-block;min-width:110px;color:var(--mut);font-weight:600;font-size:14px}
+.c-row a{color:var(--red);font-weight:700;text-decoration:none}
+footer{background:#141014;color:#9b8f8c;text-align:center;padding:26px 16px;font-size:13px}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:#141014ee;padding:10px 14px;display:none;gap:10px;z-index:60;backdrop-filter:blur(6px)}
+.sticky .btn{flex:1;text-align:center;padding:12px}
+@media(max-width:760px){.delivery,.contacts{grid-template-columns:1fr}.hdr-contacts{display:none}.sticky{display:flex}body{padding-bottom:66px}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия · 2026.09.07 — концепт нового сайта магазина «Красный Дракон»</div>
+<header>
+  <div class="logo"><span class="mark">龍</span><span>КРАСНЫЙ ДРАКОН<small>запчасти для китайских авто · Ярославль</small></span></div>
+  <div class="hdr-contacts"><a href="tel:+74852580200">(4852) 58-02-00</a><br>пн–пт 10:00–17:00</div>
+  <a class="btn gold" href="#contacts">Запросить запчасть</a>
+</header>
+<div class="hero">
+  <h1>Запчасти для китайских автомобилей — <span>в наличии и под заказ</span></h1>
+  <p class="sub">Оригинал, аналог и б/у с собственного склада в Ярославле. Подберём деталь по VIN за 15 минут. Доставка в любой регион России.</p>
+  <div class="cta-row"><a class="btn gold" href="#contacts">Подобрать по VIN</a><a class="btn ghost" href="#catalog">Каталог марок</a></div>
+  <div class="stats">
+    <div class="stat"><b>с 2010</b><span>года на рынке</span></div>
+    <div class="stat"><b>9 марок</b><span>в специализации</span></div>
+    <div class="stat"><b>15 минут</b><span>подбор по VIN</span></div>
+    <div class="stat"><b>вся РФ</b><span>доставка ТК и почтой</span></div>
+  </div>
+</div>
+<div class="brands"><span class="track">CHERY <i>•</i> GEELY <i>•</i> HAVAL <i>•</i> LIFAN <i>•</i> GREAT WALL <i>•</i> FAW <i>•</i> BYD <i>•</i> HAIMA <i>•</i> BRILLIANCE <i>•</i> CHERY <i>•</i> GEELY <i>•</i> HAVAL <i>•</i> LIFAN <i>•</i> GREAT WALL <i>•</i> FAW <i>•</i> BYD <i>•</i> HAIMA <i>•</i> BRILLIANCE <i>•</i>&nbsp;</span></div>
+<section id="catalog">
+  <h2>Каталог по маркам</h2>
+  <p class="lead">Держим ходовые позиции на складе, редкие детали привозим под заказ в сжатые сроки</p>
+  <div class="grid">
+    <div class="brand-card"><b>Chery</b><span>Amulet · Tiggo · Bonus</span></div>
+    <div class="brand-card"><b>Geely</b><span>Emgrand · Atlas · Coolray</span></div>
+    <div class="brand-card"><b>Haval</b><span>H2 · H6 · Jolion · F7</span></div>
+    <div class="brand-card"><b>Lifan</b><span>X50 · X60 · Solano</span></div>
+    <div class="brand-card"><b>Great Wall</b><span>Hover · Wingle · Deer</span></div>
+    <div class="brand-card"><b>FAW</b><span>Besturn · Vita · Oley</span></div>
+    <div class="brand-card"><b>BYD</b><span>F3 · Flyer</span></div>
+    <div class="brand-card"><b>Haima</b><span>3 · 7 · M3</span></div>
+    <div class="brand-card"><b>Brilliance</b><span>V5 · H530</span></div>
+  </div>
+</section>
+<section>
+  <h2>Три варианта на любой бюджет</h2>
+  <p class="lead">Честно скажем о разнице в ресурсе и цене — решение за вами</p>
+  <div class="conds">
+    <div class="cond"><span class="tag orig">Оригинал</span><h3>Заводские детали</h3><p>Максимальный ресурс и точная посадка. Для ответственных узлов: ГРМ, подвеска, тормоза, электрика.</p></div>
+    <div class="cond"><span class="tag analog">Аналог</span><h3>Проверенные бренды</h3><p>До −50% от цены оригинала при сопоставимом качестве. Подскажем, какие производители ходят долго.</p></div>
+    <div class="cond"><span class="tag bu">Б/у</span><h3>Разбор, с проверкой</h3><p>Кузовина, оптика, салон и агрегаты в отличном состоянии — когда новой детали уже не выпускают.</p></div>
+  </div>
+</section>
+<section>
+  <h2>Как заказать — 3 шага</h2>
+  <p class="lead">Наличие, стоимость и срок называем сразу, без «перезвоним завтра»</p>
+  <div class="steps">
+    <div class="step"><b>Заявка</b>Позвоните, напишите на почту или приезжайте: VIN + что нужно. Подбор — 15 минут.</div>
+    <div class="step"><b>Подтверждение</b>Присылаем варианты с ценами и сроками: оригинал / аналог / б/у. Вы выбираете.</div>
+    <div class="step"><b>Получение</b>Самовывоз в Ярославле или отправка транспортной компанией / почтой по всей России. Наличный и безналичный расчёт.</div>
+  </div>
+</section>
+<section>
+  <div class="delivery">
+    <div><h2 style="text-align:left">Работаем со всей Россией</h2><p style="color:#e8caca">Находимся в Ярославле, отправляем ежедневно</p>
+      <ul><li>Транспортные компании и почта — в любой регион</li><li>Организациям и автосервисам — счета и документы</li><li>Безнал и наличный расчёт</li><li>Фото детали перед отправкой — по запросу</li></ul></div>
+    <div style="text-align:center"><div style="font-size:72px">📦</div><a class="btn gold" href="#contacts">Узнать срок доставки</a></div>
+  </div>
+</section>
+<section>
+  <h2>Отзывы владельцев</h2>
+  <p class="lead">Нас рекомендуют в клубах Chery, Lifan и Great Wall</p>
+  <div class="reviews">
+    <div class="rev"><div class="stars">★★★★★</div>«На Hover ничего не мог найти по городу — здесь подобрали по VIN за десять минут, через три дня уже ставил.»<b>Андрей · Great Wall Hover, Ярославль</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Заказывали фару на Tiggo в регион. Прислали фото перед отправкой, всё пришло целое, ТК за 4 дня.»<b>Сергей · Chery Tiggo, Вологда</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Берём расходники для таксопарка из Лифанов. Считают быстро, с документами порядок.»<b>Дмитрий · автосервис, Ярославль</b></div>
+  </div>
+</section>
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p class="lead">пн–пт 10:00–17:00 · сб–вс выходной</p>
+  <div class="contacts">
+    <div><h3>Связаться</h3>
+      <div class="c-row"><b>Телефон</b><a href="tel:+74852580200">(4852) 58-02-00</a>, 37-00-27</div>
+      <div class="c-row"><b>Мобильный</b><a href="tel:+79056330797">8-905-633-07-97</a></div>
+      <div class="c-row"><b>Почта</b><a href="mailto:k-dr76@yandex.ru">k-dr76@yandex.ru</a></div>
+      <div class="c-row"><b>Адрес</b>г. Ярославль, пр. Октября, 93 (ост. «Лакокраска»)</div>
+    </div>
+    <div><h3>Запрос запчасти</h3>
+      <p style="font-size:15px;color:#4a423f;margin-bottom:14px">Напишите нам на почту: <b>марка, модель, год и VIN</b> + какая деталь нужна. Ответим в рабочее время в течение часа.</p>
+      <a class="btn" href="mailto:k-dr76@yandex.ru?subject=Запрос%20запчасти%20с%20сайта">Написать письмо</a>
+      <p style="font-size:13px;color:var(--mut);margin-top:14px">ИП Жукова Ю.П. · ОГРНИП 318762700053040</p>
+    </div>
+  </div>
+</section>
+<footer>Концепт-демо нового сайта · Реальный сайт магазина: k-dr76.ru · Демо подготовлено веб-студией</footer>
+<div class="sticky"><a class="btn" href="tel:+74852580200">Позвонить</a><a class="btn gold" href="mailto:k-dr76@yandex.ru">Запросить запчасть</a></div>
+</body>
+</html>
