@@ -3,130 +3,174 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Вариатор Сервис — ремонт вариаторов, АКПП и DSG в Ижевске</title>
-<meta name="description" content="Вариатор Сервис в Ижевске: ремонт вариатора за 3 дня, гарантия 1.5 года, замена масла за 90 минут. Техзона 650 м², стаж команды 12 лет. Бесплатный эвакуатор.">
+<title>Вариатор Сервис — ремонт вариаторов и&nbsp;АКПП в&nbsp;Ижевске за&nbsp;3 дня</title>
+<meta name="description" content="Вариатор Сервис в Ижевске: ремонт вариаторов за 3 дня, АКПП и DSG. Гарантия 1,5 года, эвакуатор бесплатно, замена масла за 90 минут. Цена известна до начала работ. (3412) 90-70-18.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0e14;--bg2:#10141d;--surface:#161c29;--accent:#ff6b1a;--accent2:#ff8c42;--text:#f0f2f7;--text2:#9aa3b5;--border:rgba(255,255,255,.08);--radius:14px;--font:'Manrope','Inter',system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--bg:#0a1418;--bg2:#0e1a20;--surface:#132028;--accent:#22d3ee;--accent2:#67e8f9;--text:#f0fbfd;--text2:#8fb5bf;--border:rgba(255,255,255,.09);--radius:14px;--display:'Inter Tight',sans-serif;--font:'Manrope',system-ui,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-header.site{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px;max-width:1200px;margin:0 auto;padding:0 20px}
-.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none;font-weight:800;font-size:17px;color:var(--text)}
-.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:18px}
+h1,h2{font-family:var(--display);font-weight:800;line-height:1.15;letter-spacing:-.01em}
+header.site{position:sticky;top:0;z-index:50;background:rgba(10,20,24,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px;max-width:1200px;margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:900;font-size:15px;color:var(--text);white-space:nowrap}
+.logo-mark{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--accent),#0e7490);display:flex;align-items:center;justify-content:center;color:#062027;font-weight:900;font-size:14px}
 nav.main{display:flex;gap:22px;font-size:14px;color:var(--text2)}
 nav.main a{text-decoration:none;color:inherit}
 nav.main a:hover{color:var(--text)}
-.header-cta{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.phone{font-weight:700;text-decoration:none;white-space:nowrap;color:var(--text);font-size:14px}
-.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-weight:700;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,26,.35)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent),#0891b2);color:#062027;font-weight:800;border:none;border-radius:10px;padding:12px 24px;cursor:pointer;text-decoration:none;font-size:15px;transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,211,238,.35)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.hero{padding:72px 0 60px;background:radial-gradient(800px 400px at 80% 0%,rgba(255,107,26,.14),transparent),var(--bg)}
-.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.12;font-weight:800;max-width:840px}
-.hero h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:640px}
+.hero{padding:76px 0 60px;background:radial-gradient(800px 400px at 15% 0%,rgba(34,211,238,.13),transparent),radial-gradient(600px 300px at 90% 100%,rgba(103,232,249,.05),transparent),var(--bg)}
+.kicker{display:flex;width:fit-content;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);border-radius:100px;padding:7px 16px;margin-bottom:16px}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;max-width:880px}
+.hero h1 .hl{color:var(--accent)}
+.hero-sub{color:var(--text2);font-size:17px;margin:16px 0 8px;max-width:680px}
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;margin:18px 0 26px;color:var(--text2);font-size:14px}
 .hero-meta b{color:var(--text)}
+.hero-meta a{color:var(--text);text-decoration:none;font-weight:700}
 .hero-btns{display:flex;flex-wrap:wrap;gap:12px}
 .trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.trust span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
-.marquee-wrap{overflow:hidden;background:var(--accent);padding:11px 0}
-.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 26s linear infinite}
-.marquee-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#fff;white-space:nowrap;padding:0 30px}
+.trust span{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:600}
+.trust svg{width:16px;height:16px;flex-shrink:0}
+.stripe{overflow:hidden;background:linear-gradient(90deg,var(--accent),#0e7490);padding:11px 0}
+.stripe-track{display:flex;width:max-content;animation:marquee 26s linear infinite}
+.stripe-track span{font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#062027;white-space:nowrap;padding:0 30px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:64px 0}
 .section-alt{background:var(--bg2)}
-.section h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;margin-bottom:8px}
-.section .lead{color:var(--text2);margin-bottom:30px;max-width:700px}
-.grid{display:grid;grid-template-columns:1fr;gap:16px}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-size:clamp(24px,3.4vw,38px)}
+.section .lead{color:var(--text2);margin-top:10px;max-width:720px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
-.card:hover{transform:translateY(-3px);border-color:rgba(255,107,26,.4)}
-.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,26,.12);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.card:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.45)}
+.card .ico{width:46px;height:46px;border-radius:12px;background:rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ico svg{width:24px;height:24px}
 .card h3{font-size:17px;margin-bottom:8px}
 .card p{color:var(--text2);font-size:14px}
-.promo{background:linear-gradient(135deg,rgba(255,107,26,.16),rgba(255,140,66,.06));border:1px solid rgba(255,107,26,.35);border-radius:18px;padding:34px;text-align:center}
-.promo h2{margin-bottom:10px}
-.promo p{color:var(--text2);margin-bottom:22px}
-.promo .btn{font-size:16px;padding:14px 36px}
-.form-section .form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
-.form-card h2{margin-bottom:8px}
+.widget{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px}
+.widget h3{font-size:18px;margin-bottom:8px}
+.widget .lead{margin-bottom:0}
+.widget a{color:var(--text);font-weight:700;text-decoration:none}
+.steps{counter-reset:s}
+.step{display:flex;gap:18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:12px}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--display);font-weight:900;font-size:26px;color:var(--accent);flex-shrink:0;width:44px;height:44px;border-radius:12px;background:rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center}
+.step h3{font-size:16px;margin-bottom:4px}
+.step p{color:var(--text2);font-size:14px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:22px;color:var(--accent2);flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{padding:0 22px 18px;color:var(--text2);font-size:14px}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:34px;max-width:560px;margin:0 auto;text-align:center}
+.form-card h2{margin-bottom:8px;font-size:clamp(20px,3vw,28px)}
 .form-card p{color:var(--text2);margin-bottom:22px;font-size:15px}
 .form-card input{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:14px 16px;font-size:15px;font-family:inherit;margin-bottom:12px}
 .form-card .btn{width:100%;font-size:16px}
-.contacts-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.form-note{font-size:12px;color:var(--text2);margin-top:6px}
+.form-tel{color:var(--text);font-weight:700;text-decoration:none}
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
 .contact-card h3{font-size:16px;margin-bottom:10px;color:var(--accent2)}
-.contact-card p{font-size:15px}
+.contact-card p{font-size:15px;overflow-wrap:anywhere}
 .contact-card a{color:var(--text);text-decoration:none;font-weight:600}
 footer{border-top:1px solid var(--border);padding:28px 0;color:var(--text2);font-size:13px}
 .footer-inner{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
 .demo-badge{font-size:12px;border:1px dashed var(--border);border-radius:8px;padding:4px 12px}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:900px){.grid{grid-template-columns:1fr 1fr 1fr}.contacts-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){nav.main{display:none}.phone{display:none}}
-@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-section .form-card{padding:24px 18px}.promo{padding:26px 18px}}
+@media(min-width:640px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.contacts-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:760px){nav.main{display:none}}
+@media(max-width:480px){.section{padding:44px 0}.hero{padding:48px 0 40px}.form-card{padding:24px 18px}.hero h1{font-size:8.5vw}}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="header-inner">
-    <a class="logo" href="#hero"><span class="logo-mark">⚙️</span>Вариатор Сервис</a>
-    <nav class="main"><a href="#services">Услуги</a><a href="#promo">Гарантии</a><a href="#contacts">Контакты</a></nav>
-    <div class="header-cta"><a class="phone" href="tel:+73412907018">90-70-18</a><a class="btn" href="#contact">Записаться</a></div>
+    <a class="logo" href="#hero"><span class="logo-mark">CVT</span>Вариатор Сервис</a>
+    <nav class="main"><a href="#services">Услуги</a><a href="#how">Как работаем</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+    <a class="btn" href="#contact">Записаться</a>
   </div>
 </header>
 
 <section class="hero" id="hero">
   <div class="wrap">
-    <h1>Ремонт вариаторов <span class="hl">за 3 дня</span> — Ижевск</h1>
-    <p class="hero-sub">«Вариатор Сервис»: диагностируем, обслуживаем и ремонтируем вариаторы, классические АКПП и роботизированные трансмиссии. Техзона 650 м², команда со средним стажем 12 лет.</p>
-    <div class="hero-meta"><span>📞 <b>(3412) 90-70-18</b></span><span>🕙 Будни 10:00–19:00 · Сб 9:00–14:00</span></div>
-    <div class="hero-btns"><a class="btn" href="#contact">Записаться на диагностику</a><a class="btn btn-ghost" href="tel:+73412907018">Вызвать эвакуатор</a></div>
-    <div class="trust"><span>Гарантия 1,5 года</span><span>Эвакуатор бесплатно</span><span>Масло за 90 минут</span></div>
+    <span class="kicker">Вариаторы · АКПП · DSG</span>
+    <h1>Ремонт вариатора <span class="hl">за 3 дня</span> — и&nbsp;цена известна заранее</h1>
+    <p class="hero-sub">«Вариатор Сервис» в&nbsp;Ижевске: диагностируем, обслуживаем и&nbsp;ремонтируем вариаторы, классические АКПП и&nbsp;роботизированные трансмиссии. Техзона 650 м², средний стаж команды — 12 лет.</p>
+    <div class="hero-meta"><span><a href="tel:+73412907018">(3412) 90-70-18</a></span><span>Будни 10:00–19:00 · Сб 9:00–14:00</span></div>
+    <div class="hero-btns"><a class="btn" href="#contact">Записаться на&nbsp;диагностику</a><a class="btn btn-ghost" href="tel:+73412907018">Вызвать эвакуатор</a></div>
+    <div class="trust"><span><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Гарантия 1,5 года</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Эвакуатор бесплатно</span><span><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>Масло за&nbsp;90 минут</span></div>
   </div>
 </section>
 
-<div class="marquee-wrap"><div class="marquee-track"><span>Ремонт за 3 дня</span><span>•</span><span>Гарантия 1,5 года</span><span>•</span><span>Эвакуатор бесплатно</span><span>•</span><span>Честная цена заранее</span><span>•</span><span>Ремонт за 3 дня</span><span>•</span><span>Гарантия 1,5 года</span><span>•</span><span>Эвакуатор бесплатно</span><span>•</span><span>Честная цена заранее</span><span>•</span></div></div>
+<div class="stripe"><div class="stripe-track"><span>Ремонт за&nbsp;3 дня</span><span>•</span><span>Гарантия 1,5 года</span><span>•</span><span>Эвакуатор бесплатно</span><span>•</span><span>Честная цена заранее</span><span>•</span><span>Ремонт за&nbsp;3 дня</span><span>•</span><span>Гарантия 1,5 года</span><span>•</span><span>Эвакуатор бесплатно</span><span>•</span><span>Честная цена заранее</span><span>•</span></div></div>
 
 <section class="section" id="services">
   <div class="wrap">
-    <h2>Услуги</h2>
-    <p class="lead">Честная цена, известная ещё до начала работ.</p>
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Трансмиссия — единственный профиль</h2><p class="lead">Честная цена, известная ещё до&nbsp;начала работ.</p></div>
     <div class="grid">
-      <div class="card"><div class="ico">🔧</div><h3>Ремонт вариатора за 3 дня</h3><p>Расходники в наличии — соблюдаем сроки обслуживания.</p></div>
-      <div class="card"><div class="ico">⚙️</div><h3>Ремонт АКПП и DSG</h3><p>Классические автоматы и роботизированные трансмиссии.</p></div>
-      <div class="card"><div class="ico">🔍</div><h3>Диагностика</h3><p>Диагностика в удобный день, точный вердикт по коробке.</p></div>
-      <div class="card"><div class="ico">🛢️</div><h3>Замена масла за 90 минут</h3><p>Быстрое обслуживание трансмиссии.</p></div>
-      <div class="card"><div class="ico">🚛</div><h3>Эвакуатор бесплатно</h3><p>Вызовите эвакуатор — довезём авто в сервис.</p></div>
-      <div class="card"><div class="ico">🛡️</div><h3>Гарантия 1,5 года</h3><p>Адекватные цены и гарантия на ремонт.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2L19 19M19 5l-2.8 2.8M7.8 16.2L5 19"/></svg></div><h3>Ремонт вариатора за&nbsp;3 дня</h3><p>Расходники в&nbsp;наличии — соблюдаем сроки.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3>Ремонт АКПП и&nbsp;DSG</h3><p>Классические автоматы и&nbsp;роботы.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><h3>Диагностика</h3><p>Точный вердикт по&nbsp;коробке в&nbsp;удобный день.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="1.8"><path d="M12 2.7l5.7 5.7a8 8 0 1 1-11.4 0L12 2.7z"/><path d="M9 14a3 3 0 0 0 3 3"/></svg></div><h3>Замена масла за&nbsp;90 минут</h3><p>Быстрое обслуживание трансмиссии.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="1.8"><path d="M1 16h13V7H7l-6 5v4zM14 10h4l4 4v2h-8"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/></svg></div><h3>Эвакуатор бесплатно</h3><p>Довезём авто в&nbsp;сервис без&nbsp;затрат.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#67e8f9" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div><h3>Гарантия 1,5 года</h3><p>Адекватные цены и&nbsp;гарантия на&nbsp;ремонт.</p></div>
     </div>
-    <div class="promo" id="promo" style="margin-top:26px"><h2>Цена известна до начала работ</h2><p>Никаких сюрпризов в акте: стоимость фиксируем заранее.</p><a class="btn" href="#contact">Узнать цену ремонта</a></div>
   </div>
 </section>
 
-<section class="section section-alt form-section" id="contact">
+<section class="section section-alt" id="how">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Как работаем</span><h2>Цена известна до&nbsp;начала работ</h2><p class="lead">Никаких сюрпризов в&nbsp;акте: стоимость фиксируем заранее.</p></div>
+    <div class="steps">
+      <div class="step"><div><h3>Запись и&nbsp;эвакуатор</h3><p>Звоните по&nbsp;<b>(3412) 90-70-18</b> — при&nbsp;необходимости привезём авто эвакуатором бесплатно.</p></div></div>
+      <div class="step"><div><h3>Диагностика</h3><p>Снимаем вердикт по&nbsp;коробке и&nbsp;называем точную цену ремонта.</p></div></div>
+      <div class="step"><div><h3>Ремонт за&nbsp;3 дня</h3><p>Расходники в&nbsp;наличии — укладываемся в&nbsp;срок.</p></div></div>
+      <div class="step"><div><h3>Гарантия 1,5 года</h3><p>Отдаём авто с&nbsp;гарантийными обязательствами.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details class="faq-item" open><summary>Правда, ремонт за&nbsp;3 дня?</summary><p>Да, расходники в&nbsp;наличии — стандартный срок ремонта 3 дня. Точный срок назовём после диагностики.</p></details>
+    <details class="faq-item"><summary>Эвакуатор платный?</summary><p>Нет, при&nbsp;ремонте у&nbsp;нас эвакуатор бесплатный.</p></details>
+    <details class="faq-item"><summary>Какая гарантия?</summary><p>1,5 года на&nbsp;выполненный ремонт.</p></details>
+    <details class="faq-item"><summary>Сколько стоит замена масла?</summary><p>Замена масла CVT/АКПП занимает 90 минут. Цену называем до&nbsp;начала работ.</p></details>
+    <details class="faq-item"><summary>Работаете с&nbsp;роботами и&nbsp;DSG?</summary><p>Да: вариаторы, классические АКПП и&nbsp;роботизированные трансмиссии.</p></details>
+    <details class="faq-item"><summary>Режим работы?</summary><p>Будни 10:00–19:00, суббота 9:00–14:00.</p></details>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
   <div class="wrap">
     <div class="form-card">
-      <h2>Записаться</h2>
-      <p>Оставьте номер — подберём удобный день для диагностики.</p>
+      <span class="kicker">Заявка</span>
+      <h2>Записаться на&nbsp;диагностику</h2>
+      <p>Оставьте номер — подберём удобный день.</p>
       <form onsubmit="alert('Спасибо! Мы перезвоним.');return false"><input type="text" placeholder="Ваше имя" required><input type="tel" placeholder="Телефон" required><button class="btn" type="submit">Жду звонка</button></form>
+      <p class="form-note">Или позвоните: <a class="form-tel" href="tel:+73412907018">(3412) 90-70-18</a></p>
     </div>
   </div>
 </section>
 
 <section class="section" id="contacts">
   <div class="wrap">
-    <h2>Контакты</h2>
-    <p class="lead">Звоните — ответим в рабочее время.</p>
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Ижевск, техзона 650 м²</h2></div>
     <div class="contacts-grid">
-      <div class="contact-card"><h3>🕙 Режим работы</h3><p>Будни: 10:00–19:00<br>Суббота: 9:00–14:00<br>г. Ижевск</p></div>
-      <div class="contact-card"><h3>📞 Связь</h3><p><a href="tel:+73412907018">(3412) 90-70-18</a> — услуги и эвакуатор<br><a href="mailto:variator907018@yandex.ru">variator907018@yandex.ru</a><br>вариатор18.рф</p></div>
+      <div class="contact-card"><h3>Режим работы</h3><p>Будни: 10:00–19:00<br>Суббота: 9:00–14:00<br>г. Ижевск</p></div>
+      <div class="contact-card"><h3>Связь</h3><p><a href="tel:+73412907018">(3412) 90-70-18</a> — услуги и&nbsp;эвакуатор<br><a href="mailto:variator907018@yandex.ru">variator907018@yandex.ru</a><br>вариатор18.рф</p></div>
     </div>
   </div>
 </section>
 
-<footer><div class="wrap footer-inner"><span>© Вариатор Сервис, Ижевск</span><span class="demo-badge">Демо-версия · 2026.09.06</span></div></footer>
+<footer><div class="wrap footer-inner"><span>© Вариатор Сервис, Ижевск</span><span class="demo-badge">Демо-версия</span></div></footer>
 </body>
 </html>
