@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автохит — автосервис в Артёме | Капремонт двигателей, АКПП, ТО</title>
+<meta name="description" content="Автосервис «Автохит» в Артёме: капремонт двигателей, ремонт АКПП и вариаторов, ходовая, автоэлектрика, ТО. Механики со стажем 20 лет. ул. Кирова, 120. +7 924 120-33-44.">
+<style>
+:root{--navy:#101d2e;--steel:#1b3a5c;--orange:#ff7a1a;--bg:#f4f7fb;--card:#fff;--txt:#16283a;--mut:#647d94}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+.demo{background:#101d2e;color:#9fd8ff;text-align:center;font-size:13px;padding:8px 12px}
+header{background:linear-gradient(135deg,#101d2e,#1b3a5c);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+.logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#ff7a1a,#e56a0d);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 14px rgba(255,122,26,.5)}
+.logo small{display:block;font-size:12px;font-weight:400;color:#bcd9ef}
+.hdr-contacts{text-align:right;font-size:14px}
+.hdr-contacts a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.btn{display:inline-block;background:var(--orange);color:#fff;padding:13px 28px;border-radius:12px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:16px;transition:.2s}
+.btn:hover{background:#e56a0d;transform:translateY(-1px)}
+.btn.blue{background:var(--steel)}
+.btn.ghost{background:transparent;border:2px solid #fff}
+.hero{background:radial-gradient(900px 380px at 85% -10%,rgba(255,122,26,.25),transparent),linear-gradient(160deg,#101d2e 20%,#1b3a5c 75%,#274e75);color:#fff;padding:56px 20px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"⚙";position:absolute;left:-30px;bottom:-80px;font-size:300px;opacity:.07;line-height:1}
+.hero h1{font-size:clamp(28px,5vw,50px);margin-bottom:12px;line-height:1.15}
+.hero h1 span{color:#ffb066}
+.hero p.sub{font-size:clamp(15px,2.4vw,20px);color:#cfe0ef;max-width:760px;margin:0 auto 26px}
+.hero .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.trust{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:10px 22px;display:inline-block;margin-top:26px;font-size:15px}
+.trust b{color:#ffb066}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 22px;min-width:140px}
+.stat b{display:block;font-size:26px;color:#ffb066}
+.stat span{font-size:13px;color:#cfe0ef}
+section{padding:52px 20px;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(24px,4vw,34px);margin-bottom:8px;text-align:center}
+p.lead{text-align:center;color:var(--mut);max-width:720px;margin:0 auto 30px}
+.jp{background:#fff;border:1px solid #e3edf5;border-left:6px solid var(--orange);border-radius:14px;padding:22px 26px;margin-bottom:30px;font-size:16px}
+.jp b{color:var(--steel)}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.srv{background:#fff;border-radius:18px;padding:28px 24px;box-shadow:0 4px 18px rgba(27,58,92,.08);border-top:5px solid var(--steel);transition:.2s}
+.srv.hot{border-top-color:var(--orange)}
+.srv:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(27,58,92,.18)}
+.srv .ico{font-size:42px;display:block;margin-bottom:10px}
+.srv h3{font-size:20px;margin-bottom:8px}
+.srv p{font-size:15px;color:#40566c}
+.srv ul{list-style:none;margin-top:12px;font-size:15px}
+.srv li{padding:6px 0 6px 28px;position:relative}
+.srv li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800}
+.fleet{background:linear-gradient(135deg,#1b3a5c,#101d2e);color:#fff;border-radius:22px;padding:36px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.fleet ul{list-style:none;margin-top:14px}
+.fleet li{padding:8px 0 8px 30px;position:relative;font-size:15px}
+.fleet li::before{content:"✓";position:absolute;left:0;color:#ffb066;font-weight:800}
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:step}
+.pr{background:var(--navy);color:#fff;border-radius:18px;padding:26px;position:relative;overflow:hidden}
+.pr::before{counter-increment:step;content:counter(step);position:absolute;right:10px;top:-14px;font-size:96px;font-weight:800;color:rgba(255,176,102,.16)}
+.pr b{color:#ffb066;display:block;margin-bottom:8px;font-size:17px}
+.pr p{font-size:14px;color:#cfe0ef}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(27,58,92,.08);font-size:15px}
+.rev .stars{color:var(--orange);letter-spacing:2px;margin-bottom:8px}
+.rev b{display:block;margin-top:10px;font-size:14px;color:var(--mut)}
+.contacts{background:#fff;border-radius:22px;padding:36px 28px;box-shadow:0 6px 30px rgba(27,58,92,.12);display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.contacts h3{margin-bottom:14px}
+.c-row{padding:9px 0;border-bottom:1px dashed #d5e5f2;font-size:16px}
+.c-row:last-child{border:0}
+.c-row b{display:inline-block;min-width:110px;color:var(--mut);font-weight:600;font-size:14px}
+.c-row a{color:var(--steel);font-weight:700;text-decoration:none}
+footer{background:#101d2e;color:#8ba3b8;text-align:center;padding:26px 16px;font-size:13px}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:#101d2ef2;padding:10px 14px;display:none;gap:10px;z-index:60}
+.sticky .btn{flex:1;text-align:center;padding:12px}
+@media(max-width:760px){.fleet,.contacts{grid-template-columns:1fr}.hdr-contacts{display:none}.sticky{display:flex}body{padding-bottom:66px}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия · 2026.09.08 — концепт нового сайта автосервиса «Автохит»</div>
+<header>
+  <div class="logo"><span class="mark">⚙</span><span>АВТОХИТ<small>автосервис · г. Артём, ул. Кирова, 120</small></span></div>
+  <div class="hdr-contacts"><a href="tel:+79241203344">+7 924 120-33-44</a><br>звоните — механик на связи</div>
+  <a class="btn" href="#contacts">Рассчитать стоимость</a>
+</header>
+<div class="hero">
+  <h1>Капремонт двигателя и АКПП — <span>с гарантией, а не «как повезёт»</span></h1>
+  <p class="sub">ТО, ходовая, трансмиссия, автоэлектрика. Механики со стажем 20 лет. Запчасти подберём сами — вам не придётся ничего искать.</p>
+  <div class="cta-row"><a class="btn" href="#contacts">Рассчитать стоимость</a><a class="btn ghost" href="#services">Услуги</a></div>
+  <div class="trust">⚙ Качество подтверждено <b>сертификатами соответствия</b> · работаем с безналом</div>
+  <div class="stats">
+    <div class="stat"><b>20 лет</b><span>стаж механиков</span></div>
+    <div class="stat"><b>6 направлений</b><span>от ТО до капремонта</span></div>
+    <div class="stat"><b>безнал</b><span>обслуживаем автопарки</span></div>
+    <div class="stat"><b>0 поисков</b><span>запчасти находим сами</span></div>
+  </div>
+</div>
+<section>
+  <div class="jp">🌊 <b>Приморская специфика — наш профиль.</b> Правый руль, контрактные двигатели, вариаторы и 4WD: льём японские масла Eneos, Totachi, Takumi и знаем слабые места именно тех машин, что ездят по Артёму и Владивостоку.</div>
+  <h2 id="services">Что ремонтируем</h2>
+  <p class="lead">Цену называем до начала работ. Работаем так, чтобы вы не возвращались с той же проблемой</p>
+  <div class="services">
+    <div class="srv hot"><span class="ico">🔧</span><h3>Двигатель</h3><p>Диагностика, текущий и капитальный ремонт, замена ГРМ, замена двигателя целиком.</p><ul><li>Капремонт с дефектовкой и фотоотчётом</li><li>Контрактные двигатели под ключ</li><li>Замена цепи / ремня ГРМ</li></ul></div>
+    <div class="srv hot"><span class="ico">⚙️</span><h3>Трансмиссия</h3><p>МКПП, АКПП, вариаторы, редукторы, системы полного привода — диагностика и ремонт.</p><ul><li>Вариаторы и АКПП — переборка под ключ</li><li>Редукторы и раздатка 4WD</li><li>Адаптация после ремонта</li></ul></div>
+    <div class="srv"><span class="ico">🛞</span><h3>Ходовая часть</h3><p>Диагностика, ремонт и замена амортизаторов, сайлентблоков, рулевых реек.</p><ul><li>Стуки и уводы — находим за один визит</li><li>Рулевые рейки: ремонт и замена</li></ul></div>
+    <div class="srv"><span class="ico">🛢️</span><h3>ТО и замена масла</h3><p>Все технические жидкости и фильтры. Масла Shell, Eneos, Totachi, Takumi.</p><ul><li>Японские масла для праворульных авто</li><li>Предпродажная подготовка</li><li>Диагностика перед покупкой</li></ul></div>
+    <div class="srv"><span class="ico">🔌</span><h3>Автоэлектрика</h3><p>Компьютерная диагностика, поиск «плавающих» неисправностей, ремонт электрики.</p><ul><li>Диагностика сканером по всем блокам</li><li>Стартеры, генераторы, проводка</li></ul></div>
+    <div class="srv"><span class="ico">🏭</span><h3>Сварочные работы</h3><p>Пороги, днище, арки, глушители — варим аккуратно, обрабатываем от коррозии.</p><ul><li>Ремонт после приморских реагентов и соли</li></ul></div>
+  </div>
+</section>
+<section>
+  <div class="fleet">
+    <div><h2 style="text-align:left">Автопаркам и организациям</h2><p style="color:#cfe0ef">Обслуживаем корпоративные автопарки. Работаем с безналом — сделаем лучшее предложение на рынке.</p>
+      <ul><li>Договор, закрывающие документы, безнал</li><li>Приоритетная запись для парка</li><li>Единый счёт и история ремонтов по каждой машине</li><li>Персональный механик-куратор</li></ul></div>
+    <div style="text-align:center"><div style="font-size:72px">🚚</div><a class="btn" href="#contacts">Получить предложение</a></div>
+  </div>
+</section>
+<section>
+  <h2>Почему возвращаются именно к нам</h2>
+  <p class="lead">Мы думаем не о том, как заставить клиента платить больше, а о том, захочет ли он вернуться снова</p>
+  <div class="principles">
+    <div class="pr"><b>Прозрачность</b><p>Полная информация о работах: что делаем, зачем и сколько стоит — до, а не после.</p></div>
+    <div class="pr"><b>Помощь в решении</b><p>Профессиональная консультация: честно скажем, что чинить надо, а что подождёт.</p></div>
+    <div class="pr"><b>Честные цены</b><p>Без накруток. Отличное соотношение стоимости и качества услуг.</p></div>
+    <div class="pr"><b>Стаж 20 лет</b><p>Опыт механиков позволяет точно диагностировать проблему с первого раза.</p></div>
+    <div class="pr"><b>Запчасти — на нас</b><p>Найдём любую деталь: отобрали поставщиков, возим проверенное.</p></div>
+  </div>
+</section>
+<section>
+  <h2>Отзывы водителей</h2>
+  <p class="lead">Артём, Владивосток и Надеждинский район — нас советуют на парковках</p>
+  <div class="reviews">
+    <div class="rev"><div class="stars">★★★★★</div>«Вариатор на Филдере запинался — в двух местах приговорили к замене за 120 тысяч. Здесь перебрали за втрое меньше, уже год езжу без проблем.»<b>Дмитрий · Toyota Corolla Fielder, Артём</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Делали капиталку 1ZZ. Каждый этап фоткали, старые запчасти отдали в пакете. Масло больше не ест вообще.»<b>Сергей · Toyota Wish, Владивосток</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Обслуживаем у них три рабочих Хайса. Счета, документы — всё чётко, машины не простаивают.»<b>Анна · автопарк, Артём</b></div>
+  </div>
+</section>
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p class="lead">Оставьте контакты — механик свяжется и рассчитает стоимость</p>
+  <div class="contacts">
+    <div><h3>Связаться</h3>
+      <div class="c-row"><b>Телефон</b><a href="tel:+79241203344">+7 924 120-33-44</a></div>
+      <div class="c-row"><b>Почта</b><a href="mailto:info@autohit25.ru">info@autohit25.ru</a></div>
+      <div class="c-row"><b>Адрес</b>г. Артём, ул. Кирова, 120</div>
+      <div class="c-row"><b>Оплата</b>Наличный и безналичный расчёт</div>
+    </div>
+    <div><h3>Заявка на расчёт</h3>
+      <p style="font-size:15px;color:#40566c;margin-bottom:14px">Напишите на почту: <b>марка авто и что беспокоит</b> (стук, масло, коробка, ошибка на панели). Ответим в течение часа в рабочее время.</p>
+      <a class="btn blue" href="mailto:info@autohit25.ru?subject=Расчёт%20стоимости%20ремонта%20с%20сайта">Написать письмо</a>
+      <p style="font-size:13px;color:var(--mut);margin-top:14px">Автосервис «Автохит» · autohit25.ru</p>
+    </div>
+  </div>
+</section>
+<footer>Концепт-демо нового сайта · Реальный сайт сервиса: autohit25.ru · Демо подготовлено веб-студией</footer>
+<div class="sticky"><a class="btn" href="tel:+79241203344">Позвонить</a><a class="btn blue" href="#contacts" style="background:#1b3a5c">Рассчитать</a></div>
+</body>
+</html>
