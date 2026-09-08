@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Покрышкин — шины, диски и шиномонтаж в Нижневартовске</title>
+<meta name="description" content="Магазин шин и дисков «Покрышкин»: зимние, шипованные и летние шины, литые диски, шиномонтаж, сезонное хранение. Нижневартовск, ул. Мира 3П, стр. 13. +7 (3466) 22-22-48.">
+<style>
+:root{--blue:#0b5fa5;--ice:#e8f3fb;--dark:#0d1b2a;--accent:#ff7a1a;--bg:#f6fafd;--card:#fff;--txt:#16283a;--mut:#677d92}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+.demo{background:#0d1b2a;color:#9fd8ff;text-align:center;font-size:13px;padding:8px 12px;letter-spacing:.3px}
+header{background:linear-gradient(135deg,#0d1b2a,#0b3d66 70%,#0d1b2a);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+.logo .mark{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3d9be9,#0b5fa5 70%);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 14px rgba(11,95,165,.6);border:2px solid #9fd8ff}
+.logo small{display:block;font-size:12px;font-weight:400;color:#bcd9ef}
+.hdr-contacts{text-align:right;font-size:14px}
+.hdr-contacts a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:13px 28px;border-radius:12px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:16px;transition:.2s}
+.btn:hover{background:#e56a0d;transform:translateY(-1px)}
+.btn.blue{background:var(--blue)}
+.btn.blue:hover{background:#094d86}
+.btn.ghost{background:transparent;border:2px solid #fff}
+.hero{background:radial-gradient(900px 380px at 85% -10%,rgba(61,155,233,.35),transparent),linear-gradient(160deg,#0d1b2a 20%,#0b3d66 75%,#0b5fa5);color:#fff;padding:56px 20px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"❄";position:absolute;left:-24px;bottom:-70px;font-size:300px;opacity:.08;line-height:1}
+.hero::before{content:"❄";position:absolute;right:6%;top:-40px;font-size:150px;opacity:.08;line-height:1}
+.hero h1{font-size:clamp(28px,5vw,50px);margin-bottom:12px;line-height:1.15}
+.hero h1 span{color:#ffd166}
+.hero p.sub{font-size:clamp(15px,2.4vw,20px);color:#cfe6f7;max-width:740px;margin:0 auto 26px}
+.hero .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.frost{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:10px 22px;display:inline-block;margin-top:26px;font-size:15px}
+.frost b{color:#ffd166}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 22px;min-width:140px}
+.stat b{display:block;font-size:26px;color:#ffd166}
+.stat span{font-size:13px;color:#cfe6f7}
+.brands{background:#fff;border-bottom:1px solid #e3edf5;overflow:hidden;padding:14px 0;white-space:nowrap}
+.brands .track{display:inline-block;animation:marquee 28s linear infinite;font-weight:800;font-size:18px;color:#0b3d66;letter-spacing:1px}
+.brands .track i{font-style:normal;color:var(--accent);margin:0 14px}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:52px 20px;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(24px,4vw,34px);margin-bottom:8px;text-align:center}
+p.lead{text-align:center;color:var(--mut);max-width:700px;margin:0 auto 30px}
+.season{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.s-card{background:var(--card);border-radius:18px;padding:30px 26px;box-shadow:0 4px 18px rgba(11,61,102,.08);border-top:5px solid var(--blue);transition:.2s}
+.s-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(11,95,165,.2)}
+.s-card .ico{font-size:44px;display:block;margin-bottom:10px}
+.s-card h3{font-size:21px;margin-bottom:8px}
+.s-card p{font-size:15px;color:#40566c}
+.s-card ul{list-style:none;margin-top:12px;font-size:15px}
+.s-card li{padding:6px 0 6px 28px;position:relative}
+.s-card li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:800}
+.hotel{background:linear-gradient(135deg,#0b3d66,#0d1b2a);color:#fff;border-radius:22px;padding:36px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.hotel ul{list-style:none;margin-top:14px}
+.hotel li{padding:8px 0 8px 30px;position:relative;font-size:15px}
+.hotel li::before{content:"✓";position:absolute;left:0;color:#ffd166;font-weight:800}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.srv{background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(11,61,102,.07);border-left:5px solid var(--accent)}
+.srv b{display:block;font-size:18px;margin-bottom:6px}
+.srv span{font-size:14px;color:var(--mut)}
+.srv .price{display:block;margin-top:10px;font-weight:800;color:var(--blue);font-size:17px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;counter-reset:step}
+.step{background:var(--dark);color:#fff;border-radius:18px;padding:26px;position:relative;overflow:hidden}
+.step::before{counter-increment:step;content:counter(step);position:absolute;right:10px;top:-14px;font-size:96px;font-weight:800;color:rgba(159,216,255,.16)}
+.step b{color:#ffd166;display:block;margin-bottom:8px;font-size:18px}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(11,61,102,.08);font-size:15px}
+.rev .stars{color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+.rev b{display:block;margin-top:10px;font-size:14px;color:var(--mut)}
+.contacts{background:#fff;border-radius:22px;padding:36px 28px;box-shadow:0 6px 30px rgba(11,61,102,.12);display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.contacts h3{margin-bottom:14px}
+.c-row{padding:9px 0;border-bottom:1px dashed #d5e5f2;font-size:16px}
+.c-row:last-child{border:0}
+.c-row b{display:inline-block;min-width:110px;color:var(--mut);font-weight:600;font-size:14px}
+.c-row a{color:var(--blue);font-weight:700;text-decoration:none}
+footer{background:#0d1b2a;color:#8ba3b8;text-align:center;padding:26px 16px;font-size:13px}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:#0d1b2af2;padding:10px 14px;display:none;gap:10px;z-index:60}
+.sticky .btn{flex:1;text-align:center;padding:12px}
+@media(max-width:760px){.hotel,.contacts{grid-template-columns:1fr}.hdr-contacts{display:none}.sticky{display:flex}body{padding-bottom:66px}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия · 2026.09.08 — концепт нового сайта магазина «Покрышкин»</div>
+<header>
+  <div class="logo"><span class="mark">◉</span><span>ПОКРЫШКИН<small>шины · диски · шиномонтаж · Нижневартовск</small></span></div>
+  <div class="hdr-contacts"><a href="tel:+73466222248">+7 (3466) 22-22-48</a><br>ежедневно 9:00–20:00</div>
+  <a class="btn" href="#contacts">Записаться</a>
+</header>
+<div class="hero">
+  <h1>Колёса для сибирской зимы — <span>подберём за 10 минут</span></h1>
+  <p class="sub">Зимние, шипованные и летние шины, литые и штампованные диски. Свой шиномонтаж и сезонное хранение. Нижневартовск, ул. Мира 3П, стр. 13.</p>
+  <div class="cta-row"><a class="btn" href="#contacts">Подобрать шины</a><a class="btn ghost" href="#season">Каталог</a></div>
+  <div class="frost">❄ В Югре зима — <b>7 месяцев</b>. Правильная резина здесь не комфорт, а безопасность.</div>
+  <div class="stats">
+    <div class="stat"><b>10 минут</b><span>подбор по марке авто</span></div>
+    <div class="stat"><b>2 поста</b><span>шиномонтажа без записи очередей</span></div>
+    <div class="stat"><b>сезон</b><span>хранения ваших колёс у нас</span></div>
+    <div class="stat"><b>ХМАО</b><span>доставка по округу</span></div>
+  </div>
+</div>
+<div class="brands"><span class="track">NOKIAN <i>•</i> MICHELIN <i>•</i> BRIDGESTONE <i>•</i> YOKOHAMA <i>•</i> CORDIANT <i>•</i> VIATTI <i>•</i> KAMA <i>•</i> GISLAVED <i>•</i> NOKIAN <i>•</i> MICHELIN <i>•</i> BRIDGESTONE <i>•</i> YOKOHAMA <i>•</i> CORDIANT <i>•</i> VIATTI <i>•</i> KAMA <i>•</i> GISLAVED <i>•</i>&nbsp;</span></div>
+<section id="season">
+  <h2>Три сезона — три решения</h2>
+  <p class="lead">Подскажем, что реально ходит по нашим морозам и реагентам, а не просто продадим подороже</p>
+  <div class="season">
+    <div class="s-card"><span class="ico">🧊</span><h3>Шипованные</h3><p>Лёд на дворовых проездах и трасса до Сургута: шип держит там, где «липучка» плывёт.</p><ul><li>Для ежедневных поездок по городу и трассе</li><li>Обкатка шипов — первые 500 км без резких манёвров</li><li>Дошиповка вашего комплекта</li></ul></div>
+    <div class="s-card"><span class="ico">🌨️</span><h3>Фрикционные («липучка»)</h3><p>Тише шипов, уверенно гребут по снежной каше. Хороши, если живёте в центре и ездите спокойно.</p><ul><li>Мягкий состав для −30°C и ниже</li><li>Меньше шум — комфорт каждый день</li><li>Не боятся перепадов на оттепель</li></ul></div>
+    <div class="s-card"><span class="ico">☀️</span><h3>Летние + диски</h3><p>Короткое северное лето тоже требует резины по сезону: тормозной путь на зимней в жару растёт вдвое.</p><ul><li>Литые и штампованные диски в наличии</li><li>Комплект «под ключ»: шины + диски + монтаж</li><li>Trade-in ваших старых дисков</li></ul></div>
+  </div>
+</section>
+<section>
+  <div class="hotel">
+    <div><h2 style="text-align:left">Шинный отель: колёса зимуют у нас</h2><p style="color:#cfe6f7">Не храните резину на балконе — она дубеет и трескается. Второй комплект подождёт сезон в тёплом складе.</p>
+      <ul><li>Тёплый склад, правильное положение хранения</li><li>Мойка и осмотр перед приёмом — бесплатно</li><li>Напоминание о переобувке весной и осенью</li><li>Переобувка «из отеля» без очереди</li></ul></div>
+    <div style="text-align:center"><div style="font-size:72px">🏨</div><a class="btn" href="#contacts">Оставить колёса</a></div>
+  </div>
+</section>
+<section>
+  <h2>Шиномонтаж и сервис</h2>
+  <p class="lead">Цены называем до начала работ — без «вскрытие покажет»</p>
+  <div class="services">
+    <div class="srv"><b>Переобувка комплекта</b><span>Снятие / установка, балансировка, проверка давления</span><span class="price">от 1 600 ₽</span></div>
+    <div class="srv"><b>Балансировка</b><span>Точная балансировка на стенде, грузики в комплекте</span><span class="price">от 200 ₽ / колесо</span></div>
+    <div class="srv"><b>Ремонт прокола</b><span>Жгут, грибок, вулканизация боковых порезов</span><span class="price">от 400 ₽</span></div>
+    <div class="srv"><b>Подбор по авто</b><span>Штатные и альтернативные типоразмеры по базе</span><span class="price">бесплатно</span></div>
+  </div>
+</section>
+<section>
+  <h2>Как купить — 3 шага</h2>
+  <p class="lead">Наличие и цену называем сразу, редкие размеры привозим под заказ за 3–5 дней</p>
+  <div class="steps">
+    <div class="step"><b>Заявка</b>Позвоните или напишите на почту: марка авто + размер с боковины шины. Подбор — 10 минут.</div>
+    <div class="step"><b>Выбор</b>Предлагаем 2–3 варианта под бюджет: премиум / средний сегмент / бюджет. Честно о разнице.</div>
+    <div class="step"><b>Установка</b>Забираете самовывозом или ставим сразу на нашем шиномонтаже. Наличный и безналичный расчёт.</div>
+  </div>
+</section>
+<section>
+  <h2>Отзывы водителей</h2>
+  <p class="lead">Нас советуют на парковках у «ЮграМолла» — проверено севером</p>
+  <div class="reviews">
+    <div class="rev"><div class="stars">★★★★★</div>«Переобуваюсь здесь третий год. Осенью позвонили сами, напомнили, комплект уже ждал из отеля — за час уехал.»<b>Игорь · Toyota RAV4, Нижневартовск</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Взял шиповку с дисками комплектом, поставили сразу. По трассе на Сургут — как влитая, ни одного увода.»<b>Руслан · Kia Sorento, Излучинск</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Порвал боковину на даче — завулканизировали за вечер, отъездил сезон без проблем. Цену назвали заранее.»<b>Ольга · Hyundai Creta, Нижневартовск</b></div>
+  </div>
+</section>
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p class="lead">ежедневно 9:00–20:00 · без обеда и выходных</p>
+  <div class="contacts">
+    <div><h3>Связаться</h3>
+      <div class="c-row"><b>Телефон</b><a href="tel:+73466222248">+7 (3466) 22-22-48</a></div>
+      <div class="c-row"><b>Почта</b><a href="mailto:Ruslan@nakolesah86.ru">Ruslan@nakolesah86.ru</a></div>
+      <div class="c-row"><b>Адрес</b>г. Нижневартовск, ул. Мира 3П, строение 13</div>
+      <div class="c-row"><b>Оплата</b>Наличный и безналичный расчёт, карты</div>
+    </div>
+    <div><h3>Заявка на подбор</h3>
+      <p style="font-size:15px;color:#40566c;margin-bottom:14px">Напишите нам на почту: <b>марка авто и размер шин</b> (цифры с боковины, например 215/65 R16). Ответим в течение часа в рабочее время.</p>
+      <a class="btn blue" href="mailto:Ruslan@nakolesah86.ru?subject=Подбор%20шин%20с%20сайта">Написать письмо</a>
+      <p style="font-size:13px;color:var(--mut);margin-top:14px">Магазин «Покрышкин» · nakolesah86.ru</p>
+    </div>
+  </div>
+</section>
+<footer>Концепт-демо нового сайта · Реальный сайт магазина: nakolesah86.ru · Демо подготовлено веб-студией</footer>
+<div class="sticky"><a class="btn" href="tel:+73466222248">Позвонить</a><a class="btn blue" href="#contacts" style="background:#0b5fa5">Записаться</a></div>
+</body>
+</html>
