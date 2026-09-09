@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Авто-Форс — автосервис в Мытищах | Ремонт двигателей, коммерческий транспорт</title>
+<meta name="description" content="Техцентр «Авто-Форс» в Мытищах: ремонт двигателей (представитель «Механики»), ТО, коммерческий транспорт, запчасти в наличии. 20+ лет. Олимпийский проспект, 39. +7 963 766-33-66.">
+<style>
+:root{--blue:#0f4c9c;--dark:#0d1b2e;--orange:#ff7a1a;--bg:#f4f7fb;--txt:#16283a;--mut:#647d94}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+.demo{background:#0d1b2e;color:#9fd8ff;text-align:center;font-size:13px;padding:8px 12px}
+header{background:#0d1b2e;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+.logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#ff7a1a,#e56a0d);display:flex;align-items:center;justify-content:center;font-size:22px}
+.logo small{display:block;font-size:12px;font-weight:400;color:#bcd9ef}
+.hdr-contacts{text-align:right;font-size:14px}
+.hdr-contacts a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.btn{display:inline-block;background:var(--orange);color:#fff;padding:13px 28px;border-radius:12px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:16px;transition:.2s}
+.btn:hover{background:#e56a0d;transform:translateY(-1px)}
+.btn.blue{background:var(--blue)}
+.btn.ghost{background:transparent;border:2px solid #fff}
+.hero{background:radial-gradient(900px 380px at 85% -10%,rgba(255,122,26,.22),transparent),linear-gradient(160deg,#0d1b2e 20%,#123a6b 75%,#0f4c9c);color:#fff;padding:56px 20px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"🔧";position:absolute;left:-30px;bottom:-80px;font-size:300px;opacity:.07;line-height:1}
+.hero h1{font-size:clamp(28px,5vw,50px);margin-bottom:12px;line-height:1.15}
+.hero h1 span{color:#ffb066}
+.hero p.sub{font-size:clamp(15px,2.4vw,20px);color:#cfe0ef;max-width:780px;margin:0 auto 26px}
+.hero .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.trust{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:10px 22px;display:inline-block;margin-top:26px;font-size:15px}
+.trust b{color:#ffb066}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 22px;min-width:140px}
+.stat b{display:block;font-size:26px;color:#ffb066}
+.stat span{font-size:13px;color:#cfe0ef}
+section{padding:52px 20px;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(24px,4vw,34px);margin-bottom:8px;text-align:center}
+p.lead{text-align:center;color:var(--mut);max-width:740px;margin:0 auto 30px}
+.jp{background:#fff;border:1px solid #e3edf5;border-left:6px solid var(--orange);border-radius:14px;padding:22px 26px;margin-bottom:30px;font-size:16px}
+.jp b{color:var(--blue)}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.srv{background:#fff;border-radius:18px;padding:28px 24px;box-shadow:0 4px 18px rgba(15,76,156,.08);border-top:5px solid var(--blue);transition:.2s}
+.srv.hot{border-top-color:var(--orange)}
+.srv:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(15,76,156,.18)}
+.srv .ico{font-size:42px;display:block;margin-bottom:10px}
+.srv h3{font-size:20px;margin-bottom:8px}
+.srv p{font-size:15px;color:#40566c}
+.srv ul{list-style:none;margin-top:12px;font-size:15px}
+.srv li{padding:6px 0 6px 28px;position:relative}
+.srv li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800}
+.price{background:#fff;border-radius:18px;padding:28px;box-shadow:0 4px 18px rgba(15,76,156,.08);margin-top:16px}
+.price table{width:100%;border-collapse:collapse;font-size:15px}
+.price td{padding:10px 8px;border-bottom:1px dashed #d5e5f2}
+.price td:last-child{text-align:right;font-weight:700;color:var(--blue);white-space:nowrap}
+.fleet{background:linear-gradient(135deg,#0f4c9c,#0d1b2e);color:#fff;border-radius:22px;padding:36px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.fleet ul{list-style:none;margin-top:14px}
+.fleet li{padding:8px 0 8px 30px;position:relative;font-size:15px}
+.fleet li::before{content:"✓";position:absolute;left:0;color:#ffb066;font-weight:800}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:step}
+.step{background:var(--dark);color:#fff;border-radius:18px;padding:26px;position:relative;overflow:hidden}
+.step::before{counter-increment:step;content:counter(step);position:absolute;right:10px;top:-14px;font-size:96px;font-weight:800;color:rgba(255,176,102,.16)}
+.step b{color:#ffb066;display:block;margin-bottom:8px;font-size:17px}
+.step p{font-size:14px;color:#cfe0ef}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(15,76,156,.08);font-size:15px}
+.rev .stars{color:var(--orange);letter-spacing:2px;margin-bottom:8px}
+.rev b{display:block;margin-top:10px;font-size:14px;color:var(--mut)}
+.contacts{background:#fff;border-radius:22px;padding:36px 28px;box-shadow:0 6px 30px rgba(15,76,156,.12);display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.contacts h3{margin-bottom:14px}
+.c-row{padding:9px 0;border-bottom:1px dashed #d5e5f2;font-size:16px}
+.c-row:last-child{border:0}
+.c-row b{display:inline-block;min-width:110px;color:var(--mut);font-weight:600;font-size:14px}
+.c-row a{color:var(--blue);font-weight:700;text-decoration:none}
+footer{background:#0d1b2e;color:#8ba3b8;text-align:center;padding:26px 16px;font-size:13px}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:#0d1b2ef2;padding:10px 14px;display:none;gap:10px;z-index:60}
+.sticky .btn{flex:1;text-align:center;padding:12px}
+@media(max-width:760px){.fleet,.contacts{grid-template-columns:1fr}.hdr-contacts{display:none}.sticky{display:flex}body{padding-bottom:66px}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия · 2026.09.09 — концепт нового сайта техцентра «Авто-Форс»</div>
+<header>
+  <div class="logo"><span class="mark">🔧</span><span>АВТО-ФОРС<small>техцентр · г. Мытищи, Олимпийский проспект, 39</small></span></div>
+  <div class="hdr-contacts"><a href="tel:+79637663366">+7 963 766-33-66</a><br>автосервис · без выходных</div>
+  <a class="btn" href="#contacts">Записаться на ремонт</a>
+</header>
+<div class="hero">
+  <h1>Двигатель под восстановление? <span>Мы — официальный представитель «Механики»</span></h1>
+  <p class="sub">Ремонт любой сложности, включая восстановление деталей двигателя. Свой склад запчастей — не ждёте деталь неделями. Работаем без выходных с 2013 года.</p>
+  <div class="cta-row"><a class="btn" href="#contacts">Записаться на ремонт</a><a class="btn ghost" href="#price">Цены</a></div>
+  <div class="trust">🏅 Сертифицированный автосервис · представитель «Механики» · <b>20+ лет опыта</b></div>
+  <div class="stats">
+    <div class="stat"><b>20+ лет</b><span>комплексного обслуживания</span></div>
+    <div class="stat"><b>1 день</b><span>доставка запчастей под заказ</span></div>
+    <div class="stat"><b>без выходных</b><span>пн–сб 9–20, вс 9–18</span></div>
+    <div class="stat"><b>юрлица</b><span>договоры с НДС и без</span></div>
+  </div>
+</div>
+<section>
+  <div class="jp">⚙️ <b>Фишка, которой нет у соседей:</b> мы — официальный представитель компании «Механика», лидера в ремонте и промышленном восстановлении деталей двигателя. Головку, блок, коленвал <b>восстанавливаем, а не приговариваем к замене</b> — это в разы дешевле нового мотора.</div>
+  <h2 id="services">Что ремонтируем</h2>
+  <p class="lead">Легковые, грузовые, коммерческие, складская техника и погрузчики</p>
+  <div class="services">
+    <div class="srv hot"><span class="ico">🔧</span><h3>Двигатель</h3><p>Диагностика, ремонт и восстановление деталей через «Механику».</p><ul><li>Восстановление ГБЦ, блоков, коленвалов</li><li>Промывка инжекторов</li><li>Капремонт с гарантией</li></ul></div>
+    <div class="srv hot"><span class="ico">⚙️</span><h3>Трансмиссия</h3><p>МКПП, АКПП, сцепление, рулевые рейки, стартеры и генераторы.</p><ul><li>Замена масла в АКПП — от 1 200 ₽</li><li>Ремонт рулевых реек — от 3 500 ₽</li><li>Стартеры и генераторы: ремонт и замена</li></ul></div>
+    <div class="srv"><span class="ico">🛞</span><h3>Ходовая и ТО</h3><p>Полное обслуживание: от колодок до амортизаторов и фильтров.</p><ul><li>Колодки — от 500 ₽, амортизаторы — от 1 000 ₽</li><li>Шиномонтаж, сход-развал</li><li>Компьютерная диагностика ДВС — от 1 000 ₽</li></ul></div>
+    <div class="srv"><span class="ico">❄️</span><h3>Кондиционеры и электрика</h3><p>Заправка и ремонт автокондиционеров, автоэлектрика любой сложности.</p><ul><li>Заправка кондиционера — от 1 500 ₽</li><li>Аргонная сварка, РВД-шланги</li><li>Автостёкла: замена и установка</li></ul></div>
+    <div class="srv"><span class="ico">🚚</span><h3>Коммерческий транспорт</h3><p>Газель, Валдай, Transit, Sprinter, Ducato, Boxer — свой участок.</p><ul><li>Грузовые и пассажирские версии</li><li>Погрузчики и складская техника</li><li>Эвакуатор</li></ul></div>
+    <div class="srv"><span class="ico">📦</span><h3>Запчасти сразу</h3><p>Свой магазин и склад: масла Neste, оригинал, запчасти для китайских авто.</p><ul><li>В наличии — забираете в день обращения</li><li>Под заказ — от 1 дня</li><li>Запрос по VIN</li></ul></div>
+  </div>
+  <div class="price" id="price"><h2 style="text-align:left">Цены — сразу, без «позвоните»</h2>
+    <table>
+      <tr><td>Компьютерная диагностика ДВС</td><td>от 1 000 ₽</td></tr>
+      <tr><td>Замена масла в ДВС</td><td>от 500 ₽</td></tr>
+      <tr><td>Замена масла и фильтра в АКПП</td><td>от 1 200 ₽</td></tr>
+      <tr><td>Замена тормозных колодок</td><td>от 500 ₽</td></tr>
+      <tr><td>Замена сцепления / рулевой рейки</td><td>от 3 500 ₽</td></tr>
+      <tr><td>Заправка автокондиционера</td><td>от 1 500 ₽</td></tr>
+    </table>
+  </div>
+</section>
+<section>
+  <div class="fleet">
+    <div><h2 style="text-align:left">Корпоративным клиентам</h2><p style="color:#cfe0ef">Обслуживаем автопарки, участвуем в тендерах по 44-ФЗ и 223-ФЗ. Документы — оперативно.</p>
+      <ul><li>Договоры с НДС и без НДС</li><li>Скидки и бонусы постоянным клиентам</li><li>Комплексный документооборот для бухгалтерии</li><li>Легковые + грузовые + спецтехника в одних руках</li></ul></div>
+    <div style="text-align:center"><div style="font-size:72px">🏢</div><a class="btn" href="#contacts">Получить предложение</a></div>
+  </div>
+</section>
+<section>
+  <h2>Как попасть на ремонт</h2>
+  <p class="lead">От звонка до готового авто — без бюрократии</p>
+  <div class="steps">
+    <div class="step"><b>Заявка</b><p>Позвоните или напишите на zakaz@auto-fors.ru — опишите симптомы, подберём время.</p></div>
+    <div class="step"><b>Диагностика</b><p>Осмотр + компьютерная проверка. Фиксируем смету до начала работ.</p></div>
+    <div class="step"><b>Ремонт</b><p>Запчасти — со своего склада. Старые детали отдаём вам.</p></div>
+    <div class="step"><b>Выдача</b><p>Проверяете результат, получаете гарантию на работы.</p></div>
+  </div>
+</section>
+<section>
+  <h2>Отзывы водителей</h2>
+  <p class="lead">Мытищи, Королёв, Пушкино — к нам едут с Ярославки и Осташки</p>
+  <div class="reviews">
+    <div class="rev"><div class="stars">★★★★★</div>«Мотор ел масло литрами — в другом месте приговорили к контрактному за 200 тысяч. Здесь восстановили через Механику, вышло втрое дешевле.»<b>Андрей · Toyota Camry, Мытищи</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Держу у них два Транзита. Запчасти всегда в наличии, счета закрывают день в день.»<b>Сергей · автопарк, Королёв</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Делала ТО с заменой колодок — всё за 2 часа, цены как на сайте. Без навязанного.»<b>Марина · Kia Rio, Пушкино</b></div>
+  </div>
+</section>
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p class="lead">Первая линия Олимпийского проспекта — рядом Ярославское, Осташковское и Пироговское шоссе</p>
+  <div class="contacts">
+    <div><h3>Связаться</h3>
+      <div class="c-row"><b>Сервис</b><a href="tel:+79637663366">+7 963 766-33-66</a>, <a href="tel:+79851493377">+7 985 149-33-77</a></div>
+      <div class="c-row"><b>Почта</b><a href="mailto:zakaz@auto-fors.ru">zakaz@auto-fors.ru</a></div>
+      <div class="c-row"><b>Адрес</b>г. Мытищи, Олимпийский пр., 39, стр. 2</div>
+      <div class="c-row"><b>Часы</b>пн–сб 9–20, вс 9–18, без обеда</div>
+    </div>
+    <div><h3>Заявка на ремонт</h3>
+      <p style="font-size:15px;color:#40566c;margin-bottom:14px">Напишите: <b>марка авто и что беспокоит</b>. Ответим в течение часа в рабочее время.</p>
+      <a class="btn blue" href="mailto:zakaz@auto-fors.ru?subject=Заявка%20на%20ремонт%20с%20сайта">Написать письмо</a>
+      <p style="font-size:13px;color:var(--mut);margin-top:14px">Техцентр «Авто-Форс» · auto-fors.ru · сертификат автосервиса</p>
+    </div>
+  </div>
+</section>
+<footer>Концепт-демо нового сайта · Реальный сайт: auto-fors.ru · Демо подготовлено веб-студией</footer>
+<div class="sticky"><a class="btn" href="tel:+79637663366">Позвонить</a><a class="btn blue" href="#contacts">Записаться</a></div>
+</body>
+</html>
