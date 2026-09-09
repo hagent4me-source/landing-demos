@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АвтоПрестиж — автосервис в Одинцово | Кузовной ремонт, 3D сход-развал, ТО</title>
+<meta name="description" content="Техцентр АвтоПрестиж в Одинцово: кузовной ремонт, покраска с лабораторией подбора цвета, 3D сход-развал, шиномонтаж, двигатель, электрика. 10+ лет, ежедневно 9–21. Можайское шоссе, 2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e141b;--bg2:#151e28;--card:#1a2431;--accent:#e8b10c;--accent2:#ff5c1a;--txt:#f2f5f8;--mut:#9fb0c0;--line:#2a3644;--ok:#3ddc84}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.65}
+h1,h2,h3,.display{font-family:'Unbounded',sans-serif;line-height:1.25}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.demo-badge{background:#000;color:var(--accent);text-align:center;font-size:12.5px;padding:8px 12px;letter-spacing:.02em}
+header.site{position:sticky;top:0;z-index:60;background:rgba(14,20,27,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 20px;max-width:1120px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--txt)}
+.brand-mark{width:46px;height:46px;flex:0 0 46px}
+.brand b{font-family:'Unbounded';font-size:17px;display:block}
+.brand small{color:var(--mut);font-size:12px;display:block}
+.nav-phone{color:var(--accent);font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--accent2),#c7430d);color:#fff;padding:14px 30px;border-radius:12px;text-decoration:none;font-weight:800;font-size:15.5px;border:0;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,92,26,.35)}
+.btn.gold{background:linear-gradient(135deg,#f5c518,#c78f06);color:#191204}
+.btn.ghost{background:transparent;border:2px solid var(--line);color:var(--txt)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(800px 340px at 88% -10%,rgba(232,177,12,.16),transparent),radial-gradient(700px 320px at 5% 110%,rgba(255,92,26,.12),transparent),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:36px;align-items:center;padding:64px 0 58px}
+.kicker{display:flex;width:fit-content;margin-bottom:16px;align-items:center;gap:8px;font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid #4a3f10;background:#221c08;padding:7px 14px;border-radius:100px}
+.hero h1{font-size:clamp(27px,4.6vw,46px);font-weight:800;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.sub{color:var(--mut);font-size:clamp(15px,2vw,18px);max-width:520px;margin-bottom:26px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{margin-top:18px;color:var(--mut);font-size:14px}
+.hero-note b{color:var(--txt)}
+.hero-card{background:linear-gradient(160deg,#1c2634,#121924);border:1px solid var(--line);border-radius:22px;padding:30px 28px;position:relative;overflow:hidden}
+.hero-card::before{content:"";position:absolute;top:-70px;right:-70px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(232,177,12,.28),transparent 70%)}
+.hc-row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--line)}
+.hc-row:last-child{border:0}
+.hc-ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:#232f3f;display:flex;align-items:center;justify-content:center}
+.hc-ico svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hc-row b{display:block;font-size:15.5px}
+.hc-row span{color:var(--mut);font-size:14px}
+.stripes{display:flex;overflow:hidden;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--accent);color:#191204;font-family:'Unbounded';font-size:13px;font-weight:700;white-space:nowrap}
+.stripes span{padding:10px 22px;flex:0 0 auto}
+section.block{padding:60px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:44px;max-width:720px}
+.sec-head h2{font-size:clamp(23px,3.6vw,33px);margin-bottom:10px}
+.sec-head .lead{color:var(--mut);font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px;transition:.2s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:#4d5c70}
+.card.hot{border-color:#6b5410;background:linear-gradient(170deg,#221c08,#1a2431 70%)}
+.card .ico{width:52px;height:52px;border-radius:14px;background:#232f3f;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card .ico svg{width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:17.5px;margin-bottom:8px}
+.card p{color:var(--mut);font-size:14.5px}
+.card ul{list-style:none;margin-top:12px;font-size:14.5px}
+.card li{padding:5px 0 5px 26px;position:relative;color:#d5dee7}
+.card li::before{content:"";position:absolute;left:2px;top:11px;width:12px;height:7px;border-left:2.5px solid var(--ok);border-bottom:2.5px solid var(--ok);transform:rotate(-45deg)}
+.promo{background:linear-gradient(135deg,#f5c518,#e09b00);color:#1c1405;border-radius:24px;padding:38px 34px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:center;margin-top:18px}
+.promo h3{font-size:clamp(20px,3vw,27px);margin-bottom:8px}
+.promo p{font-size:15.5px;font-weight:600}
+.promo .big{font-family:'Unbounded';font-size:clamp(38px,6vw,64px);font-weight:800;line-height:1}
+.numbers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.num{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 20px;text-align:center}
+.num b{font-family:'Unbounded';font-size:clamp(26px,3.4vw,36px);color:var(--accent);display:block}
+.num span{color:var(--mut);font-size:13.5px}
+.lab{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:38px 34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center}
+.lab h3{font-size:clamp(20px,3vw,26px);margin-bottom:12px}
+.lab p{color:var(--mut);font-size:15.5px;margin-bottom:8px}
+.lab-steps{list-style:none;counter-reset:lab;margin-top:6px}
+.lab-steps li{counter-increment:lab;position:relative;padding:12px 0 12px 52px;font-size:15px;border-bottom:1px dashed var(--line)}
+.lab-steps li:last-child{border:0}
+.lab-steps li::before{content:counter(lab);position:absolute;left:0;top:10px;width:36px;height:36px;border-radius:50%;background:#232f3f;color:var(--accent);font-family:'Unbounded';font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:st}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 20px;position:relative}
+.step::after{counter-increment:st;content:"0" counter(st);position:absolute;top:12px;right:16px;font-family:'Unbounded';font-size:15px;color:#3a4a5e;font-weight:700}
+.step b{color:var(--accent);display:block;margin-bottom:8px;font-size:16px}
+.step p{font-size:14px;color:var(--mut)}
+.corp{background:linear-gradient(135deg,#182b45,#0e141b 70%);border:1px solid #29435f;border-radius:24px;padding:38px 34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
+.corp ul{list-style:none;margin-top:14px}
+.corp li{padding:8px 0 8px 28px;position:relative;font-size:15px}
+.corp li::before{content:"";position:absolute;left:2px;top:14px;width:12px;height:7px;border-left:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(-45deg)}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:12px}
+.faq-item b{display:block;margin-bottom:6px;font-size:16px}
+.faq-item p{color:var(--mut);font-size:14.5px}
+.contacts-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.contact-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 28px}
+.contact-card h3{margin-bottom:14px;font-size:19px}
+.c-row{padding:10px 0;border-bottom:1px dashed var(--line);font-size:15.5px}
+.c-row:last-child{border:0}
+.c-row b{display:block;color:var(--mut);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.c-row a{color:var(--accent);font-weight:700;text-decoration:none;font-size:17px}
+.form-card{background:linear-gradient(165deg,#222f42,#141c28);border:1px solid #31445c;border-radius:20px;padding:30px 28px}
+.form-card .kicker{display:flex;width:fit-content;margin-bottom:16px}
+.form-card h3{margin-bottom:10px}
+.corp h3.corp-title{font-size:clamp(20px,3vw,26px)}
+.form-card p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+footer.site{background:#080c11;color:#5f7488;text-align:center;padding:26px 16px;font-size:13px;border-top:1px solid var(--line)}
+.m-sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(8,12,17,.96);padding:10px 14px;display:none;gap:10px;z-index:70;border-top:1px solid var(--line)}
+.m-sticky .btn{flex:1;text-align:center;padding:12px 8px;font-size:14px}
+@media(max-width:900px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.numbers,.steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.hero-grid,.lab,.corp,.contacts-grid,.promo{grid-template-columns:minmax(0,1fr)}}
+.num b{font-size:clamp(22px,5vw,28px)}
+.hero-card{padding:22px 18px}
+}
+@media(max-width:760px){.stripes{font-size:11px}.promo{padding:28px 22px}.lab,.corp{padding:28px 22px}
+}
+@media(max-width:480px){.cta-row .btn{width:100%;text-align:center}.hc-row b{font-size:14px}.card{padding:22px 18px}
+}
+@media(max-width:640px){.grid{grid-template-columns:minmax(0,1fr)}.nav-phone{display:none}.m-sticky{display:flex}body{padding-bottom:64px}.hero-grid{padding:44px 0 40px}section.block{padding:44px 0}}
+</style>
+</head>
+<body>
+<div class="demo-badge">Демо-версия · 2026.09.09 — концепт нового сайта автосервиса «АвтоПрестиж», Одинцово</div>
+<header class="site">
+  <div class="hd">
+    <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 48 48"><rect x="2" y="2" width="44" height="44" rx="12" fill="#e8b10c"/><path d="M14 30l6-14 4 8 4-8 6 14" stroke="#191204" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="32" r="3.4" fill="#191204"/><circle cx="31" cy="32" r="3.4" fill="#191204"/></svg><span><b>АВТОПРЕСТИЖ</b><small>Одинцово · Можайское ш., 2 · ежедневно 9–21</small></span></a>
+    <a class="nav-phone" href="tel:+74959974122">+7 495 997-41-22</a>
+    <a class="btn" href="#contacts">Записаться</a>
+  </div>
+</header>
+<div class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Одинцово · 10+ лет в ремонте</span>
+      <h1>Крупнейший городской автосервис — <em>600 квадратов под вашу машину</em></h1>
+      <p class="sub">Кузовной цех, покрасочная лаборатория, 3D сход-развал, слесарка и электрика в одном месте. Работаем ежедневно с 9 до 21, без обедов и выходных.</p>
+      <div class="cta-row"><a class="btn" href="#contacts">Записаться на диагностику</a><a class="btn ghost" href="#promo">Акция месяца</a></div>
+      <p class="hero-note">Ежемесячно обслуживаем <b>300 автомобилей</b> · в команде <b>25 мастеров</b> — слесари, жестянщики, маляры</p>
+    </div>
+    <div class="hero-card">
+      <div class="hc-row"><span class="hc-ico"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Гарантия на все работы</b><span>Что-то пошло не так — исправим без споров</span></div></div>
+      <div class="hc-row"><span class="hc-ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></span><div><b>Без навязанного</b><span>Каждая работа согласуется заранее</span></div></div>
+      <div class="hc-row"><span class="hc-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><div><b>Ежедневно 9:00–21:00</b><span>Можайское шоссе, 2 — между МЧС и УВД</span></div></div>
+      <div class="hc-row"><span class="hc-ico"><svg viewBox="0 0 24 24"><path d="M4 17V7h12v10M16 10h4l2 3v4"/><circle cx="8" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg></span><div><b>Отечественные и иномарки</b><span>Мастера учились на заводах брендов</span></div></div>
+    </div>
+  </div>
+</div>
+<div class="stripes"><span>КУЗОВНОЙ РЕМОНТ</span><span>·</span><span>ПОКРАСКА</span><span>·</span><span>3D СХОД-РАЗВАЛ</span><span>·</span><span>ШИНОМОНТАЖ</span><span>·</span><span>ДВИГАТЕЛЬ</span><span>·</span><span>ЭЛЕКТРИКА</span><span>·</span><span>ТО</span><span>·</span></div>
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Всё — от колодок до восстановления после ДТП</h2><p class="lead">Восемь направлений в одном техцентре: не гоняете машину по городу между подрядчиками</p></div>
+    <div class="grid">
+      <div class="card hot"><span class="ico"><svg viewBox="0 0 24 24"><path d="M5 16l3-8h8l3 8M7 16v3M17 16v3M4 16h16"/></svg></span><h3>Кузовной ремонт</h3><p>Занимаемся больше 10 лет: рихтовка, сварка, восстановление геометрии.</p><ul><li>Локальный и полный ремонт</li><li>Ремонт бамперов</li><li>Устранение деформаций любой сложности</li></ul></div>
+      <div class="card hot"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/><circle cx="12" cy="14" r="2.5"/></svg></span><h3>Покраска</h3><p>Своя лаборатория подбора: цвет сверяют с заводским в несколько этапов.</p><ul><li>Пробное напыление до покраски</li><li>Локальная и полная</li><li>Контроль техкоординатора</li></ul></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="4"/><circle cx="17" cy="17" r="4"/><path d="M7 13V6h10v7M7 9h10"/></svg></span><h3>Шиномонтаж</h3><p>Сезонная переобувка без очередей — записывайтесь заранее.</p><ul><li>Легковые и кроссоверы</li><li>Балансировка</li><li>Проверка сход-развала в подарок по акции</li></ul></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 18l4-9 4 5 4-8 4 12z"/></svg></span><h3>Сход-развал 3D</h3><p>Стенд с уникальной точностью и гарантией на работы.</p><ul><li>Компьютерная регулировка</li><li>Контроль после ремонта подвески</li><li>Распечатка углов для вас</li></ul></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M7 8h10v8H7zM7 10H4v4h3M17 10h3v4h-3M9 18v2M15 18v2"/></svg></span><h3>Двигатель и ТО</h3><p>Бензин и дизель: обслуживание, текущий и капитальный ремонт.</p><ul><li>ГРМ — меняйте вовремя</li><li>Масла, фильтры, жидкости по регламенту</li><li>Техдокументация по всем агрегатам</li></ul></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span><h3>Электрика и диагностика</h3><p>Сканеры уровня дилера: находим то, с чем не справились другие.</p><ul><li>Компьютерная диагностика всех блоков</li><li>Поиск неисправностей по проводке</li><li>Диагностика перед покупкой авто</li></ul></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 12l5-5 4 4 3-3 4 4-8 8z"/></svg></span><h3>Автостёкла</h3><p>Замена и ремонт: трещины, сколы, вклейка.</p><ul><li>Стёкла в наличии и под заказ</li><li>Ремонт сколов без замены</li></ul></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 14c2-1 4 1 6 0s4 1 6 0 4 1 4 1M12 4v8M9 8l3-4 3 4"/></svg></span><h3>Мойка и сезон</h3><p>Мойка в подарок при работах от 5 000 рублей.</p><ul><li>Подготовка к зиме и лету</li><li>Антибактериальная обработка</li><li>Кондиционер: диагностика и заправка</li></ul></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="10" rx="2"/><path d="M8 21v-4M16 21v-4M8 11h8"/></svg></span><h3>Организациям</h3><p>Обслуживаем корпоративные автопарки по договору.</p><ul><li>Счета и закрывающие документы</li><li>Плановые ТО по графику</li><li>Именная карта клиента</li></ul></div>
+    </div>
+    <div class="promo" id="promo">
+      <div><h3>Три шиномонтажа по цене двух</h3><p>Расскажите о нас двум друзьям — и переобуйте три машины сразу: третья ощутимо дешевле. Плюс бесплатная проверка сход-развала 3D.</p></div>
+      <div class="big">−33%</div>
+    </div>
+  </div>
+</section>
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">В цифрах</span><h2>Техцентр, а не гараж на два подъёмника</h2></div>
+    <div class="numbers">
+      <div class="num"><b>300</b><span>автомобилей обслуживаем каждый месяц</span></div>
+      <div class="num"><b>600</b><span>квадратных метров ремонтной зоны</span></div>
+      <div class="num"><b>25</b><span>слесарей, жестянщиков и маляров</span></div>
+      <div class="num"><b>12</b><span>часов в день, без выходных: 9–21</span></div>
+    </div>
+  </div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="lab">
+      <div><span class="kicker">Покраска</span><h3>Цвет подбирают в лаборатории, а не «на глаз»</h3><p>Деталь снимает отдельный человек, в это время колорист готовит краску. Ошибку исключают многоступенчатый подбор и пробное напыление.</p></div>
+      <ol class="lab-steps">
+        <li>Диагностика детали и подготовка к ремонту</li>
+        <li>Компьютерный подбор под заводской цвет</li>
+        <li>Пробное напыление и сверка оттенка</li>
+        <li>Покраска под контролем техкоординатора</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Как попасть на ремонт</span><h2>Четыре шага до готового авто</h2></div>
+    <div class="steps">
+      <div class="step"><b>Осмотр</b><p>Предварительно смотрим машину и фиксируем симптомы.</p></div>
+      <div class="step"><b>Стоимость</b><p>Согласовываем сроки и цену до начала работ.</p></div>
+      <div class="step"><b>Ремонт</b><p>Делаем качественно, держим в курсе процесса.</p></div>
+      <div class="step"><b>Финиш</b><p>Забираете авто с регламентом работ и гарантией.</p></div>
+    </div>
+  </div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="corp">
+      <div><span class="kicker">Не только ремонт</span><h3 class="corp-title">Карта клиента и «приведи друга»</h3><ul><li>Именная карта клиента со скидками и бонусами</li><li>Акция «Приведи друга в техцентр»</li><li>Регулярные сезонные предложения</li></ul></div>
+      <div><div class="faq-item"><b>Делаете диагностику перед покупкой?</b><p>Да: компьютерная проверка всех блоков, уровни жидкостей, подвеска, сход-развал — полная карта состояния.</p></div><div class="faq-item"><b>Сколько стоит? Цены на сайте точные?</b><p>На сайте — ориентиры по основным работам; точную смету фиксируем после осмотра. Цены уточняйте у менеджера.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Регламент</span><h2>ТО — по пробегу, а не «когда вспомните»</h2><p class="lead">Ориентиры из регламента техцентра для иномарок — точную смету фиксируем после осмотра</p></div>
+    <div class="grid">
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/><circle cx="12" cy="14" r="2.5"/></svg></span><h3>Каждые 10 000 км</h3><p>Масло двигателя, масляный, салонный и воздушный фильтры, свечи.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 8h16v8H4zM8 8V5h8v3"/></svg></span><h3>Каждые 20 000 км</h3><p>Замена топливного фильтра. Контроль износа колодок и жидкостей.</p></div>
+      <div class="card"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><h3>Раз в 2 года</h3><p>Замена тормозной жидкости. Проверка АКБ под нагрузкой и печки.</p></div>
+    </div>
+  </div>
+</section>
+<section class="block">
+  <div class="wrap">
+    <div class="lab">
+      <div><span class="kicker">Сезон</span><h3>Зима близко: готовим авто заранее</h3><p>Зимний сезон агрессивен к машине. Приезжайте до морозов — проверим то, что чаще всего подводит в холода.</p></div>
+      <ol class="lab-steps">
+        <li>Диагностика аккумулятора под нагрузкой</li>
+        <li>Печка, вентиляция, антибактериальная обработка</li>
+        <li>Смазка замков и уплотнителей силиконом</li>
+        <li>Экспресс-замена летнего масла на зимнее</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<section class="block alt" id="contacts">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Нас легко найти: въезд между МЧС и УВД</h2><p class="lead">г. Одинцово, Можайское шоссе, 2, корпус 1</p></div>
+    <div class="contacts-grid">
+      <div class="contact-card"><h3>Связаться</h3>
+        <div class="c-row"><b>Телефоны</b><a href="tel:+74959974122">+7 495 997-41-22</a>, <a href="tel:+79169936777">+7 916 993-67-77</a></div>
+        <div class="c-row"><b>Почта</b><a href="mailto:avtoprestig-odin@yandex.ru">avtoprestig-odin@yandex.ru</a></div>
+        <div class="c-row"><b>Адрес</b>г. Одинцово, Можайское ш., 2, корп. 1</div>
+        <div class="c-row"><b>Часы</b>Ежедневно 9:00–21:00, без обеда и выходных</div>
+      </div>
+      <div class="form-card"><span class="kicker">Заявка</span><h3>Оставить заявку</h3><p>Напишите марку авто и что беспокоит — перезвоним и подберём время. Это макет формы: в готовом сайте заявки будут приходить вам на почту.</p><a class="btn gold" href="mailto:avtoprestig-odin@yandex.ru?subject=Заявка%20с%20сайта">Написать письмо</a></div>
+    </div>
+  </div>
+</section>
+<footer class="site">Концепт-демо нового сайта · Реальный сайт: avtoprestig-odin.ru · Демо подготовлено веб-студией</footer>
+<div class="m-sticky"><a class="btn" href="tel:+74959974122">Позвонить</a><a class="btn gold" href="#contacts">Записаться</a></div>
+</body>
+</html>
