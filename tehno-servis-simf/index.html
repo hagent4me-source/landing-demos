@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Техно-Сервис — автосервис в Симферополе | ТО, кузовной, грузовой сервис</title>
+<meta name="description" content="Автосервис «Техно-Сервис» в Симферополе: ТО, механический и кузовной ремонт, грузовой сервис, гарантия LADA и УАЗ. Официальный дилер. +7 978 076-32-00.">
+<style>
+:root{--red:#d8232a;--dark:#14181f;--steel:#232c3a;--bg:#f4f6f9;--txt:#1a2230;--mut:#67788d}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--txt);line-height:1.6}
+.demo{background:#14181f;color:#9fd8ff;text-align:center;font-size:13px;padding:8px 12px}
+header{background:#14181f;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+.logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#d8232a,#a31219);display:flex;align-items:center;justify-content:center;font-size:22px}
+.logo small{display:block;font-size:12px;font-weight:400;color:#b9c6d4}
+.hdr-contacts{text-align:right;font-size:14px}
+.hdr-contacts a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.btn{display:inline-block;background:var(--red);color:#fff;padding:13px 28px;border-radius:12px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-size:16px;transition:.2s}
+.btn:hover{background:#a31219;transform:translateY(-1px)}
+.btn.dark{background:var(--steel)}
+.btn.ghost{background:transparent;border:2px solid #fff}
+.hero{background:radial-gradient(900px 380px at 85% -10%,rgba(216,35,42,.35),transparent),linear-gradient(160deg,#14181f 20%,#232c3a 75%,#31405a);color:#fff;padding:56px 20px 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"🚗";position:absolute;right:-20px;bottom:-60px;font-size:260px;opacity:.07;line-height:1}
+.hero h1{font-size:clamp(28px,5vw,50px);margin-bottom:12px;line-height:1.15}
+.hero h1 span{color:#ff8f94}
+.hero p.sub{font-size:clamp(15px,2.4vw,20px);color:#cfd9e4;max-width:780px;margin:0 auto 26px}
+.hero .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.brands{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.brands span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 18px;font-size:14px;font-weight:600}
+.stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 22px;min-width:140px}
+.stat b{display:block;font-size:26px;color:#ff8f94}
+.stat span{font-size:13px;color:#cfd9e4}
+section{padding:52px 20px;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(24px,4vw,34px);margin-bottom:8px;text-align:center}
+p.lead{text-align:center;color:var(--mut);max-width:740px;margin:0 auto 30px}
+.jp{background:#fff;border:1px solid #e3e9f1;border-left:6px solid var(--red);border-radius:14px;padding:22px 26px;margin-bottom:30px;font-size:16px}
+.jp b{color:var(--red)}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.srv{background:#fff;border-radius:18px;padding:28px 24px;box-shadow:0 4px 18px rgba(20,24,31,.08);border-top:5px solid var(--steel);transition:.2s}
+.srv.hot{border-top-color:var(--red)}
+.srv:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(20,24,31,.18)}
+.srv .ico{font-size:42px;display:block;margin-bottom:10px}
+.srv h3{font-size:20px;margin-bottom:8px}
+.srv p{font-size:15px;color:#40566c}
+.srv ul{list-style:none;margin-top:12px;font-size:15px}
+.srv li{padding:6px 0 6px 28px;position:relative}
+.srv li::before{content:"✓";position:absolute;left:0;color:var(--red);font-weight:800}
+.warranty{background:linear-gradient(135deg,#d8232a,#8f0f15);color:#fff;border-radius:22px;padding:36px 28px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.warranty ul{list-style:none;margin-top:14px}
+.warranty li{padding:8px 0 8px 30px;position:relative;font-size:15px}
+.warranty li::before{content:"✓";position:absolute;left:0;color:#ffd7d9;font-weight:800}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:step}
+.step{background:var(--dark);color:#fff;border-radius:18px;padding:26px;position:relative;overflow:hidden}
+.step::before{counter-increment:step;content:counter(step);position:absolute;right:10px;top:-14px;font-size:96px;font-weight:800;color:rgba(255,143,148,.16)}
+.step b{color:#ff8f94;display:block;margin-bottom:8px;font-size:17px}
+.step p{font-size:14px;color:#cfd9e4}
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(20,24,31,.08);font-size:15px}
+.rev .stars{color:var(--red);letter-spacing:2px;margin-bottom:8px}
+.rev b{display:block;margin-top:10px;font-size:14px;color:var(--mut)}
+.contacts{background:#fff;border-radius:22px;padding:36px 28px;box-shadow:0 6px 30px rgba(20,24,31,.12);display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.contacts h3{margin-bottom:14px}
+.c-row{padding:9px 0;border-bottom:1px dashed #d5dee9;font-size:16px}
+.c-row:last-child{border:0}
+.c-row b{display:inline-block;min-width:110px;color:var(--mut);font-weight:600;font-size:14px}
+.c-row a{color:var(--red);font-weight:700;text-decoration:none}
+footer{background:#14181f;color:#8b98a9;text-align:center;padding:26px 16px;font-size:13px}
+.sticky{position:fixed;bottom:0;left:0;right:0;background:#14181ff2;padding:10px 14px;display:none;gap:10px;z-index:60}
+.sticky .btn{flex:1;text-align:center;padding:12px}
+@media(max-width:760px){.warranty,.contacts{grid-template-columns:1fr}.hdr-contacts{display:none}.sticky{display:flex}body{padding-bottom:66px}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-версия · 2026.09.09 — концепт страницы автосервиса «Техно-Сервис»</div>
+<header>
+  <div class="logo"><span class="mark">🔧</span><span>ТЕХНО-СЕРВИС<small>автосервис · г. Симферополь</small></span></div>
+  <div class="hdr-contacts"><a href="tel:+79780763200">+7 978 076-32-00</a><br>клиентская линия</div>
+  <a class="btn" href="#contacts">Записаться на сервис</a>
+</header>
+<div class="hero">
+  <h1>Сервис официального дилера — <span>без дилерских очередей и сюрпризов в счёте</span></h1>
+  <p class="sub">ТО, механика, кузовной ремонт и грузовой сервис. Гарантийное обслуживание LADA и УАЗ сохраняется. Оригинальные запчасти и прозрачная смета до начала работ.</p>
+  <div class="cta-row"><a class="btn" href="#contacts">Записаться на сервис</a><a class="btn ghost" href="#services">Услуги</a></div>
+  <div class="brands"><span>LADA</span><span>CHERY</span><span>УАЗ</span><span>XCITE</span><span>TENET</span><span>+ все марки</span></div>
+  <div class="stats">
+    <div class="stat"><b>5 марок</b><span>официальный дилер</span></div>
+    <div class="stat"><b>3 цеха</b><span>легковой · кузовной · грузовой</span></div>
+    <div class="stat"><b>гарантия</b><span>LADA и УАЗ сохраняется</span></div>
+    <div class="stat"><b>trade-in</b><span>и авто с пробегом</span></div>
+  </div>
+</div>
+<section>
+  <div class="jp">🏢 <b>Почему сервис дилера, а не гараж?</b> Оригинальные запчасти без ожидания, оборудование под конкретные марки, мастера, обученные производителем, — а гарантия завода при обслуживании у нас <b>не сгорает</b>. Для негарантийных авто — те же мастера и честная цена.</div>
+  <h2 id="services">Что делаем</h2>
+  <p class="lead">Смету фиксируем до начала работ. Машину можно оставить — и забрать готовой</p>
+  <div class="services">
+    <div class="srv hot"><span class="ico">🛢️</span><h3>ТО и регламентные работы</h3><p>Техобслуживание по регламенту производителя — гарантия сохраняется.</p><ul><li>ТО LADA, CHERY, УАЗ по карте завода</li><li>Запись на удобное время без очереди</li><li>Отметка в сервисной книжке</li></ul></div>
+    <div class="srv hot"><span class="ico">🔧</span><h3>Механический ремонт</h3><p>Двигатель, трансмиссия, подвеска, рулевое, тормоза — диагностика и ремонт.</p><ul><li>Ремонт двигателя и КПП / АКПП</li><li>Подвеска, развал-схождение</li><li>Генераторы, радиаторы, редукторы</li></ul></div>
+    <div class="srv"><span class="ico">🎨</span><h3>Кузовной ремонт и покраска</h3><p>От сколов и вмятин до восстановления после ДТП, включая ремонт без покраски.</p><ul><li>Покраска в профессиональной камере</li><li>Ремонт вмятин без покраски (PDR)</li><li>Помощь со страховой</li></ul></div>
+    <div class="srv"><span class="ico">🚛</span><h3>Грузовой сервис</h3><p>Отдельный цех: УАЗ Профи, коммерческие LADA, пневматика и гидравлика.</p><ul><li>Ходовая, двигатели, КПП грузовых</li><li>Пневмо- и гидросистемы</li><li>Сварочные и слесарные работы</li></ul></div>
+    <div class="srv"><span class="ico">❄️</span><h3>Кондиционеры и электрика</h3><p>Проверка и заправка кондиционера, сигнализации, свет, компьютерная диагностика.</p><ul><li>Заправка кондиционера с диагностикой утечек</li><li>Установка сигнализаций</li><li>Шиномонтаж и мойка</li></ul></div>
+    <div class="srv"><span class="ico">🔁</span><h3>Trade-in и авто с пробегом</h3><p>Обменяйте старый автомобиль на новый с доплатой — оценим за один визит.</p><ul><li>Оценка за 30 минут</li><li>Кредит, лизинг, страхование на месте</li></ul></div>
+  </div>
+</section>
+<section>
+  <div class="warranty">
+    <div><h2 style="text-align:left">Гарантийные авто — к нам</h2><p style="color:#ffd7d9">Обслуживаем по гарантии LADA и УАЗ: все работы по стандартам завода, гарантия не сгорает.</p>
+      <ul><li>Гарантийное обслуживание LADA и УАЗ</li><li>Оригинальные запчасти в наличии</li><li>Подменный автомобиль по запросу</li><li>Онлайн-статус ремонта по телефону</li></ul></div>
+    <div style="text-align:center"><div style="font-size:72px">🛡️</div><a class="btn dark" href="#contacts">Записать гарантийное авто</a></div>
+  </div>
+</section>
+<section>
+  <h2>Как попасть на сервис</h2>
+  <p class="lead">4 шага — от звонка до готового автомобиля</p>
+  <div class="steps">
+    <div class="step"><b>Заявка</b><p>Позвоните или оставьте контакты — подберём время и цех под вашу задачу.</p></div>
+    <div class="step"><b>Диагностика</b><p>Осмотр и компьютерная проверка. Называем точную смету до начала работ.</p></div>
+    <div class="step"><b>Ремонт</b><p>Делаем, присылаем фото ключевых этапов. Старые детали отдаём вам.</p></div>
+    <div class="step"><b>Выдача</b><p>Проверяете результат, получаете гарантию на работы и рекомендации.</p></div>
+  </div>
+</section>
+<section>
+  <h2>Отзывы владельцев</h2>
+  <p class="lead">Симферополь и весь Крым — к нам едут из Ялты, Евпатории и Керчи</p>
+  <div class="reviews">
+    <div class="rev"><div class="stars">★★★★★</div>«Весту обслуживаю только здесь — гарантия цела, ТО выходит дешевле, чем озвучивали в другом месте. Записывают на точное время.»<b>Игорь · LADA Vesta, Симферополь</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«После встречи с забором делали крыло и бампер на Tiggo. Цвет попали идеально, про ремонт не вспоминаю.»<b>Ольга · CHERY Tiggo 7, Ялта</b></div>
+    <div class="rev"><div class="stars">★★★★★</div>«Держим у них две рабочие Газели и Патриот. Счета закрывают быстро, машины не стоят.»<b>Руслан · автопарк, Евпатория</b></div>
+  </div>
+</section>
+<section id="contacts">
+  <h2>Контакты</h2>
+  <p class="lead">Оставьте контакты — администратор сервиса перезвонит и запишет</p>
+  <div class="contacts">
+    <div><h3>Связаться</h3>
+      <div class="c-row"><b>Телефон</b><a href="tel:+79780763200">+7 978 076-32-00</a></div>
+      <div class="c-row"><b>Почта</b><a href="mailto:sales@tekhno-servis.net">sales@tekhno-servis.net</a></div>
+      <div class="c-row"><b>Адрес</b>г. Симферополь (дилерские центры)</div>
+      <div class="c-row"><b>Сайт</b><a href="http://tekhno-servis.net">tekhno-servis.net</a></div>
+    </div>
+    <div><h3>Заявка на сервис</h3>
+      <p style="font-size:15px;color:#40566c;margin-bottom:14px">Напишите: <b>марка и год авто, что беспокоит</b> (ТО, стук, кузов, ошибка). Ответим в течение часа в рабочее время.</p>
+      <a class="btn dark" href="mailto:sales@tekhno-servis.net?subject=Запись%20на%20сервис%20с%20сайта">Написать письмо</a>
+      <p style="font-size:13px;color:var(--mut);margin-top:14px">«Техно-Сервис» · официальный дилер LADA, CHERY, УАЗ, XCITE, TENET</p>
+    </div>
+  </div>
+</section>
+<footer>Концепт-демо страницы сервиса · Реальный сайт: tekhno-servis.net · Демо подготовлено веб-студией</footer>
+<div class="sticky"><a class="btn" href="tel:+79780763200">Позвонить</a><a class="btn dark" href="#contacts">Записаться</a></div>
+</body>
+</html>
