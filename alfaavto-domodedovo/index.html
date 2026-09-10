@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Альфа-Авто — автосервис в Домодедово с 1998 года | ТО, кузовной, B2B</title>
+<meta name="description" content="Автосервис Альфа-Авто в Домодедово: 11 постов, кузовной ремонт и покраска, диагностика, электрика, эвакуатор, обслуживание автопарков с фиксацией цен. Работаем ежедневно 9:00–19:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e1420; --bg2:#141c2b; --card:#182234; --line:#2a3a56;
+  --acc:#e8442e; --acc2:#ff7a5c; --txt:#edf2f9; --mut:#a3b4cc;
+  --ok:#3ddc84; --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter Tight',system-ui,sans-serif;overflow-x:hidden;line-height:1.55}
+h1,h2,h3{font-family:'Russo One',sans-serif;font-weight:400;line-height:1.22}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(14,20,32,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;max-width:1120px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--acc2),var(--acc));display:flex;align-items:center;justify-content:center;font-family:'Russo One';font-size:19px;color:#fff}
+.logo b{font-family:'Russo One';font-size:16px;letter-spacing:.5px}
+.logo small{display:block;font-family:'Inter Tight';font-weight:500;font-size:11px;color:var(--mut)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#fff;font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:13px 26px;border-radius:12px;font-size:15px;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 22px rgba(232,68,46,.3)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,68,46,.45)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);box-shadow:none}
+.hero{position:relative;padding:74px 0 64px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 330px at 12% 18%,rgba(232,68,46,.18),transparent 60%),radial-gradient(700px 380px at 88% 82%,rgba(61,220,132,.07),transparent 60%);pointer-events:none}
+.hero h1{font-size:clamp(28px,5vw,50px);margin:14px 0 16px}
+.hero h1 span{color:var(--acc2)}
+.kicker{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--acc2);background:rgba(232,68,46,.12);border:1px solid rgba(232,68,46,.4);padding:6px 14px;border-radius:100px}
+.lead{color:var(--mut);font-size:clamp(15px,2.4vw,18px);max-width:650px;margin-bottom:26px}
+.lead.tight{margin:0}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:600;background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:100px;color:var(--mut)}
+.chip b{color:var(--txt)}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px}
+.hero-meta b{display:block;font-family:'Russo One';font-size:22px;color:var(--txt)}
+section.block{padding:58px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:clamp(22px,3.6vw,34px);margin:12px 0 8px}
+.sec-head p{color:var(--mut);max-width:660px}
+.mut{color:var(--mut)}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:rgba(232,68,46,.55)}
+.card h3{font-size:17px;margin:12px 0 8px}
+.card p{color:var(--mut);font-size:14.5px}
+.ico{width:46px;height:46px;border-radius:12px;background:rgba(232,68,46,.13);display:flex;align-items:center;justify-content:center}
+.ico svg{width:24px;height:24px;stroke:var(--acc2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.post{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+.post b{display:block;font-family:'Russo One';font-size:30px;color:var(--acc2)}
+.post span{font-size:13px;color:var(--mut)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:linear-gradient(160deg,#1b2539,#121a29);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel.accent{border-color:rgba(232,68,46,.5);background:linear-gradient(160deg,rgba(232,68,46,.13),rgba(232,68,46,.03))}
+.panel h3{font-size:20px;margin-bottom:10px}
+.panel p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+.tel{font-family:'Russo One';font-size:clamp(18px,3vw,24px);color:var(--acc2);text-decoration:none;word-break:break-all}
+.acclink{color:var(--acc2)}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15.5px}
+.faq summary::marker{color:var(--acc2)}
+.faq p{color:var(--mut);font-size:14.5px;margin-top:10px}
+.form-card{background:linear-gradient(160deg,#1c2639,#101724);border:1px solid rgba(232,68,46,.45);border-radius:20px;padding:34px;max-width:640px;margin:0 auto;text-align:center}
+.form-card h3{font-size:clamp(20px,3vw,26px);margin-bottom:10px}
+.form-card p{color:var(--mut);font-size:14.5px;margin-bottom:20px}
+.form-row{display:flex;gap:10px;margin-bottom:20px}
+.form-row input{flex:1;background:#0b111c;border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:14px 16px;font-size:15px;font-family:inherit;min-width:0}
+.form-row input:focus{outline:none;border-color:var(--acc)}
+.btn.wide{width:100%}
+.mt8{margin-top:8px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px}
+.contacts{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+.c-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.c-item h3{font-family:'Inter Tight';font-weight:600;font-size:12px;color:var(--mut);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+.c-item .tel{font-size:clamp(16px,2.6vw,21px);display:block;margin-bottom:6px}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:820px){
+  .g3,.g4,.posts{grid-template-columns:repeat(2,1fr)}
+  .split,.contacts{grid-template-columns:1fr}
+  .form-row{flex-direction:column}
+}
+@media(max-width:520px){
+  .g3,.g4,.g2,.posts{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .hero{padding:52px 0 44px}
+  .hd .btn{padding:11px 16px;font-size:13.5px}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="#top"><span class="logo-mark">А</span><span><b>АЛЬФА-АВТО</b><small>автосервис · Домодедово · с 1998 г.</small></span></a>
+    <a class="btn" href="#zapis">Записаться</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Домодедово · работаем с 1998 года</span>
+    <h1>Автосервис полного цикла <span>и ваш автопарк</span></h1>
+    <p class="lead">11 постов: слесарный цех, диагностика, кузовной ремонт с покрасочной камерой, шиномонтаж, мойка. Легковые и коммерческие. Ежедневно 9:00–19:00, без выходных.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#zapis">Записаться на сервис</a>
+      <a class="btn ghost" href="tel:+79151931626">Позвонить мастеру</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>11 постов</b> ремзоны</span>
+      <span class="chip">Покрасочная камера</span>
+      <span class="chip">Эвакуатор</span>
+      <span class="chip">Работа с НДС для юрлиц</span>
+    </div>
+    <div class="hero-meta">
+      <div><b>с 1998 г.</b>в Домодедово</div>
+      <div><b>Станционная, 5А</b>рядом с центром города</div>
+      <div><b>9:00–19:00</b>ежедневно без выходных</div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Мощности</span><h2>Цех, а не гараж</h2><p>Посты расписаны по специализациям — машина сразу встаёт туда, где её ждут.</p></div>
+    <div class="posts">
+      <div class="post"><b>7</b><span>слесарных постов</span></div>
+      <div class="post"><b>2</b><span>поста диагностики</span></div>
+      <div class="post"><b>3</b><span>поста шиномонтажа</span></div>
+      <div class="post"><b>4+1</b><span>подготовка и окрасочная камера</span></div>
+      <div class="post"><b>2</b><span>поста мойки</span></div>
+      <div class="post"><b>1</b><span>стапель для геометрии кузова</span></div>
+      <div class="post"><b>11</b><span>постов всего в ремзоне</span></div>
+      <div class="post"><b>27</b><span>лет в Домодедово</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Всё для легковых и коммерческих</h2></div>
+    <div class="grid g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/><circle cx="12" cy="12" r="3.2"/></svg></div><h3>ТО и слесарный ремонт</h3><p>Замена масел, фильтров, ГРМ, сцепления, подвески. В сервисной книжке ставим отметку о прохождении ТО.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 16l4-9h8l4 9M6 16h12M7 20v-4M17 20v-4"/></svg></div><h3>Кузовной и покраска</h3><p>Рихтовка, стапель, сварка, пайка бамперов, покраска в камере, полировка, замена стёкол, антикор.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2 2-2M13 9l2 2 2-2"/></svg></div><h3>Диагностика и электрика</h3><p>Компьютерная диагностика, ремонт ЭБУ, стартеров и генераторов, автоэлектрика, ремонт турбин и ТНВД дизелей.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="2.4"/><circle cx="18" cy="17" r="2.4"/><path d="M6 17h6l2-7h4M12 6h3l3 5"/></svg></div><h3>Шиномонтаж и кондиционеры</h3><p>Три поста шиномонтажа, заправка и ремонт автокондиционеров с вакуумизацией и УФ-диагностикой утечек.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 16V8h11v8M14 11h4l3 3v2"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div><h3>Эвакуация</h3><p>Эвакуатор Альфа-Авто для легковых и коммерческих — доставим автомобиль в сервис из любой точки округа.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Запчасти в наличии</h3><p>Расходники, масла, детали подвески и двигателя — свой склад, поставка редких позиций в течение дня.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel accent">
+        <span class="kicker">Для бизнеса</span>
+        <h3>Ваш автопарк — наша забота</h3>
+        <p>Обслуживаем легковые и коммерческие парки категории B: ремзона на 11 постов, запчасти с поставкой в течение дня, удобная форма работы с НДС. Цены фиксируем на 2 года вперёд — бюджет компании легко планировать.</p>
+        <a class="btn" href="#zapis">Оставить заявку для парка</a>
+      </div>
+      <div class="panel">
+        <span class="kicker">Кузовня</span>
+        <h3>От вмятины до тотала</h3>
+        <p>Стапель возвращает заводскую геометрию, камера даёт заводской глянец. Полировка царапин, пайка бамперов, замена стёкол, защитная сетка в бампер, сварка и антикоррозийная обработка.</p>
+        <a class="btn ghost" href="#zapis">Оценить ремонт</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Цены</span><h2>Якорные цены — без сюрпризов</h2><p>Ориентиры из вашего прайса: точную стоимость назовёт мастер после осмотра.</p></div>
+    <div class="grid g4">
+      <div class="card"><h3>от 600 ₽</h3><p>Замена моторного масла с фильтром</p></div>
+      <div class="card"><h3>от 900 ₽</h3><p>Компьютерная диагностика</p></div>
+      <div class="card"><h3>от 550 ₽</h3><p>Диагностика подвески на подъёмнике</p></div>
+      <div class="card"><h3>от 2 500 ₽</h3><p>Заправка кондиционера с диагностикой</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details open><summary>Делаете ли вы отметку о ТО в сервисной книжке?</summary><p>Да, после каждого технического обслуживания ставим отметку — это сохраняет историю автомобиля и его цену при продаже.</p></details>
+    <details><summary>Берёте коммерческие автомобили?</summary><p>Да, обслуживаем и ремонтируем коммерческий транспорт: ТО, ходовая, электрика, кузовной. Для автопарков — отдельные условия и фиксация цен.</p></details>
+    <details><summary>Сколько ждать запчасти, если их нет в наличии?</summary><p>Редкие позиции привозим в течение дня. Пока ждём — машина может оставаться у нас, это бесплатно.</p></details>
+    <details><summary>Есть ли эвакуатор?</summary><p>Да, наш эвакуатор работает по Домодедово и округу для легковых и коммерческих автомобилей.</p></details>
+    <details><summary>Можно ли подождать машину в сервисе?</summary><p>Да, есть комфортная зона ожидания с кофе и чаем, а мастер проконсультирует по любым вопросам прямо у автомобиля.</p></details>
+  </div>
+</section>
+
+<section class="block" id="zapis">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="kicker">Заявка</span>
+      <h3>Записаться в сервис</h3>
+      <p>Оставьте имя и телефон — перезвоним в течение 5 минут в рабочее время (9:00–19:00) и согласуем время визита.</p>
+      <form onsubmit="return false">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" aria-label="Телефон">
+        </div>
+        <button class="btn wide" type="submit">Записаться</button>
+      </form>
+      <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Или звоните: <a class="acclink" href="tel:+79151931626">+7 915 193-16-26</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Как нас найти</h2></div>
+    <div class="contacts">
+      <div class="c-item">
+        <h3>Адрес</h3>
+        <p>г. Домодедово, ул. Станционная, 5А<br><span class="mut">Ежедневно 9:00–19:00, без выходных</span></p>
+      </div>
+      <div class="c-item">
+        <h3>Связь</h3>
+        <a class="tel" href="tel:+79151931626">+7 915 193-16-26</a>
+        <p class="mt8"><a class="acclink" href="mailto:89151931626@mail.ru">89151931626@mail.ru</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Альфа-Авто · Домодедово · ООО «Альфа-Авто»</span>
+    <span>Демо-концепт сайта. Не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>
