@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Станция техобслуживания КУАТО в Каменске-Уральском — с 1971 года: 3D-развал, кузовной цех, техосмотр</title>
+<meta name="description" content="КУАТО — старейшая СТО Каменска-Уральского (с 1971 года): диагностика и ремонт двигателя, ходовой части, регулировка развала-схождения на 3D-стенде, кузовной ремонт с покраской, шиномонтаж, автомойка, техосмотр с документами для ОСАГО. Лермонтова, 67. Ежедневно 9:00–19:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1319; --bg2:#121a22; --card:#161f28; --line:#26333f;
+  --acc:#d9a441; --acc2:#eec77f; --steel:#7f9bb5; --txt:#f2f5f8; --mut:#93a3b3;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Rubik',system-ui,sans-serif;overflow-x:hidden;line-height:1.58}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.22}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(13,19,25,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;max-width:1120px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-mark{width:42px;height:42px;border-radius:12px;border:1px solid rgba(217,164,65,.55);background:linear-gradient(135deg,rgba(217,164,65,.22),rgba(217,164,65,.05));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display';font-weight:700;font-size:14px;color:var(--acc2)}
+.logo b{font-family:'Playfair Display';font-weight:600;font-size:17px;letter-spacing:.3px}
+.logo small{display:block;font-size:11.5px;color:var(--mut)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#161a1f;font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:13px 26px;border-radius:14px;font-size:15px;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 24px rgba(217,164,65,.26)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(217,164,65,.4)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc)}
+.hero{position:relative;padding:78px 0 66px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 340px at 12% 18%,rgba(217,164,65,.15),transparent 62%),radial-gradient(700px 380px at 88% 80%,rgba(127,155,181,.14),transparent 62%);pointer-events:none}
+.hero h1{font-size:clamp(28px,4.7vw,47px);margin:14px 0 16px}
+.hero h1 span{color:var(--acc2)}
+.kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--acc2);background:rgba(217,164,65,.1);border:1px solid rgba(217,164,65,.36);padding:6px 14px;border-radius:100px}
+.lead{color:var(--mut);font-size:clamp(15px,2.3vw,18px);max-width:670px;margin-bottom:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:600;background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:100px;color:var(--mut)}
+.chip b{color:var(--txt)}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px}
+.hero-meta b{display:block;font-family:'Playfair Display';font-weight:600;font-size:22px;color:var(--txt)}
+section.block{padding:58px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:clamp(22px,3.5vw,34px);margin:12px 0 8px}
+.sec-head p{color:var(--mut);max-width:700px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:rgba(217,164,65,.5)}
+.card h3{font-family:'Rubik';font-weight:600;font-size:16.5px;margin:13px 0 8px}
+.card p{color:var(--mut);font-size:14.5px}
+.ico{width:48px;height:48px;border-radius:13px;background:rgba(217,164,65,.12);display:flex;align-items:center;justify-content:center}
+.ico svg{width:25px;height:25px;stroke:var(--acc2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:linear-gradient(160deg,#1b242e,#101720);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel.accent{border-color:rgba(217,164,65,.45);background:linear-gradient(160deg,rgba(217,164,65,.12),rgba(217,164,65,.02))}
+.panel.steel{border-color:rgba(127,155,181,.42);background:linear-gradient(160deg,rgba(127,155,181,.13),rgba(127,155,181,.02))}
+.panel h3{font-size:20px;margin-bottom:10px}
+.panel p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+.panel ul{list-style:none;margin-bottom:18px}
+.panel li{color:var(--mut);font-size:14.5px;padding:5px 0 5px 24px;position:relative}
+.panel li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--acc2)}
+.tel{font-family:'Playfair Display';font-weight:600;font-size:clamp(17px,2.6vw,21px);color:var(--acc2);text-decoration:none;word-break:break-word}
+.acclink{color:var(--acc2)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.fact b{display:block;font-family:'Playfair Display';font-weight:700;font-size:clamp(24px,3.4vw,34px);color:var(--acc2);line-height:1.1}
+.fact p{color:var(--mut);font-size:14px;margin-top:6px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15.5px}
+.faq summary::marker{color:var(--acc2)}
+.faq p{color:var(--mut);font-size:14.5px;margin-top:10px}
+.form-card{background:linear-gradient(160deg,#1e2833,#0f151c);border:1px solid rgba(217,164,65,.42);border-radius:22px;padding:34px;max-width:680px;margin:0 auto}
+.form-card h3{font-size:clamp(20px,3vw,26px);margin-bottom:10px;text-align:center}
+.form-card>p{color:var(--mut);font-size:14.5px;margin-bottom:22px;text-align:center}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.f-row input,.f-row select,.f-full textarea,.f-full select{background:#080c11;border:1px solid var(--line);border-radius:13px;color:var(--txt);padding:14px 16px;font-size:15px;font-family:inherit;width:100%;min-width:0}
+.f-row input:focus,.f-row select:focus,.f-full textarea:focus,.f-full select:focus{outline:none;border-color:var(--acc)}
+.f-full{margin-bottom:10px}
+.f-full textarea{min-height:84px;resize:vertical}
+.btn.wide{width:100%;margin-top:6px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px;text-align:center}
+.contacts{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.c-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.c-item h3{font-family:'Rubik';font-weight:700;font-size:11.5px;color:var(--mut);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.1px}
+.c-item .tel{font-size:clamp(15px,2.2vw,18px);display:block;margin-bottom:6px}
+.mt8{margin-top:8px}
+.mut{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:820px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .split,.contacts{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+  .g3,.g4{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .hero{padding:50px 0 42px}
+  .hd .btn{padding:11px 16px;font-size:13.5px}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="#top"><span class="logo-mark">КУАТО</span><span><b>КУАТО</b><small>СТО · Каменск-Уральский · с 1971 года</small></span></a>
+    <a class="btn" href="#zapis">Записаться</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Каменск-Уральский · Лермонтова, 67 · с 1971 года</span>
+    <h1>Станция, которая знает <span>эти машины</span> полвека</h1>
+    <p class="lead">КУАТО — старейшее предприятие автотехобслуживания в городе. Диагностика и ремонт двигателя и ходовой, регулировка развала-схождения на компьютерном 3D-стенде, кузовной ремонт с покраской, шиномонтаж, автомойка и техосмотр с выдачей документов для ОСАГО.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#zapis">Записаться на сервис</a>
+      <a class="btn ghost" href="tel:+79002090008">Позвонить на станцию</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>С 1971 года</b> — первая СТО города</span>
+      <span class="chip">Развал-схождение на <b>3D-стенде</b></span>
+      <span class="chip">Кузовной цех с покраской</span>
+      <span class="chip">Техосмотр <b>с документами</b></span>
+    </div>
+    <div class="hero-meta">
+      <div><b>9:00–19:00</b>ежедневно, без перерывов</div>
+      <div><b>История авто</b>каждое обращение в базе</div>
+      <div><b>Физлица и юрлица</b>наличные, карта, безнал</div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Что делаем на станции</h2><p>Диагностика и ремонт автомобилей зарубежного и отечественного производства — от планового обслуживания до кузовного цеха полного цикла.</p></div>
+    <div class="grid g4">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2 2-2M13 9l2 2 2-2"/></svg></div><h3>Диагностика двигателя</h3><p>Проверяем системы питания и зажигания, точно находим причину неисправности.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 15V9h10v6M14 11h4l3 3v1"/><circle cx="7" cy="17" r="1.7"/><circle cx="17" cy="17" r="1.7"/></svg></div><h3>Ремонт двигателя</h3><p>Ремонт ДВС любой сложности, включая работы по системам питания и зажигания.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="2.4"/><circle cx="18" cy="17" r="2.4"/><path d="M6 17h6l2-7h4M12 6h3l3 5"/></svg></div><h3>Развал-схождение 3D</h3><p>Регулировка углов установки колёс на компьютерном 3D-стенде — точная и с распечаткой.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h5l3-6 4 12 3-6h3"/></svg></div><h3>Ходовая часть</h3><p>Диагностика и ремонт подвески, замена изношенных узлов, проверка после работ.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c4 4.4 6 7.6 6 10a6 6 0 1 1-12 0c0-2.4 2-5.6 6-10z"/></svg></div><h3>Замена масла в ДВС и КПП</h3><p>Подбор масла по допускам производителя, замена в двигателе и коробке передач.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M4 11h16M9 7v10"/></svg></div><h3>Кузовной ремонт</h3><p>Полный цикл: восстановление геометрии, рихтовка и покраска элементов кузова.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/><circle cx="12" cy="12" r="3.2"/></svg></div><h3>Шиномонтаж и мойка</h3><p>Легковой шиномонтаж и комплекс услуг автомойки — можно сделать в один визит.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v6c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Техосмотр</h3><p>Проводим техосмотр автотранспорта с выдачей документов, необходимых для полиса ОСАГО.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel accent">
+        <span class="kicker">Как мы работаем</span>
+        <h3>У каждого автомобиля — своя история</h3>
+        <p>Мы ведём компьютерную базу обращений: регистрируем факт обращения, фиксируем выполненные работы и пробег. Любой механик станции в любой момент видит, что уже делалось с вашей машиной.</p>
+        <ul>
+          <li>Фиксируем работы и пробег по каждому обращению</li>
+          <li>Вся история обслуживания сохраняется в базе</li>
+          <li>Время на диагностику и ремонт сокращается</li>
+          <li>Полная предпродажная диагностика с актом дефектовки</li>
+        </ul>
+        <a class="btn" href="#zapis">Записаться на диагностику</a>
+      </div>
+      <div class="panel steel">
+        <span class="kicker">Организациям</span>
+        <h3>Юридические лица — по договору</h3>
+        <p>Компании обслуживаются у нас по договору с оплатой по безналичному расчёту. Работаем с парками и служебным транспортом.</p>
+        <ul>
+          <li>Договор на обслуживание и безналичный расчёт</li>
+          <li>История работ по каждому автомобилю парка</li>
+          <li>Диагностика перед покупкой или продажей авто</li>
+          <li>Техосмотр с пакетом документов</li>
+        </ul>
+        <a class="btn ghost" href="#zapis">Обсудить обслуживание парка</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact"><b>1971</b><p>год основания — первая СТО в Каменске-Уральском</p></div>
+      <div class="fact"><b>3D</b><p>компьютерный стенд регулировки развала-схождения</p></div>
+      <div class="fact"><b>9–19</b><p>работаем ежедневно, без перерывов и выходных</p></div>
+      <div class="fact"><b>ТО</b><p>техосмотр с выдачей документов для ОСАГО</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Опыт и оснастка</span><h2>Три составляющие нормального ремонта</h2><p>Наша цель — сделать автомобиль максимально надёжным, а вождение удобным и безопасным. Достичь её помогают опыт мастеров, оборудование и современные методики.</p></div>
+    <div class="grid g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></div><h3>Опытный персонал</h3><p>У наших автомехаников есть постоянные клиенты, чьи автомобили они обслуживают не один год.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/><circle cx="12" cy="12" r="3.2"/></svg></div><h3>Фирменное оборудование</h3><p>Оснастка станции и зоны ожидания подобраны так, чтобы держать точность ремонта современных авто.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="M8 16V9M12 16v-5M16 16v-8"/></svg></div><h3>Технологии сегодняшнего дня</h3><p>Мастера осваивают новые инструменты и методики — за счёт этого сокращается время на диагностику и работы.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details open><summary>Можно ли сделать развал-схождение на современном стенде?</summary><p>Да, регулировка углов развала-схождения выполняется на компьютерном 3D-стенде — точность выше, чем при работе по старым линейкам.</p></details>
+    <details><summary>Делаете ли кузовной ремонт с покраской?</summary><p>Да, у нас кузовной цех полного цикла: восстановление геометрии, рихтовка и покраска элементов. Записаться в кузовной цех можно по отдельному номеру.</p></details>
+    <details><summary>Проходите ли техосмотр?</summary><p>Да, станция оказывает услуги технического осмотра автотранспорта с выдачей документов, необходимых для оформления полиса ОСАГО.</p></details>
+    <details><summary>Проверяете автомобиль перед покупкой?</summary><p>Да, делаем полную предпродажную диагностику с составлением акта дефектовки — удобно и продавцу, и покупателю.</p></details>
+    <details><summary>Как оплатить работы?</summary><p>Частные лица — наличными или банковской картой. Юридические лица обслуживаются по договору с оплатой по безналичному расчёту.</p></details>
+    <details><summary>Работаете в выходные?</summary><p>Мы работаем ежедневно с 9:00 до 19:00 без выходных и перерывов.</p></details>
+  </div>
+</section>
+
+<section class="block" id="zapis">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="kicker">Заявка</span>
+      <h3>Записаться на станцию</h3>
+      <p>Оставьте контакты и выберите, что нужно сделать, — перезвоним и подберём удобное время.</p>
+      <form onsubmit="return false">
+        <div class="f-row">
+          <input type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" aria-label="Телефон">
+        </div>
+        <div class="f-row">
+          <select name="work" aria-label="Услуга">
+            <option>Диагностика двигателя</option>
+            <option>Развал-схождение 3D</option>
+            <option>Ремонт ходовой части</option>
+            <option>Замена масла в ДВС / КПП</option>
+            <option>Кузовной ремонт и покраска</option>
+            <option>Шиномонтаж</option>
+            <option>Автомойка</option>
+            <option>Техосмотр</option>
+            <option>Диагностика перед покупкой</option>
+            <option>Другое</option>
+          </select>
+          <select name="who" aria-label="Кто обращается">
+            <option>Частное лицо</option>
+            <option>Организация (по договору)</option>
+          </select>
+        </div>
+        <div class="f-full"><textarea name="comment" placeholder="Опишите задачу: марка авто, что беспокоит" aria-label="Описание"></textarea></div>
+        <button class="btn wide" type="submit">Записаться</button>
+      </form>
+      <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Или звоните: <a class="acclink" href="tel:+79002090008">+7 (900) 20-900-08</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Как нас найти</h2></div>
+    <div class="contacts">
+      <div class="c-item">
+        <h3>Адрес и режим</h3>
+        <p>г. Каменск-Уральский, ул. Лермонтова, 67<br><span class="mut">Напротив завода КУЗОЦМ</span></p>
+        <p class="mt8 mut">Ежедневно 9:00–19:00, без перерывов и выходных</p>
+      </div>
+      <div class="c-item">
+        <h3>Связь</h3>
+        <a class="tel" href="tel:+79002090008">+7 (900) 20-900-08 · сервис</a>
+        <a class="tel mt8" href="tel:+79002049008">+7 (900) 204-90-08 · кузовной цех</a>
+        <p class="mt8"><a class="acclink" href="mailto:admin@kuato.ru">admin@kuato.ru</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>КУАТО · Каменск-Уральский · ул. Лермонтова, 67</span>
+    <span>Демо-концепт сайта. Не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>

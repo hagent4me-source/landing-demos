@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис 5% в Тобольске — ремонт ДВС, ходовой, автоэлектрика и чип-тюнинг с 2012 года</title>
+<meta name="description" content="Автосервис «5%» в Тобольске: ремонт ДВС, ходовой части, автоэлектрика, чип-тюнинг, компьютерная диагностика, замена масла. Дефектовка ходовой в подарок. Официальный дилер масел Eiffel, Dana, Renovar, Ruxx Oil, Scope, Takuro. 2-я Северная, 49А.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#101114; --bg2:#16181d; --card:#1b1e24; --line:#2d323c;
+  --acc:#ff5a3c; --acc2:#ffa88f; --txt:#f4f5f7; --mut:#98a1b0;
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden;line-height:1.58}
+h1,h2,h3{font-family:'Oswald',sans-serif;font-weight:600;line-height:1.2;letter-spacing:.2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(16,17,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;max-width:1120px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--acc2),#e03a1c);display:flex;align-items:center;justify-content:center;font-family:'Oswald';font-weight:700;font-size:16px;color:#181a1f}
+.logo b{font-family:'Oswald';font-weight:600;font-size:16px;letter-spacing:.6px}
+.logo small{display:block;font-size:11.5px;color:var(--mut)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#181a1f;font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:13px 26px;border-radius:14px;font-size:15px;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 24px rgba(255,90,60,.28)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,90,60,.42)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc)}
+.hero{position:relative;padding:76px 0 66px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 340px at 14% 20%,rgba(255,90,60,.17),transparent 62%),radial-gradient(700px 360px at 90% 80%,rgba(255,168,143,.09),transparent 62%);pointer-events:none}
+.hero h1{font-size:clamp(28px,4.8vw,48px);margin:14px 0 16px;text-transform:uppercase}
+.hero h1 span{color:var(--acc2)}
+.kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--acc2);background:rgba(255,90,60,.1);border:1px solid rgba(255,90,60,.36);padding:6px 14px;border-radius:100px}
+.lead{color:var(--mut);font-size:clamp(15px,2.3vw,18px);max-width:660px;margin-bottom:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:600;background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:100px;color:var(--mut)}
+.chip b{color:var(--txt)}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px}
+.hero-meta b{display:block;font-family:'Oswald';font-weight:600;font-size:21px;color:var(--txt)}
+section.block{padding:58px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:clamp(22px,3.5vw,34px);margin:12px 0 8px;text-transform:uppercase}
+.sec-head p{color:var(--mut);max-width:690px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,90,60,.5)}
+.card h3{font-size:17px;margin:13px 0 8px;text-transform:uppercase}
+.card p{color:var(--mut);font-size:14.5px}
+.ico{width:48px;height:48px;border-radius:13px;background:rgba(255,90,60,.12);display:flex;align-items:center;justify-content:center}
+.ico svg{width:25px;height:25px;stroke:var(--acc2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:linear-gradient(160deg,#1f2329,#13161a);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel.accent{border-color:rgba(255,90,60,.45);background:linear-gradient(160deg,rgba(255,90,60,.13),rgba(255,90,60,.02))}
+.panel h3{font-size:20px;margin-bottom:10px;text-transform:uppercase}
+.panel p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+.panel ul{list-style:none;margin-bottom:18px}
+.panel li{color:var(--mut);font-size:14.5px;padding:5px 0 5px 26px;position:relative}
+.panel li::before{content:"—";position:absolute;left:2px;color:var(--acc2);font-weight:700}
+.tel{font-family:'Oswald';font-weight:600;font-size:clamp(17px,2.7vw,22px);color:var(--acc2);text-decoration:none;word-break:break-word}
+.acclink{color:var(--acc2)}
+.oils{display:flex;flex-wrap:wrap;gap:8px}
+.oil{font-size:13.5px;font-weight:700;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 14px;color:var(--txt);letter-spacing:.4px}
+.steps{counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.step::before{counter-increment:s;content:counter(s);font-family:'Oswald';font-weight:700;font-size:16px;color:#181a1f;background:linear-gradient(135deg,var(--acc2),var(--acc));width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.step h3{font-size:16.5px;margin-bottom:8px;text-transform:uppercase}
+.step p{color:var(--mut);font-size:14.5px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15.5px}
+.faq summary::marker{color:var(--acc2)}
+.faq p{color:var(--mut);font-size:14.5px;margin-top:10px}
+.form-card{background:linear-gradient(160deg,#232830,#12151a);border:1px solid rgba(255,90,60,.42);border-radius:22px;padding:34px;max-width:660px;margin:0 auto}
+.form-card h3{font-size:clamp(20px,3vw,26px);margin-bottom:10px;text-align:center;text-transform:uppercase}
+.form-card>p{color:var(--mut);font-size:14.5px;margin-bottom:22px;text-align:center}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.f-row input,.f-full textarea,.f-full select{background:#0b0d10;border:1px solid var(--line);border-radius:13px;color:var(--txt);padding:14px 16px;font-size:15px;font-family:inherit;width:100%;min-width:0}
+.f-row input:focus,.f-full textarea:focus,.f-full select:focus{outline:none;border-color:var(--acc)}
+.f-full{margin-bottom:10px}
+.f-full textarea{min-height:84px;resize:vertical}
+.btn.wide{width:100%;margin-top:6px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px;text-align:center}
+.contacts{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.c-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.c-item h3{font-family:'Manrope';font-weight:700;font-size:11.5px;color:var(--mut);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.1px}
+.c-item .tel{font-size:clamp(15px,2.3vw,19px);display:block;margin-bottom:6px}
+.mt8{margin-top:8px}
+.mut{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:820px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .split,.contacts{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .g3,.g4{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .hero{padding:50px 0 42px}
+  .hd .btn{padding:11px 16px;font-size:13.5px}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="#top"><span class="logo-mark">5%</span><span><b>АВТОСЕРВИС 5%</b><small>Тобольск · с 2012 года</small></span></a>
+    <a class="btn" href="#zapis">Записаться</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Тобольск · 2-я Северная, 49А · с 2012 года</span>
+    <h1>Ремонт, за который <span>отвечаем</span></h1>
+    <p class="lead">Ремонт ДВС, ходовой части и автоэлектрика, компьютерная диагностика, чип-тюнинг и замена масла. При заезде в сервис дефектовка ходовой части — в подарок.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#zapis">Записаться в сервис</a>
+      <a class="btn ghost" href="tel:+73456271067">Позвонить мастеру</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>С 2012 года</b> в автобизнесе</span>
+      <span class="chip">Дефектовка ходовой <b>в подарок</b></span>
+      <span class="chip">Чип-тюнинг и диагностика</span>
+      <span class="chip">Дилер масел <b>6 брендов</b></span>
+    </div>
+    <div class="hero-meta">
+      <div><b>6 направлений</b>ДВС, ходовая, электрика, масло</div>
+      <div><b>Гарантия</b>на все выполненные работы</div>
+      <div><b>Свой магазин</b>запчасти и автомасла</div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Виды работ</span><h2>Какие работы мы выполняем</h2><p>Мы специализируемся на ремонте двигателя, ходовой части и автоэлектрике. Отдельное направление, которое пользуется неизменным спросом, — чип-тюнинг.</p></div>
+    <div class="grid g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 16V9h10v7M14 11h4l3 3v2"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div><h3>Ремонт ДВС</h3><p>Капитальный ремонт двигателя любой сложности: разбираем, находим причину, согласуем смету и восстанавливаем узел.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h5l3-6 4 12 3-6h3"/></svg></div><h3>Чип-тюнинг</h3><p>Поможем вашему авто заработать на полную мощность — настраиваем прошивку под задачи вождения.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="2.4"/><circle cx="18" cy="17" r="2.4"/><path d="M6 17h6l2-7h4M12 6h3l3 5"/></svg></div><h3>Ремонт ходовой</h3><p>При заезде в сервис дефектовка ходовой части — в подарок. Затем меняем изношенные узлы и проверяем результат.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 12h6l2-4 3 8 2-4h3"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Автоэлектрика</h3><p>Выявим проблемы электрики вашего автомобиля и проведём ремонт: проводка, стартер, генератор, блоки управления.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2 2-2M13 9l2 2 2-2"/></svg></div><h3>Диагностика</h3><p>Точно определим проблему вашего авто и предложим решение — без замен «на всякий случай».</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c4 4.4 6 7.6 6 10a6 6 0 1 1-12 0c0-2.4 2-5.6 6-10z"/></svg></div><h3>Замена масла</h3><p>Предложим качественное масло и поменяем его бесплатно — с подбором по допускам вашего автомобиля.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel accent">
+        <span class="kicker">Наши преимущества</span>
+        <h3>Знаем своё дело с 2012 года</h3>
+        <ul>
+          <li>С 2012 года работаем в автобизнесе Тобольска</li>
+          <li>Честно отвечаем за свою работу — гарантия на все работы</li>
+          <li>Подберём и закажем запчасти с умом: цена / качество</li>
+          <li>Дефектовка ходовой при заезде — бесплатно</li>
+          <li>Собственный магазин автозапчастей при сервисе</li>
+        </ul>
+        <a class="btn" href="#zapis">Записаться в сервис</a>
+      </div>
+      <div class="panel">
+        <span class="kicker">Масла</span>
+        <h3>Официальный дилер в Тобольске</h3>
+        <p>Мы являемся единственным дилером в Тобольске масел Eiffel, Dana, Renovar, Ruxx Oil, Scope и Takuro — можно приехать на замену со своим авто или купить масло отдельно.</p>
+        <div class="oils">
+          <span class="oil">EIFFEL</span><span class="oil">DANA</span><span class="oil">RENOVAR</span>
+          <span class="oil">RUXX OIL</span><span class="oil">SCOPE</span><span class="oil">TAKURO</span>
+        </div>
+        <p class="mt8"><a class="btn ghost" href="#zapis">Записаться на замену</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Как проходит запись</span><h2>Три шага — и машина в работе</h2></div>
+    <div class="grid g3 steps">
+      <div class="step"><h3>Заявка</h3><p>Оставляете имя и телефон на сайте или звоните — уточняем, что с машиной, и подбираем время.</p></div>
+      <div class="step"><h3>Дефектовка</h3><p>При заезде проверяем ходовую и делаем диагностику: показываем, что требует ремонта, и согласуем смету.</p></div>
+      <div class="step"><h3>Ремонт и гарантия</h3><p>Выполняем работы, подбираем запчасти и выдаём автомобиль с гарантией на выполненные работы.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Магазин при сервисе</span><h2>Запчасти и автомасла — рядом с подъёмником</h2><p>Отдельный плюс сервиса: при СТО работает магазин автозапчастей и автомасел, поэтому детали не приходится искать по городу.</p></div>
+    <div class="grid g4">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M4 11h16M9 7v10"/></svg></div><h3>В наличии</h3><p>Расходники и ходовые детали для ремонта — можно поставить в тот же день.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M7 12h10M9 16h6"/></svg></div><h3>Подбор с умом</h3><p>Поможем выбрать запчасть по соотношению цена/качество: оригинал или надёжный аналог.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><h3>Заказ деталей</h3><p>Нужной позиции нет на складе — закажем по каталогу и дождёмся поставки.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v6c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Масла 6 брендов</h3><p>Eiffel, Dana, Renovar, Ruxx Oil, Scope и Takuro — как дилер, предлагаем по своим ценам.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details open><summary>Правда ли дефектовка ходовой бесплатная?</summary><p>Да. При заезде в сервис дефектовка ходовой части выполняется в подарок — вы видите реальное состояние узлов и только потом принимаете решение о ремонте.</p></details>
+    <details><summary>Чем занимается сервис кроме ремонта?</summary><p>Ремонт ДВС, ходовой части, автоэлектрика, компьютерная диагностика, чип-тюнинг и замена масла. Плюс магазин автозапчастей при сервисе.</p></details>
+    <details><summary>Можно ли купить масло отдельно?</summary><p>Да, мы официальный дилер масел Eiffel, Dana, Renovar, Ruxx Oil, Scope и Takuro в Тобольске — масло можно купить как с заменой, так и отдельно.</p></details>
+    <details><summary>Поможете с запчастями?</summary><p>Да, подберём и закажем детали с умом — по соотношению цена/качество, оригинал или качественный аналог.</p></details>
+    <details><summary>Есть ли гарантия?</summary><p>Да, мы предоставляем и надлежащим образом исполняем гарантию на все работы.</p></details>
+  </div>
+</section>
+
+<section class="block" id="zapis">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="kicker">Заявка</span>
+      <h3>Записаться в сервис</h3>
+      <p>Оставьте контакты — перезвоним, уточним детали и подберём удобное время.</p>
+      <form onsubmit="return false">
+        <div class="f-row">
+          <input type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" aria-label="Телефон">
+        </div>
+        <div class="f-full">
+          <select name="work" aria-label="Что нужно сделать">
+            <option>Ремонт двигателя (ДВС)</option>
+            <option>Чип-тюнинг</option>
+            <option>Ремонт ходовой части</option>
+            <option>Автоэлектрика</option>
+            <option>Диагностика</option>
+            <option>Замена масла</option>
+            <option>Другое</option>
+          </select>
+        </div>
+        <div class="f-full"><textarea name="comment" placeholder="Опишите, что с автомобилем: марка, что беспокоит" aria-label="Описание"></textarea></div>
+        <button class="btn wide" type="submit">Записаться</button>
+      </form>
+      <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Или звоните: <a class="acclink" href="tel:+73456271067">+7 (3456) 27-10-67</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Как нас найти</h2></div>
+    <div class="contacts">
+      <div class="c-item">
+        <h3>Адрес</h3>
+        <p>г. Тобольск, 2-я Северная улица, 49А<br><span class="mut">20 мкр., стр. 1</span></p>
+        <p class="mt8 mut">Магазин автозапчастей и автомасел — при сервисе.</p>
+      </div>
+      <div class="c-item">
+        <h3>Связь</h3>
+        <a class="tel" href="tel:+73456271067">+7 (3456) 27-10-67</a>
+        <a class="tel mt8" href="tel:+73456235323">+7 (3456) 23-53-23</a>
+        <p class="mt8"><a class="acclink" href="mailto:5procentov_opt@mail.ru">5procentov_opt@mail.ru</a></p>
+        <p class="mt8 mut">Telegram и WhatsApp — по тем же номерам.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Автосервис «5%» · Тобольск · 2-я Северная, 49А</span>
+    <span>Демо-концепт сайта. Не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>
