@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAG EXPERT Сургут — сервис Audi и автомобили в наличии: Нефтеюганское шоссе, 24/3</title>
+<meta name="description" content="VAG EXPERT / Ауди Центр Сургут: сервис Audi, новые автомобили в наличии и авто с пробегом. Работаем в Сургуте и ХМАО более 10 лет. Нефтеюганское шоссе, 24/3, ежедневно 9:00–20:00, +7 3462 39-00-75.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0e12; --bg2:#12151b; --card:#171b22; --line:#272c36;
+  --acc:#d4351c; --acc2:#ff6b4a; --txt:#f4f5f7; --mut:#99a1af;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Fira Sans',system-ui,sans-serif;overflow-x:hidden;line-height:1.58}
+h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.2;letter-spacing:-.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(12,14,18,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;max-width:1120px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--acc2),var(--acc));display:flex;align-items:center;justify-content:center;font-family:'Montserrat';font-weight:800;font-size:13px;color:#fff}
+.logo b{font-family:'Montserrat';font-weight:800;font-size:15.5px;letter-spacing:.3px}
+.logo small{display:block;font-size:11.5px;color:var(--mut);font-family:'Fira Sans'}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#fff;font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:13px 26px;border-radius:13px;font-size:15px;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 24px rgba(212,53,28,.28)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,53,28,.4)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc)}
+.hero{position:relative;padding:78px 0 66px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 340px at 10% 16%,rgba(212,53,28,.16),transparent 62%),radial-gradient(700px 380px at 92% 82%,rgba(255,107,74,.08),transparent 62%);pointer-events:none}
+.hero h1{font-size:clamp(28px,4.7vw,47px);margin:14px 0 16px}
+.hero h1 span{color:var(--acc2)}
+.kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--acc2);background:rgba(212,53,28,.12);border:1px solid rgba(212,53,28,.4);padding:6px 14px;border-radius:100px}
+.lead{color:var(--mut);font-size:clamp(15px,2.3vw,18px);max-width:670px;margin-bottom:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:600;background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:100px;color:var(--mut)}
+.chip b{color:var(--txt)}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px}
+.hero-meta b{display:block;font-family:'Montserrat';font-weight:800;font-size:19px;color:var(--txt)}
+section.block{padding:58px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:clamp(22px,3.5vw,33px);margin:12px 0 8px}
+.sec-head p{color:var(--mut);max-width:700px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:rgba(212,53,28,.5)}
+.card h3{font-size:16px;margin:13px 0 8px}
+.card p{color:var(--mut);font-size:14.5px}
+.ico{width:48px;height:48px;border-radius:13px;background:rgba(212,53,28,.14);display:flex;align-items:center;justify-content:center}
+.ico svg{width:25px;height:25px;stroke:var(--acc2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:linear-gradient(160deg,#1a1f27,#101318);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel.accent{border-color:rgba(212,53,28,.45);background:linear-gradient(160deg,rgba(212,53,28,.14),rgba(212,53,28,.02))}
+.panel h3{font-size:19px;margin-bottom:10px}
+.panel p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+.panel ul{list-style:none;margin-bottom:18px}
+.panel li{color:var(--mut);font-size:14.5px;padding:5px 0 5px 24px;position:relative}
+.panel li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--acc2)}
+.tel{font-family:'Montserrat';font-weight:800;font-size:clamp(17px,2.6vw,21px);color:var(--acc2);text-decoration:none;word-break:break-word}
+.acclink{color:var(--acc2)}
+.cars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.car{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.car b{display:block;font-family:'Montserrat';font-weight:800;font-size:19px;color:var(--txt)}
+.car p{color:var(--mut);font-size:14.5px;margin-top:6px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15.5px}
+.faq summary::marker{color:var(--acc2)}
+.faq p{color:var(--mut);font-size:14.5px;margin-top:10px}
+.form-card{background:linear-gradient(160deg,#1c212a,#0f1318);border:1px solid rgba(212,53,28,.42);border-radius:20px;padding:34px;max-width:680px;margin:0 auto}
+.form-card h3{font-size:clamp(20px,3vw,26px);margin-bottom:10px;text-align:center}
+.form-card>p{color:var(--mut);font-size:14.5px;margin-bottom:22px;text-align:center}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.f-row input,.f-row select,.f-full textarea,.f-full select{background:#080a0d;border:1px solid var(--line);border-radius:13px;color:var(--txt);padding:14px 16px;font-size:15px;font-family:inherit;width:100%;min-width:0}
+.f-row input:focus,.f-row select:focus,.f-full textarea:focus,.f-full select:focus{outline:none;border-color:var(--acc)}
+.f-full{margin-bottom:10px}
+.f-full textarea{min-height:84px;resize:vertical}
+.btn.wide{width:100%;margin-top:6px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px;text-align:center}
+.contacts{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.c-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.c-item h3{font-family:'Fira Sans';font-weight:700;font-size:11.5px;color:var(--mut);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.1px}
+.c-item .tel{font-size:clamp(15px,2.3vw,19px);display:block;margin-bottom:6px}
+.mt8{margin-top:8px}
+.mut{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:820px){
+  .g3,.g4,.cars{grid-template-columns:repeat(2,1fr)}
+  .split,.contacts{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .g3,.g4,.cars{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .hero{padding:50px 0 42px}
+  .hd .btn{padding:11px 16px;font-size:13.5px}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="#top"><span class="logo-mark">VAG</span><span><b>VAG EXPERT СУРГУТ</b><small>сервис Audi · автомобили · ХМАО</small></span></a>
+    <a class="btn" href="#zapis">Записаться</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Сургут · Нефтеюганское ш., 24/3 · ежедневно 9:00–20:00</span>
+    <h1>Сервис Audi и автомобили <span>в одном центре</span></h1>
+    <p class="lead">Мы работаем в Сургуте и ХМАО более 10 лет: обслуживаем Audi, помогаем с новыми автомобилями и машинами с пробегом. Администратор обрабатывает заявки каждый день с 9:00 до 20:00.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#zapis">Записаться на сервис</a>
+      <a class="btn ghost" href="tel:+73462390075">Позвонить в центр</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>Сервис Audi</b>сервисный партнёр</span>
+      <span class="chip">Новые авто <b>в наличии</b></span>
+      <span class="chip">Автомобили с пробегом</span>
+      <span class="chip">Более <b>10 лет</b> в ХМАО</span>
+    </div>
+    <div class="hero-meta">
+      <div><b>9:00–20:00</b>ежедневно, без выходных</div>
+      <div><b>10+ лет</b>работаем в Сургуте и ХМАО</div>
+      <div><b>24/3</b>Нефтеюганское шоссе</div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Автомобили в наличии</span><h2>Что можно посмотреть сегодня</h2><p>В наличии новые автомобили — от компактных кроссоверов до больших купе-кроссоверов. Комплектации, привод и характеристики уточняйте у администратора.</p></div>
+    <div class="cars">
+      <div class="car"><b>Audi Q5</b><p>Полный привод, 245 л.с., бензин, русифицирован.</p></div>
+      <div class="car"><b>Audi A6</b><p>Передний привод, 190 л.с., бензин.</p></div>
+      <div class="car"><b>Audi Q8</b><p>Полный привод, 340 л.с., бензин.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Сервис</span><h2>Чем занимается сервисный центр</h2><p>Мы специализируемся на автомобилях концерна и работаем как сервисный партнёр Audi. Диагностика, регламентное обслуживание и ремонт — по заводским требованиям.</p></div>
+    <div class="grid g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2 2-2M13 9l2 2 2-2"/></svg></div><h3>Диагностика</h3><p>Компьютерная диагностика: находим причину до замены деталей и объясняем её понятным языком.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c4 4.4 6 7.6 6 10a6 6 0 1 1-12 0c0-2.4 2-5.6 6-10z"/></svg></div><h3>Регламентное ТО</h3><p>Обслуживание по регламенту: масла, фильтры, жидкости и контрольные точки.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h5l3-6 4 12 3-6h3"/></svg></div><h3>Ремонт и узлы</h3><p>Ремонт агрегатов и узлов автомобиля — с проверкой результата после работ.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel accent">
+        <span class="kicker">Почему нас выбирают</span>
+        <h3>Прогресс через технологии</h3>
+        <ul>
+          <li>Более 10 лет работы в Сургуте и ХМАО</li>
+          <li>Сервисный партнёр Audi</li>
+          <li>Администратор на связи ежедневно с 9:00 до 20:00</li>
+          <li>Новые автомобили и машины с пробегом в одном центре</li>
+        </ul>
+        <a class="btn" href="#zapis">Оставить заявку</a>
+      </div>
+      <div class="panel">
+        <span class="kicker">Заявка</span>
+        <h3>Перезвоним и ответим на вопросы</h3>
+        <p>Оставьте контакты: расскажем про комплектации автомобилей в наличии, стоимость обслуживания и свободное время для визита.</p>
+        <p class="mut">Нефтеюганское шоссе, 24/3 · ежедневно с 9:00 до 20:00.</p>
+        <a class="btn ghost" href="tel:+73462390075">+7 3462 39-00-75</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details open><summary>Вы обслуживаете только Audi?</summary><p>Основное направление — сервис Audi, мы работаем как сервисный партнёр. Также помогаем с новыми автомобилями и машинами с пробегом.</p></details>
+    <details><summary>Можно ли записаться на удобное время?</summary><p>Да, заявки принимаются каждый день с 9:00 до 20:00. Оставьте контакты на сайте — перезвоним и подберём время.</p></details>
+    <details><summary>Есть ли автомобили в наличии?</summary><p>Да, в наличии новые автомобили, например кроссоверы и седаны. Актуальные комплектации уточняйте по телефону.</p></details>
+    <details><summary>Работаете ли с автомобилями из других регионов?</summary><p>Да, мы работаем в Сургуте и ХМАО более 10 лет — приезжают и клиенты из соседних городов.</p></details>
+    <details><summary>Как вас найти?</summary><p>Сургут, Нефтеюганское шоссе, 24/3. Телефон: +7 3462 39-00-75.</p></details>
+  </div>
+</section>
+
+<section class="block" id="zapis">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="kicker">Заявка</span>
+      <h3>Записаться или задать вопрос</h3>
+      <p>Заполните форму — администратор обрабатывает заявки ежедневно с 9:00 до 20:00.</p>
+      <form onsubmit="return false">
+        <div class="f-row">
+          <input type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" aria-label="Телефон">
+        </div>
+        <div class="f-row">
+          <select name="work" aria-label="Тема обращения">
+            <option>Запись на сервис</option>
+            <option>Диагностика</option>
+            <option>Регламентное ТО</option>
+            <option>Ремонт</option>
+            <option>Интересует новый автомобиль</option>
+            <option>Интересует авто с пробегом</option>
+            <option>Другое</option>
+          </select>
+          <input type="date" name="date" aria-label="Желаемая дата">
+        </div>
+        <div class="f-full"><textarea name="comment" placeholder="Модель авто, год, что беспокоит" aria-label="Описание"></textarea></div>
+        <button class="btn wide" type="submit">Отправить заявку</button>
+      </form>
+      <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Или звоните: <a class="acclink" href="tel:+73462390075">+7 3462 39-00-75</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Как нас найти</h2></div>
+    <div class="contacts">
+      <div class="c-item">
+        <h3>Адрес и график</h3>
+        <p>г. Сургут, Нефтеюганское шоссе, 24/3<br><span class="mut">Ежедневно с 9:00 до 20:00</span></p>
+      </div>
+      <div class="c-item">
+        <h3>Связь</h3>
+        <a class="tel" href="tel:+73462390075">+7 3462 39-00-75</a>
+        <p class="mt8"><a class="acclink" href="mailto:info@vagsurgut.ru">info@vagsurgut.ru</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>VAG EXPERT · Сургут · сервис Audi и автомобили</span>
+    <span>Демо-концепт сайта. Не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>
