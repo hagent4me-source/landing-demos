@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автомания — автозапчасти, автосервис и автомойка в Мичуринске: подбор по VIN, более 20 лет</title>
+<meta name="description" content="Автокомплекс «Автомания» в Мичуринске: автозапчасти для легковых, грузовых автомобилей и спецтехники, подбор по VIN, собственный автосервис и автомойка, доставка по Тамбовской области и России. Более 20 лет на рынке. +7 (47545) 38-0-88, ежедневно 08:00–18:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2; --card:#ffffff; --line:#e6e3da; --ink:#1a2118; --mut:#666a5e;
+  --acc:#15803d; --acc2:#22a352; --soft:#e8f5ec; --radius:17px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Fira Sans',system-ui,sans-serif;overflow-x:hidden;line-height:1.58}
+h1,h2,h3{font-family:'Rubik',sans-serif;font-weight:700;line-height:1.22;letter-spacing:-.01em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;max-width:1120px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--acc2),var(--acc));display:flex;align-items:center;justify-content:center;font-family:'Rubik';font-weight:700;font-size:17px;color:#fff}
+.logo b{font-family:'Rubik';font-weight:700;font-size:17.5px}
+.logo small{display:block;font-size:11.5px;color:var(--mut)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#fff;font-weight:600;text-decoration:none;border:none;cursor:pointer;padding:13px 26px;border-radius:14px;font-size:15px;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 22px rgba(21,128,61,.2)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(21,128,61,.3)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
+.hero{position:relative;padding:74px 0 62px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 340px at 12% 18%,rgba(21,128,61,.1),transparent 62%),radial-gradient(700px 380px at 90% 82%,rgba(34,163,82,.08),transparent 62%);pointer-events:none}
+.hero h1{font-size:clamp(27px,4.5vw,44px);margin:14px 0 16px}
+.hero h1 span{color:var(--acc)}
+.kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--acc);background:var(--soft);border:1px solid #c6e5d1;padding:6px 14px;border-radius:100px}
+.lead{color:var(--mut);font-size:clamp(15px,2.3vw,18px);max-width:690px;margin-bottom:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:100px;color:var(--mut)}
+.chip b{color:var(--ink)}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px}
+.hero-meta b{display:block;font-family:'Rubik';font-weight:700;font-size:20px;color:var(--ink)}
+section.block{padding:56px 0}
+section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:clamp(22px,3.5vw,32px);margin:12px 0 8px}
+.sec-head p{color:var(--mut);max-width:720px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(26,33,24,.08)}
+.card h3{font-size:16.5px;margin:13px 0 8px}
+.card p{color:var(--mut);font-size:14.5px}
+.ico{width:46px;height:46px;border-radius:13px;background:var(--soft);display:flex;align-items:center;justify-content:center}
+.ico svg{width:24px;height:24px;stroke:var(--acc);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel.accent{border-color:#c6e5d1;background:linear-gradient(160deg,var(--soft),#fff)}
+.panel h3{font-size:20px;margin-bottom:10px}
+.panel p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+.panel ul{list-style:none;margin-bottom:18px}
+.panel li{color:var(--mut);font-size:14.5px;padding:5px 0 5px 26px;position:relative}
+.panel li::before{content:"✓";position:absolute;left:2px;color:var(--acc);font-weight:700}
+.tel{font-family:'Rubik';font-weight:700;font-size:clamp(17px,2.6vw,21px);color:var(--acc);text-decoration:none;word-break:break-word}
+.acclink{color:var(--acc)}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15.5px}
+.faq summary::marker{color:var(--acc)}
+.faq p{color:var(--mut);font-size:14.5px;margin-top:10px}
+.form-card{background:linear-gradient(160deg,#fff,var(--soft));border:1px solid #c6e5d1;border-radius:22px;padding:34px;max-width:680px;margin:0 auto}
+.form-card h3{font-size:clamp(20px,3vw,26px);margin-bottom:10px;text-align:center}
+.form-card>p{color:var(--mut);font-size:14.5px;margin-bottom:22px;text-align:center}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.f-row input,.f-row select,.f-full textarea,.f-full select{background:#fff;border:1px solid var(--line);border-radius:13px;color:var(--ink);padding:14px 16px;font-size:15px;font-family:inherit;width:100%;min-width:0}
+.f-row input:focus,.f-row select:focus,.f-full textarea:focus,.f-full select:focus{outline:none;border-color:var(--acc)}
+.f-full{margin-bottom:10px}
+.f-full textarea{min-height:84px;resize:vertical}
+.btn.wide{width:100%;margin-top:6px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px;text-align:center}
+.contacts{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.c-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.c-item h3{font-family:'Fira Sans';font-weight:700;font-size:11.5px;color:var(--mut);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.1px}
+.c-item .tel{font-size:clamp(15px,2.3vw,19px);display:block;margin-bottom:6px}
+.mt8{margin-top:8px}
+.mut{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13.5px;background:#fff}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:820px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .split,.contacts{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .g3,.g4{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .hero{padding:48px 0 40px}
+  .hd .btn{padding:11px 16px;font-size:13.5px}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="#top"><span class="logo-mark">АМ</span><span><b>АВТОМАНИЯ</b><small>запчасти · сервис · мойка</small></span></a>
+    <a class="btn" href="#zapis">Заявка</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Мичуринск · ежедневно 08:00–18:00 · +7 (47545) 38-0-88</span>
+    <h1>Автокомплекс полного цикла — <span>запчасти, сервис, мойка</span></h1>
+    <p class="lead">Более 20 лет продаём запасные части и обслуживаем автомобили. Оригинальные запчасти и аналоги, подбор по VIN, собственный автосервис и автомойка — всё в одном месте.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#zapis">Оставить заявку</a>
+      <a class="btn ghost" href="tel:+74754538088">Позвонить: 38-0-88</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>20+ лет</b>на рынке</span>
+      <span class="chip">Подбор по <b>VIN</b></span>
+      <span class="chip">Легковые, грузовые, спецтехника</span>
+      <span class="chip">Свой автосервис</span>
+      <span class="chip">Автомойка</span>
+      <span class="chip">Доставка по области</span>
+    </div>
+    <div class="hero-meta">
+      <div><b>08:00–18:00</b>ежедневно, без выходных</div>
+      <div><b>Интернет-магазин</b>запчасти-68.рф</div>
+      <div><b>Гарантия</b>на товар и услуги</div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Запчасти</span><h2>Что можно купить</h2><p>Широкий ассортимент для разных типов техники. Подбираем деталь по VIN или по параметрам — чтобы не ошибиться с позицией.</p></div>
+    <div class="grid g4">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 15V9h10v6M14 11h4l3 3v1"/><circle cx="7" cy="17" r="1.7"/><circle cx="17" cy="17" r="1.7"/></svg></div><h3>Для легковых</h3><p>Оригинальные запчасти и качественные аналоги для иномарок и отечественных авто.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 16V7h11v9M13 10h4l4 4v2"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div><h3>Для грузовых</h3><p>Запчасти для коммерческого и грузового транспорта.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 16h18M6 16V9h8l3 3v4"/><circle cx="8" cy="18" r="1.6"/><circle cx="16" cy="18" r="1.6"/></svg></div><h3>Для спецтехники</h3><p>Позиции для спецтехники — уточняйте по конкретной машине.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M7 12h10M9 16h6"/></svg></div><h3>Подбор по VIN</h3><p>Пришлите VIN — подберём нужную деталь без ошибок.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel accent">
+        <span class="kicker">Сервис и мойка</span>
+        <h3>Купили запчасть — тут же поставили</h3>
+        <p>У «Автомании» собственный автосервис: можно не искать отдельную станцию, а сразу записаться на работы и помыть машину на площадке.</p>
+        <ul>
+          <li>Собственный автосервис</li>
+          <li>Автомойка</li>
+          <li>Гарантия на товар и услуги</li>
+          <li>Поставки от официальных дилеров</li>
+        </ul>
+        <a class="btn" href="#zapis">Записаться в сервис</a>
+      </div>
+      <div class="panel">
+        <span class="kicker">Доставка</span>
+        <h3>Мичуринск, область и вся Россия</h3>
+        <p>Нужную позицию можно получить быстро: доставка работает по Мичуринску, Тамбовской области и другим регионам России.</p>
+        <p class="mut">Интернет-магазин запчастей: запчасти-68.рф<br>Телефон: +7 (47545) 38-0-88 (ежедневно 08:00–18:00)</p>
+        <a class="btn ghost" href="mailto:sale@avtomanya.ru">Написать на почту</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Почему «Автомания»</span><h2>Опыт и надёжность</h2></div>
+    <div class="grid g3">
+      <div class="card"><h3>Более 20 лет</h3><p>Компания работает на рынке запчастей и обслуживания автомобилей больше двадцати лет.</p></div>
+      <div class="card"><h3>Гарантия качества</h3><p>Поставки от официальных дилеров, гарантия на товар и на выполненные работы.</p></div>
+      <div class="card"><h3>Ассортимент</h3><p>Большой выбор запчастей для легковых, грузовых автомобилей и спецтехники.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details open><summary>Как подобрать запчасть?</summary><p>Пришлите VIN автомобиля или параметры детали — подберём позицию и скажем по наличию и цене.</p></details>
+    <details><summary>Работаете с грузовыми автомобилями и спецтехникой?</summary><p>Да, запчасти есть и для грузового транспорта, и для спецтехники — уточняйте по конкретной машине.</p></details>
+    <details><summary>Есть ли свой сервис?</summary><p>Да, у автокомплекса собственный автосервис и автомойка — можно сразу записаться на работы.</p></details>
+    <details><summary>Как быстро доставите?</summary><p>Доставка по Мичуринску, Тамбовской области и России. Сроки зависят от позиции — уточним при оформлении заказа.</p></details>
+    <details><summary>Какой график работы?</summary><p>Ежедневно с 08:00 до 18:00. Телефон: +7 (47545) 38-0-88.</p></details>
+  </div>
+</section>
+
+<section class="block" id="zapis">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="kicker">Заявка</span>
+      <h3>Подбор запчасти или запись в сервис</h3>
+      <p>Опишите, что нужно: подберём деталь по VIN или подберём время для сервиса и мойки.</p>
+      <form onsubmit="return false">
+        <div class="f-row">
+          <input type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" aria-label="Телефон">
+        </div>
+        <div class="f-row">
+          <select name="work" aria-label="Что нужно">
+            <option>Подбор запчасти по VIN</option>
+            <option>Запчасти для легкового авто</option>
+            <option>Запчасти для грузового авто</option>
+            <option>Запчасти для спецтехники</option>
+            <option>Запись в автосервис</option>
+            <option>Автомойка</option>
+            <option>Другое</option>
+          </select>
+          <input type="text" name="vin" placeholder="VIN или модель авто" aria-label="VIN или модель">
+        </div>
+        <div class="f-full"><textarea name="comment" placeholder="Что нужно: деталь, работа или запись" aria-label="Описание"></textarea></div>
+        <button class="btn wide" type="submit">Отправить заявку</button>
+      </form>
+      <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Почта: <a class="acclink" href="mailto:sale@avtomanya.ru">sale@avtomanya.ru</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Связь и график</h2></div>
+    <div class="contacts">
+      <div class="c-item">
+        <h3>График</h3>
+        <p>Ежедневно 08:00–18:00<br><span class="mut">г. Мичуринск · автозапчасти, автосервис, автомойка</span></p>
+      </div>
+      <div class="c-item">
+        <h3>Связь</h3>
+        <a class="tel" href="tel:+74754538088">+7 (47545) 38-0-88</a>
+        <p class="mt8"><a class="acclink" href="mailto:sale@avtomanya.ru">sale@avtomanya.ru</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Автокомплекс «Автомания» · Мичуринск</span>
+    <span>Демо-концепт сайта. Не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>

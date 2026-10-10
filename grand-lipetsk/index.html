@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автосервис «Гранд» в Липецке — грузовой и легковой сервис, работаем без выходных 8:00–20:00</title>
+<meta name="description" content="Автосервис «Гранд» в Липецке: грузовой сервис (ул. Ферросплавная, 12Б, 43-30-02) и легковой сервис (ул. Суворова, 15А, 43-54-10). Ремонт двигателя, развал-схождение, диагностика и ремонт ходовой части и подвески. Работаем без перерыва и выходных с 8:00 до 20:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f4f8; --card:#ffffff; --line:#dfe5ee; --ink:#0f172a; --mut:#5a6678;
+  --acc:#1d4ed8; --acc2:#3b82f6; --soft:#e8efff; --radius:17px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Fira Sans',system-ui,sans-serif;overflow-x:hidden;line-height:1.58}
+h1,h2,h3{font-family:'Manrope',sans-serif;font-weight:800;line-height:1.2;letter-spacing:-.015em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;max-width:1120px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--acc2),var(--acc));display:flex;align-items:center;justify-content:center;font-family:'Manrope';font-weight:800;font-size:17px;color:#fff}
+.logo b{font-family:'Manrope';font-weight:800;font-size:18px;letter-spacing:.02em}
+.logo small{display:block;font-size:11.5px;color:var(--mut)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#fff;font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:13px 26px;border-radius:14px;font-size:15px;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 22px rgba(29,78,216,.22)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(29,78,216,.32)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
+.hero{position:relative;padding:74px 0 62px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 340px at 12% 18%,rgba(29,78,216,.11),transparent 62%),radial-gradient(700px 380px at 90% 82%,rgba(59,130,246,.09),transparent 62%);pointer-events:none}
+.hero h1{font-size:clamp(27px,4.5vw,44px);margin:14px 0 16px}
+.hero h1 span{color:var(--acc)}
+.kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--acc);background:var(--soft);border:1px solid #cbdcff;padding:6px 14px;border-radius:100px}
+.lead{color:var(--mut);font-size:clamp(15px,2.3vw,18px);max-width:690px;margin-bottom:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:100px;color:var(--mut)}
+.chip b{color:var(--ink)}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px}
+.hero-meta b{display:block;font-family:'Manrope';font-weight:800;font-size:20px;color:var(--ink)}
+section.block{padding:56px 0}
+section.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:clamp(22px,3.5vw,32px);margin:12px 0 8px}
+.sec-head p{color:var(--mut);max-width:720px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,23,42,.08)}
+.card h3{font-size:16.5px;margin:13px 0 8px}
+.card p{color:var(--mut);font-size:14.5px}
+.ico{width:46px;height:46px;border-radius:13px;background:var(--soft);display:flex;align-items:center;justify-content:center}
+.ico svg{width:24px;height:24px;stroke:var(--acc);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.line{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;border-top:4px solid var(--acc)}
+.line.truck{border-top-color:#0f766e}
+.line>b{display:block;font-family:'Manrope';font-weight:800;font-size:20px;margin-bottom:4px}
+.line>span{color:var(--mut);font-size:14px}
+.line table{width:100%;border-collapse:collapse;margin-top:16px}
+.line td{padding:8px 0;font-size:14.5px;color:var(--mut);border-bottom:1px dashed var(--line)}
+.line td:last-child{text-align:right;white-space:nowrap}
+.line td:last-child a{color:var(--acc);text-decoration:none;font-weight:700}
+.line tr:last-child td{border-bottom:none}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel.accent{border-color:#cbdcff;background:linear-gradient(160deg,var(--soft),#fff)}
+.panel h3{font-size:19px;margin-bottom:10px}
+.panel p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+.panel ul{list-style:none;margin-bottom:18px}
+.panel li{color:var(--mut);font-size:14.5px;padding:5px 0 5px 26px;position:relative}
+.panel li::before{content:"✓";position:absolute;left:2px;color:var(--acc);font-weight:700}
+.tel{font-family:'Manrope';font-weight:800;font-size:clamp(17px,2.6vw,21px);color:var(--acc);text-decoration:none;word-break:break-word}
+.acclink{color:var(--acc)}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.why div{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.why b{display:block;font-family:'Manrope';font-weight:800;font-size:16px;margin-bottom:6px}
+.why p{color:var(--mut);font-size:14.5px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15.5px}
+.faq summary::marker{color:var(--acc)}
+.faq p{color:var(--mut);font-size:14.5px;margin-top:10px}
+.form-card{background:linear-gradient(160deg,#fff,var(--soft));border:1px solid #cbdcff;border-radius:22px;padding:34px;max-width:680px;margin:0 auto}
+.form-card h3{font-size:clamp(20px,3vw,26px);margin-bottom:10px;text-align:center}
+.form-card>p{color:var(--mut);font-size:14.5px;margin-bottom:22px;text-align:center}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.f-row input,.f-row select,.f-full textarea,.f-full select{background:#fff;border:1px solid var(--line);border-radius:13px;color:var(--ink);padding:14px 16px;font-size:15px;font-family:inherit;width:100%;min-width:0}
+.f-row input:focus,.f-row select:focus,.f-full textarea:focus,.f-full select:focus{outline:none;border-color:var(--acc)}
+.f-full{margin-bottom:10px}
+.f-full textarea{min-height:84px;resize:vertical}
+.btn.wide{width:100%;margin-top:6px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px;text-align:center}
+.contacts{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.c-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.c-item h3{font-family:'Fira Sans';font-weight:700;font-size:11.5px;color:var(--mut);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.1px}
+.c-item .tel{font-size:clamp(15px,2.3vw,19px);display:block;margin-bottom:6px}
+.mt8{margin-top:8px}
+.mut{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13.5px;background:#fff}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:900px){.why{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){
+  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+  .split,.contacts,.two{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .g3,.g4,.why{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .hero{padding:48px 0 40px}
+  .hd .btn{padding:11px 16px;font-size:13.5px}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="#top"><span class="logo-mark">Г</span><span><b>ГРАНД</b><small>автосервис · Липецк</small></span></a>
+    <a class="btn" href="#zapis">Записаться</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Липецк · грузовой и легковой сервис · ежедневно 8:00–20:00</span>
+    <h1>Два сервиса — для грузовых и <span>легковых автомобилей</span></h1>
+    <p class="lead">Ремонт и обслуживание грузового транспорта и легковых автомобилей. Ремонт двигателя, развал-схождение, диагностика и ремонт ходовой части и подвески. Работаем без перерыва и выходных.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#zapis">Оставить заявку</a>
+      <a class="btn ghost" href="#adresa">Телефоны сервисов</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>Без выходных</b>8:00–20:00</span>
+      <span class="chip">Грузовой сервис</span>
+      <span class="chip">Легковой сервис</span>
+      <span class="chip">Развал-схождение</span>
+      <span class="chip">Ремонт двигателя</span>
+    </div>
+    <div class="hero-meta">
+      <div><b>2 площадки</b>Ферросплавная и Суворова</div>
+      <div><b>8:00–20:00</b>ежедневно, без перерыва</div>
+      <div><b>Современное оборудование</b>и материалы</div>
+    </div>
+  </div>
+</div>
+
+<section class="block" id="adresa">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Адреса</span><h2>Какой сервис вам нужен</h2><p>У «Гранда» две площадки: грузовая и легковая. У каждой — свой телефон сервиса.</p></div>
+    <div class="two">
+      <div class="line truck">
+        <b>Грузовой автосервис</b>
+        <span>Липецк, ул. Ферросплавная, 12Б</span>
+        <table>
+          <tr><td>Сервис</td><td><a href="tel:+74742303002">43-30-02</a></td></tr>
+          <tr><td>Бухгалтер / факс</td><td><a href="tel:+74742434256">43-42-56</a></td></tr>
+          <tr><td>График</td><td>8:00–20:00 без выходных</td></tr>
+        </table>
+      </div>
+      <div class="line">
+        <b>Легковой автосервис</b>
+        <span>Липецк, ул. Суворова, 15А</span>
+        <table>
+          <tr><td>Сервис</td><td><a href="tel:+74742354110">43-54-10</a></td></tr>
+          <tr><td>Бухгалтер</td><td><a href="tel:+74742251030">25-10-30</a></td></tr>
+          <tr><td>График</td><td>8:00–20:00 без выходных</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Услуги</span><h2>Что делаем</h2></div>
+    <div class="grid g4">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 6h12v5H6zM8 11v7M16 11v7"/></svg></div><h3>Ремонт двигателя</h3><p>По предварительной записи — от диагностики до ремонта.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="2.4"/><circle cx="18" cy="17" r="2.4"/><path d="M6 17h6l2-7h4M12 6h3l3 5"/></svg></div><h3>Развал-схождение</h3><p>Регулировка углов установки колёс — по предварительной записи.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h5l3-6 4 12 3-6h3"/></svg></div><h3>Ходовая часть и подвеска</h3><p>Диагностика и ремонт ходовой части и подвески.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M2 16V7h11v9M13 10h4l4 4v2"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div><h3>Грузовой сервис</h3><p>Ремонт и обслуживание грузового транспорта на отдельной площадке.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 15V9h10v6M14 11h4l3 3v1"/><circle cx="7" cy="17" r="1.7"/></svg></div><h3>Легковой сервис</h3><p>Обслуживание легковых автомобилей — на Суворова, 15А.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2 2-2"/></svg></div><h3>Диагностика</h3><p>Проверяем автомобиль и называем причину — до работ.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c4 4.4 6 7.6 6 10a6 6 0 1 1-12 0c0-2.4 2-5.6 6-10z"/></svg></div><h3>Обслуживание</h3><p>Плановые работы и замена расходников.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M4 11h16M9 7v10"/></svg></div><h3>Материалы и оборудование</h3><p>Используем современное оборудование и материалы.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Почему «Гранд»</span><h2>Что важно для клиента</h2></div>
+    <div class="why">
+      <div><b>Отличные цены</b><p>Минимизируем издержки, чтобы предложить доступную стоимость сервиса.</p></div>
+      <div><b>Высокое качество</b><p>Используем в работе современное оборудование и материалы.</p></div>
+      <div><b>Опытные специалисты</b><p>Профессионалы высокого уровня решают любые задачи.</p></div>
+      <div><b>Работаем без выходных</b><p>Ждём вас ежедневно с 8:00 до 20:00, без перерыва.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel accent">
+        <span class="kicker">Запись</span>
+        <h3>Работы — по предварительной записи</h3>
+        <p>Ремонт двигателя и развал-схождение выполняются по записи: так машину принимают ко времени, без ожидания в очереди.</p>
+        <ul>
+          <li>Грузовой сервис: 43-30-02</li>
+          <li>Легковой сервис: 43-54-10</li>
+          <li>Заявка на сайте — круглосуточно</li>
+          <li>Общий e-mail: stoagrand@mail.ru</li>
+        </ul>
+        <a class="btn" href="#zapis">Записаться</a>
+      </div>
+      <div class="panel">
+        <span class="kicker">Автопаркам</span>
+        <h3>Грузовой транспорт — отдельная площадка</h3>
+        <p>Грузовики обслуживает отдельный сервис на ул. Ферросплавная, 12Б. Это удобно для организаций с парком техники: приёмка и работы идут по своему графику.</p>
+        <p class="mut">Ежедневно 8:00–20:00, без перерыва и выходных.</p>
+        <a class="btn ghost" href="mailto:stoagrand@mail.ru">Написать на почту</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details open><summary>Работаете ли вы без выходных?</summary><p>Да, оба сервиса работают ежедневно с 8:00 до 20:00, без перерыва и выходных.</p></details>
+    <details><summary>Обслуживаете грузовые автомобили?</summary><p>Да, для этого есть отдельная площадка: Липецк, ул. Ферросплавная, 12Б, сервис 43-30-02.</p></details>
+    <details><summary>Делаете развал-схождение?</summary><p>Да, развал-схождение выполняется по предварительной записи.</p></details>
+    <details><summary>Нужна ли предварительная запись?</summary><p>Ремонт двигателя и развал-схождение — по предварительной записи. Позвоните в нужный сервис или оставьте заявку на сайте.</p></details>
+    <details><summary>Куда звонить по легковому авто?</summary><p>Легковой сервис: Липецк, ул. Суворова, 15А, телефон 43-54-10.</p></details>
+  </div>
+</section>
+
+<section class="block alt" id="zapis">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="kicker">Заявка</span>
+      <h3>Записаться в «Гранд»</h3>
+      <p>Выберите сервис и задачу — перезвоним в рабочее время (ежедневно 8:00–20:00).</p>
+      <form onsubmit="return false">
+        <div class="f-row">
+          <input type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" aria-label="Телефон">
+        </div>
+        <div class="f-row">
+          <select name="work" aria-label="Что нужно">
+            <option>Ремонт двигателя</option>
+            <option>Развал-схождение</option>
+            <option>Диагностика и ремонт ходовой, подвески</option>
+            <option>Обслуживание, замена расходников</option>
+            <option>Другое</option>
+          </select>
+          <select name="line" aria-label="Сервис">
+            <option>Грузовой сервис (Ферросплавная, 12Б)</option>
+            <option>Легковой сервис (Суворова, 15А)</option>
+          </select>
+        </div>
+        <div class="f-full"><textarea name="comment" placeholder="Автомобиль и что нужно сделать" aria-label="Описание"></textarea></div>
+        <button class="btn wide" type="submit">Отправить заявку</button>
+      </form>
+      <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Почта: <a class="acclink" href="mailto:stoagrand@mail.ru">stoagrand@mail.ru</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Связь</h2></div>
+    <div class="contacts">
+      <div class="c-item">
+        <h3>Грузовой сервис</h3>
+        <p>Липецк, ул. Ферросплавная, 12Б<br>Сервис: <a class="acclink" href="tel:+74742303002">43-30-02</a><br>Бухгалтер/факс: <a class="acclink" href="tel:+74742434256">43-42-56</a></p>
+      </div>
+      <div class="c-item">
+        <h3>Легковой сервис</h3>
+        <p>Липецк, ул. Суворова, 15А<br>Сервис: <a class="acclink" href="tel:+74742354110">43-54-10</a><br>Бухгалтер: <a class="acclink" href="tel:+74742251030">25-10-30</a><br><a class="acclink mt8" href="mailto:stoagrand@mail.ru">stoagrand@mail.ru</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Автосервис «Гранд» · Липецк · грузовой и легковой сервис</span>
+    <span>Демо-концепт сайта. Не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>СТО АВТОДОК в Волгодонске — ремонт иномарок на Октябрьском шоссе, 6</title>
+<meta name="description" content="СТО АВТОДОК в Волгодонске: ремонт и диагностика иномарок, опыт более 20 лет. Октябрьское шоссе, 6, Пн–Сб 10:00–17:00. Мастер-приёмщик Дмитрий: +7 (905) 485-31-11.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#15181c; --bg2:#1b1f24; --card:#1f242a; --line:#2d343b;
+  --acc:#fbbf24; --acc2:#fcd34d; --txt:#f4f5f6; --mut:#9aa3ad;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Manrope',system-ui,sans-serif;overflow-x:hidden;line-height:1.58}
+h1,h2,h3{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.2;letter-spacing:-.01em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:50;background:rgba(21,24,28,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--acc2),#d97706);display:flex;align-items:center;justify-content:center;font-family:'Montserrat';font-weight:800;font-size:13px;color:#241a04}
+.logo b{font-family:'Montserrat';font-weight:800;font-size:17px;letter-spacing:.02em}
+.logo small{display:block;font-size:11.5px;color:var(--mut)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#241a04;font-weight:700;text-decoration:none;border:none;cursor:pointer;padding:13px 26px;border-radius:13px;font-size:15px;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 8px 22px rgba(251,191,36,.2)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(251,191,36,.3)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc)}
+.hero{position:relative;padding:76px 0 62px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 340px at 12% 18%,rgba(251,191,36,.13),transparent 62%),radial-gradient(700px 380px at 90% 82%,rgba(252,211,77,.06),transparent 62%);pointer-events:none}
+.hero h1{font-size:clamp(28px,4.7vw,46px);margin:14px 0 16px}
+.hero h1 span{color:var(--acc2)}
+.kicker{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--acc2);background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.34);padding:6px 14px;border-radius:100px}
+.lead{color:var(--mut);font-size:clamp(15px,2.3vw,18px);max-width:670px;margin-bottom:26px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:13px;font-weight:600;background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:100px;color:var(--mut)}
+.chip b{color:var(--txt)}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:26px;color:var(--mut);font-size:14px}
+.hero-meta b{display:block;font-family:'Montserrat';font-weight:800;font-size:20px;color:var(--txt)}
+section.block{padding:58px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:clamp(22px,3.5vw,33px);margin:12px 0 8px}
+.sec-head p{color:var(--mut);max-width:700px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:rgba(251,191,36,.45)}
+.card h3{font-size:16.5px;margin:13px 0 8px}
+.card p{color:var(--mut);font-size:14.5px}
+.ico{width:48px;height:48px;border-radius:13px;background:rgba(251,191,36,.12);display:flex;align-items:center;justify-content:center}
+.ico svg{width:25px;height:25px;stroke:var(--acc2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:linear-gradient(160deg,#232830,#171b20);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.panel.accent{border-color:rgba(251,191,36,.4);background:linear-gradient(160deg,rgba(251,191,36,.12),rgba(251,191,36,.02))}
+.panel h3{font-size:20px;margin-bottom:10px}
+.panel p{color:var(--mut);font-size:14.5px;margin-bottom:16px}
+.panel ul{list-style:none;margin-bottom:18px}
+.panel li{color:var(--mut);font-size:14.5px;padding:5px 0 5px 24px;position:relative}
+.panel li::before{content:"";position:absolute;left:2px;top:13px;width:7px;height:7px;border-radius:50%;background:var(--acc2)}
+.tel{font-family:'Montserrat';font-weight:800;font-size:clamp(17px,2.6vw,21px);color:var(--acc2);text-decoration:none;word-break:break-word}
+.acclink{color:var(--acc2)}
+.coupon{background:linear-gradient(150deg,rgba(251,191,36,.14),rgba(251,191,36,.02));border:1px dashed rgba(251,191,36,.5);border-radius:20px;padding:28px;max-width:840px;margin:0 auto;text-align:center}
+.coupon b{display:block;font-family:'Montserrat';font-weight:800;font-size:clamp(19px,3vw,27px);color:var(--acc2);margin-bottom:10px}
+.coupon p{color:var(--mut);font-size:15.5px;margin-bottom:18px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15.5px}
+.faq summary::marker{color:var(--acc2)}
+.faq p{color:var(--mut);font-size:14.5px;margin-top:10px}
+.form-card{background:linear-gradient(160deg,#252b33,#161a1f);border:1px solid rgba(251,191,36,.36);border-radius:20px;padding:34px;max-width:660px;margin:0 auto}
+.form-card h3{font-size:clamp(20px,3vw,26px);margin-bottom:10px;text-align:center}
+.form-card>p{color:var(--mut);font-size:14.5px;margin-bottom:22px;text-align:center}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.f-row input,.f-row select,.f-full textarea{background:#0f1216;border:1px solid var(--line);border-radius:13px;color:var(--txt);padding:14px 16px;font-size:15px;font-family:inherit;width:100%;min-width:0}
+.f-row input:focus,.f-row select:focus,.f-full textarea:focus{outline:none;border-color:var(--acc)}
+.f-full{margin-bottom:10px}
+.f-full textarea{min-height:84px;resize:vertical}
+.btn.wide{width:100%;margin-top:6px}
+.note{font-size:12.5px;color:var(--mut);margin-top:14px;text-align:center}
+.contacts{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.c-item{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.c-item h3{font-family:'Manrope';font-weight:700;font-size:11.5px;color:var(--mut);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.1px}
+.c-item .tel{font-size:clamp(15px,2.3vw,18px);display:block;margin-bottom:6px}
+.mt8{margin-top:8px}
+.mut{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media(max-width:820px){
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .split,.contacts{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .g2,.g3{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .hero{padding:48px 0 40px}
+  .hd .btn{padding:11px 16px;font-size:13.5px}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hd">
+    <a class="logo" href="#top"><span class="logo-mark">АД</span><span><b>АВТОДОК</b><small>СТО · Волгодонск</small></span></a>
+    <a class="btn" href="#zapis">Оставить заявку</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Волгодонск · Октябрьское шоссе, 6 · Пн–Сб 10:00–17:00</span>
+    <h1>Ремонт иномарок — <span>опыт более 20 лет</span></h1>
+    <p class="lead">Станция специализируется только на иностранных автомобилях: диагностика и ремонт, а не «всё для всех». Принимаем по записи, чтобы машина не стояла в очереди.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#zapis">Записаться на ремонт</a>
+      <a class="btn ghost" href="tel:+79054853111">Позвонить мастеру</a>
+    </div>
+    <div class="chips">
+      <span class="chip"><b>Только иномарки</b></span>
+      <span class="chip">Диагностика и ремонт</span>
+      <span class="chip">Более <b>20 лет</b> опыта</span>
+      <span class="chip">Сезонные скидки</span>
+    </div>
+    <div class="hero-meta">
+      <div><b>20+ лет</b>опыт работы станции</div>
+      <div><b>Пн–Сб</b>10:00–17:00</div>
+      <div><b>2 телефона</b>мастер-приёмщик Дмитрий</div>
+    </div>
+  </div>
+</div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Почему мы</span><h2>Три причины приехать именно сюда</h2><p>Станция не пытается делать всё подряд — здесь занимаются иномарками и делают это давно.</p></div>
+    <div class="grid g3">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 15V9h10v6M14 11h4l3 3v1"/><circle cx="7" cy="17" r="1.7"/><circle cx="17" cy="17" r="1.7"/></svg></div><h3>Только иномарки</h3><p>Станция специализируется исключительно на иностранных автомобилях — это осознанный выбор, а не ограничение.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5z"/></svg></div><h3>Опыт более 20 лет</h3><p>Для нашей станции ремонт автомобилей — призвание. За двадцать лет через сервис прошли машины всех основных марок.</p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 4v6c0 4-3 6.5-7 8-4-1.5-7-4-7-8V7z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Рекомендуют</h3><p>Каждый клиент станции рекомендует нас знакомым — для небольшого сервиса это главный показатель.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="coupon">
+      <span class="kicker">Сезонное предложение</span>
+      <b>Купон на скидку</b>
+      <p>Мы запускаем сезонные скидки для клиентов станции. Оставьте заявку — расскажем, что действует сейчас, и подберём время визита.</p>
+      <a class="btn" href="#zapis">Получить купон на скидку</a>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="split">
+      <div class="panel accent">
+        <span class="kicker">Что делаем</span>
+        <h3>Диагностика и ремонт иномарок</h3>
+        <p>Приезжаете с симптомом — уезжаете с понятным планом работ. Мы объясняем, что и почему нужно сделать.</p>
+        <ul>
+          <li>Компьютерная диагностика</li>
+          <li>Ремонт двигателя и навесного оборудования</li>
+          <li>Ходовая часть и подвеска</li>
+          <li>Тормозная система</li>
+          <li>Плановое обслуживание и замена расходников</li>
+          <li>Работы по электрике и агрегатам</li>
+        </ul>
+        <a class="btn" href="#zapis">Записаться</a>
+      </div>
+      <div class="panel">
+        <span class="kicker">Записи</span>
+        <h3>Как проходит визит</h3>
+        <p>Станция работает по записи с понедельника по субботу, с 10:00 до 17:00. Воскресенье — закрыто.</p>
+        <p class="mut">Мастер-приёмщик Дмитрий: <a class="acclink" href="tel:+79054853111">+7 (905) 485-31-11</a><br>Второй телефон: <a class="acclink" href="tel:+79094206165">+7 (909) 420-61-65</a></p>
+        <a class="btn ghost" href="mailto:autodoc161@gmail.com">Написать на почту</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2></div>
+    <details open><summary>Работаете ли с отечественными автомобилями?</summary><p>Станция специализируется только на иностранных автомобилях — это наш профиль.</p></details>
+    <details><summary>Какой у вас график?</summary><p>Понедельник–суббота: с 10:00 до 17:00. Воскресенье — закрыто.</p></details>
+    <details><summary>Как записаться?</summary><p>Позвоните мастеру-приёмщику Дмитрию: +7 (905) 485-31-11 или +7 (909) 420-61-65. Или оставьте заявку на сайте.</p></details>
+    <details><summary>Есть ли скидки?</summary><p>Да, мы запускаем сезонные скидки для клиентов станции. Уточните актуальные условия при записи.</p></details>
+    <details><summary>Где вы находитесь?</summary><p>Волгодонск, Октябрьское шоссе, 6.</p></details>
+  </div>
+</section>
+
+<section class="block" id="zapis">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="kicker">Заявка</span>
+      <h3>Оставить заявку</h3>
+      <p>Опишите, что беспокоит, — перезвоним в рабочее время и подберём удобное время визита.</p>
+      <form onsubmit="return false">
+        <div class="f-row">
+          <input type="text" name="name" placeholder="Ваше имя" aria-label="Ваше имя">
+          <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" aria-label="Телефон">
+        </div>
+        <div class="f-row">
+          <select name="work" aria-label="Что нужно">
+            <option>Диагностика</option>
+            <option>Ремонт двигателя</option>
+            <option>Ходовая, подвеска</option>
+            <option>Тормозная система</option>
+            <option>Плановое обслуживание</option>
+            <option>Другое</option>
+          </select>
+          <input type="date" name="date" aria-label="Желаемая дата">
+        </div>
+        <div class="f-full"><textarea name="comment" placeholder="Марка, модель, год и что беспокоит" aria-label="Описание"></textarea></div>
+        <button class="btn wide" type="submit">Отправить заявку</button>
+      </form>
+      <p class="note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Или звоните: <a class="acclink" href="tel:+79054853111">+7 (905) 485-31-11</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="block alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Контакты</span><h2>Как нас найти</h2></div>
+    <div class="contacts">
+      <div class="c-item">
+        <h3>Адрес и график</h3>
+        <p>г. Волгодонск, Октябрьское шоссе, 6<br><span class="mut">Пн–Сб: 10:00–17:00 · Вс: закрыто</span></p>
+      </div>
+      <div class="c-item">
+        <h3>Связь</h3>
+        <a class="tel" href="tel:+79054853111">+7 (905) 485-31-11</a>
+        <a class="tel mt8" href="tel:+79094206165">+7 (909) 420-61-65</a>
+        <p class="mt8"><a class="acclink" href="mailto:autodoc161@gmail.com">autodoc161@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>СТО АВТОДОК · Волгодонск · Октябрьское шоссе, 6</span>
+    <span>Демо-концепт сайта. Не является публичной офертой.</span>
+  </div>
+</footer>
+
+</body>
+</html>
